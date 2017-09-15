@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="officedutyweekly" extends="default" namespace="/office/dutyweekly">
+		<action name="dutyweekly" class="net.zdsoft.office.dutyweekly.action.OfficeDutyWeeklyAction">
+			<result name="success" type="freemarker">dutyWeekly.ftl</result>
+		</action>
+		<action name="dutyweekly-dutyweeklyList" class="net.zdsoft.office.dutyweekly.action.OfficeDutyWeeklyAction" method="dutyWeeklyList">
+			<result name="success" type="freemarker">dutyWeeklyList.ftl</result>
+		</action>
+		<action name="dutyweekly-dutyweeklyEdit" class="net.zdsoft.office.dutyweekly.action.OfficeDutyWeeklyAction" method="dutyWeeklyEdit">
+			<result name="success" type="freemarker">dutyWeeklyEdit.ftl</result>
+		</action>
+		<action name="dutyweekly-dutyweeklySave" class="net.zdsoft.office.dutyweekly.action.OfficeDutyWeeklyAction" method="dutyWeeklySave">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="dutyweekly-dutyweeklyDelete" class="net.zdsoft.office.dutyweekly.action.OfficeDutyWeeklyAction" method="dutyWeeklyDelete">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		
+		<action name="dutyweekly-weeklyapplyList" class="net.zdsoft.office.dutyweekly.action.OfficeDutyWeeklyAction" method="weeklyApplyList">
+			<result name="success" type="freemarker">weeklyApplyList.ftl</result>
+		</action>
+		<action name="dutyweekly-saveApplyInfo" class="net.zdsoft.office.dutyweekly.action.OfficeDutyWeeklyAction" method="saveApplyInfo">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<!-- 查询 -->
+		<action name="dutyweekly-weeklyQueryAdmin" class="net.zdsoft.office.dutyweekly.action.OfficeDutyWeeklyAction" method="weeklyQueryAdmin">
+			<result name="success" type="freemarker">weeklyQueryAdmin.ftl</result>
+		</action>
+		<action name="dutyweekly-weeklyQueryList" class="net.zdsoft.office.dutyweekly.action.OfficeDutyWeeklyAction" method="weeklyQueryList">
+			<result name="success" type="freemarker">weeklyQueryList.ftl</result>
+		</action>
+		<action name="dutyweekly-weeklyQueryCount" class="net.zdsoft.office.dutyweekly.action.OfficeDutyWeeklyAction" method="weeklyQueryCount">
+			<result name="success" type="freemarker">weeklyQueryCount.ftl</result>
+		</action>
+		
+		<action name="dutyweekly-findClassList" class="net.zdsoft.office.dutyweekly.action.OfficeDutyWeeklyAction" method="findClassList">
+			<result name="success" type="json">
+			    <param name="root">classList</param>
+			</result>
+		</action>
+		
+		<action name="dutyweekly-dutyproject" class="net.zdsoft.office.dutyweekly.action.OfficeDutyWeeklyAction" method="dutyProject">
+			<result name="success" type="freemarker">dutyProject.ftl</result>
+		</action>
+		<action name="dutyweekly-dutyprojectAdd" class="net.zdsoft.office.dutyweekly.action.OfficeDutyWeeklyAction" method="dutyProjectAdd">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="dutyweekly-dutyprojectEdit" class="net.zdsoft.office.dutyweekly.action.OfficeDutyWeeklyAction" method="dutyProjectEdit">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="dutyweekly-dutyprojectDelete" class="net.zdsoft.office.dutyweekly.action.OfficeDutyWeeklyAction" method="dutyProjectDelete">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="dutyweekly-dutyDown" class="net.zdsoft.office.dutyweekly.action.OfficeDutyWeeklyAction" method="dutyDown"></action>
+		<action name="dutyweekly-dutyDownCount" class="net.zdsoft.office.dutyweekly.action.OfficeDutyWeeklyAction" method="dutyDownCount"></action>
+	</package>
+	<package name="expenditure" extends="default" namespace="/office/expenditure">
+		<action name="expenditure" class="net.zdsoft.office.expenditure.action.OfficeExpenditureAction">
+			<result name="success" type="freemarker">expenditure.ftl</result>
+		</action>
+		<action name="expenditure-expenditureList" class="net.zdsoft.office.expenditure.action.OfficeExpenditureAction" method="expenditureList">
+			<result name="success" type="freemarker">expenditureList.ftl</result>
+		</action>
+		<action name="expenditure-expenditureEdit" class="net.zdsoft.office.expenditure.action.OfficeExpenditureAction" method="expenditureEdit">
+			<result name="success" type="freemarker">expenditureEdit.ftl</result>
+		</action>
+		<action name="expenditure-expenditureSave" class="net.zdsoft.office.expenditure.action.OfficeExpenditureAction" method="expenditureSave">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="expenditure-expenditureDelete" class="net.zdsoft.office.expenditure.action.OfficeExpenditureAction" method="expenditureDelete">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		
+		<action name="expenditure-expenditureAuditList" class="net.zdsoft.office.expenditure.action.OfficeExpenditureAction" method="auditList">
+			<result name="success" type="freemarker">auditExpenditureList.ftl</result>
+		</action>
+		<action name="expenditure-expenditureAudit" class="net.zdsoft.office.expenditure.action.OfficeExpenditureAction" method="expenditureAudit">
+			<result name="success" type="freemarker">expenditureAudit.ftl</result>
+		</action>
+		<action name="expenditure-expenditureAuditPass" class="net.zdsoft.office.expenditure.action.OfficeExpenditureAction" method="expenditureAuditPass">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		
+		
+		<action name="expenditure-exChangeMetting" class="net.zdsoft.office.expenditure.action.OfficeExpenditureAction" method="exChangeMetting">
+			<result name="success" type="freemarker">expenditureMetting.ftl</result>
+		</action>
+		<action name="expenditure-exChangeReception" class="net.zdsoft.office.expenditure.action.OfficeExpenditureAction" method="exChangeReception">
+			<result name="success" type="freemarker">expenditureReception.ftl</result>
+		</action>
+		<action name="expenditure-exChangeOutlay" class="net.zdsoft.office.expenditure.action.OfficeExpenditureAction" method="exChangeOutlay">
+			<result name="success" type="freemarker">expenditureOutlay.ftl</result>
+		</action>
+		<action name="expenditure-exChangeBusTrip" class="net.zdsoft.office.expenditure.action.OfficeExpenditureAction" method="exChangeBusTrip">
+			<result name="success" type="freemarker">expenditureBusTrip.ftl</result>
+		</action>
+		
+		<!-- 查询 -->
+		<action name="expenditure-query" class="net.zdsoft.office.expenditure.action.OfficeExpenditureQueryAction">
+			<result name="success" type="freemarker">query/expenditureQuery.ftl</result>
+		</action>
+		<action name="expenditure-detail" class="net.zdsoft.office.expenditure.action.OfficeExpenditureQueryAction" method="detail">
+			<result name="success" type="freemarker">query/expenditureMettingDetail.ftl</result>
+			<result name="metting" type="freemarker">query/expenditureMettingDetail.ftl</result>
+			<result name="reception" type="freemarker">query/expenditureReceptionDetail.ftl</result>
+			<result name="outlay" type="freemarker">query/expenditureOutlayDetail.ftl</result>
+			<result name="busTrip" type="freemarker">query/expenditureBusTripDetail.ftl</result>
+		</action>
+		<action name="expenditure-export" class="net.zdsoft.office.expenditure.action.OfficeExpenditureQueryAction" method="export">
+   		</action>
+		
+		
+	</package>
+</struts>

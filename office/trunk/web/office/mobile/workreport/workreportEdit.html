@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>新建工作汇报</title>
+<link rel="stylesheet" type="text/css" href="../../../static/html5/css/style.css">
+<link rel="stylesheet" type="text/css" href="../../../static/html5/css/mobiscroll.2.13.2.css">
+<script src="../../../static/html5/js/flexible_css.debug.js"></script>
+<script src="../../../static/html5/js/flexible.debug.js"></script>
+<script src="../../../static/html5/js/jquery-1.9.1.min.js"></script>
+<script src="../../../static/html5/js/jquery.Layer.js"></script>
+<script src="../../../static/html5/js/jquery.form.js"></script>
+<script src="../../../static/html5/js/common.js"></script>
+<script src="../../../static/html5/js/public.js"></script>
+<script src="../../../static/html5/js/storage.js"></script>
+<script src="../../../static/html5/js/myscript.js"></script>
+<script src="../../../static/html5/js/validate.js"></script>
+<script src="../../../static/html5/js/mobiscroll.2.13.2.js"></script>
+<script src="../../../static/html5/js/weike.js"></script>
+<script src="../../../static/html5/js/myWeike.js"></script>
+
+<script src="js/wap.js"></script>
+<script src="js/wapEntities.js"></script>
+<script src="js/wapNetwork.js"></script>
+<script src="js/wapNetworkService.js"></script>
+</head>
+
+<body class="gray">
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header>
+        	<h1 class="f-20">新建工作汇报</h1>
+            <a href="#" class="abtn abtn-left f-18 html-window-back" id="cancelId"><span>取消</span></a>
+            <a href="#" class="abtn abtn-left2 f-18 html-window-close"><span>关闭</span></a>
+            <a href="#" class="abtn abtn-right f-18 abtn-send" id="save"><span>提交</span></a>
+        </header>
+<form id="dataForm">
+	<input id="userId" name="userId" value="" type="hidden" />
+	<input id="id" name="report.id" value="" type="hidden" />
+	<input id="state" name="report.state" value="2" type="hidden" />
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container">
+            	<ul class="ui-form f-14">
+            		<li class="mt-20">
+                        <p class="tit">接收人<span>（点击名字可删除）</span></p>
+                        <div class="did pb-20">
+                        	<input type="hidden" id="receiveIds" name="report.receiveUserId" value=""/>
+                        	<a href="#" class="icon-img icon-add" id="address"></a>
+                        	<div>
+	                        	<span class="dd-scroll ios-touch"  id="receiveNames">
+	                            </span>
+                        	</div>
+                        </div>
+                    </li>
+                    <li class="sel">
+	                        <span class="tt">汇报类型</span>
+	                        <span class="dd">
+	                        	<select id="reportType" name="report.reportType" class="demo-test-select txt" data-role="none">
+	                                <option value="1">周报</option>
+	                                <option value="2">月报</option>
+	                            </select>
+	                        </span>
+	                        <i class="icon-arrow"></i>
+                	</li>
+                	<li>
+                        <span class="tt">开始时间</span>
+                        <span class="dd"><input type="text" id="startDate" name="report.beginTime" class="txt" value="" placeholder="请选择（必填）"></span>
+                        <i class="icon-arrow"></i>
+                    </li>
+            		<li>
+                        <span class="tt">结束时间</span>
+                        <span class="dd"><input type="text" id="endDate" name="report.endTime" class="txt" value="" placeholder="请选择（必填）"></span>
+                        <i class="icon-arrow"></i>
+                    </li>
+            	</ul>
+            	<ul class="ui-form mt-20 f-14">
+            		<li>
+                        <span class="dd-area"><textarea id="content" name="report.content" placeholder="请输入汇报内容..."></textarea></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</form>        
+    </div>
+</div>
+<iframe id="addressIframe" style="display:none;height:100%;width:100%"></iframe>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+  	setTimeout(wap.initEdit(), 200);
+}, false);
+</script>
+</body>
+</html>

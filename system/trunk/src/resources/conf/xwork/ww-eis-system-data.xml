@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	<!-- 应用平台注册 -->
+	<package name="fpf-appregistry" extends="default" namespace="/system/appregistry">
+		<action name="appRegistryAdmin"
+			class="net.zdsoft.eis.system.data.action.AppRegistryAction" method="list">
+			<result name="success" type="freemarker">appRegistryList.ftl</result>
+		</action>
+
+		<action name="appRegistryAdmin-edit"
+			class="net.zdsoft.eis.system.data.action.AppRegistryAction" method="edit">
+			<result name="success" type="freemarker">appRegistryDetail.ftl</result>
+		</action>
+
+		<action name="appRegistryAdmin-save"
+			class="net.zdsoft.eis.system.data.action.AppRegistryAction" method="save">
+			<result name="input" type="freemarker">appRegistryDetail.ftl</result>
+		</action>
+
+		<action name="appRegistryAdmin-del"
+			class="net.zdsoft.eis.system.data.action.AppRegistryAction" method="delete">
+			<result name="success" type="redirectAction">listAppRegistry</result>
+		</action>
+
+		<action name="appRegistryAdmin-updateOrder"
+			class="net.zdsoft.eis.system.data.action.AppRegistryAction" method="updateDisplayOrder">
+			<result name="success" type="freemarker">appRegistryList.ftl</result>
+		</action>
+
+		<action name="appRegistryAdmin-remote"
+			class="net.zdsoft.eis.system.data.action.AppRegistryAction">
+			<interceptor-ref name="burlap" />
+		</action>
+	</package>
+
+
+	<package name="eis-data-systemadmin" extends="default" namespace="/system/admin">
+		<action name="unitIniConfig" class="net.zdsoft.eis.system.data.action.UnitIniAction"
+			method="unitIniConfig">
+			<result name="success" type="freemarker">
+				/system/systeminfounit/unitIniConfig.ftl
+			</result>
+		</action>
+		<action name="saveUnitIniConfig" class="net.zdsoft.eis.system.data.action.UnitIniAction"
+			method="saveUnitIniConfig">
+			<result name="success" type="freemarker">
+				/system/systeminfounit/saveUnitChannelSuccess.ftl
+			</result>
+			<result name="input" type="freemarker">
+				/system/systeminfounit/saveUnitChannelSuccess.ftl
+			</result>
+		</action>
+	</package>
+	
+	<!-- 角色管理 -->
+	<package name="systemRole" extends="default" namespace="/system/role">
+		<action name="roleAdmin" class="net.zdsoft.eis.system.data.action.RoleAction" method="execute">
+			<result name="list" type="freemarker">roleList.ftl</result>
+			<result name="add" type="freemarker">roleEdit.ftl</result>
+			<result name="modify" type="freemarker">roleEdit.ftl</result>
+			<result name="jsonSuccess" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="roleAdmin-accreditFrame"
+			class="net.zdsoft.eis.system.data.action.RoleAccreditAction" method="frameAction">
+			<result name="index" type="freemarker">roleRelationFrame.ftl</result>
+		</action>
+		<action name="roleAdmin-accredit" class="net.zdsoft.eis.system.data.action.RoleAccreditAction">
+			<result name="index" type="freemarker">roleRelation.ftl</result>
+			<result name="jsonSuccess" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="roleAdmin-remote" class="net.zdsoft.eis.system.data.action.RoleAction" method="checkRoleInfoValid">
+			<result name="success" type="json"><param name="root">jsonError</param></result>
+		</action>
+	</package>
+	<!-- 自定义角色管理 -->
+	<package name="customRole" extends="default" namespace="/system/customrole">
+		<action name="customRole" class="net.zdsoft.eis.system.data.action.CustomRoleAction">
+			<result name="success" type="freemarker">roleList.ftl</result>
+		</action>
+		<action name="customRole-remote" class="net.zdsoft.eis.system.data.action.CustomRoleAction">
+			<result name="message" type="json">
+				<param name="root">promptMessageDto</param></result>
+		</action>
+	</package>
+</struts>
+

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true" default-autowire="byName">
+	<bean id="regionTreeService" class="net.zdsoft.eis.base.tree.service.RegionTree" />
+
+	<bean id="unitTreeService" class="net.zdsoft.eis.base.tree.service.UnitTree" />
+
+	<bean id="eduTreeService" class="net.zdsoft.eis.base.tree.service.EduTree" />
+
+	<bean id="deptTreeService" class="net.zdsoft.eis.base.tree.service.DeptTree" />
+
+	<bean id="commonClassTreeService"
+		class="net.zdsoft.eis.base.tree.service.CommonClassTreeServiceImpl" />
+
+	<bean id="classTreeService" class="net.zdsoft.eis.base.tree.service.ClassTree" />
+
+	<bean id="studentTreeService" class="net.zdsoft.eis.base.tree.service.StudentTree" />
+
+	<bean id="helpTree" class="net.zdsoft.eis.base.tree.service.HelpTreeServiceImpl" />
+
+	<!--  ====================== 新增加================= -->
+	
+	<bean id="eduTree" class="net.zdsoft.eis.base.tree.service.EduTree" />
+	<bean id="eisDeptTree" class="net.zdsoft.eis.base.tree.service.EisDeptTree" />
+	<bean id="eisClassTree" class="net.zdsoft.eis.base.tree.service.EisClassTree" />
+	<bean id="eisGradeTree" class="net.zdsoft.eis.base.tree.service.EisGradeTree" />
+
+	<bean id="basicClassTreeItemConverter"
+		class="net.zdsoft.eis.base.tree.converter.BasicClassTreeItemConverter" />
+    <bean id="eisuClassTreeItemConverter"
+        class="net.zdsoft.eis.base.tree.converter.EisuClassTreeItemConverter" />
+	<bean id="gradeTreeItemConverter"
+		class="net.zdsoft.eis.base.tree.converter.GradeTreeItemConverter" />
+	<bean id="studentTreeItemConverter"
+		class="net.zdsoft.eis.base.tree.converter.StudentTreeItemConverter" />
+
+	<bean id="unitTreeItemConverter"
+		class="net.zdsoft.eis.base.tree.converter.UnitTreeItemConverter" />
+	<bean id="schoolDistrictTreeItemConverter"
+		class="net.zdsoft.eis.base.tree.converter.SchoolDistrictTreeItemConverter" />
+	<bean id="deptTreeItemConverter"
+		class="net.zdsoft.eis.base.tree.converter.DeptTreeItemConverter" />
+	<bean id="teacherTreeItemConverter"
+		class="net.zdsoft.eis.base.tree.converter.TeacherTreeItemConverter" />
+	<bean id="regionTreeItemConverter"
+		class="net.zdsoft.eis.base.tree.converter.RegionTreeItemConverter" />
+</beans>

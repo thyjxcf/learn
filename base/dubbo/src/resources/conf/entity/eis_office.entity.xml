@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<packages>
+	<package name="net.zdsoft.eis.message.entity" />
+	<package name="net.zdsoft.eis.sms.entity" />	
+</packages>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+<deleteTables>
+	<table name="sys_role_perm" field="roleid in (select id from sys_role where unitid = ?) " />
+	<table name="sys_user_role" field="roleid in (select id from sys_role where unitid = ?) " />
+	<table name="sys_role" field="unitid = ?" />
+</deleteTables>
+</root>

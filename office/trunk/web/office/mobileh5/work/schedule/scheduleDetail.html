@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>日志详情</title>
+<link rel="stylesheet" type="text/css" href="../../../../static/html/css/mobiscroll.custom-3.0.0-beta2.min.css">
+<link  rel="stylesheet" type="text/css" href="../../../../static/html/css/style.css?v=20170619">
+</head>
+
+<body class="gray">
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header style="display:none">
+        	<h1 class="f-20">日志详情</h1>
+            <a href="#" id="cancelId" class="abtn abtn-img abtn-back abtn-left html-window-back"><span></span></a>
+            <a href="#" class="abtn abtn-left2 f-18 html-window-close"><span>关闭</span></a>
+        </header>
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container">
+            	<ul class="ui-detail f-14">
+                	<li class="avatar fn-clear" id="opreator"></li>
+                    <li class="fn-clear mt-20">
+                        <span class="tt">开始时间：</span>
+                        <span class="dd" id="startDate"></span>
+                    </li>
+                    <li class="fn-clear">
+                        <span class="tt">结束时间：</span>
+                        <span class="dd" id="endDate"></span>
+                    </li>
+                    <li class="fn-clear">
+                        <span class="tt">地点：</span>
+                        <span class="dd" id="place"></span>
+                    </li>
+                    <li class="fn-clear">
+                        <span class="tt">时间段：</span>
+                        <span class="dd" id="period"></span>
+                    </li>
+                    <li class="con" id="content"></li>
+            	</ul>
+                <ul class="acc-wrap acc-wrap-auto ios-touch mt-20" id="fileDiv">
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=20170619"></script>
+<script src="../../../../static/html/js/flexible_css.debug.js?v=20170619"></script>
+<script src="../../../../static/html/js/flexible.debug.js?v=20170619"></script>
+<script src="../../../../static/html/js/jquery-1.9.1.min.js?v=20170619"></script>
+<script src="../../../../static/html/js/jquery.Layer.js?v=20170619"></script>
+<script src="../../../../static/html/js/storage.js?v=20170619"></script>
+
+
+<script  src="../../../../static/html/js/public.js?v=20170619"></script>
+<script  src="../../../../static/html/js/common.js?v=20170619"></script>
+<script  src="../../../../static/html/js/myscript.js?v=20170619"></script>
+<script  src="../../../../static/html/js/validate.js?v=20170619"></script>
+<script  src="../../../../static/html/js/weike.js?v=20170619"></script>
+<script  src="../../../../static/html/js/myWeike.js?v=20170619"></script>
+
+<script  src="js/wap.js?v=20170619"></script>
+<script  src="js/wapEntities.js?v=20170619"></script>
+<script  src="js/wapNetwork.js?v=20170619"></script>
+<script  src="js/wapNetworkService.js?v=20170619"></script>
+
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+		setTimeout(wap.initDetail(), 200);
+}, false);
+</script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!-- 教师考勤 -->
+	<package name="officeAttendance" extends="default" namespace="/office/teacherAttendance">
+	    <action name="teacherAttendance" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceAction">
+			<result name="success" type="freemarker">attendanceAdmin.ftl</result>	        
+	    </action>
+	    <action name="teacherAttendance-set" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceAction">
+			<result name="success" type="freemarker">attendanceAdminSet.ftl</result>	        
+	    </action>
+	    <action name="teacherAttendance-groupMain" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceGroupAction"  >
+			<result name="success" type="freemarker">attendanceGroupMain.ftl</result>	        
+	    </action>
+	    <action name="teacherAttendance-groupList" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceGroupAction" method="listAttendanceGroup" >
+			<result name="success" type="freemarker">attendanceGroupList.ftl</result>	        
+	    </action>
+	      <action name="teacherAttendance-groupPeopleEdit" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceGroupAction" method="isAddAttendancePeople">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>        
+	    </action>
+	    <action name="teacherAttendance-groupPeopleList" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceGroupAction" method="listGroupPeople" >
+			<result name="success" type="freemarker">attendanceGroupPeopleList.ftl</result>	        
+	    </action>
+	     <action name="teacherAttendance-newGroup" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceGroupAction" method="newGroup">
+			<result name="success" type="freemarker">attendanceGroupEdit.ftl</result>	        
+	    </action>
+	     <action name="teacherAttendance-notAddStatisticPeopleLink" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceGroupAction" method="notAddStatisticLink">
+			<result name="success" type="freemarker">notAddAttendanceGroupEdit.ftl</result>	        
+	    </action>
+	    <action name="teacherAttendance-notAddStatisticPeopleEdit" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceGroupAction" method="notAddStatisticEdit">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>        
+	    </action>
+	    <action name="teacherAttendance-editGroup" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceGroupAction" method="editGroup">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>        
+	    </action>
+	     <action name="teacherAttendance-checkGroupName" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceGroupAction" method="checkGroupName">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>	        
+	    </action>
+	     <action name="teacherAttendance-deleteGroup" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceGroupAction" method="doDelete">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>	        
+	    </action>
+	    <!-- 考勤制度设置 -->
+	    <action name="teacherAttendance-setList" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceSetAction" method="getAttendanceList">
+			<result name="success" type="freemarker">attendanceSetList.ftl</result>	        
+	    </action>
+	    <action name="teacherAttendance-setEdit" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceSetAction" method="editAttendance">
+			<result name="success" type="freemarker">attendanceSetEdit.ftl</result>	        
+	    </action>
+	    <action name="teacherAttendance-setSave" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceSetAction" method="saveAttendance">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+	    <action name="teacherAttendance-setDelete" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceSetAction" method="deleteAttendance">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+	    
+	    <!-- 办公地点 -->
+	    <action name="teacherAttendance-place" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendancePlaceAction">
+			<result name="success" type="freemarker">place/placelist.ftl</result>
+	    </action>
+	    <!-- 
+	    <action name="teacherAttendance-placeEdit" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendancePlaceAction" method="edit">
+			<result name="success" type="freemarker">place/placeEdit.ftl</result>
+	    </action>
+	     -->
+	    <action name="teacherAttendance-placeEditMap" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendancePlaceAction" method="map">
+			<result name="success" type="freemarker">place/iframe.ftl</result>
+	    </action>
+	    <action name="teacherAttendance-placeEditSelMap" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendancePlaceAction" method="selMap">
+			<result name="success" type="freemarker">place/placeMapEdit.ftl</result>
+	    </action>
+	    <action name="teacherAttendance-placeSave" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendancePlaceAction" method="save">
+	        	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+	    <action name="teacherAttendance-placeDelete" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendancePlaceAction" method="delete">
+	        	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+	     <!-- 补卡审批-->
+	     <action name="teacherAttendance-auditList" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceColckApplyAction" method="getAttendanceAuditList">
+			<result name="success" type="freemarker">attendanceClockAuditList.ftl</result>	        
+	    </action>
+	     <action name="teacherAttendance-auditIsPassApply" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceColckApplyAction" method="auditIsPassApply">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>	        
+	    </action>
+	    <action name="teacherAttendance-clockApply" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceColckApplyAction" method="clockApply">
+			<result name="success" type="freemarker">attendanceClockApply.ftl</result>        
+	    </action>
+	    <action name="teacherAttendance-clockAuditEdit" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceColckApplyAction" method="clockAuditEdit">
+			<result name="success" type="freemarker">attendanceClockAuditEdit.ftl</result>        
+	    </action>
+	    <action name="teacherAttendance-submitAttendanceColck" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceColckApplyAction" method="submitAttendanceColck">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>	       
+	    </action>
+	     <!-- 考勤查询-->
+	    <action name="teacherAttendance-infoList" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceInfoAction" method="getAttendanceInfoList">
+			<result name="success" type="freemarker">attendanceInfoList.ftl</result>	        
+	    </action>
+	    <action name="teacherAttendance-deleteInfo" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceInfoAction" method="deleteInfo">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>	       
+	    </action>
+	    <action name="teacherAttendance-export" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceInfoAction" method="doExport">
+	    </action>
+	    
+	    
+	    <!-- 考勤统计 -->
+	    <action name="teacherAttendance-statisticsMain" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceStatisticsAction" method="main" >
+	    	<result name="success" type="freemarker" >statistics/officeAttendanceStatistics.ftl</result>
+	    </action>
+	    <action name="teacherAttendance-statisticsBar" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceStatisticsAction" method="getStatisticBar" >
+	    	<result name="success" type="freemarker" >statistics/chartShow.ftl</result>
+	    </action>
+	     <action name="teacherAttendance-statisticsList" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceStatisticsAction" method="statisticsList" >
+	    	<result name="success" type="freemarker" >statistics/officeAttendanceStatisticsList.ftl</result>
+	    </action>
+	      <action name="teacherAttendance-ExportStatisticsList" class="net.zdsoft.office.teacherAttendance.action.TeacherAttendanceStatisticsAction" method="exportStatisticsList" >
+	    </action>
+	</package>
+</struts>

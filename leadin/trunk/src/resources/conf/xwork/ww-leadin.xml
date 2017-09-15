@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!--====================================导入公共部分===============================  -->
+	<package name="leadinimport" extends="default" namespace="/leadin/import">
+		<!-- 查看任务标识 -->
+		<action name="queryJobSign" class="net.zdsoft.leadin.dataimport.action.TaskAction"
+			method="queryJobSign">
+			<result name="success" type="freemarker">/leadin/dataimport/jobSign.ftl</result>
+		</action>
+
+		<!-- 清除任务标识 -->
+		<action name="clearJobSign" class="net.zdsoft.leadin.dataimport.action.TaskAction"
+			method="clearJobSign" />
+
+		<!-- 设置任务标识 -->
+		<action name="setJobSign" class="net.zdsoft.leadin.dataimport.action.TaskAction"
+			method="setJobSign" />
+
+		<!-- 查看导入任务 -->
+		<action name="listJobInfo" class="net.zdsoft.leadin.dataimport.action.TaskAction"
+			method="listJobDetail">
+			<result name="success" type="freemarker">/leadin/dataimport/jobInfoList.ftl</result>
+		</action>
+
+		<action name="deleteJob" class="net.zdsoft.leadin.dataimport.action.TaskAction"
+			method="deleteJobs">
+			<result name="success" type="redirect">listJobInfo.action?objectName=${objectName}</result>
+		</action>
+		<action name="jsonDeleteJob" class="net.zdsoft.leadin.dataimport.action.TaskAction"
+			method="deleteJobs">
+			<result name="success" type="json">
+				<param name="root">action</param>
+			</result>
+		</action>
+		
+		<!-- burlap调用 -->
+		<action name="remoteImport"
+			class="net.zdsoft.leadin.dataimport.action.TaskAction">
+			<interceptor-ref name="burlap" />
+		</action>
+		
+		<action name="jsonChangeJobSign" class="net.zdsoft.leadin.dataimport.action.TaskAction" method="jsonChangeJobSign">
+			<result name="success" type="json" >
+				<param name="root">action</param>
+			</result>
+		</action>
+		<action name="jsonStopSubmitTaskSign" class="net.zdsoft.leadin.dataimport.action.TaskAction" method="jsonStopSubmitTaskSign">
+			<result name="success" type="json">
+				<param name="root">action</param>
+			</result>
+		</action>
+		<action name="jsonStopTakeTaskSign" class="net.zdsoft.leadin.dataimport.action.TaskAction" method="jsonStopTakeTaskSign">
+			<result name="success" type="json">
+				<param name="root">action</param>
+			</result>
+		</action>
+
+		<!-- 获取错误数据 -->
+		<action name="getErrorData" class="net.zdsoft.leadin.dataimport.action.TaskAction"
+			method="getErrorData">
+		</action>
+		
+		<!-- ==============模板配置==============-->
+		<action name="templateConfig" class="net.zdsoft.leadin.dataimport.action.DefaultTemplateConfigAction" method="columnList" >
+			<result name="success" type="freemarker">/leadin/dataimport/column_select.ftl</result>
+		</action>
+		
+		<action name="templateConfigMain" class="net.zdsoft.leadin.dataimport.action.DefaultTemplateConfigAction" method="templateConfigMain">
+			<result name="success" type="freemarker">/leadin/dataimport/templateSample.ftl</result>
+		</action>
+
+		<action name="base-remoteTemplateConfig" class="net.zdsoft.leadin.dataimport.action.DefaultTemplateConfigAction">
+			<interceptor-ref name="burlap" />
+		</action>
+		
+		<action name="jsonSaveTemplates" class="net.zdsoft.leadin.dataimport.action.DefaultTemplateConfigAction" method="jsonSaveTemplates">
+		</action>
+	</package>
+
+	<!--====================================监控===============================  -->
+	<package name="leadin-cache" extends="default" namespace="/leadin/background/monitor">
+		<action name="monitor" class="net.zdsoft.leadin.client.LeadinAction">
+			<result name="success" type="freemarker">leadinMonitor.ftl</result>
+		</action>
+		<action name="cacheHelper" class="net.zdsoft.leadin.cache.CacheHelperAction">
+			<result name="success" type="freemarker">cacheHelper.ftl</result>
+		</action>
+		<action name="cacheHelper-remote" class="net.zdsoft.leadin.cache.CacheHelperAction">
+			<interceptor-ref name="burlap" />
+		</action>
+	</package>
+</struts>
+

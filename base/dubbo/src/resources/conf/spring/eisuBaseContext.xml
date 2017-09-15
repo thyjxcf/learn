@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true" default-autowire="byName">
+	<!-- ============================ eisu common dao =============================== -->
+	<bean id="instituteDao" class="net.zdsoft.eisu.base.common.dao.impl.InstituteDaoImpl"></bean>
+
+	<bean id="specialtyTypeDao" class="net.zdsoft.eisu.base.common.dao.impl.SpecialtyTypeDaoImpl"></bean>
+
+	<bean id="specialtyDao" class="net.zdsoft.eisu.base.common.dao.impl.SpecialtyDaoImpl"></bean>
+
+	<bean id="specialtyPointDao"
+		class="net.zdsoft.eisu.base.common.dao.impl.SpecialtyPointDaoImpl">
+	</bean>
+
+	<bean id="teachAreaDao" class="net.zdsoft.eisu.base.common.dao.impl.TeachAreaDaoImpl"></bean>
+
+	<bean id="teachPlaceDao" class="net.zdsoft.eisu.base.common.dao.impl.TeachPlaceDaoImpl"></bean>
+
+	<bean id="teachResDao" class="net.zdsoft.eisu.base.common.dao.impl.TeachResDaoImpl"></bean>
+
+	<bean id="teachPlaceResDao" class="net.zdsoft.eisu.base.common.dao.impl.TeachPlaceResDaoImpl"></bean>
+
+	<bean id="eisuGradeDao" class="net.zdsoft.eisu.base.common.dao.impl.EisuGradeDaoImpl"></bean>
+
+	<bean id="eisuClassDao" class="net.zdsoft.eisu.base.common.dao.impl.EisuClassDaoImpl"></bean>
+
+	<bean id="eisuStudentDao" class="net.zdsoft.eisu.base.common.dao.impl.EisuStudentDaoImpl"></bean>
+
+	<!-- ============================ eisu common service =============================== -->
+	<bean id="instituteService"
+		class="net.zdsoft.eisu.base.common.service.impl.InstituteServiceImpl">
+	</bean>
+
+	<bean id="specialtyTypeService"
+		class="net.zdsoft.eisu.base.common.service.impl.SpecialtyTypeServiceImpl">
+	</bean>
+
+	<bean id="specialtyService"
+		class="net.zdsoft.eisu.base.common.service.impl.SpecialtyServiceImpl">
+	</bean>
+
+	<bean id="specialtyPointService"
+		class="net.zdsoft.eisu.base.common.service.impl.SpecialtyPointServiceImpl">
+	</bean>
+
+	<bean id="teachAreaService"
+		class="net.zdsoft.eisu.base.common.service.impl.TeachAreaServiceImpl">
+	</bean>
+
+	<bean id="teachPlaceService"
+		class="net.zdsoft.eisu.base.common.service.impl.TeachPlaceServiceImpl">
+	</bean>
+
+	<bean id="teachResService"
+		class="net.zdsoft.eisu.base.common.service.impl.TeachResServiceImpl">
+	</bean>
+
+	<bean id="teachPlaceResService"
+		class="net.zdsoft.eisu.base.common.service.impl.TeachPlaceResServiceImpl">
+	</bean>
+
+	<bean id="eisuGradeService"
+		class="net.zdsoft.eisu.base.common.service.impl.EisuGradeServiceImpl">
+	</bean>
+
+	<bean id="eisuClassService"
+		class="net.zdsoft.eisu.base.common.service.impl.EisuClassServiceImpl">
+	</bean>
+
+	<bean id="eisuStudentService"
+		class="net.zdsoft.eisu.base.common.service.impl.EisuStudentServiceImpl">
+	</bean>
+
+	<!-- ============================ eisu common tree =============================== -->
+	<bean id="instituteTree" class="net.zdsoft.eisu.base.tree.service.InstituteTree" />
+	<bean id="specialtyTree" class="net.zdsoft.eisu.base.tree.service.SpecialtyTree" />
+	<bean id="specialtyPointTree" class="net.zdsoft.eisu.base.tree.service.SpecialtyPointTree" />
+	<bean id="eisuGradeTree" class="net.zdsoft.eisu.base.tree.service.EisuGradeTree" />
+	<bean id="eisuClassTree" class="net.zdsoft.eisu.base.tree.service.EisuClassTree" />
+	<bean id="eisuDeptTree" class="net.zdsoft.eisu.base.tree.service.EisuDeptTree" />
+	<bean id="teachAreaTree" class="net.zdsoft.eisu.base.tree.service.TeachAreaTree" />
+	<bean id="teachGroupTree" class="net.zdsoft.eisu.base.tree.service.TeachGroupTree" />
+	<!-- ============================ eisu tree converter=============================== -->
+	<bean id="instituteTreeItemConverter"
+		class="net.zdsoft.eisu.base.tree.converter.InstituteTreeItemConverter" />
+
+	<bean id="specialtyTreeItemConverter"
+		class="net.zdsoft.eisu.base.tree.converter.SpecialtyTreeItemConverter" />
+
+	<bean id="specialtyPointTreeItemConverter"
+		class="net.zdsoft.eisu.base.tree.converter.SpecialtyPointTreeItemConverter" />
+
+	<bean id="eisuGradeTreeItemConverter"
+		class="net.zdsoft.eisu.base.tree.converter.EisuGradeTreeItemConverter" />
+
+	<bean id="eisuClassTreeItemConverter"
+		class="net.zdsoft.eisu.base.tree.converter.EisuClassTreeItemConverter" />
+
+	<bean id="eisuStudentTreeItemConverter"
+		class="net.zdsoft.eisu.base.tree.converter.EisuStudentTreeItemConverter" />
+
+	<bean id="teachAreaTreeItemConverter"
+		class="net.zdsoft.eisu.base.tree.converter.TeachAreaTreeItemConverter" />
+		
+	<bean id="teachPlaceTreeItemConverter"
+		class="net.zdsoft.eisu.base.tree.converter.TeachPlaceTreeItemConverter" />
+		
+	<bean id="teachPlaceResTreeItemConverter"
+		class="net.zdsoft.eisu.base.tree.converter.TeachPlaceResTreeItemConverter" />
+	
+	<bean id="teachGroupTreeItemConverter"
+		class="net.zdsoft.eisu.base.tree.converter.TeachGroupTreeItemConverter" />
+		
+	<bean id="groupTeacherTreeItemConverter"
+		class="net.zdsoft.eisu.base.tree.converter.GroupTeacherTreeItemConverter" />
+		
+	<bean id="specialtyCatalogDao" 
+		class="net.zdsoft.eisu.base.common.dao.impl.SpecialtyCatalogDaoImpl" />
+	
+	<bean id="specialtyCatalogService" 
+		class="net.zdsoft.eisu.base.common.service.impl.SpecialtyCatalogServiceImpl"/>
+		
+	<bean id="specialtyCatalogTreeItemConverter"
+		class="net.zdsoft.eisu.base.tree.converter.SpecialtyCatalogTreeItemConverter" />
+		
+	<bean id="specialtyTypeTreeItemConverter"
+		class="net.zdsoft.eisu.base.tree.converter.SpecialtyTypeTreeItemConverter" />
+	
+	<bean id="specialtyTypeTree" class="net.zdsoft.eisu.base.tree.service.SpecialtyTypeTree"/>
+	
+	<bean id="teachBuildingDao" 
+	    class="net.zdsoft.eisu.base.common.dao.impl.TeachBuildingDaoImpl" />
+	
+	<bean id="teachBuildingService" 
+	    class="net.zdsoft.eisu.base.common.service.impl.TeachBuildingServiceImpl" />
+</beans>

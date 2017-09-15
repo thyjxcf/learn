@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="false" scanPeriod="10 seconds">
+	<jmxConfigurator />
+
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%-5level %d{MM-dd HH:mm:ss} [%msg] [%logger{80}.%M\(%file:%line\)] %n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>../logs/eis.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>../logs/eis.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<charset>UTF-8</charset>
+			<pattern>%-5level %d{MM-dd HH:mm:ss} [%msg] [%logger{80}.%M\(%file:%line\)] %n</pattern>
+			<!-- <pattern>%-20(%d{HH:mm:ss.SSS} [%thread]) %-5level %logger{80} - %msg%n</pattern> -->
+		</encoder>
+	</appender>
+
+	<root level="ERROR">
+		<appender-ref ref="stdout" />
+		<appender-ref ref="file" />
+	</root>
+	
+	<logger name="net.zdsoft.eis" level="ERROR" additivity="true" />
+	<logger name="net.zdsoft.eis.base.sync" level="DEBUG" />
+	<logger name="net.zdsoft.eis.base.data.sync" level="DEBUG" />
+	
+</configuration>

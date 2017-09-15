@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 公文ios手机端登录 -->
+    <package name="fpf-login-json" extends="default-platform" namespace="/fpf/iosLogin">
+	    <action name="login" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="loginAcrossDomainJson">
+			 <result name="success" type="json">
+      			<param name="root">jsonMap</param>
+      			<param name="noCache">true</param>  
+                <param name="contentType">text/html</param>
+      		</result>
+		</action>
+		<!-- 登录验证 
+		<action name="verify" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="verifyAcrossDomainJson">
+		</action>
+		-->
+	</package>
+	<package name="fpf-login-schsecurity" extends="default-platform" namespace="/common/open">
+		<!-- 校安手机app（H5）登录 -->
+		<action name="loginForSchsecurity" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="loginSchsecurityApp">
+			<result name="success" type="json">
+      			<param name="root">jsonMap</param>
+      			<param name="noCache">true</param>  
+                <param name="contentType">text/html</param>
+      		</result>
+		</action>
+	</package>
+   
+    <package name="fpf-login-remote" extends="default" namespace="/fpf/login/remote">
+		<action name="loginForBJ" class="net.zdsoft.eis.homepage.action.HomepageAction">
+			<result name="login" type="freemarker">/system/index/custom/login_bj.ftl</result>
+		</action>
+		
+		<action name="login_success" class="net.zdsoft.eis.homepage.action.HomepageAction" method="redirect">
+			<result name="success" type="freemarker">/system/index/custom/login_bj_ok.ftl</result>
+		</action>
+		
+		<action name="login_out" class="net.zdsoft.eis.homepage.action.HomepageAction" method="logout">
+		</action>
+		
+	</package>
+	
+	<package name="fpf-login" extends="default" namespace="/fpf/login">
+		<!-- 被passport调用做校验 -->
+		<!-- eis登录 -->
+		<action name="loginForPassport" class="net.zdsoft.eis.homepage.action.HomepageAction">
+			<result name="success" type="freemarker">/desktop/index.ftl</result>	
+			<result name="left" type="freemarker">/desktop/indexLeft.ftl</result>	
+			<result name="left-tc" type="freemarker">/desktop/index_tc.ftl</result>	
+			<result name="login" type="freemarker">/system/index/login.ftl</result>
+			<result name="nc" type="freemarker">/system/index/login_nc.ftl</result>
+			<result name="nbzx" type="freemarker">/system/index/login_nbzx.ftl</result>
+			<result name="hzzc" type="freemarker">/system/index/login_hzzc.ftl</result>
+			<result name="nhzg" type="freemarker">/system/index/login_nhzg.ftl</result>
+			<result name="xian" type="freemarker">/system/index/login_xian.ftl</result>
+			<result name="zjstxa" type="freemarker">/system/index/login_zjstxa.ftl</result>
+			<result name="hdjy" type="freemarker">/system/index/login_hdjy.ftl</result>
+			<result name="cixi" type="freemarker">/system/index/login_cx.ftl</result>
+			<result name="gdmmjy" type="freemarker">/system/index/login_mm.ftl</result>
+			<result name="jian" type="freemarker">/system/index/login_jian.ftl</result>
+			<result name="pingyi" type="freemarker">/system/index/login_pingyi.ftl</result>
+			<result name="fcsz" type="freemarker">/system/index/login_fcsz.ftl</result>
+			<result name="xinjiang" type="freemarker">/system/index/login_xj.ftl</result>
+		</action>
+		
+		<action name="verify" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="verifyPassport">
+			<result name="error" type="freemarker">/system/index/targetError.ftl</result>
+		</action>
+		<action name="invalidate" class="net.zdsoft.eis.homepage.action.InvalidateAction" />
+	</package>
+
+	<package name="eis-homepage" extends="default" namespace="/fpf/homepage">
+		<!-- eis登录 -->
+		<action name="eisLogin" class="net.zdsoft.eis.homepage.action.HomepageAction">
+			<result name="success" type="freemarker">/desktop/index.ftl</result>
+			<result name="left" type="freemarker">/desktop/indexLeft.ftl</result>	
+			<result name="left-tc" type="freemarker">/desktop/index_tc.ftl</result>	
+			<result name="login" type="freemarker">/system/index/login.ftl</result>
+			<result name="nc" type="freemarker">/system/index/login_nc.ftl</result>
+			<result name="nbzx" type="freemarker">/system/index/login_nbzx.ftl</result>
+			<result name="hzzc" type="freemarker">/system/index/login_hzzc.ftl</result>
+			<result name="nhzg" type="freemarker">/system/index/login_nhzg.ftl</result>
+			<result name="xian" type="freemarker">/system/index/login_xian.ftl</result>
+			<result name="zjstxa" type="freemarker">/system/index/login_zjstxa.ftl</result>
+			<result name="hdjy" type="freemarker">/system/index/login_hdjy.ftl</result>
+			<result name="cixi" type="freemarker">/system/index/login_cx.ftl</result>
+			<result name="gdmmjy" type="freemarker">/system/index/login_mm.ftl</result>
+			<result name="jian" type="freemarker">/system/index/login_jian.ftl</result>
+			<result name="pingyi" type="freemarker">/system/index/login_pingyi.ftl</result>
+			<result name="fcsz" type="freemarker">/system/index/login_fcsz.ftl</result>
+			<result name="xinjiang" type="freemarker">/system/index/login_xj.ftl</result>
+		</action>
+
+		<action name="loginForCrossDomain" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="loginForCrossDomain">
+			<result name="success" type="freemarker">/desktop/index.ftl</result>
+			<result name="left" type="freemarker">/desktop/indexLeft.ftl</result>
+			<result name="left-tc" type="freemarker">/desktop/index_tc.ftl</result>	
+			<result name="login" type="freemarker">/system/index/login.ftl</result>
+			<result name="nc" type="freemarker">/system/index/login_nc.ftl</result>
+			<result name="nbzx" type="freemarker">/system/index/login_nbzx.ftl</result>
+			<result name="hzzc" type="freemarker">/system/index/login_hzzc.ftl</result>
+			<result name="nhzg" type="freemarker">/system/index/login_nhzg.ftl</result>
+			<result name="xian" type="freemarker">/system/index/login_xian.ftl</result>
+			<result name="zjstxa" type="freemarker">/system/index/login_zjstxa.ftl</result>
+			<result name="hdjy" type="freemarker">/system/index/login_hdjy.ftl</result>
+			<result name="cixi" type="freemarker">/system/index/login_cx.ftl</result>
+			<result name="gdmmjy" type="freemarker">/system/index/login_mm.ftl</result>
+			<result name="jian" type="freemarker">/system/index/login_jian.ftl</result>
+			<result name="pingyi" type="freemarker">/system/index/login_pingyi.ftl</result>
+			<result name="fcsz" type="freemarker">/system/index/login_fcsz.ftl</result>
+			<result name="xinjiang" type="freemarker">/system/index/login_xj.ftl</result>
+		</action>
+
+		<!-- eis登录验证 -->
+		<action name="loginForEisOnly" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="loginForEisOnly">
+			<result name="success" type="freemarker">/desktop/index.ftl</result>
+			<result name="left" type="freemarker">/desktop/indexLeft.ftl</result>
+			<result name="left-tc" type="freemarker">/desktop/index_tc.ftl</result>	
+			<result name="login" type="freemarker">/system/index/login.ftl</result>
+			<result name="nc" type="freemarker">/system/index/login_nc.ftl</result>
+			<result name="nbzx" type="freemarker">/system/index/login_nbzx.ftl</result>
+			<result name="hzzc" type="freemarker">/system/index/login_hzzc.ftl</result>
+			<result name="nhzg" type="freemarker">/system/index/login_nhzg.ftl</result>
+			<result name="xian" type="freemarker">/system/index/login_xian.ftl</result>
+			<result name="zjstxa" type="freemarker">/system/index/login_zjstxa.ftl</result>
+			<result name="hdjy" type="freemarker">/system/index/login_hdjy.ftl</result>
+			<result name="cixi" type="freemarker">/system/index/login_cx.ftl</result>
+			<result name="gdmmjy" type="freemarker">/system/index/login_mm.ftl</result>
+			<result name="jian" type="freemarker">/system/index/login_jian.ftl</result>
+			<result name="pingyi" type="freemarker">/system/index/login_pingyi.ftl</result>
+			<result name="fcsz" type="freemarker">/system/index/login_fcsz.ftl</result>
+			<result name="xinjiang" type="freemarker">/system/index/login_xj.ftl</result>
+		</action>
+		
+		<!--作为第三方app接入-->
+		<action name="subsystem" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="subsystem">
+			<result name="success" type="freemarker">/desktop/index.ftl</result>
+			<result name="left" type="freemarker">/desktop/indexLeft.ftl</result>
+		</action>
+		
+		<!-- 注销：包括eis和passport -->
+		<action name="loginout" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="logout">
+			<result name="success" type="redirectAction">eisLogin</result>
+		</action>
+
+		<!-- 从各系统返回城域或办公首页 -->
+		<action name="back" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="backToHomepage">	
+			<result name="success" type="redirectAction">eisLogin</result>		
+		</action>
+		
+		<!-- 重定向到passport -->
+		<action name="redirectUrl" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="redirectLogin">
+			<result name="success" type="freemarker">/system/index/redirectIndex.ftl</result>
+		</action>
+		
+		<action name="checkValidate" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="checkValidate">
+		</action>
+		
+		<!-- 身份切换 -->
+		<action name="loadMultipleIdentities" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="loadMultipleIdentities">
+			<result name="success" type="freemarker">/system/index/multipleIdentities.ftl</result>
+		</action>
+		<action name="redIdentitie" class="net.zdsoft.eis.homepage.action.HomepageAction" method="redIdentitie">
+			<result name="success" type="json">
+                <param name="contentType">text/html</param>
+				<param name="root">jsonMessageDto</param>
+			</result>
+       	</action>
+		
+	</package>
+	
+	<package name="fpfopen" extends="default" namespace="/fpf/open">
+		<action name="getUnitNameByUserName" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="getUnitNameByUserName">
+			<result name="success" type="json">
+				<param name="root">jsonMessageDto</param>
+		    </result>
+		</action>
+	</package>	
+
+	<!-- IM 相关 -->
+	<package name="imRedirect" extends="default" namespace="/fpf/im/open">
+		<action name="imReceiveMessage" class="net.zdsoft.eis.homepage.action.ImAction"
+			method="imMsgRedirectToOffice">
+		</action>
+		<action name="imIndex" class="net.zdsoft.eis.homepage.action.ImAction"
+			method="imIndexRedirectToOffice">
+		</action>
+		
+		<!-- IM登录验证 -->
+		<action name="verify" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="verifyIM">
+		</action>
+	</package>
+</struts>

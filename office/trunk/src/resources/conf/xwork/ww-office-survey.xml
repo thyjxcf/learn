@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="survey" extends="default" namespace="/office/survey">
+		<action name="surveyManage" class="net.zdsoft.office.survey.action.OfficeSurveyManageAction">
+	    	<result name="success" type="freemarker">surveyAdmin.ftl</result>
+	    </action>
+		<!-- 我的调研 -->
+		<action name="surveyManage-mySurvey" class="net.zdsoft.office.survey.action.OfficeSurveyManageAction" method="mySurvey">
+	    	<result name="success" type="freemarker">mySurvey.ftl</result>
+	    </action>
+	    <action name="surveyManage-mySurvey-list" class="net.zdsoft.office.survey.action.OfficeSurveyManageAction" method="mySurveyList">
+	    	<result name="success" type="freemarker">mySurveyList.ftl</result>
+	    </action>
+	    <action name="surveyManage-mySurvey-add" class="net.zdsoft.office.survey.action.OfficeSurveyManageAction" method="mySurveyAdd">
+	    	<result name="success" type="freemarker">mySurveyAdd.ftl</result>
+	    </action>
+	    <action name="surveyManage-mySurvey-edit" class="net.zdsoft.office.survey.action.OfficeSurveyManageAction" method="mySurveyEdit">
+	    	<result name="success" type="freemarker">mySurveyAdd.ftl</result>
+	    </action>
+	    <action name="surveyManage-mySurvey-save" class="net.zdsoft.office.survey.action.OfficeSurveyManageAction" method="mySurveySave">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+	    <action name="surveyManage-mySurvey-delete" class="net.zdsoft.office.survey.action.OfficeSurveyManageAction" method="mySurveyDelete">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="surveyManage-mySurvey-view" class="net.zdsoft.office.survey.action.OfficeSurveyManageAction" method="mySurveyView">
+	    	<result name="success" type="freemarker">mySurveyView.ftl</result>
+	    </action>
+	    <action name="surveyManage-mySurvey-getPlaceMessage" class="net.zdsoft.office.survey.action.OfficeSurveyManageAction" method="getPlaceMessage">
+			<result name="success" type="json"><param name="root">jsonError</param></result>
+		</action>
+		
+		<!-- 调研审核 -->
+		<action name="surveyManage-surveyAudit" class="net.zdsoft.office.survey.action.OfficeSurveyManageAction" method="surveyAudit">
+	    	<result name="success" type="freemarker">surveyAudit.ftl</result>
+	    </action>
+		<action name="surveyManage-surveyAuditEdit" class="net.zdsoft.office.survey.action.OfficeSurveyManageAction" method="surveyAuditEdit">
+	    	<result name="success" type="freemarker">surveyAuditEdit.ftl</result>
+	    </action>
+		<action name="surveyManage-surveyAuditList" class="net.zdsoft.office.survey.action.OfficeSurveyManageAction" method="surveyAuditList">
+	    	<result name="success" type="freemarker">surveyAuditList.ftl</result>
+	    </action>
+		<action name="surveyManage-surveyAuditSave" class="net.zdsoft.office.survey.action.OfficeSurveyManageAction" method="surveyAuditSave">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="surveyManage-surveyAuditView" class="net.zdsoft.office.survey.action.OfficeSurveyManageAction" method="surveyAuditView">
+	    	<result name="success" type="freemarker">surveyAuditView.ftl</result>
+	    </action>
+		<!-- 调研查询 -->
+	    <action name="surveyManage-surveyQuery" class="net.zdsoft.office.survey.action.OfficeSurveyManageAction" method="surveyQuery">
+	    	<result name="success" type="freemarker">surveyQuery.ftl</result>
+	    </action>
+	    <action name="surveyManage-surveyQuery-list" class="net.zdsoft.office.survey.action.OfficeSurveyManageAction" method="surveyQueryList">
+	    	<result name="success" type="freemarker">surveyQueryList.ftl</result>
+	    </action>
+		
+	</package>
+</struts>

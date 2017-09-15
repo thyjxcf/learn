@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>申请新客户</title>
+<script src="js/flexible_css.debug.js"></script>
+<script src="js/flexible.debug.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/mobiscroll.custom-3.0.0-beta2.min.css">
+</head>
+
+<body class="gray">
+<div class="region-layer region-layer-form fn-flex fn-flex-col" id="regionLayer" style="display:none;right:-7.6rem;">
+	<p id="regionTxt" style="display: none;"><span class="province"></span><span class="city"></span><span class="district"></span></p>
+	<div id="multi-select" class="fn-flex-auto">
+		<div id="province">
+			<p class="tt">省</p>
+			<ul class="fn-clear f-11"></ul>
+		</div>
+		<div id="city" style="display: none;">
+			<p class="tt">市</p>
+			<ul class="fn-clear f-11"></ul>
+		</div>
+		<div id="district" style="display: none;">
+			<p class="tt">区</p>
+			<ul class="fn-clear f-11"></ul>
+		</div>
+	</div>
+	<p class="opt fn-flex fn-flex-row f-16">
+        <a href="#" class="reset fn-flex-auto">重置</a>
+        <a href="#" class="submit fn-flex-auto">确认</a>
+    </p>
+</div>
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header style="display:none">
+        	<h1 class="f-20">申请新客户</h1>
+            <a href="#"  id="cancelId" class="abtn abtn-img abtn-back abtn-left  html-window-back"><span></span></a>
+            <a href="#" class="abtn abtn-left2 f-18  html-window-close"><span>关闭</span></a>
+        </header>
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container">
+            	<form id="customerInfoForm">
+            	<input id="id" name="id" value="" type="hidden" />
+				<input id="unitId" name="unitId" value="" type="hidden" />
+				<input id="userId" name="userId" value="" type="hidden" />
+            	<ul class="ui-form f-14">
+            		<li>
+                        <span class="tt">官方名称</span>
+                        <span class="dd"><input id="name" name="officeCustomerInfo.name" type="text" class="txt" value="" placeholder="请输入客户单位官方名称（必填）"></span>
+                    </li>
+                    <li>
+                        <span class="tt">地方名称</span>
+                        <span class="dd"><input id="nickName" name="officeCustomerInfo.nickName" type="text" class="txt" value="" placeholder="请输入客户单位地方名称（选填）"></span>
+                    </li>
+                    <li id="showRegion">
+                        <span class="tt">所在地</span>
+                        <span class="dd">
+                        <input id="showRegionName" type="text" class="txt" value="" placeholder="请选择客户所在区域（必填）" readonly="">
+                        <input id="showRegionVal" name="officeCustomerInfo.region" type="hidden"  name="" value="" >
+                        </span>
+                        <i class="icon-arrow"></i>
+                    </li>
+                    <li class="sel">
+                        <span class="tt">类别</span>
+                        <span class="dd">
+                            <select id="type" name="officeCustomerInfo.type" class="demo-test-select txt" data-role="none">
+                            </select>
+                        </span>
+                        <i class="icon-arrow"></i>
+                    </li>
+                    <li>
+                        <span class="tt">信息来源</span>
+                        <span class="dd"><input id="infoSource" name="officeCustomerInfo.infoSource" type="text" class="txt" value="" placeholder="请输入客户信息来源（必填）"></span>
+                    </li>
+                    <li>
+                        <span class="dd-area"><textarea id="backgroundInfo"  name="officeCustomerInfo.backgroundInfo" placeholder="请输入客户背景信息（必填）"></textarea></span>
+                    </li>
+                    <li class="sel">
+                        <span class="tt">客户状态</span>
+                        <span class="dd">
+                            <select id="progressState" name="officeCustomerInfo.progressState" class="demo-test-select txt" data-role="none">
+                            </select>
+                        </span>
+                        <i class="icon-arrow"></i>
+                    </li>
+                    <li class="sel">
+                        <span class="tt">合作产品</span>
+                        <span class="dd">
+                            <select id="product" name="officeCustomerInfo.product" class="demo-test-select txt" multiple>
+                            </select>
+                        </span>
+                        <i class="icon-arrow"></i>
+                    </li>
+                    <li>
+                        <span class="tt">联系人</span>
+                        <span class="dd"><input id="contact" name="officeCustomerInfo.contact" type="text" class="txt" value="" placeholder="请输入联系人（必填）"></span>
+                    </li>
+                    <li>
+                        <span class="tt">联系方式1</span>
+                        <span class="dd"><input id="phone" name="officeCustomerInfo.phone" type="number" class="txt" value="" placeholder="请输入主要联系方式（必填）"></span>
+                    </li>
+                    <li>
+                        <span class="tt">联系方式2</span>
+                        <span class="dd"><input id="contactInfo" name="officeCustomerInfo.contactInfo" type="text" class="txt" value="" placeholder="请输入次要联系方式（选填）"></span>
+                    </li>
+                    <li id="followUserLi">
+                        <span class="tt">跟进人</span>
+                        <span id="followUserTxt" class="dd">
+                        	<input type="text" id="followUserName" class="txt" value="" readonly placeholder="请选择（必填）">
+                        	<input type="hidden" id="followUser" name="followUserId" class="txt" readonly value="" placeholder="请选择">
+                        </span>
+                        <i class="icon-arrow"></i>
+                    </li>
+            	</ul>
+                <p class="abtn-full f-16"><a id="save" href="#">提交审核</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ui-layer-auto" id="autoLayer">
+	<p class="txt f-16">请填写结束时间</p>
+</div>
+
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/jquery.form.js"></script>
+<script src="js/mobiscroll.custom-3.0.0-beta2.min.js"></script>
+<script src="js/jquery.Layer.js"></script>
+<script src="js/myscript.js"></script>
+<script src="js/wap.js"></script>
+<script src="js/wapEntities.js"></script>
+<script src="js/wapNetwork.js"></script>
+<script src="js/wapNetworkService.js"></script>
+<script src="js/public.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/common.js"></script>
+<script src="js/validate.js"></script>
+<script src="js/weike.js"></script>
+<script src="js/myWeike.js"></script>
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+	init();
+	  setTimeout(wap.initEdit(), 200);
+	}, false);
+	
+	
+function init(){
+	//获取市数据
+    $('#selRegion,#showRegion').unbind('click');
+    $('#province').off('click','li');
+    $('#city').off('click','li');
+    $('#district').off('click','li');
+    $('.region-layer .opt .submit').unbind('click');
+    
+    $('#selRegion').click(function(){
+		$('.region-layer').show().animate({'right':'0'},500);
+	});
+	$('#showRegion').click(function(){
+		$('body').prepend('<div class="ui-layer-mask ui-layer-mask-close" id="______regionMask" onclick="closeRegion()"></div>');
+		$('.region-layer').show().animate({'right':'0'},500);
+	});
+    //获取省数据
+	$('#selRegion,#showRegion').click(function(){
+		$('#regionTxt span').text('');
+		$('#city,#district').hide();
+		$.getJSON(storage.get(Constants.MOBILE_CONTEXT_PATH)+'/common/open/region/regionData.action', function(data1) {
+	        $('.region-layer ul').html('');//清空省、市、区列表
+	        $.each(data1, function(x, item1) {
+	            //插入省列表
+	            $('#province ul').append(
+                    '<li pro-sort="'+ x +'" dataName="'+item1.fullName+'" dataValue="'+item1.code+'"><span>' + item1.name + '<i class="icon-img icon-current"></i></span></li>'
+                );
+	        });
+        });
+	});
+    
+	$('#province').on('click','li',function(){
+		var cityTop=$('#province').height();
+		$('#multi-select').animate({scrollTop:cityTop},300);
+		var proName=$(this).attr('dataName');
+		var proValue = $(this).attr('dataValue');
+		$('#regionTxt .city').attr('dataValue', '00');
+		$('#regionTxt .district').attr('dataValue', '00');
+		$('#regionTxt span').text('');
+		$('#regionTxt .province').text(proName);
+		$('#regionTxt .province').attr('dataValue', proValue);
+		var proSort=$(this).attr('pro-sort');
+		//$.getJSON('js/data.json', function(data2) {
+		$.getJSON(storage.get(Constants.MOBILE_CONTEXT_PATH)+'/common/open/region/regionData.action', function(data2) {
+	        $('#city ul,#district ul').html('');//清空市、区列表
+	        $.each(data2[proSort].city, function(y, item2) {
+	        	//插入市列表
+	        	$('#city').show().siblings('#district').hide();
+	            $('#city ul').append(
+                    '<li pro-sort="'+ proSort +'" city-sort="'+ y +'" dataName="'+item2.fullName+'" dataValue="'+item2.code+'"><span>' + item2.name + '<i class="icon-img icon-current"></i></span></li>' 
+                );
+	        });
+        });
+	});
+	//获取区数据
+	$('#city').on('click','li',function(){
+		var disTop=$('#province').height()+$('#city').height();
+		$('#multi-select').animate({scrollTop:disTop},300);
+		var cityName=$(this).attr('dataName');
+		var cityValue=$(this).attr('dataValue');
+		$('#regionTxt .district').attr('dataValue', '00');
+		$('#regionTxt .district').text('');
+		$('#regionTxt .province').text(cityName);
+		$('#regionTxt .city').attr('dataValue', cityValue);
+		var proSort=$(this).attr('pro-sort');
+		var citySort=$(this).attr('city-sort');
+		$.getJSON(storage.get(Constants.MOBILE_CONTEXT_PATH)+'/common/open/region/regionData.action', function(data3) {
+	        $('#district ul').html('');//清空区列表
+	        $.each(data3[proSort].city[citySort].district, function(z, item3) {
+	        	//插入区列表
+	            $('#district').show().children('ul').append(
+                    '<li dataName="'+item3.fullName+'" dataValue="'+item3.code+'"><span>' + item3.name + '<i class="icon-img icon-current"></i></span></li>' 
+                );
+	        });
+        });
+	});
+	//选中区数据
+	$('#district').on('click','li',function(){
+		var disName=$(this).attr('dataName');
+		var disValue=$(this).attr('dataValue');
+		$('#regionTxt .province').text(disName);
+		$('#regionTxt .district').attr('dataValue', disValue);
+	});
+	//确认
+	$('.region-layer .opt .submit').click(function(e){
+		e.preventDefault();
+		$('.region-layer').animate({'right':'-7.6rem'},500);
+		document.getElementById('regionLayer').style.display='none';
+		$('#selRegionTips').hide().next('#region').show().text($('#regionTxt').text());
+		
+		//val
+		var val1 = $('#regionTxt .province').attr('dataValue');
+		var val2 = $('#regionTxt .city').attr('dataValue');
+		var val3 = $('#regionTxt .district').attr('dataValue');
+		$('#showRegionVal').val(val1+val2+val3);
+	});
+   
+   $('.region-layer-form .opt .submit').click(function(e){
+		e.preventDefault();
+		$('.ui-layer-mask').remove();
+		$('#showRegionName').val($('#regionTxt').text());
+	});
+	
+}	
+</script>
+</body>
+</html>

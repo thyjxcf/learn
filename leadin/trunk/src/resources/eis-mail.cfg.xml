@@ -1,0 +1,10 @@
+<mail-servers>
+	<smtp-server>
+		<name>zdsoft</name>
+		<description>zdsoft</description>
+		<defaultFrom>zdsoft</defaultFrom>
+		<prefix>[zdsoft]</prefix>
+		<hostname>192.168.0.1</hostname>
+		<sessionServer>false</sessionServer>
+	</smtp-server>
+</mail-servers>

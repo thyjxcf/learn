@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 学年学期默认设置 -->
+<Acadyear>
+	<Semester name="1">
+		<field name="workbegin">08-20</field>
+		<field name="workend">01-20</field>
+		<field name="semesterbegin">09-01</field>
+		<field name="semesterend">01-15</field>
+		
+		<field name="registerdate">09-20</field>
+		<field name="edudays">5</field>
+		<field name="classhour">45</field>
+		<field name="amperiods">4</field>
+		<field name="pmperiods">4</field>
+		<field name="nightperiods">0</field>
+		<field name="mornperiods">0</field>
+	</Semester>
+	<Semester name="2">
+		<field name="workbegin">02-20</field>
+		<field name="workend">07-20</field>
+		<field name="semesterbegin">03-01</field>
+		<field name="semesterend">07-10</field>
+		
+		<field name="registerdate">03-20</field>
+		<field name="edudays">5</field>
+		<field name="classhour">45</field>
+		<field name="amperiods">4</field>
+		<field name="pmperiods">4</field>
+		<field name="nightperiods">0</field>
+		<field name="mornperiods">0</field>
+	</Semester>
+</Acadyear>
+

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+   	<package name="desktopinfo" extends="default" namespace="/office/desktop/app">
+   		<!-- 通知公告 -->
+        <action name="info" class="net.zdsoft.office.bulletin.action.BulletinAction" method="queryBulletinList">
+            <result name="success" type="freemarker">bulletinList.ftl</result>
+        </action>
+        <action name="infolist" class="net.zdsoft.office.bulletin.action.BulletinAction" method="queryBulletinList">
+            <result name="success" type="freemarker">bulletinInfolist.ftl</result>
+        </action>
+        <action name="info-viewDetail" class="net.zdsoft.office.bulletin.action.BulletinAction" method="viewDetail">
+            <result name="success" type="freemarker">bulletinDetail.ftl</result>
+        </action>
+        <action name="info-viewDetailXj" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="viewDetail">
+            <result name="success" type="freemarker">bulletinXjDetail.ftl</result>
+        </action>
+        <action name="infoMessage" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="queryMessage">
+            <result name="success" type="freemarker">messageInfo.ftl</result>
+        </action>
+        <!-- 待办事项 -->
+        <action name="affair" class="net.zdsoft.office.desktop.action.MemoAction" method="queryMemoList">
+        	<result name="success" type="freemarker">memoList.ftl</result>
+        </action>
+        
+        <!-- 标准版 -->
+        <!-- 通知公告 -->
+        <action name="news" class="net.zdsoft.office.bulletin.action.BulletinAction" method="queryBulletinList">
+            <result name="success" type="freemarker">newsBulletinList.ftl</result>
+        </action>
+        <action name="newslist" class="net.zdsoft.office.bulletin.action.BulletinAction" method="queryBulletinList">
+            <result name="success" type="freemarker">newsBulletinInfolist.ftl</result>
+        </action>
+        <action name="newMessage" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="queryMessage">
+            <result name="success" type="freemarker">messageInfo.ftl</result>
+        </action>
+        <!-- 新疆桌面调用 -->
+        <action name="todoWork" class="net.zdsoft.office.dailyoffice.action.ToDoWorkAction">
+            <result name="success" type="freemarker">todoWork.ftl</result>
+        </action>
+        <action name="deskMessange" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="deskMessange">
+            <result name="success" type="freemarker">deskMessange.ftl</result>
+        </action>
+        <action name="xjBulletin" class="net.zdsoft.office.bulletin.action.BulletinAction" method="queryBulletinList">
+            <result name="success" type="freemarker">xjBulletin.ftl</result>
+        </action>
+        <action name="smgBulletinTwoColumn" class="net.zdsoft.office.bulletin.action.BulletinAction" method="queryBulletinList">
+            <result name="success" type="freemarker">smgBulletinTwoColumn.ftl</result>
+        </action>
+        <action name="smgBulletinTab" class="net.zdsoft.office.bulletin.action.BulletinAction" method="smgBulletinTab">
+            <result name="success" type="freemarker">smgBulletinTab.ftl</result>
+        </action>
+        <action name="smgBulletinList" class="net.zdsoft.office.bulletin.action.BulletinAction" method="smgBulletinList">
+            <result name="success" type="freemarker">smgBulletinList.ftl</result>
+        </action>
+        <action name="xjBulletinTaoHong" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="queryBulletinList">
+            <result name="success" type="freemarker">xjBulletinTaoHong.ftl</result>
+        </action>
+        <!-- 山东潍坊 -->
+        <action name="newsBulletinSmallList" class="net.zdsoft.office.bulletin.action.BulletinAction" method="queryBulletinList">
+            <result name="success" type="freemarker">newsBulletinSmallList.ftl</result>
+        </action>
+        <action name="weiFangTodoWork" class="net.zdsoft.office.dailyoffice.action.ToDoWorkAction" method="weiFangTodoWork">
+            <result name="success" type="freemarker">todoWork.ftl</result>
+        </action>
+        <!-- 滨江 -->
+        <action name="bjLatestNews" class="net.zdsoft.office.dailyoffice.action.ToDoWorkAction" method="bjLatestNews">
+            <result name="success" type="freemarker">bjLatestNews.ftl</result>
+        </action>
+        <!-- 吉安六中 -->
+        <action name="jianlzLatestNews" class="net.zdsoft.office.dailyoffice.action.ToDoWorkAction" method="jianlzLatestNews">
+            <result name="success" type="freemarker">jianlzLatestNews.ftl</result>
+        </action>
+        <action name="bjMessages"  class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="deskMessange">
+            <result name="success" type="freemarker">bjMessages.ftl</result>
+        </action>
+        <action name="bjBulletins" class="net.zdsoft.office.bulletin.action.BulletinAction" method="queryBulletinList">
+            <result name="success" type="freemarker">bjBulletins.ftl</result>
+        </action>
+        <action name="bjToDoWork" class="net.zdsoft.office.dailyoffice.action.ToDoWorkAction">
+            <result name="success" type="freemarker">bjToDoWork.ftl</result>
+        </action>
+        <!-- 浙江省厅校安代办工作 -->
+        <action name="schSecurityToDoWork" class="net.zdsoft.office.dailyoffice.action.ToDoWorkAction" method="schSecurityToDoWork">
+            <result name="success" type="freemarker">schSecurityToDoWork.ftl</result>
+        </action>
+        
+        <!-- 天长通知消息定制 -->
+        <action name="tcNotice" class="net.zdsoft.office.desktop.action.TcNoticeAction" >
+            <result name="success" type="freemarker">tcNotice.ftl</result>
+        </action>
+        
+        <!-- 桌面显示消息未读信息 -->
+        <action name="showMsgInfo" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="showMsgInfo">
+            <result name="success" type="freemarker">showMsgInfo.ftl</result>
+        </action>
+    </package>
+</struts>

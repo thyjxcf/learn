@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="false" default-autowire="byName" default-init-method="initCache">
+	<bean id="orderService"
+		class="net.zdsoft.eis.base.common.service.impl.OrderServiceImpl">
+	</bean>
+	<bean id="appRegistryService"
+		class="net.zdsoft.eis.base.common.service.impl.AppRegistryServiceImpl" />
+
+	<bean id="basicClassService"
+		class="net.zdsoft.eis.base.common.service.impl.BasicClassServiceImpl" />
+		
+	<bean id="baseStringService"
+		class="net.zdsoft.eis.base.common.service.impl.BaseStringServiceImpl" />
+
+	<bean id="gradeService"
+		class="net.zdsoft.eis.base.common.service.impl.GradeServiceImpl" />
+
+	<bean id="schoolService"
+		class="net.zdsoft.eis.base.common.service.impl.SchoolServiceImpl" />
+
+	<!-- 学校学年需求 -->
+	<bean id="schoolSemesterService"
+		class="net.zdsoft.eis.base.common.service.impl.SchoolSemesterServiceImpl" />
+
+	<!-- 部门管理 -->
+	<bean id="deptService"
+		class="net.zdsoft.eis.base.common.service.impl.DeptServiceImpl" />
+
+	<bean id="eduInfoService"
+		class="net.zdsoft.eis.base.common.service.impl.EduInfoServiceImpl" />
+
+	<!-- 新增内容 2009-1-6 -->
+	<bean id="loginLogService"
+		class="net.zdsoft.eis.base.common.service.impl.LoginLogServiceImpl" />
+
+	<bean id="mcodedetailService"
+		class="net.zdsoft.eis.base.common.service.impl.McodedetailServiceImpl"/>
+
+	<bean id="mcodeService"
+		class="net.zdsoft.eis.base.common.service.impl.McodeServiceImpl" />
+
+	<bean id="regionService"
+		class="net.zdsoft.eis.base.common.service.impl.RegionServiceImpl" />
+
+	<!-- 教育局学年需求 -->
+	<bean id="semesterService"
+		class="net.zdsoft.eis.base.common.service.impl.SemesterServiceImpl" />
+
+	<bean id="serverService"
+		class="net.zdsoft.eis.base.common.service.impl.ServerServiceImpl" />
+
+	<bean id="studentFamilyService"
+		class="net.zdsoft.eis.base.common.service.impl.StudentFamilyServiceImpl" />
+
+	<bean id="studentService"
+		class="net.zdsoft.eis.base.common.service.impl.StudentServiceImpl" />
+
+	<bean id="sysOptionService"
+		class="net.zdsoft.eis.base.common.service.impl.SysOptionServiceImpl" />
+
+	<bean id="systemIniService"
+		class="net.zdsoft.eis.base.common.service.impl.SystemIniServiceImpl" />
+
+	<bean id="subSystemService"
+		class="net.zdsoft.eis.base.common.service.impl.SubSystemServiceImpl">
+	</bean>
+
+	<bean id="moduleService"
+		class="net.zdsoft.eis.base.common.service.impl.ModuleServiceImpl">
+	</bean>
+
+	<!--package 系统初始参数 -->
+	<bean id="systemVersionService"
+		class="net.zdsoft.eis.base.common.service.impl.SystemVersionServiceImpl" />
+
+	<!-- 教职工service -->
+	<bean id="teacherService"
+		class="net.zdsoft.eis.base.common.service.impl.TeacherServiceImpl" />
+	
+	<bean id="teacherDutyService"
+		class="net.zdsoft.eis.base.common.service.impl.TeacherDutyServiceImpl" />
+		
+	<bean id="baseCourseService"
+		class="net.zdsoft.eis.base.common.service.impl.BaseCourseServiceImpl" />
+	
+	<!-- 单位管理  -->
+	<bean id="unitService"
+		class="net.zdsoft.eis.base.common.service.impl.UnitServiceImpl"/>
+
+	<!-- 用户帐号service -->
+	<bean id="userService"
+		class="net.zdsoft.eis.base.common.service.impl.UserServiceImpl" />
+
+	<bean id="wareService"
+		class="net.zdsoft.eis.base.common.service.impl.WareServiceImpl" />
+
+	<!-- 学区信息设置 -->
+	<bean id="schoolDistrictService"
+		class="net.zdsoft.eis.base.common.service.impl.SchoolDistrictServiceImpl" />
+
+	<!-- 显示信息设置 -->
+	<bean id="colsDisplayService"
+		class="net.zdsoft.eis.base.common.service.impl.ColsDisplayServiceImpl">
+	</bean>
+	
+	<bean id="fieldsDisplayService"
+		class="net.zdsoft.eis.base.common.service.impl.FieldsDisplayServiceImpl" />
+
+	<!-- ==================号码规则====================== -->
+	<bean id="codeRuleBuildService"
+		class="net.zdsoft.eis.base.common.service.impl.CodeRuleBuildServiceImpl">
+	</bean>
+
+	<!-- 学生毕业结业 -->
+	<bean id="studentGraduateService"
+		class="net.zdsoft.eis.base.common.service.impl.StudentGraduateServiceImpl">
+	</bean>
+
+	<bean id="unitIniService"
+		class="net.zdsoft.eis.base.common.service.impl.UnitIniServiceImpl">
+	</bean>
+
+	<!--  用户日志管理  -->
+	<bean id="userLogService"
+		class="net.zdsoft.eis.base.common.service.impl.UserLogServiceImpl">
+	</bean>
+	
+	<bean id="simpleModuleService"
+		class="net.zdsoft.eis.base.common.service.impl.SimpleModuleServiceImpl">
+	</bean>
+	
+	<bean id="regionMatchService"
+		class="net.zdsoft.eis.base.common.service.impl.RegionMatchServiceImpl">
+	</bean>
+
+	<bean id="storageDirService" class="net.zdsoft.eis.base.common.service.impl.StorageDirServiceImpl" />
+	
+	<bean id="dateInfoService" class="net.zdsoft.eis.base.common.service.impl.DateInfoServiceImpl" />
+	
+	<bean id="productParamService" class="net.zdsoft.eis.base.common.service.impl.ProductParamServiceImpl" />
+
+	<bean id="mailServerService"
+		class="net.zdsoft.eis.base.common.service.impl.MailServerServiceImpl">
+	</bean>
+	
+	<bean id="schTypeSectionService" class="net.zdsoft.eis.base.common.service.impl.SchTypeSectionServiceImpl"/>
+	
+	<!--  用户设置  -->
+	<bean id="userSetService" class="net.zdsoft.eis.base.common.service.impl.UserSetServiceImpl" />	
+	
+	<bean id="customRoleService" class="net.zdsoft.eis.base.common.service.impl.CustomRoleServiceImpl" />
+	
+	<bean id="customRoleUserService" class="net.zdsoft.eis.base.common.service.impl.CustomRoleUserServiceImpl" />	
+	
+	<!-- 校舍  -->
+	<bean id="schoolBuildingService" class="net.zdsoft.eis.base.common.service.impl.SchoolBuildingServiceImpl" />
+	<!-- 校舍面积  -->
+	<bean id="schoolBuildingAreaService" class="net.zdsoft.eis.base.common.service.impl.SchoolBuildingAreaServiceImpl" />
+
+	<bean id="cacheService" class="net.zdsoft.eis.frame.service.impl.CacheServiceImpl" />
+	
+	<bean id="basicSubjectService" class="net.zdsoft.eis.base.common.service.impl.BasicSubjectServiceImpl" />
+</beans>
+

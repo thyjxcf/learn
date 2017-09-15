@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts> 	
+	<!-- 子系统主页 -->   
+ 	<package name="subsystem-index" extends="default" namespace="/system/homepage">	
+ 		<!-- ==============子系统列表============ -->
+		<action name="subsystem" class="net.zdsoft.eis.system.homepage.action.SystemIndexAction">
+			<result type="freemarker">/system/homepage/subsystem.ftl</result>
+			<result name="left" type="freemarker">/system/homepage/subsystemLeft.ftl</result>
+		</action>
+		
+		<!-- ==============主页面============ -->
+		<action name="model" class="net.zdsoft.eis.system.homepage.action.SubsystemIndexAction" method="model">
+			<result type="freemarker">/system/homepage/model.ftl</result>
+			<result name="modelLeft" type="freemarker">/system/homepage/modelLeft.ftl</result>
+			<result name="modelLeftSide" type="freemarker">/system/homepage/modelLeftSide.ftl</result>
+		</action>
+		
+		<action name="old-index" class="net.zdsoft.eis.system.homepage.action.SubsystemIndexAction" >
+			<result type="freemarker">/system/homepage/subsystemindex.ftl</result>
+		</action>
+
+		<action name="index" class="net.zdsoft.eis.system.homepage.action.FlowDiagramAction" >
+			<result type="freemarker">/system/homepage/subsystemindex.ftl</result>
+		</action>	
+		
+		<!-- ==============右边页面============ -->
+		<!-- 找不到子系统 -->
+		<action name="stusyserrmain">
+			<result type="freemarker">/system/homepage/subsystemerrmain.ftl</result>
+		</action>
+		
+		<!-- 校校通中右边页面也是PB模块 -->	
+		<action name="indexright" class="net.zdsoft.eis.system.homepage.action.SubsystemIndexRightAction">
+			<result type="freemarker">/system/homepage/subsystemrightmodule.ftl</result>
+		</action>
+
+		<action name="run" class="net.zdsoft.eis.system.homepage.action.RunPbAction">
+			<result type="freemarker" name="success">/system/homepage/run.ftl</result>
+			<result type="freemarker" name="error">/system/homepage/run.ftl</result>			
+		</action>	
+		
+		
+		<!-- 帮助功能 -->
+		<action name="subsystemHelp"  class="net.zdsoft.eis.system.homepage.action.SubsystemIndexAction"
+			method="subsystemHelp">
+			<result name="success" type="freemarker">/system/systemhelp/subsystemHelp.ftl</result>
+		</action>
+		
+		<action name="subsystemHelp-*"
+			class="net.zdsoft.eis.base.data.action.McodedetailListAction" method="{1}">
+			<result name="success" type="json">
+			      <param name="root">returnJsonData</param>
+			</result>
+		</action>
+		
+	</package>
+</struts>

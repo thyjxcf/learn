@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>出差管理</title>
+<link rel="stylesheet" type="text/css" href="../../../static/html5/css/style.css">
+<script src="../../../static/html5/js/flexible_css.debug.js"></script>
+<script src="../../../static/html5/js/flexible.debug.js"></script>
+<script src="../../../static/html5/js/jquery-1.9.1.min.js"></script>
+<script src="../../../static/html5/js/jquery.Layer.js"></script>
+<script src="../../../static/html5/js/common.js"></script>
+<script src="../../../static/html5/js/public.js"></script>
+<script src="../../../static/html5/js/storage.js"></script>
+<script src="../../../static/html5/js/myscript.js"></script>
+<script src="../../../static/html5/js/validate.js"></script>
+
+<script src="js/wap.js"></script>
+<script src="js/wapEntities.js"></script>
+<script src="js/wapNetwork.js"></script>
+<script src="js/wapNetworkService.js"></script>
+
+<script src="../../../static/html5/js/weike.js"></script>
+<script src="../../../static/html5/js/myWeike.js"></script>
+</head>
+
+<body class="fn-rel">
+<div class="filter-layer" id="filter" style="right:-7.6rem;">
+    <p class="tt">状态</p>
+    <ul class="fn-clear" id="auditStatus">
+    </ul>
+    <p class="opt fn-flex fn-flex-row f-16">
+        <a href="#" class="reset fn-flex-auto">重置</a>
+        <a href="#" class="submit fn-flex-auto" id="querySubmit">确认</a>
+    </p>
+</div>
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header>
+        	<h1 class="f-20">出差管理</h1>
+            <a href="#" class="abtn abtn-img abtn-back abtn-left html-window-back" id="cancelId"><span></span></a>
+            <a href="#" class="abtn abtn-left2 f-18 html-window-close"><span>关闭</span></a>
+            <a href="#" class="abtn abtn-img abtn-edit abtn-right" id="apply"><span></span></a>
+        </header>
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container">
+            	<div class="tab-wrap">
+                    <ul class="tab fn-flex fn-flex-row f-16">
+                        <li class="fn-flex-auto current" id="myTab1" value="1">我的出差</li>
+                        <li class="fn-flex-auto" id="myTab2" value="2">出差审核</li>
+                    </ul>
+                </div>
+            	<div class="ui-search fn-flex fn-flex-row">
+                	<p class="ui-search-inner fn-flex-auto" style=""><!--<span class="icon-img icon-search"></span>--><input id="queryText" type="hidden" class="f-16" placeholder="搜索"></p>
+                    <p class="ui-search-opt f-14" style="width:1.5rem;"><a href="#" class="filter">筛选<span class="icon-img icon-filter"></span></a></p>
+                </div>
+                <div class="tab-grid">
+                	<div class="tab-item">
+                		<div id="listDiv">
+	                        <ul class="ui-list" id="list">
+	                        </ul>
+	                        <p class="loading-more f-16"><a href="#">加载更多……</a></p>
+                        </div>
+                        <div id="empty" style="display:none" class="no-data">
+			        		<p><span class="icon-img icon-no-data"></span></p>
+				            <p class="pt-30 f-16">暂时还没有相关内容</p>
+				        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+      init();
+      setTimeout(wap.initList(), 200);
+}, false);
+
+function init(){
+	//解绑
+	$('.filter-layer .opt .reset').unbind('click');
+	//重置
+	$('.filter-layer .opt .reset').click(function(e){
+		e.preventDefault();
+		$('.filter-layer li').removeClass('current');
+		if($('.filter-layer li').hasClass('default-current')){
+			$('.filter-layer .default-current').addClass('current');
+		}
+	});
+	//绑定事件，勿删---替代live方法
+	$(".filter-layer ul").on("click","li",function(){
+	  if(!$(this).parents('.filter-layer').hasClass('filter-layer-full')){
+			$(this).addClass('current').siblings('li').removeClass('current');
+		}else{
+			$('.filter-layer li').removeClass('current');
+			$(this).addClass('current');
+		};
+	}); 	
+}
+</script>
+</html>

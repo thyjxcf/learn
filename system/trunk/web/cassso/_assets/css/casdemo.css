@@ -1,0 +1,68 @@
+
+#container {
+	width: 600px;
+	height: 350px;
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #999999;
+	border-right-color: #999999;
+	border-bottom-color: #999999;
+	border-left-color: #999999;
+}
+.lable {
+	background-color: #D7EBFF;
+	padding: 10px;
+}
+.tbl {
+	font-size: 12px;
+	font-family: "微软雅黑", "Arial";
+}
+#userinfo {
+	padding: 10px;
+}
+#header {
+	margin-top: 20px;
+	width: 580px;
+	background-color: #99CCDD;
+	height: 25px;
+	font-family: "微软雅黑", "Arial";
+	font-weight: bold;
+	font-size: 24px;
+	padding: 10px;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 0px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #999999;
+	border-right-color: #999999;
+	border-bottom-color: #999999;
+	border-left-color: #999999;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	float: left;
+	width: 200px;
+	margin-top: 10px;
+}
+.logo {
+	text-align: right;
+	width:400px;
+	float: right;
+}

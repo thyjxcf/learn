@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <output url="file://E:/IdeaProjects/ver6/out/produc" />
+    <output-test url="file://E:/IdeaProjects/ver6/out/test/trunk" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/resources" type="java-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="module" module-name="base" />
+    <orderEntry type="module" module-name="basedata" />
+    <orderEntry type="module" module-name="desktop" />
+    <orderEntry type="module" module-name="leadin" />
+    <orderEntry type="module" module-name="office" />
+    <orderEntry type="library" name="jsp-api" level="project" />
+    <orderEntry type="module" module-name="component" />
+    <orderEntry type="module" module-name="eduaffairs" />
+    <orderEntry type="module" module-name="jbpm" />
+    <orderEntry type="module" module-name="schsecurity" />
+  </component>
+</module>

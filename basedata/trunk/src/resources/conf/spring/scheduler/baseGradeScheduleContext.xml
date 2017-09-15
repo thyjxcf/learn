@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+	<!-- 年级升级 定时器 -->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false">
+		<property name="triggers">
+			<list>
+				<ref local="saveInitClassTrigger" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="jobRunning" class="net.zdsoft.eis.base.frame.timer.GradeJobRunningImpl" autowire="byName"></bean>
+	
+	<!-- 自动升级  定时初始化班级 年级 学期-->
+	<bean id="saveInitClassJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject"><ref bean="jobRunning" /></property>
+		<property name="targetMethod"><value>saveInitClass</value></property>
+	</bean>
+
+	<bean id="saveInitClassTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="saveInitClassJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 50 23 * * ?</value>
+		</property>
+	</bean>
+</beans>

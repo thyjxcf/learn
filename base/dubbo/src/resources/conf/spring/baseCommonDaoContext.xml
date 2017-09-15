@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true" default-autowire="byName">
+	<bean id="appRegistryDao" class="net.zdsoft.eis.base.common.dao.impl.AppRegistryDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+		<property name="incre">
+			<bean
+				class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+				<property name="incrementerName" value="S_FPF_APPREGISTRY" />
+				<property name="dataSource" ref="dataSource" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="orderDao" class="net.zdsoft.eis.base.common.dao.impl.OrderDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="baseStringDao" class="net.zdsoft.eis.base.common.dao.impl.BaseStringDaoImpl" >
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="basicClassDao" class="net.zdsoft.eis.base.common.dao.impl.BasicClassDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="gradeDao" class="net.zdsoft.eis.base.common.dao.impl.GradeDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="schoolDao" class="net.zdsoft.eis.base.common.dao.impl.SchoolDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 学校学年学期 -->
+	<bean id="schoolSemesterDao"
+		class="net.zdsoft.eis.base.common.dao.impl.SchoolSemesterDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 部门管理 -->
+	<bean id="deptDao" class="net.zdsoft.eis.base.common.dao.impl.DeptDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 教育局基本信息 -->
+	<bean id="eduInfoDao" class="net.zdsoft.eis.base.common.dao.impl.EduInfoDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 用户登录日志 -->
+	<bean id="loginLogDao" class="net.zdsoft.eis.base.common.dao.impl.LoginLogDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="mcodedetailDao" class="net.zdsoft.eis.base.common.dao.impl.McodedetailDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="regionDao" class="net.zdsoft.eis.base.common.dao.impl.RegionDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="regionMatchDao" class="net.zdsoft.eis.base.common.dao.impl.RegionMatchDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 教育局学年学期 -->
+	<bean id="semesterDao" class="net.zdsoft.eis.base.common.dao.impl.SemesterDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="serverDao" class="net.zdsoft.eis.base.common.dao.impl.ServerDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="studentFamilyDao" class="net.zdsoft.eis.base.common.dao.impl.StudentFamilyDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="studentDao" class="net.zdsoft.eis.base.common.dao.impl.StudentDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="sysOptionDao" class="net.zdsoft.eis.base.common.dao.impl.SysOptionDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="subSystemDao" class="net.zdsoft.eis.base.common.dao.impl.SubSystemDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="moduleDao" class="net.zdsoft.eis.base.common.dao.impl.ModuleDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 系统初始参数 -->
+	<bean id="systemIniDao" class="net.zdsoft.eis.base.common.dao.impl.SystemIniDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="systemPatchDao" class="net.zdsoft.eis.base.common.dao.impl.SystemPatchDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="systemVersionDao" class="net.zdsoft.eis.base.common.dao.impl.SystemVersionDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 教职工dao -->
+	<bean id="teacherDao" class="net.zdsoft.eis.base.common.dao.impl.TeacherDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="teacherDutyDao" class="net.zdsoft.eis.base.common.dao.impl.TeacherDutyDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="baseCourseDao" class="net.zdsoft.eis.base.common.dao.impl.BaseCourseDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 单位管理  -->
+	<bean id="unitDao" class="net.zdsoft.eis.base.common.dao.impl.UnitDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 用户帐号dao -->
+	<bean id="userDao" class="net.zdsoft.eis.base.common.dao.impl.UserDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="wareDao" class="net.zdsoft.eis.base.common.dao.impl.WareDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="schoolDistrictDao" class="net.zdsoft.eis.base.common.dao.impl.SchoolDistrictDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 显示列设置 detail-->
+	<bean id="colsDisplayDao" class="net.zdsoft.eis.base.common.dao.impl.ColsDisplayDaoImpl"></bean>
+	<bean id="fieldsDisplayDao" class="net.zdsoft.eis.base.common.dao.impl.FieldsDisplayDaoImpl"/>
+	
+	<bean id="codeRuleBuildDao"
+		class="net.zdsoft.eis.base.common.dao.impl.CodeRuleBuildDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 学生毕业结业 -->
+	<bean id="studentGraduateDao"
+		class="net.zdsoft.eis.base.common.dao.impl.StudentGraduateDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="unitIniDao" class="net.zdsoft.eis.base.common.dao.impl.UnitIniDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+		<property name="incre">
+			<bean
+				class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+				<property name="incrementerName" value="s_stusys_systemini_unit" />
+				<property name="dataSource" ref="dataSource" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="userLogDao" class="net.zdsoft.eis.base.common.dao.impl.UserLogDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+		<property name="incre">
+			<bean
+				class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+				<property name="incrementerName" value="s_sys_log" />
+				<property name="dataSource" ref="dataSource" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="simpleModuleDao" class="net.zdsoft.eis.base.common.dao.impl.SimpleModuleDaoImpl">
+	</bean>
+
+	<bean id="storageDirDao" class="net.zdsoft.eis.base.common.dao.impl.StorageDirDaoImpl" />
+	
+	<bean id="dateInfoDao" class="net.zdsoft.eis.base.common.dao.impl.DateInfoDaoImpl" />
+	
+	<bean id="productParamDao" class="net.zdsoft.eis.base.common.dao.impl.ProductParamDaoImpl" />
+	
+	<!--  用户设置  -->
+	<bean id="userSetDao" class="net.zdsoft.eis.base.common.dao.impl.UserSetDaoImpl" />		
+	
+	<!--  用户设置  -->
+	<bean id="customRoleDao" class="net.zdsoft.eis.base.common.dao.impl.CustomRoleDaoImpl" />	
+	
+	<bean id="customRoleUserDao" class="net.zdsoft.eis.base.common.dao.impl.CustomRoleUserDaoImpl" />
+
+	<bean id="schTypeSectionDao" class="net.zdsoft.eis.base.common.dao.impl.SchTypeSectionDaoImpl"/>
+
+	<!-- 校舍  -->
+	<bean id="schoolBuildingDao" class="net.zdsoft.eis.base.common.dao.impl.SchoolBuildingDaoImpl" />
+	<!-- 校舍面积  -->
+	<bean id="schoolBuildingAreaDao" class="net.zdsoft.eis.base.common.dao.impl.SchoolBuildingAreaDaoImpl" />
+	
+	<bean id="basicSubjectDao" class="net.zdsoft.eis.base.common.dao.impl.BasicSubjectDaoImpl" />
+	
+	<bean id="basicClsReqTeaPlanDao" class="net.zdsoft.eis.base.common.dao.impl.BasicClsReqTeaPlanDaoImpl" />
+</beans>

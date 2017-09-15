@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>新建工作汇报</title>
+<link  rel="stylesheet" type="text/css" href="../../../static/html/css/style.css?v=20170619">
+<link  rel="stylesheet" type="text/css" href="../../../static/html/css/mobiscroll.custom-3.0.0-beta2.min.css">
+</head>
+<body class="gray">
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header style="display:none">
+        	<h1 class="f-20">我的工作汇报</h1>
+            <a href="#" id="cancelId" class="abtn abtn-img abtn-back abtn-left html-window-back"><span></span></a>
+        	<a href="javascript:void(0)" class="abtn abtn-left2 f-18 html-window-close"><span>关闭</span></a>
+        </header>
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container">
+            <form id="dataForm">
+				<input id="userId" name="userId" value="" type="hidden" />
+				<input id="id" name="report.id" value="" type="hidden" />
+				<input id="state" name="report.state" value="2" type="hidden" />
+            	<ul class="ui-form f-14">
+            		<li class="sel">
+                        <span class="tt">类型</span>
+                        <span class="dd">
+                            <select id="reportType" name="report.reportType" class="demo-test-select txt" data-role="none">
+                                <option value="1">周报</option>
+                                <option value="2">月报</option>
+                            </select>
+                        </span>
+                        <i class="icon-arrow"></i>
+                    </li>
+            		<li class="date">
+                        <span class="tt">开始时间</span>
+                        <span class="dd"><input type="text" id="startDate" name="report.beginTime" class="txt" value="" placeholder="请选择"></span>
+                        <i class="icon-arrow"></i>
+                    </li>
+            		<li class="date">
+                        <span class="tt">结束时间</span>
+                        <span class="dd"><input type="text" id="endDate" name="report.endTime" class="txt" value="" placeholder="请选择"></span>
+                        <i class="icon-arrow"></i>
+                    </li>
+            		<li class="mt-20">
+                        <span class="dd-area"><textarea id="content" name="report.content" placeholder="请输入内容..."></textarea></span>
+                    </li>
+            		<li class="user mt-20">
+                        <p class="pt-20 f-15 c-666">接收人：<span class="f-14 c-999">（点击头像可删除）</span></p>
+                        	<input type="hidden" id="receiveIds" name="report.receiveUserId" value=""/>
+                        <p id="receiveNames" class="list fn-clear f-14 c-333">
+                            <span ><a href="#" id="address" class="add"></a></span>
+                        </p>
+                    </li>
+                    <li class="acc">
+                        <span class="tt">图片</span>
+                        <a href="javascript:void(0);" class="icon-img icon-adjunct ui-file" style="top:0rem;"><input type="file" accept="image/*" name="uploadContentFile" id="upFile"></a>
+                        <span class="dd" style="padding-right:0.3rem;"><input type="text" name="report.uploadContentFileInput" id="fileName" readonly class="txt" value=""></span>
+                   		<input type="hidden" name="everAttachId" id="everAttachId" >
+                    </li>
+            	</ul>
+                <p id="save" class="abtn-full f-16"><a href="#">提交</a></p>
+        	</form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery-1.9.1.min.js?v=20170619"></script>
+<script src="../../../static/html/js/mobiscroll.custom-3.0.0-beta2.min.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible_css.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.Layer.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.form.js?v=20170619"></script>
+<script src="../../../static/html/js/storage.js?v=20170619"></script>
+
+<script  src="../../../static/html/js/public.js?v=20170619"></script>
+<script  src="../../../static/html/js/common.js?v=20170619"></script>
+<script  src="../../../static/html/js/myscript.js?v=20170619"></script>
+<script  src="../../../static/html/js/validate.js?v=20170619"></script>
+<script  src="../../../static/html/js/weike.js?v=20170619"></script>
+<script  src="../../../static/html/js/myWeike.js?v=20170619"></script>
+
+<script  src="js/wap.js?v=20170619"></script>
+<script  src="js/wapEntities.js?v=20170619"></script>
+<script  src="js/wapNetwork.js?v=20170619"></script>
+<script  src="js/wapNetworkService.js?v=20170619"></script>
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+		setTimeout(wap.initEdit(), 200);
+}, false);
+</script>
+</body>
+</html>

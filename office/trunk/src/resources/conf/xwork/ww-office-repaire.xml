@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!-- 报修管理 -->
+    <package name="repaire" extends="default" namespace="/office/repaire">
+   		   <action name="repaire" class="net.zdsoft.office.repaire.action.RepaireAction" method="repaireAdmin">
+	            <result name="success" type="freemarker">/office/repaire/repaireAdmin.ftl</result>
+	       </action>
+   		   <action name="repaire-latestRepaire" class="net.zdsoft.office.repaire.action.RepaireAction" method="latestRepaire">
+	            <result name="success" type="freemarker">/office/repaire/latestRepaire.ftl</result>
+	       </action>
+   		   <action name="repaire-latestRepaireList" class="net.zdsoft.office.repaire.action.RepaireAction" method="latestRepaireList">
+	            <result name="success" type="freemarker">/office/repaire/latestRepaireList.ftl</result>
+	       </action>
+	       <action name="repaire-latestRepaireListExport" class="net.zdsoft.office.repaire.action.RepaireAction" method="latestRepaireListExport">
+	       </action>
+	       <action name="repaire-myRepaire" class="net.zdsoft.office.repaire.action.RepaireAction" method="myRepaire">
+	            <result name="success" type="freemarker">/office/repaire/myRepaire.ftl</result>
+	       </action>
+	       <action name="repaire-myRepaireList" class="net.zdsoft.office.repaire.action.RepaireAction" method="myRepaireList">
+	            <result name="success" type="freemarker">/office/repaire/myRepaireList.ftl</result>
+	       </action>
+	       <action name="repaire-myAdd" class="net.zdsoft.office.repaire.action.RepaireAction" method="myAdd">
+	            <result name="success" type="freemarker">/office/repaire/myRepaireEdit.ftl</result>
+	       </action>
+	       <action name="repaire-view" class="net.zdsoft.office.repaire.action.RepaireAction" method="view">
+	            <result name="success" type="freemarker">/office/repaire/myRepaireView.ftl</result>
+	       </action>
+	       <action name="repaire-getRepaireType" class="net.zdsoft.office.repaire.action.RepaireAction" method="getRepaireType">
+	             <result name="success" type="freemarker">/office/repaire/repaireTypeIdDiv.ftl</result>
+	       </action>
+	       <action name="repaire-saveMy" class="net.zdsoft.office.repaire.action.RepaireAction" method="saveAdd">
+	            <result name="success" type="json">
+					<param name="root">jsonError</param>
+					<param name="contentType">text/html</param>
+				</result>
+	       </action>
+	       <action name="repaire-feedback" class="net.zdsoft.office.repaire.action.RepaireAction" method="feedback">
+	            <result name="success" type="freemarker">/office/repaire/myRepaireFeedback.ftl</result>
+	       </action>
+	       <action name="repaire-saveFeedback" class="net.zdsoft.office.repaire.action.RepaireAction" method="saveFeedback">
+	            <result name="success" type="json">
+					<param name="root">jsonError</param>
+				</result>
+	       </action>
+	        <action name="repaire-myDel" class="net.zdsoft.office.repaire.action.RepaireAction" method="myDel">
+	            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+	       </action>
+	        <action name="repaire-allSave" class="net.zdsoft.office.repaire.action.RepaireAction" method="allSave">
+	            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+	       </action>
+	       <action name="repaire-audit" class="net.zdsoft.office.repaire.action.RepaireAction" method="audit">
+	            <result name="success" type="freemarker">/office/repaire/audit.ftl</result>
+	       </action>
+	       <action name="repaire-auditAdd" class="net.zdsoft.office.repaire.action.RepaireAction" method="auditAdd">
+	            <result name="success" type="freemarker">/office/repaire/auditEdit.ftl</result>
+	       </action>
+	       <action name="repaire-saveAudit" class="net.zdsoft.office.repaire.action.RepaireAction" method="auditSave">
+	            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+	       </action>
+	       <action name="repaire-auditDel" class="net.zdsoft.office.repaire.action.RepaireAction" method="auditDel">
+	            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+	       </action>
+	       <action name="repaire-typeSMSEdit" class="net.zdsoft.office.repaire.action.RepaireAction" method="typeSMSEdit">
+	            <result name="success" type="freemarker">/office/repaire/typeSMSEdit.ftl</result>
+	       </action>
+	       <action name="repaire-typeSMSSave" class="net.zdsoft.office.repaire.action.RepaireAction" method="typeSMSSave">
+	            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+	       </action>
+	       <!-- 报修管理 -->
+	       <action name="repaire-manage" class="net.zdsoft.office.repaire.action.RepaireAction" method="manage">
+	            <result name="success" type="freemarker">/office/repaire/manage.ftl</result>
+	       </action>
+	       <action name="repaire-manageList" class="net.zdsoft.office.repaire.action.RepaireAction" method="manageList">
+	            <result name="success" type="freemarker">/office/repaire/manageList.ftl</result>
+	       </action>
+	       <action name="repaire-mangeEdit" class="net.zdsoft.office.repaire.action.RepaireAction" method="mangeEdit">
+	            <result name="success" type="freemarker">/office/repaire/mangeEdit.ftl</result>
+	       </action>
+	       <action name="repaire-saveManage" class="net.zdsoft.office.repaire.action.RepaireAction" method="saveManage">
+	            <result name="success" type="json">
+					<param name="root">jsonError</param>
+				</result>
+	       </action>
+	       <!-- 报修统计 -->
+	       <action name="repaire-statisticAdmin" class="net.zdsoft.office.repaire.action.RepaireAction" method="statisticAdmin">
+	            <result name="success" type="freemarker">/office/repaire/statisticAdmin.ftl</result>
+	       </action>
+	       <action name="repaire-statisticList" class="net.zdsoft.office.repaire.action.RepaireAction" method="statisticList">
+	            <result name="success" type="freemarker">/office/repaire/statisticList.ftl</result>
+	       </action>
+	       <action name="repaire-applySummaryExport" class="net.zdsoft.office.repaire.action.RepaireAction" method="applySummaryExport">
+	       </action>
+	       <!-- 二级类别维护 -->
+	       <action name="repaire-typeManage" class="net.zdsoft.office.repaire.action.RepaireAction" method="typeManage">
+	            <result name="success" type="freemarker">/office/repaire/typeManage.ftl</result>
+	       </action>
+	       <action name="repaire-typeManageList" class="net.zdsoft.office.repaire.action.RepaireAction" method="typeManageList">
+	            <result name="success" type="freemarker">/office/repaire/typeManageList.ftl</result>
+	       </action>
+	       <action name="repaire-typeManageEdit" class="net.zdsoft.office.repaire.action.RepaireAction" method="typeManageEdit">
+	            <result name="success" type="freemarker">/office/repaire/typeManageEdit.ftl</result>
+	       </action>
+	       <action name="repaire-saveType" class="net.zdsoft.office.repaire.action.RepaireAction" method="saveType">
+	            <result name="success" type="json">
+					<param name="root">jsonError</param>
+				</result>
+	       </action>
+	       <action name="repaire-deleteType" class="net.zdsoft.office.repaire.action.RepaireAction" method="deleteType">
+	            <result name="success" type="json">
+					<param name="root">jsonError</param>
+				</result>
+	       </action>
+    </package>
+</struts>
+    

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true" default-autowire="byName">
+	<bean id="officeSubsystemService"
+		class="net.zdsoft.office.subsystemcall.service.impl.OfficeSubsystemServiceImpl">
+	</bean>
+	
+	<bean id="remoteOfficeAppService" class="net.zdsoft.office.remote.service.impl.RemoteOfficeAppServiceimpl"/>
+</beans>
+
+
+
+
+
+
+
+

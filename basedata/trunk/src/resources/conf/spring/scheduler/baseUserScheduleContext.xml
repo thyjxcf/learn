@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false">
+		<!--添加触发器-->
+		<property name="triggers">
+			<list>
+				<ref local="baseUserPinYinTrigger" />
+				<ref local="countOnlineTimeTrigger" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- ====================更新拼音======================-->
+	<bean id="baseUserPinYinTimerTask" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>net.zdsoft.eis.base.frame.timer.BaseUserPinYinTimerTask</value>
+		</property>
+	</bean>
+	<bean id="baseUserPinYinTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="baseUserPinYinTimerTask" />
+
+		<!--每天的2点执行-->
+		<property name="cronExpression">
+			<value>0 0 2 * * ?</value>
+		</property>
+	</bean>
+	
+	<!-- ====================在线时长统计删除登出时间为空的数据======================-->
+	<bean id="countOnlineTimeTimerTask" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>net.zdsoft.eis.base.frame.timer.CountOnlineTimeTimerTask</value>
+		</property>
+		
+	</bean>
+	<bean id="countOnlineTimeTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="countOnlineTimeTimerTask" />
+
+		<!--每天的3点执行-->
+		<property name="cronExpression">
+			<value>0 0 3 * * ?</value>
+		</property>
+	</bean>
+	
+</beans>

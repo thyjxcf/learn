@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="commontree" extends="default" namespace="/common/xtree">
+		<!-- 籍贯树 start -->
+		<action name="regiontree" class="net.zdsoft.eis.base.tree.action.RegionTree2Action">
+			<result name="success" type="freemarker">regionfasttree.ftl</result>
+		</action>		
+		<!-- end -->
+
+		<action name="unittree" class="net.zdsoft.eis.base.tree.action.UnitTreeAction">
+			<result name="success" type="freemarker">unittree.ftl</result>
+		</action>
+		<action name="unittreexml" class="net.zdsoft.eis.base.tree.action.UnitTreeXmlAction">
+			<result name="success" type="freemarker">unittreexml.ftl</result>
+		</action>
+		<!-- unit ztree -->
+		<action name="unitztree" class="net.zdsoft.eis.base.tree.action.UnitTreeAction" method="unitZTree"></action>
+		
+		<action name="directunitztree" class="net.zdsoft.eis.base.tree.action.UnitTreeAction" method="directUnitZTree"></action>
+		
+		<action name="currentunitztree" class="net.zdsoft.eis.base.tree.action.UnitTreeAction" method="currentUnitZTree"></action>
+		
+		<action name="unitztree4search" class="net.zdsoft.eis.base.tree.action.UnitTreeAction" method="unitZSerachTree">
+			<result name="success" type="freemarker">/common/ztree/unitTree4Search.ftl</result>
+		</action>
+		
+		<!-- deptUserTree -->
+		<action name="deptUserTree" class="net.zdsoft.eis.base.tree.action.DeptUserTreeAction">
+			<result name="success" type="freemarker">/common/ztree/deptUserTree.ftl</result>
+		</action>
+		<action name="deptUserEditTree" class="net.zdsoft.eis.base.tree.action.DeptUserTreeAction">
+			<result name="success" type="freemarker">/common/ztree/deptUserEditTree.ftl</result>
+		</action>
+		<action name="deptUserAllTree" class="net.zdsoft.eis.base.tree.action.DeptUserTreeAction" method="deptUserAllTree">
+			<result name="success" type="freemarker">/common/ztree/deptUserAllTree.ftl</result>
+		</action>
+		
+		<action name="depttree" class="net.zdsoft.eis.base.tree.action.DeptTreeAction">
+			<result name="success" type="freemarker">depttree.ftl</result>
+		</action>
+		<action name="depttreexml" class="net.zdsoft.eis.base.tree.action.DeptTreeXmlAction">
+			<result name="success" type="freemarker">depttreexml.ftl</result>
+		</action>
+		<action name="classtree" class="net.zdsoft.eis.base.tree.action.ClassTreeAction">
+			<result name="success" type="freemarker">commonclasstree.ftl</result>
+		</action>
+		<action name="studenttree" class="net.zdsoft.eis.base.tree.action.StudentTreeAction">
+			<result name="success" type="freemarker">studenttree.ftl</result>
+		</action>
+		<action name="studenttreexml"
+			class="net.zdsoft.eis.base.tree.action.StudentTreeXmlAction">
+			<result name="success" type="freemarker">studenttreexml.ftl</result>
+		</action>
+		<!-- 教育局-学校的树 -->
+		<action name="edutoschooltree" class="net.zdsoft.eis.base.tree.action.EduTreeAction"
+			method="eduToSchoolTree">
+		</action>
+	
+		<!-- 教育局-学区树 -->
+		<action name="edutoschdistricttree" class="net.zdsoft.eis.base.tree.action.EduTreeAction"
+			method="eduToXqTree">
+			<result name="success" type="freemarker">schdistricttree.ftl</result>
+		</action>
+
+		<action name="eduToSubEduTree" class="net.zdsoft.eis.base.tree.action.EduTreeAction"
+			method="eduToSubEduTree">
+		</action>
+
+		<action name="eduToXqToSchTree" class="net.zdsoft.eis.base.tree.action.EduTreeAction"
+			method="eduToXqToSchTree">
+		</action>
+
+		<!--=================== 树DIV======================= -->
+		<action name="showTreeDiv" class="net.zdsoft.eis.frame.action.BaseDivAction">
+			<result name="success" type="freemarker">commonTreeDiv.ftl</result>
+		</action>
+		<action name="showTreeDivPopup" class="net.zdsoft.eis.frame.action.BaseDivAction">
+			<result name="success" type="freemarker">/common/popupObjectDiv.ftl</result>
+		</action>
+
+		<!-- ==========新做的通用树，学校和教育局都可以使用：年级树、班级树、学生树、部门树、教师树========= -->
+		<action name="gradeTree" class="net.zdsoft.eis.base.tree.action.GradeTreeAction"
+			method="gradeTree">
+		</action>
+		<action name="classTree" class="net.zdsoft.eis.base.tree.action.BaseClassTreeAction"
+			method="classTree">
+		</action>
+		<action name="studentTree" class="net.zdsoft.eis.base.tree.action.BaseStudentTreeAction"
+			method="studentTree">
+		</action>
+
+		<action name="deptTree" class="net.zdsoft.eis.base.tree.action.BaseDeptTreeAction"
+			method="deptTree">
+		</action>
+		<action name="deptTreeXml" class="net.zdsoft.eis.base.tree.action.DeptTreeXmlAction"
+			method="expandDept">
+		</action>
+		<action name="teacherTree" class="net.zdsoft.eis.base.tree.action.TeacherTreeAction"
+			method="teacherTree">
+		</action>
+		<action name="deptTeacherTreeXml" class="net.zdsoft.eis.base.tree.action.TeacherTreeXmlAction"
+			method="expandDeptTeacher">
+		</action>
+		
+		<action name="customSampleTree" class="net.zdsoft.eis.base.tree.action.CustomSampleTreeAction"
+			method="customTree">
+		</action>
+
+		<action name="eisGradeTreeXml"
+			class="net.zdsoft.eis.base.tree.action.EisClassTreeXmlAction" method="expandGrade">
+		</action>
+
+		<action name="eisBasicClassTreeXml"
+			class="net.zdsoft.eis.base.tree.action.EisClassTreeXmlAction" method="expandClass">
+		</action>
+		
+		<action name="eisClassTreeXml"
+			class="net.zdsoft.eis.base.tree.action.EisStudentTreeXmlAction" method="expandClass">
+		</action>
+
+		<action name="eisStudentTreeXml"
+			class="net.zdsoft.eis.base.tree.action.EisStudentTreeXmlAction" method="expandStudent">
+		</action>
+		
+		<action name="regionTree" class="net.zdsoft.eis.base.tree.action.RegionTreeAction"
+			method="regionTree">
+		</action>
+		<action name="regionTreeXml" class="net.zdsoft.eis.base.tree.action.RegionTreeXmlAction"
+			method="expandRegion">
+		</action>
+	</package>
+</struts>

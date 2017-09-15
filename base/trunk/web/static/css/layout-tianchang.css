@@ -1,0 +1,73 @@
+﻿body,button,input,select,textarea{font:12px "Microsoft YaHei","SimSun",Tahoma,Verdana,Arial;}
+.mCSB_draggerContainer{display: block;}
+/*----------header----------*/
+#header .header-inner{width:1200px;margin:0 auto;position:relative;z-index:1000;}
+
+/*----------container----------*/
+/*menu*/
+.menu-tianchang{width: 1202px;height: 69px;background: url(../images/tianchang/menu_bg.png) no-repeat 0 -5px;margin: 0 auto;padding-left: 9px;}
+.menu-tianchang li{float: left;width: 237px;height: 66px;margin-right: 2px;}
+.menu-tianchang li.current{background: url(../images/tianchang/menu_currrent.png) no-repeat;}
+.menu-tianchang li a{display: block;height: 56px;line-height: 56px;background-position: 45px center;background-repeat: no-repeat;padding-left: 95px;font-size: 18px;color: #323232;}
+.menu-tianchang li a:hover{text-decoration: none;}
+.menu-tianchang li.current a{color: #fff;}
+.menu-tianchang li a.home{background-image: url(../images/tianchang/icon/home_1.png);}
+.menu-tianchang li.current a.home{background-image: url(../images/tianchang/icon/home_2.png);}
+.menu-tianchang li a.user{background-image: url(../images/tianchang/icon/user_1.png);}
+.menu-tianchang li.current a.user{background-image: url(../images/tianchang/icon/user_2.png);}
+.menu-tianchang li a.pc{background-image: url(../images/tianchang/icon/pc_1.png);}
+.menu-tianchang li.current a.pc{background-image: url(../images/tianchang/icon/pc_2.png);}
+.menu-tianchang li a.edit{background-image: url(../images/tianchang/icon/edit_1.png);}
+.menu-tianchang li.current a.edit{background-image: url(../images/tianchang/icon/edit_2.png);}
+.menu-tianchang li a.wallet{background-image: url(../images/tianchang/icon/wallet_1.png);}
+.menu-tianchang li.current a.wallet{background-image: url(../images/tianchang/icon/wallet_2.png);}
+
+/*content*/
+.content-tianchang{width: 1213px;margin: 0 auto;}
+/*desk-sidebar*/
+.desk-sidebar{float: right;width: 334px;}
+/*desk-info*/
+.desk-info{height: 115px;background: url(../images/tianchang/info_bg.png) no-repeat;padding:23px 0 0 20px;}
+.desk-info .day{float:left;width:100px;text-align:center;color:#fff;}
+.desk-info .day span{font:100 60px/65px Arial;color: #ffba00;}
+.desk-info .today{margin:10px 0 0 115px;font-size: 16px;color:#fff;line-height:20px;}
+.desk-info .plug-in{width: 170px;height: 30px;margin:25px 0 0 115px;}
+/*desk-notice*/
+.desk-notice{height: 501px;background: url(../images/tianchang/notice_bg.png) no-repeat 1px 0;margin-top: 10px;}
+.desk-notice .tt{width: 78px;padding: 13px 25px;text-align: center;font-size: 16px;color: #fff;}
+.desk-notice #listmarquee{width: 280px;height: 425px;margin: 10px 0 0 26px;overflow: hidden;}
+.desk-notice table{width: 100%;border-collapse: collapse;}
+.desk-notice table td{height: 20px;padding: 5px 0;vertical-align: middle;font-size: 14px;color: #fff;}
+.desk-notice table td.lei{width: 66px;color: #ffba00;}
+.desk-notice table td.time{width: 50px;text-align: right;}
+.desk-notice table td a{color: #fff;}
+
+/*app*/
+.app-wrap{float: left;width: 870px;}
+.app-item{position: relative;width: 870px;height: 640px;overflow: hidden;}
+.app-item-inner{position: absolute;left:0;top:0;height: 605px;}
+.app-item ul{float: left;width: 870px;height: 605px;}
+.app-item li{float: left;width: 103px;margin:20px 8px 3px 10px;}
+.app-item li a{display: block;width: 103px;height: 92px;padding-top: 6px;margin: 0 auto;}
+.app-item li img{display: block;width: 64px;height: 64px;margin: 0 auto;line-height: 1;}
+.app-item li span{display: block;height: 19px;line-height: 18px;background: url(../images/tianchang/app_bg.png) no-repeat;margin-top: 9px;text-align: center;font-size: 14px;color: #fff;}
+.app-item li a:hover{height: 98px;padding-top: 0;text-decoration: none;}
+.app-item li a:hover img{width: 70px;height: 70px;}
+.app-item-page{position: absolute;bottom:0;left:0;width: 100%;padding: 20px 0 0;text-align: center;}
+.app-item-page a{display: inline-block;width: 14px;height: 14px;background: url(../images/tianchang/app_arrow.png) no-repeat -23px 0;margin: 0 4px;}
+.app-item-page a.current{background-position: 0 0;}
+#commonApp h3{font-size:14px;font-weight:700;color:#444;padding-left:20px;}
+#commonApp h3 span{font-size:12px;font-weight:100;color:#999fa5;}
+#commonApp .app-class{padding:0 20px;line-height:24px;padding-top:5px;}
+#commonApp .app-class a{color:#444;margin-right:10px;white-space:nowrap;}
+#commonApp .app-class a:hover,#commonApp .app-class a.current{color:#026db7;}
+#commonApp .app-list{overflow:hidden;zoom:1;padding:0 0 15px 20px;}
+#commonApp .app-list li{float:left;width:16.25%;text-align:right;margin-top:15px;}
+#commonApp .app-wrap{float: none;width: auto;}
+#commonApp .app-wrap-new .app-list li{width:12.5%;}
+#commonApp .app-list li a{display:block;width:98px;height:78px;background:#fff;border:1px dashed #dedede;text-align:center;color:#444;}
+#commonApp .app-list li a:hover{background:url(../images/tianchang/icon/app_add.png) no-repeat top right #f6fbff;text-decoration:none;}
+#commonApp .app-list-yes li a:hover{background:url(../images/tianchang/icon/app_del.png) no-repeat top right;background-color:#f6fbff;}
+#commonApp .app-list li a img{display:block;width:32px;height:32px;margin:10px auto;}
+#commonApp .app-list-yes,#commonApp .app-list-no{max-height: 285px;overflow: hidden;}
+

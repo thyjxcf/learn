@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+	<title>班级排行</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+    <script>
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.2 + 'px';
+    </script>
+</head>
+<body>
+	<header style="display:none">
+        	<h1 class="f-20">请假申请</h1>
+            <a href="#" class="abtn abtn-left f-18 html-window-back" id="cancelId"><span>取消</span></a>
+            <a href="javascript:void(0)" class="abtn abtn-left2 f-18 html-window-close"><span>关闭</span></a>
+     </header>
+    <div class="centerContainer" id="centerDiv">
+        <p class="lh60 ml20 f12 grey"></p>
+        <ul class="healthList">
+        </ul>
+    </div>
+    <script src="../../../static/html/js/jquery-1.9.1.min.js"></script>
+	<script src="../../../static/html/js/storage.js?version=v1.0"></script>
+    <script  src="../../../static/html/js/public.js"></script>
+	<script src="../../../static/html/js/jquery.form.js?version=v1.0"></script>
+	<script src="../../../static/html/js/jquery.Layer.js?version=v1.0"></script>
+	<script src="../../../static/html/js/common.js?version=v1.0"></script>
+	<script src="../../../static/html/js/weike.js?version=v1.0"></script>
+	<script src="../../../static/html/js/myWeike.js?version=v1.0"></script>
+	
+    <script  src="js/wapEntities.js"></script>
+    <script  src="js/wap.js"></script>
+	<script  src="js/wapNetwork.js"></script>
+	<script  src="js/wapNetworkService.js"></script>
+	<script>
+    document.addEventListener('DOMContentLoaded', function() {
+   		setTimeout(wap.initClassRank(), 200);
+    }, false);	
+	
+    </script>
+</body>
+</html>

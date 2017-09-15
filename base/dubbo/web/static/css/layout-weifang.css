@@ -1,0 +1,25 @@
+﻿/*---------桌面---------*/
+.desk-item-inner{height:235px;padding:20px 15px 0 20px;}
+.desk-item-inner .re-list li,.desk-item-inner .re-list-item li{height:26px;line-height:26px;}
+.desk-item-inner .dt a{color:#555;}
+.desk-item-inner .dt a.btn{color:#fff;}
+.desk-item-inner .dt a.set{display:inline-block;width:44px;height:23px;line-height:23px;background:#f3f3f3;border:1px solid #dedede;border-radius:3px;margin-top:-5px;text-align:center;color:#555;}
+.desk-item-inner .re-list,.desk-item-inner .re-list-item{padding-top:10px;}
+.myFrame{width:100%;height:230px;}
+.common-system .my-list{margin:8px;}
+.common-system .my-list li{height:32px;line-height:32px;padding-left:25px;font-size:16px;color:#444;}
+.common-system .my-list li a{color:#026db7;}
+.common-system .my-list li span{color:#ff7200;}
+.common-system .my-list-gift{height:190px;overflow:hidden;}
+.common-system .my-list-gift li{display:block;width:100%;float:none;background:url(../images/icon/gift.png) no-repeat left center;text-align:left;margin:0;font-size:14px;}
+.my-list-video{margin:8px;}
+.my-list-video li{height:32px;line-height:32px;background:url(../images/icon/video.png) no-repeat left center;padding-left:25px;font-size:16px;color:#444;}
+.my-list-video li a{color:#026db7;}
+.WF-video-wrap{border:1px solid #dedede;padding:15px 20px;}
+.WF-video-list{border-top:1px solid #f3f3f3;border-bottom:1px solid #f3f3f3;padding:10px 0 20px;margin:15px 0;}
+.WF-video-list li{float:left;width:33.33333%;height:32px;line-height:32px;font-size:16px;color:#026db7;}
+.WF-video-wrap .base-operation{background:none;}
+.memo{width:630px;}
+.memo .memo-list ul li{width:158px;}
+body.widescreen .memo{width:763px;}
+body.widescreen .memo .memo-list ul li{width:202px;}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true" default-autowire="byName">
+
+	<!-- 流程模板 -->
+	<bean id="businessFlowTemplateDao"
+		class="net.zdsoft.eis.base.auditflow.template.dao.impl.BusinessFlowTemplateDaoImpl">
+	</bean>
+	
+	<!-- 业务流程模板 ����service -->
+	<bean id="businessFlowTemplateService"
+		class="net.zdsoft.eis.base.auditflow.template.service.impl.BusinessFlowTemplateServiceImpl">
+	</bean>
+	
+	<!-- 异动审核步骤设定管理 -->
+	<bean id="jwAuditFlowManageDao"
+		class="net.zdsoft.eis.base.auditflow.template.dao.impl.JwAuditFlowManageDaoImpl">
+	</bean>
+	
+	<!-- 异动审核步骤设定管理 -->
+	<bean id="jwAuditFlowManageService"
+		class="net.zdsoft.eis.base.auditflow.template.service.impl.JwAuditFlowManageServiceImpl">
+		<property name="jwAuditFlowManageDao">
+			<ref bean="jwAuditFlowManageDao" />
+		</property>
+		<property name="unitService">
+			<ref bean="unitService" />
+		</property>
+	</bean>
+	
+</beans>
+

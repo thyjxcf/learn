@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>集体外出详情</title>
+<link  rel="stylesheet" type="text/css" href="../../../static/html/css/style.css?v=20170619">
+</head>
+
+<body class="gray">
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header style="display:none">
+        	<h1 class="f-20" ><span id="title"></span></h1>
+            <a href="#" class="abtn abtn-img abtn-back abtn-left html-window-back" id="cancelId"><span></span></a>
+            <a href="javascript:void(0)" class="abtn abtn-left2 f-18 html-window-close"><span>关闭</span></a>
+        </header>
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container" class="fn-rel">
+				<div id="auditImg">
+		    		<!--<i class="icon-img icon-state icon-state-yse"></i>
+		        	<i class="icon-img icon-state icon-state-no" style="display:none;"></i>-->
+				</div>
+            	<ul class="ui-detail f-14">
+            		<li class="avatar fn-clear" id="userPhotoImg"></li>
+            		<li class="fn-clear  mt-20">
+                        <span class="tt">所在部门：</span>
+                        <span class="dd" id="deptName"></span>
+                    </li>
+                    <li class="fn-clear">
+                        <span class="tt">开始时间：</span>
+                        <span class="dd" id="startTime"><!--2016-05-19--></span>
+                    </li>
+                    <li class="fn-clear">
+                        <span class="tt">结束时间：</span>
+                        <span class="dd" id="endTime"><!--2016-05-24--></span>
+                    </li>
+                    <li class="fn-clear">
+                        <span class="tt">外出类型：</span>
+                        <span class="dd" id="goOutJtType"></span>
+                    </li>
+                    <div id="studentEx">
+	            		<li>
+	                        <span class="tt">组织活动的年级或班级：</span>
+	                         <span class="dd" id="organize"></span>
+	                    </li>
+	            		<li>
+	                        <span class="tt">活动人数：</span>
+	                        <span class="dd" id="activityNumber"></span>
+	                    </li>
+	                    <li>
+	                        <span class="tt">活动地点：</span>
+	                        <span class="dd" id="place"></span>
+	                    </li>
+	                    <li>
+	                        <span class="tt">活动内容：</span>
+	                        <span class="dd" id="scontent"></span>
+	                    </li>
+	                    <li>
+	                        <span class="tt">交通工具：</span>
+	                        <span class="dd" id="vehicle"></span>
+	                    </li>
+	                    <li>
+	                        <span class="tt">是否有营运证：</span>
+	                        <span class="dd" id="isDrivinglicence"></span>
+	                    </li>
+	                    <li>
+	                        <span class="tt">是否由旅行社组织：</span>
+	                        <span class="dd" id="isOrganization"></span>
+	                    </li>
+	                    <div id="organizationDiv">
+		                    <li>
+		                        <span class="tt">旅行社单位：</span>
+		                        <span class="dd" id="traveUnit"></span>
+		                    </li>
+		                    <li>
+		                        <span class="tt">旅行社联系人：</span>
+		                        <span class="dd" id="travelinkPerson"></span>
+		                    </li>
+		                    <li>
+		                        <span class="tt">旅行社联系人手机号：</span>
+		                        <span class="dd" id="travelinkPhone"></span>
+		                    </li>
+	                   </div> 
+	                    <li>
+	                        <span class="tt">是否购买人身保险和意外伤害保险：</span>
+	                        <span class="dd" id="isInsurance"></span>
+	                    </li>
+	                    <li>
+	                        <span class="tt">活动负责人：</span>
+	                        <span class="dd" id="activityleaderName"></span>
+	                    </li>
+	                    <li>
+	                        <span class="tt">活动负责人手机号：</span>
+	                        <span class="dd" id="activityleaderPhone"></span>
+	                    </li>
+	                    <li>
+	                        <span class="tt">带队老师：</span>
+	                        <span class="dd" id="leadGroupName"></span>
+	                    </li>
+	                    <li>
+	                        <span class="tt">带队老师手机号：</span>
+	                        <span class="dd" id="leadGroupPhone"></span>
+	                    </li>
+	                    <li>
+	                        <span class="tt">其他老师：</span>
+	                        <span class="dd" id="otherTeacherNames"></span>
+	                    </li>
+	                    <li>
+	                        <span class="tt">活动方案：</span>
+	                        <span class="dd" id="activityIdeal"></span>
+	                    </li>
+	                    <li>
+	                        <span class="tt">安全方案：</span>
+	                        <span class="dd" id="saftIdeal"></span>
+	                    </li>
+	                </div>
+	                
+	                <div id="teacherEx">
+	                	 <li>
+	                        <span class="tt">外出内容：</span>
+	                        <span class="dd" id="tcontent"></span>
+	                    </li>
+	                    <li>
+	                        <span class="tt">参与人员：</span>
+	                        <span class="dd" id="partakePersonNames"></span>
+	                    </li>
+	                </div>
+	                
+            	</ul>
+            	<ul class="acc-wrap  ios-touch mt-20" id="fileDiv">
+                </ul>
+                <ul class="ui-axis mt-20" id="auditDiv">
+                </ul>
+            </div>
+        </div>
+        <div class="ui-footer fn-flex fn-flex-row f-16">
+            <span class="fn-flex-auto"><a href="#" class="submit pass">通过</a></span>
+            <span class="fn-flex-auto"><a href="#" class="reset no-pass">不通过</a></span>
+        </div>
+    </div>
+</div>
+<div class="ui-layer fail-ui-layer" style="display:none;" id="reasonDiv">
+	<p class="py-30 t-center f-14">审核意见</p>
+    <p class="px-10 mb-30"><input type="text" id="failReason" class="reason txt f-14" maxlength="200" placeholder="输入不通过的理由"></p>
+	<p class="fn-flex fn-flex-row dd f-14">
+        <a href="#" class="fn-flex-auto close" id="failAudit">确定</a>
+        <a href="#" class="fn-flex-auto close">取消</a>
+    </p>
+</div>
+
+<div class="ui-layer pass-ui-layer" style="display:none;">
+	<p class="py-30 t-center f-14">审核意见</p>
+    <p class="px-10 mb-30"><input type="text" id="passReason" class="reason txt f-14" maxlength="200" placeholder="内容..."></p>
+	<p class="fn-flex fn-flex-row dd f-14">
+        <a href="#" class="fn-flex-auto close" id="passAudit">确定</a>
+        <a href="#" class="fn-flex-auto close">取消</a>
+    </p>
+</div>
+
+<form name="dataForm" id="dataForm" method="post">
+		<input type="hidden" name="taskHandlerSaveJson" id="taskHandlerSaveJson" value=""/>
+		<input type="hidden" name="pass" id="pass" value=""/>
+		<input type="hidden" name="id" id="id" value=""/>
+		<input id="currentStepId" name="currentStepId" value="" type="hidden" />
+</form>
+</body>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible_css.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery-1.9.1.min.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.Layer.js?v=20170619"></script>
+<script src="../../../static/html/js/storage.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.form.js?v=20170619"></script>
+<script src="../../../static/html/js/mobiscroll.custom-3.0.0-beta2.min.js?v=20170619"></script>
+
+<script  src="../../../static/html/js/public.js?v=20170619"></script>
+<script src="../../../static/html/js/myscript.js?v=20170619"></script>
+<script  src="../../../static/html/js/common.js?v=20170619"></script>
+<script  src="../../../static/html/js/validate.js?v=20170619"></script>
+<script  src="../../../static/html/js/weike.js?v=20170619"></script>
+<script  src="../../../static/html/js/myWeike.js?v=20170619"></script>
+<script  src="js/wap.js?v=20170619"></script>
+<script  src="js/wapEntities.js?v=20170619"></script>
+<script  src="js/wapNetwork.js?v=20170619"></script>
+<script  src="js/wapNetworkService.js?v=20170619"></script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+		init();
+  		setTimeout(wap.initAudit(), 200);
+}, false);
+
+function init(){
+	layer('.no-pass','.fail-ui-layer','.close','备注');
+	layer('.pass','.pass-ui-layer','.close','备注');
+	
+	//弹出层内部的text area获取焦点后，弹出虚拟键盘，导致窗口变小，位置需要重新计算
+	//虚拟键盘弹出有个动画，需要延时获取
+	$(window).resize(function(){
+		var allH=$(window).height();
+		var layerH=$('.ui-layer').height();
+		var layerT=parseInt((allH-layerH)/2);
+		$('.ui-layer').css('top',layerT);
+	});
+}
+</script>
+</html>

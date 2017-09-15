@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false">
+		 <!--添加触发器-->
+		<property name="triggers">
+			<list>
+				<ref local="syncJBTrigger" />
+			</list>
+		</property>
+	</bean>
+	
+	<!-- ================================和正方统一用户平台对接基础数据同步=============================== -->
+	<!-- 数据同步触发时间 -->
+	<bean id="syncJBTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="syncJBJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0/10 * * * ?</value>
+		</property>
+	</bean>
+	<!-- 同步任务及方法 -->
+	<bean id="syncJBJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="syncJBJobBean" />
+		</property>
+		<property name="targetMethod">
+			<value>syncJob</value>
+		</property>
+		<!-- 1为机构，2为学校，3为用户-->
+		<property name="arguments">
+		    <value>1,2,3</value>
+		</property>
+		<!-- 禁止并发 -->
+		<property name="concurrent">
+		    <value>false</value>
+		</property>
+	</bean>	
+	
+</beans>

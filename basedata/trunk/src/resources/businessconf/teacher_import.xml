@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by zdsoft (zdsoft) -->
+<root> 
+	<!-- 教育局端教职工导入 -->
+	<object define="教职工基本信息" name="teacher_import_edu" entityclassname="net.zdsoft.eis.base.data.entity.TeacherImport" unitguid="false" noxxdm="true" description="身份证号必须唯一,不可重复。">
+		<listeners>
+			<listener>dataImportListener</listener>
+		</listeners>
+		<field define="所属单位" name="unitid" dbname="unit_id" unionPrimary="teachercode" type="String(60)" required="Y" displayOrder="1" example="如：杭州市教育局。&lt;font color='red'&gt;本单位，也可以是本单位的下属单位(包括教育局和学校)&lt;/font&gt;" />
+		<field define="编号" name="teachercode" dbname="teacher_code" unionPrimary="unitid" required="Y" type="String(8)" displayOrder="2" regex="^[0-9]{1,8}$" errorMsg="长度最大为8位的数字"  example="如：00000001。&lt;font color='red'&gt;长度最大为8位的数字。如果不能正常显示，请将excel中，这列的格式设置成文本格式&lt;/font&gt;" />
+	</object>
+	
+	<!-- 学校局端教职工导入 -->
+	<object define="教职工基本信息" name="teacher_import_sch" entityclassname="net.zdsoft.eis.base.data.entity.TeacherImport" unitguid="false" noxxdm="true" description="身份证号必须唯一,不可重复。">
+		<listeners>
+			<listener>dataImportListener</listener>
+		</listeners>
+		<field define="编号" name="teachercode" dbname="teacher_code" unique="Y" required="Y" type="String(8)" displayOrder="1" regex="^[0-9]{1,8}$" errorMsg="长度最大为是8位的数字"  example="如：00000001。&lt;font color='red'&gt;长度最大为8位的数字。如果不能正常显示，请将excel中，这列的格式设置成文本格式&lt;/font&gt;" />
+		<field define="教研组" name="teachGroupName" dbname="teach_group_name" required="N" type="String(100)" example="如：语文组。&lt;font color='red'&gt;请填写正确的教研组名称！&lt;/font&gt;" />
+	</object>
+	
+	<!-- 公共部分，如果为更新，则primary='Y'时表示required='Y',否则required='N'。注意增加dbname -->
+	<!-- 注意：在新的导入框架的配置文件中，default不可用，取而代之的是defautValue  -->		
+	<object name="commonobject">	
+		<field define="姓名" name="teachername" dbname="teacher_name" required="Y" type="String(100)" example="如：张三。&lt;font color='red'&gt;姓名（曾用名）包含汉字、字母、数字、点号、空格和下划线，且须以汉字或字母开头、非空格结尾&lt;/font&gt;" />
+		<field define="曾用名" name="oldname" dbname="old_name" required="N" type="String(100)" example="如：张叁。" />
+		<field define="性别" name="sex" required="Y" mcode="DM-XB" example="如：男"/>
+		<field define="出生日期" name="birthday" required="N" type="Date" example="如：19810101(年份+月份+天)。&lt;font color='red'&gt;请将excel中，这列的格式设置成文本格式&lt;/font&gt;"/>		
+		<field define="身份证号码" name="identitycard" dbname="identity_card" required="N" unique="Y" type="String(18)" regex="(^[0-9]{15}$)|(^[0-9]{17}[0-9(x|X)]{1}$)" 
+			 errorMsg="格式无效。" example="如：33252519771203002x。&lt;font color='red'&gt;严格按国家身份证标准。如果不能正常显示，请将excel中，这列的格式设置成文本格式&lt;/font&gt;"/>
+		<field define="部门" name="deptid" dbname="dept_id" required="Y" type="String(30)" example="如：校长室。&lt;font color='red'&gt;如果系统中不存在，则会生成指定的所在部门&lt;/font&gt;"/>		
+		<field define="账号" name="username" unique="Y" required="Y" type="String(20)" example="如：zhangsan。"/>			
+		<field define="登录密码" name="password" type="String(20)"   example="如：123456789。&lt;font color='red'&gt;默认为系统指定的默认密码。&lt;/font&gt;"/>		
+		<!-- 学生的点到卡号去掉，教师的点到卡号也去掉
+		<field define="点到卡号" name="cardnumber" unique="Y" required="N" dbname="card_number" type="String(20)" example="教师的点到卡号" />
+		 -->
+		<field define="在职标记"  name="incumbencysign" dbname="incumbency_sign" required="Y" defaultValue="" mcode="DM-JSZZBJ" example="如：在职"/>
+	    <field define="参加工作年月" name="workdate" dbname="work_date" type="YearMonth" example="如：20040901(年份+月份+天)。&lt;font color='red'&gt;请将excel中，这列的格式设置成文本格式&lt;/font&gt;"/>
+	    <field define="参加教育工作年月" name="workTeachDate" dbname="work_teach_date" type="YearMonth" example="如：20040901(年份+月份+天)。&lt;font color='red'&gt;请将excel中，这列的格式设置成文本格式&lt;/font&gt;"/>
+	    		
+		<field define="职务" name="duty" dbname="duty_code" type="String(255)" example="如：校长(如果是多职务请用,隔开。如：校长,副校长)"/>
+		<!-- 
+		<field define="授课状态" name="teachStatus" dbname="teach_status" required="N" 
+		defaultValue="1" mcode="DM-JSSKZT" example="如：授课"/>
+		 -->
+		<field define="编制类别" name="weaveType" dbname="weave_type" required="N"
+		defaultValue="" mcode="DM-BZLB" example="如：专任教师"/>
+		<field define="港澳台侨" name="returnedChinese" dbname="returned_chinese" required="N" mcode="DM-GATQ" example="如：归侨"/>
+		<field define="是否双师型" name="multiTitle" dbname="multi_title" required="N" 
+		defaultValue="0" mcode="DM-BOOLEAN" example="如：否"/>
+		<field define="现聘岗位" name="title" dbname="title" mcode="DM-JSZCM" example="如：正高级"/>
+		<!-- 
+		<field define="职务" name="title" dbname="title" type="String(255)" example="如：校长。字符串，不超过255个字符。&lt;font color='red'&gt;非空情况下，如果系统中不存在，则会生成指定的职务&lt;/font&gt;"/>		
+		 -->
+		<field define="手机号码" name="mobilephone" dbname="mobile_phone" required="Y"  type="String(20)" regex="^[0-9]{1,20}$" errorMsg="请输入正确的手机号码(不能超过20个数字)。" example="如：13589568956。&lt;font color='red'&gt;数字串字符串&lt;/font&gt;"/>	
+		<field define="办公电话" name="officetel" dbname="office_tel" type="String(20)" regex="^[0-9]{1,20}$" errorMsg="请输入正确的办公电话(不能超过20个数字)。" example="如：057156686686。&lt;font color='red'&gt;数字串字符串&lt;/font&gt;"/>	
+		<field define="籍贯" name="nativeplace" dbname="native_place" type="String(40)" example="如：河北省邢台市" />
+		<field define="国籍" name="country" dbname="country" mcode="DM-COUNTRY" defaultValue="156" example="如：中国"/>		
+		<field define="民族" name="nation" required="N" dbname="nation" mcode="DM-MZ" defaultValue="01" example="如：汉族"/>
+		<field define="政治面貌" name="polity" mcode="DM-ZZMM"  example="如：中国共产党党员" />
+		<field define="加入时间" name="polityjoin" dbname="polity_join" type="Date" example="如：19810101(年份+月份+天)。&lt;font color='red'&gt;请将excel中，这列的格式设置成文本格式&lt;/font&gt;"/>		
+		<field define="现有学历" name="academicqualification" dbname="academic_qualification" mcode="DM-XL" example="如：本科" />
+		<field define="原有学历（全日制）" name="oldAcademicQualification" dbname="old_academic_qualification" mcode="DM-XL" example="如：本科" />
+		
+		<field define="所学专业" name="major" mcode="DM-ZYLB" example="如：外语" />
+		<field define="毕业院校" name="graduateschool" dbname="graduate_school" type="String(40)" example="如：北京师范大学" />
+		<field define="毕业时间" name="graduatetime" dbname="graduate_time" type="Date" example="如：19810101(年份+月份+天)。&lt;font color='red'&gt;请将excel中，这列的格式设置成文本格式&lt;/font&gt;"/>		
+		<field define="户口类别" name="registertype" dbname="register_type" mcode="DM-HKXZ" example="如：农业户口" />
+	    <field define="户口所在地" name="registerplace" dbname="register_place" type="String(50)" example="如：河北省邢台市新会区派出所" />
+	   	<!-- 页面上没有这个字段，这里注释掉
+	    <field define="联系地址" name="linkaddress" dbname="link_address" type="String(50)" example="如：邢台市新会区水星小区。字符串，限长50个字符" />
+	   	 -->
+	    <field define="主页地址" name="homepage" type="String(40)" example="如：http://www.zhangsan.com。&lt;font color='red'&gt;必须以http://或https://开头&lt;/font&gt;"/>
+	    <field define="电子邮件" name="email" type="String(40)" regex="email"  errorMsg="格式无效。" example="如：zhangsan@zdsoft.net。&lt;font color='red'&gt;字符串中必须含有“@”符号&lt;/font&gt;"/>
+	    <field define="备注" name="remark" type="String(255)" example="如：该教师是特级教师" />
+		<field define="扣费号码" name="chargenumber" dbname="charge_number" type="String(20)" example="如：859674。&lt;font color='red'&gt;家校互联中使用&lt;/font&gt;"/>
+		
+		<field define="专业技术职务" name="specTechnicalDuty" dbname="spec_technical_duty" type="String(60)" mcode="" example="如：特级文职干部。"/>
+		<field define="专业技术职务评审年月" name="specTechnicalDutyDate" dbname="spec_technical_duty_date" type="YearMonth" example="如：19810101(年份+月份+天)。&lt;font color='red'&gt;请将excel中，这列的格式设置成文本格式&lt;/font&gt;"/>
+		<field define="家庭地址" name="homeAddress" dbname="home_address" type="String(60)" example="如：邢台市新会区水星小区。字符串，限长60个字符" />
+		<field define="联系方式" name="linkPhone" dbname="link_phone" type="String(20)" regex="^[0-9]{1,20}$" errorMsg="请输入正确的联系方式(不能超过20个数字)。" example="如：057185020360"/>
+		<field define="一卡通" name="generalCard" dbname="general_card" type="String(20)" example="如：02121252" />
+		<!-- 2009-12-25 新增五个字段:oldname,workdate,duty,officetel,homepage。 删除两个字段：cardnumber, linkaddress -->
+	</object>
+</root>

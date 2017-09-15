@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts> 
+	<package name="system-desktop-app" extends="default" namespace="/system/desktop/app">
+		<!--常用系统-->
+		<action name="userSubsystem" class="net.zdsoft.eis.system.desktop.action.SystemAppAction">
+			<result name="success" type="freemarker">userSubsystem.ftl</result>
+		</action>
+		<!--常用系统(中策)-->
+		<action name="commonSystem" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="commonSystem">
+			<result name="success" type="freemarker">commonSystem.ftl</result>
+		</action>
+		<!--用户常用模块-->
+		<action name="userApp" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="userApp">
+			<result name="success" type="freemarker">userApp.ftl</result>
+		</action>
+		<action name="userApp-tc" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="userApp">
+			<result name="success" type="freemarker">userApp_tc.ftl</result>
+		</action>
+		<action name="userApp-set" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="userAppSet">
+			<result name="success" type="freemarker">userAppSet.ftl</result>
+		</action>
+		<action name="userApp-set-tc" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="userAppSet">
+			<result name="success" type="freemarker">userAppSet-tc.ftl</result>
+		</action>
+		<action name="userApp-remote" class="net.zdsoft.eis.system.desktop.action.SystemAppAction">
+			<result name="message" type="json"><param name="root">action</param></result>   
+		</action>
+		
+		<action name="userAppEight" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="userApp">
+			<result name="success" type="freemarker">userAppEight.ftl</result>
+		</action>
+		<action name="userApp-setEight" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="userAppSet">
+			<result name="success" type="freemarker">userAppSetEight.ftl</result>
+		</action>
+		<!--用户个人设置-->
+		<action name="userInfo" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="userInfo">
+			<result name="success" type="freemarker">userInfo.ftl</result>
+		</action>
+		<action name="userInfo-set" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="userInfoSet">
+			<result name="success" type="freemarker">userInfoSet.ftl</result>
+		</action>
+		<action name="userInfo-imageModify-index" class="net.zdsoft.eis.system.desktop.action.ImageModifyAction">
+			<result name="success" type="freemarker">imageModify.ftl</result>
+		</action>
+		<action name="userInfo-imageModify-main" class="net.zdsoft.eis.system.desktop.action.ImageModifyAction" method="main">
+			<result name="success" type="freemarker">imageModifyMain.ftl</result>
+		</action>
+		<action name="userInfo-imageModify-upload" class="net.zdsoft.eis.system.desktop.action.ImageModifyAction"
+	    	method="upload">
+	    </action>
+	    <action name="userInfo-imageModify-save" class="net.zdsoft.eis.system.desktop.action.ImageModifyAction"
+	    	method="save">
+	    </action>
+	    <action name="userInfo-imageModify-display" class="net.zdsoft.eis.system.desktop.action.ImageModifyAction"
+	    	method="display">
+	    </action>
+	    
+		<action name="userInfo-remote" class="net.zdsoft.eis.system.desktop.action.SystemAppAction">
+			<result name="message" type="json"><param name="root">action</param></result>   
+		</action>
+		<!-- 强制密码修改的页面 -->
+		<action name="userPassword-set" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="userPasswordSet">
+			<result name="success" type="freemarker">userPasswordSet.ftl</result>
+			<result name="zjxa" type="freemarker">userPasswordSetZJXA.ftl</result>
+		</action>
+		
+		<!-- 皮肤设置 -->
+		<action name="userSkinSet" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="skinSet">
+			<result name="success" type="freemarker">skinSet.ftl</result>
+		</action>
+		<action name="userSkinSet-save" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="skinSetSave">
+			<result name="success" type="json">
+				<param name="root">jsonError</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		
+		<!--第三方ap-->
+		<action name="thirdPartApp" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="thirdPartApp">
+			<result name="success" type="freemarker">thirdPartApp.ftl</result>
+		</action>
+		
+		<!--外部链接-->
+		<action name="externalApp" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="externalAppList">
+			<result name="success" type="freemarker">externalApp.ftl</result>
+			<result name="appAll" type="freemarker">externalAppAll.ftl</result>
+		</action>
+		<action name="externalApp-set" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="externalAppSet">
+			<result name="success" type="freemarker">externalAppSet.ftl</result>
+			<result name="appAll" type="freemarker">externalAppAllSet.ftl</result>
+		</action>
+		<action name="externalApp-list" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="externalAppSetList">
+			<result name="success" type="freemarker">externalAppList.ftl</result>
+		</action>
+		<action name="externalApp-save" class="net.zdsoft.eis.system.data.action.ExternalAppAction" method="saveApp">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      			<param name="contentType">text/html</param>
+      		</result>
+		</action>
+		<action name="externalApp-delete" class="net.zdsoft.eis.system.data.action.ExternalAppAction" method="deleteApp">
+			<result name="success" type="json">
+      			<param name="root">jsonError</param>
+      			<param name="contentType">text/html</param>
+      		</result>
+		</action>
+		<action name="externalApp-deleteModule" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="userAppDelete">
+			<result name="success" type="json">
+      			<param name="root">jsonError</param>
+      			<param name="contentType">text/html</param>
+      		</result>
+		</action>
+		<action name="externalApp-show" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="showApp">
+			<result name="success" type="json">
+      			<param name="root">jsonError</param>
+      			<param name="contentType">text/html</param>
+      		</result>
+		</action>
+		
+		<action name="broadcast" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="broadcast">
+			<result name="success" type="freemarker">broadcastApp.ftl</result>
+		</action>
+		<action name="broadcast-set" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="broadcastSet">
+			<result name="success" type="freemarker">broadcastSet.ftl</result>
+		</action>
+		<action name="broadcast-list" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="broadcastSetList">
+			<result name="success" type="freemarker">broadcastSetList.ftl</result>
+		</action>
+		<action name="broadcast-save" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="saveBroadcast">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      			<param name="contentType">text/html</param>
+      		</result>
+		</action>
+		<action name="broadcastList" class="net.zdsoft.eis.system.desktop.action.SystemAppAction" method="broadcastList">
+			<result name="success" type="freemarker">broadcastList.ftl</result>
+		</action>
+		
+		<!-- 子系统App-->
+		<action name="subsystemApp" class="net.zdsoft.eis.system.homepage.action.SystemIndexAction" method="subsystemApp">
+			<result name="success" type="freemarker">subsystemApp.ftl</result>
+		</action>
+		<action name="subsystemApp-tc" class="net.zdsoft.eis.system.homepage.action.SystemIndexAction" method="subsystemApp">
+			<result name="success" type="freemarker">subsystemApp_tc.ftl</result>
+		</action>
+		<!-- 图表相关 -->
+		<action name="externalApp-histogram" class="net.zdsoft.eis.system.desktop.action.EchartsCharts" method="externalAppHistogram">
+			<result name="success" type="freemarker">externalAppHistogram.ftl</result>
+		</action>
+		
+		<action name="externalApp-line" class="net.zdsoft.eis.system.desktop.action.EchartsCharts" method="externalAppLine">
+			<result name="success" type="freemarker">externalAppLine.ftl</result>
+		</action>
+		
+		<action name="externalApp-pie" class="net.zdsoft.eis.system.desktop.action.EchartsCharts" method="externalAppPie">
+			<result name="success" type="freemarker">externalAppPie.ftl</result>
+		</action>
+		
+		<action name="externalApp-radar" class="net.zdsoft.eis.system.desktop.action.EchartsCharts" method="externalAppRadar">
+			<result name="success" type="freemarker">externalAppRadar.ftl</result>
+		</action>
+		
+		<action name="externalApp-chartsAll" class="net.zdsoft.eis.system.desktop.action.EchartsCharts" method="desktopAll">
+			<result name="success" type="freemarker">chartsAll.ftl</result>
+		</action>
+		
+		<!-- 学校教育局实际数据图表 -->
+		<!-- 学校 -->
+		<action name="externalApp-studentGradeHistogram" class="net.zdsoft.eis.system.desktop.action.EchartsChartsAction" method="studentGradeHistogram">
+			<result name="success" type="freemarker">charts/studentGradeHistogram.ftl</result>
+		</action>
+		
+		<action name="externalApp-studentMultiStatisticPie" class="net.zdsoft.eis.system.desktop.action.EchartsChartsAction" method="studentMultiStatisticPie">
+			<result name="success" type="freemarker">charts/studentMultiStatisticPie.ftl</result>
+		</action>
+		
+		<action name="externalApp-teacherSexPie" class="net.zdsoft.eis.system.desktop.action.EchartsChartsAction" method="teacherSexPie">
+			<result name="success" type="freemarker">charts/teacherSexPie.ftl</result>
+		</action>
+		
+		<!-- 教育局 -->
+		<action name="externalApp-subSchoolSetTypeHistogram" class="net.zdsoft.eis.system.desktop.action.EchartsChartsAction" method="subSchoolSetTypeHistogram">
+			<result name="success" type="freemarker">charts/subSchoolSetTypeHistogram.ftl</result>
+		</action>
+		
+		<action name="externalApp-subSchoolStudentSexHistogram" class="net.zdsoft.eis.system.desktop.action.EchartsChartsAction" method="subSchoolStudentSexHistogram">
+			<result name="success" type="freemarker">charts/subSchoolStudentSexHistogram.ftl</result>
+		</action>
+		
+		<action name="externalApp-subSchoolStudentHuKouHistogram" class="net.zdsoft.eis.system.desktop.action.EchartsChartsAction" method="subSchoolStudentHuKouHistogram">
+			<result name="success" type="freemarker">charts/subSchoolStudentHuKouHistogram.ftl</result>
+		</action>
+		
+		<action name="externalApp-subSchoolTeacherSexHistogram" class="net.zdsoft.eis.system.desktop.action.EchartsChartsAction" method="subSchoolTeacherSexHistogram">
+			<result name="success" type="freemarker">charts/subSchoolTeacherSexHistogram.ftl</result>
+		</action>
+		
+		<action name="externalApp-subSchoolStudentCategoryPie" class="net.zdsoft.eis.system.desktop.action.EchartsChartsAction" method="subSchoolStudentCategoryPie">
+			<result name="success" type="freemarker">charts/subSchoolStudentCategoryPie.ftl</result>
+		</action>
+		
+	</package>
+	
+</struts>

@@ -1,0 +1,25 @@
+
+/*收藏夹管理样式*/
+.fav1_btn {
+    background-image:url(images/btn_fav1.gif);
+    width:116px;
+	height:21px;
+	font-size:12px;
+	border:0px;
+	padding-top:2px;
+	padding-left:25px;
+	cursor:hand;
+}
+.fav2_btn {
+    background-image:url(images/btn_fav2.gif);
+    width:97px;
+	height:21px;
+	font-size:12px;
+	border:0px;
+	padding-top:2px;
+	padding-left:25px;
+	cursor:hand;
+}
+.folder_layer {
+	BACKGROUND-IMAGE: url(images/folder_layer.gif); WIDTH: 123px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 35px
+}

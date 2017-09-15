@@ -1,0 +1,93 @@
+======================================================================================
+通用树相关文件说明（这部分必须阅读）
+1、conf\spring\stusysXTreeContext.xml 源代码位置：src\net\zdsoft\stusys\common\tree\
+
+2、conf\xwork\ww-stusys-xtree.xml 和 conf\xwork\ww-stusys-stu-xtree.xml 注意：树的页面ftl文件，可以根据模块需要，各自编写
+
+3、页面文件位置：web\common\xtree
+
+4、树链接说明：在点击树的显示名称时，需要提供链接之处，代码形式是触发页面的
+               "javascript:treeItemClick(param,itemtype)"方法。该方法由树的调用方，自己负责实现。
+	       该方法的param参数，是由树传回的一些必要的值，尤其是主键id等。
+	       该方法的itemtype参数，也是由树传回的表示被点击的节点类型，如学校、班级、学生等，
+	       类型具体表示的含义，请参考常量类net.zdsoft.stusys.common.tree.constants.TreeConstant
+
+=========================================================================================
+一、树的使用指南
+--------------------------------------------------------------------------------------------
+1、班级树
+
+  1）树展开层次：学校名称-[分校区]-班级
+
+  2）url地址：
+ /common/xtree/classtree.action?schid=学校id&needPopedom=true&allLinkOpen=true
+
+  3）参数说明：schid:学校id，如果不传入，将会从LoginInfo中获取用户所在的单位ID。
+	       needPopedom:业务上是否需要权限控制，当需要权限控制时，必须传入true值，否则可以不传或者传入非true值。
+	       allLinkOpen:业务上是否需要在点击树的所有节点时，都触发树链接的js方法。当需要开放所有链接时，必须
+	                   传入true值，否则可以不传或者传入非true值。
+
+  4）树链接说明：对于班级树，需要配合传入的allLinkOpen参数一起控制，点击班级树上节点名称，触发树链接的js方法。
+                 js方法中的itemtype为学校类型时，param参数值为：schid=被点击的学校id；
+		           itemtype为分校区类型时，param参数值为：subschoolid=被点击的分校区id；
+			   itemtype为班级类型时，param参数值为：classid=被点击的班级id
+	         itemtype具体的类型值，请参考常量类net.zdsoft.stusys.common.tree.constants.TreeConstant
+--------------------------------------------------------------------------------------------------------------- 
+2、学生树
+
+  1）树展开层次：学校名称-[分校区]-班级-学生  其中学生是动态展开的。
+
+  2）url地址：/common/xtree/studenttree.action?schid=学校id&needPopedom=true&treeType=1&allLinkOpen=true
+
+  3）参数说明：schid:学校id，如果不传入，将会从LoginInfo中获取用户所在的单位ID。
+             needPopedom:业务上是否需要权限控制，当需要权限控制时，必须传入true值，否则可以不传或者传入非true值。
+	         treeType:学生树的类别，如正规学生，还是为异动业务操作需要的学生等，该参数不传时默认为正规学生。
+	                see net.zdsoft.stusys.common.tree.constants.TreeConstant 中 TREETYPE_* 的说明
+		     allLinkOpen:业务上是否需要在点击树的所有节点时，都触发树链接的js方法。当需要开放所有链接时，必须
+	                   传入true值，否则可以不传或者传入非true值。
+	                   
+  4）树链接说明：对于学生树，需要配合传入的allLinkOpen参数一起控制，点击学生名称时，会触发树链接的js方法。
+  			  js方法中的itemtype为学校类型时，param参数值为：schid=被点击的学校id；
+		              itemtype为分校区类型时，param参数值为：subschoolid=被点击的分校区id；
+			   		  itemtype为班级类型时，param参数值为：classid=被点击的班级id
+			   		  itemtype为学生类型时，param参数值为：id=被点击的学生id
+	         		  itemtype具体的类型值，请参考常量类net.zdsoft.stusys.common.tree.constants.TreeConstant
+----------------------------------------------------------------------------------------------------------------
+3、行政区域树
+
+  1）树展开层次：省级或直辖市-地市级-区县级  其中区县级是动态展开的。
+
+  2）url地址：/common/xtree/regiontree.action
+
+  3）参数说明：无参数。
+
+  4）树链接说明：对于行政区域树，点击所有区域名称时，都会触发树链接的js方法。
+                 param参数值为：id=被点击的区域id&name=被点击的区域名称。
+----------------------------------------------------------------------------------------------------------------
+4、部门树
+
+   1）树展开层次：第一级是生成时展开，其他都是动态展开，这个展开的级数只受数据库影响。
+   2）url地址：/common/xtree/unittree.action?type=1 教育局 2 学校
+   3)参数说明：显示的部门是登录用户有权限显示的部门
+   
+--------------------------------------------------------------------------------------------------------------- 
+2、教育局树
+
+  1）树展开层次：教育局-[下属教育局]-学校-班级-学生  其中班级和学生是动态展开的。
+
+  2）url地址：/common/xtree/[action名.action]?eduid=教育局ID&acadyear=学年&underlingEdu=true&underlingSch=true
+  
+  3) action名：
+  			edutoschtree.action:教育局-[下属教育局]-[学校]
+  			edutoclasstree.action:教育局-[下属教育局]-学校-班级
+  			edutostudenttree.action:教育局-[下属教育局]-学校-班级-学生  						
+
+  3）参数说明：eduid:教育局id，如果不传入，将会从LoginInfo中获取用户所在的单位ID。
+             underlingEdu:是否显示下属教育局，默认显示。
+		     underlingSch:是否显示下属学校，默认显示。
+	                   
+  4）树链接说明：点击触发treeItemClick(id,name,type)JS脚本。
+  				id：当前节点value，即学校，学生的id
+  				name：当前节点text
+  				type:当前节点的类型;edu(教育局)、school(学校)、class(班级)、student(学生)
+  				

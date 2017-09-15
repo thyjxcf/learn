@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd 
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+	default-lazy-init="true">
+
+	<description>Spring公共配置文件</description>
+
+	<!-- ===================================================================== -->
+
+	<context:annotation-config />
+	<context:component-scan base-package="net.zdsoft" />
+	<context:component-scan base-package="com.winupon" />
+	
+	<!-- 与宁海一卡通数据对接 -->
+	<bean id="nhhibernateProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location">
+			<value>classpath:conf/nhdatabase.properties</value>
+		</property>
+	</bean>
+	<bean id="nhdataSource" class="net.zdsoft.keelcnet.dao.HibernateDataSource">
+		<property name="databaseProperties">
+			<ref bean="nhhibernateProperties" />
+		</property>
+	</bean>
+	<!-- Hibernate配置 -->
+	<bean id="nhsessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="nhdataSource" />
+		<property name="hibernateProperties" ref="nhhibernateProperties" />
+		<property name="mappingResources" ref="mappingResources" />
+	</bean>
+	<!-- 事务配置 -->
+	<bean id="nhtransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="nhsessionFactory" />
+	</bean>
+	<tx:advice id="nhdefaultTxAdvice" transaction-manager="nhtransactionManager">
+		<tx:attributes>
+			<!-- 	<tx:method name="get*" read-only="true" /> -->
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="query*" read-only="true" />
+			<tx:method name="stat*" read-only="true" />
+			<tx:method name="isExists*" read-only="true" />
+
+			<tx:method name="add*" />
+			<tx:method name="update*" />
+			<tx:method name="delete*" />
+			<tx:method name="save*" />
+			<tx:method name="init*" />
+			<tx:method name="importData*" />
+			<tx:method name="regi*" />
+			<tx:method name="insert*" />
+			
+			<tx:method name="*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:pointcut id="nhdefaultServiceOperation"
+			expression="execution(* net.zdsoft.remote.nhykt.service..*Service.*(..))" />
+		<aop:advisor advice-ref="nhdefaultTxAdvice" pointcut-ref="nhdefaultServiceOperation" />
+	</aop:config>
+	
+	<!-- 与国研的考勤系统对接的数据源 -->
+	<bean id="kqhibernateProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location">
+			<value>classpath:conf/kqdatabase.properties</value>
+		</property>
+	</bean>
+	<bean id="kqdataSource" class="net.zdsoft.keelcnet.dao.HibernateDataSource">
+		<property name="databaseProperties">
+			<ref bean="kqhibernateProperties" />
+		</property>
+	</bean>
+	<!-- Hibernate配置 -->
+	<bean id="kqsessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="kqdataSource" />
+		<property name="hibernateProperties" ref="kqhibernateProperties" />
+		<property name="mappingResources" ref="mappingResources" />
+	</bean>
+	<!-- 事务配置 -->
+	<bean id="kqtransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="kqsessionFactory" />
+	</bean>
+	<tx:advice id="kqdefaultTxAdvice" transaction-manager="kqtransactionManager">
+		<tx:attributes>
+			<!-- 	<tx:method name="get*" read-only="true" /> -->
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="query*" read-only="true" />
+			<tx:method name="stat*" read-only="true" />
+			<tx:method name="isExists*" read-only="true" />
+
+			<tx:method name="add*" />
+			<tx:method name="update*" />
+			<tx:method name="delete*" />
+			<tx:method name="save*" />
+			<tx:method name="init*" />
+			<tx:method name="importData*" />
+			<tx:method name="regi*" />
+			<tx:method name="insert*" />
+			
+			<tx:method name="*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:pointcut id="kqdefaultServiceOperation"
+			expression="execution(* net.zdsoft.eisu.stuwork.sync..*Service.*(..))" />
+		<aop:advisor advice-ref="kqdefaultTxAdvice" pointcut-ref="kqdefaultServiceOperation" />
+	</aop:config>
+
+	<!-- 镇海一卡通  -->
+	<bean id="ykthibernateProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location">
+			<value>classpath:conf/yktdatabase.properties</value>
+		</property>
+	</bean>
+
+	<bean id="yktdataSource" class="net.zdsoft.keelcnet.dao.HibernateDataSource">
+		<property name="databaseProperties">
+			<ref bean="ykthibernateProperties" />
+		</property>
+	</bean>
+
+	<!-- Hibernate配置 -->
+	<bean id="yktsessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="yktdataSource" />
+		<property name="hibernateProperties" ref="ykthibernateProperties" />
+		<property name="mappingResources" ref="mappingResources" />
+	</bean>
+
+	<!-- 事务配置 -->
+	<bean id="ykttransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="yktsessionFactory" />
+	</bean>
+
+	<bean id="yktjdbcTransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="yktdataSource" />
+	</bean>
+
+
+	<tx:advice id="yktdefaultTxAdvice" transaction-manager="ykttransactionManager">
+		<tx:attributes>
+			<!-- 	<tx:method name="get*" read-only="true" /> -->
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="query*" read-only="true" />
+			<tx:method name="stat*" read-only="true" />
+			<tx:method name="isExists*" read-only="true" />
+
+			<tx:method name="add*" />
+			<tx:method name="update*" />
+			<tx:method name="delete*" />
+			<tx:method name="save*" />
+			<tx:method name="init*" />
+			<tx:method name="importData*" />
+			<tx:method name="regi*" />
+			<tx:method name="insert*" />
+			
+			<tx:method name="*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut id="yktdefaultServiceOperation"
+			expression="execution(* net.zdsoft.office.dailyoffice.service..*BookroomService.*(..))" />
+		<aop:advisor advice-ref="yktdefaultTxAdvice" pointcut-ref="yktdefaultServiceOperation" />
+	</aop:config>
+	
+	<bean id="stat-filter" class="com.alibaba.druid.filter.stat.StatFilter">
+	    <property name="slowSqlMillis" value="3000" />
+	    <property name="logSlowSql" value="true" />
+	</bean>
+	
+	
+	
+	<!-- 镇海一卡通  -->
+	<bean id="jbpmhibernateProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location">
+			<value>classpath:conf/database.properties</value>
+		</property>
+	</bean>
+
+	<bean id="jbpmdataSource" class="net.zdsoft.keelcnet.dao.HibernateDataSource">
+		<property name="databaseProperties">
+			<ref bean="jbpmhibernateProperties" />
+		</property>
+	</bean>
+
+	<!-- Hibernate配置 -->
+	<bean id="jbpmsessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="jbpmdataSource" />
+		<property name="hibernateProperties" ref="jbpmhibernateProperties" />
+		<property name="mappingResources" ref="mappingResources" />
+	</bean>
+
+	<!-- 事务配置 -->
+	<bean id="jbpmtransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="jbpmsessionFactory" />
+	</bean>
+
+	<bean id="jbpmjdbcTransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="jbpmdataSource" />
+	</bean>
+
+
+
+	<bean id="hibernateProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location">
+			<value>classpath:conf/database.properties</value>
+		</property>
+	</bean>
+
+	<bean id="hibernateProperties_slave"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location">
+			<value>classpath:conf/database_slave.properties</value>
+		</property>
+	</bean>
+
+	<bean id="druidStatLogger" class="net.zdsoft.keelcnet.util.DruidStatLogger">
+	</bean>
+	<bean id="dataSource_master" class="net.zdsoft.keelcnet.dao.DruidStatDataSource" init-method="init" destroy-method="close">
+		<property name="databaseProperties">
+			<ref bean="hibernateProperties" />
+		</property>
+		<property name="statLogger" ref="druidStatLogger" />
+		<property name="proxyFilters">
+			<list>
+				<ref bean="stat-filter" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dataSource_slave" class="net.zdsoft.keelcnet.dao.DruidStatDataSource" init-method="init" destroy-method="close">
+		<property name="databaseProperties">
+			<ref bean="hibernateProperties_slave" />
+		</property>
+		<property name="statLogger" ref="druidStatLogger" />
+		<property name="proxyFilters">
+			<list>
+				<ref bean="stat-filter" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="namedParameterJdbcDaoSupport" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport">  
+        <property name="dataSource" ref="dataSource" />
+    </bean>  
+	
+		
+	<bean id="mappingResourcesFactory" class="net.zdsoft.keelcnet.config.MappingResources"
+		destroy-method="flush" init-method="init" />
+	<bean id="mappingResources" factory-method="getMappingsAsArray"
+		factory-bean="mappingResourcesFactory" />
+
+ <!-- 应用使用的SpringTGroupDataSource数据源 -->
+    <bean id="dataSource" class="com.taobao.tddl.jdbc.group.SpringTGroupDataSource" init-method="init">
+        <property name="dataSources" value="dataSource_master:w1r0, dataSource_slave:w0r1" />
+        <property name="type" value="oracle" />
+    </bean>
+    
+    
+	<!-- Hibernate配置 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties" ref="hibernateProperties" />
+		<property name="mappingResources" ref="mappingResources" />
+	</bean>
+
+
+	<!-- 事务配置 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="jdbcTransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+
+	<tx:advice id="defaultTxAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<!-- 	<tx:method name="get*" read-only="true" 不写默认是 propagation="REQUIRED"/> -->
+			<tx:method name="find*" read-only="true" propagation="SUPPORTS"/>
+			<tx:method name="query*" read-only="true" propagation="SUPPORTS"/>
+			<tx:method name="stat*" read-only="true" propagation="SUPPORTS"/>
+			<tx:method name="isExists*" read-only="true" propagation="SUPPORTS"/>
+
+			<tx:method name="add*" />
+			<tx:method name="update*" />
+			<tx:method name="delete*" />
+			<tx:method name="save*" />
+			<tx:method name="init*" />
+			<tx:method name="importData*" />
+			<tx:method name="regi*" />
+			<tx:method name="insert*" />
+			
+			<tx:method name="*" read-only="true" propagation="SUPPORTS"/>
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut id="defaultServiceOperation"
+			expression="execution(* net.zdsoft..*Service.*(..))" />
+		<aop:advisor advice-ref="defaultTxAdvice" pointcut-ref="defaultServiceOperation" />
+	</aop:config>
+	
+	<!-- ========================================= -->
+	<bean id="localTransactionManager"
+		class="net.zdsoft.keelcnet.transaction.impl.LocalTransactionManager">
+		<property name="transactionManager" ref="jdbcTransactionManager" />
+	</bean>
+
+	<!-- 性能监控拦截器-->
+	<bean id="profilingInterceptor"
+		class="net.zdsoft.leadin.interceptor.SpringProfilingInterceptor">
+		<property name="opened">
+			<value>false</value>
+		</property>
+	</bean>
+
+	<!-- Druid String Dao的拦截监控 -->
+	<bean id="druid-stat-interceptor" class="com.alibaba.druid.support.spring.stat.DruidStatInterceptor">
+	</bean>
+	<bean id="druid-type-proxyCreator" class="com.alibaba.druid.support.spring.stat.BeanTypeAutoProxyCreator">
+		<!-- 所有Dao的派生类被拦截监控 -->
+		<property name="targetBeanType" value="net.zdsoft.eis.frame.client.BaseDao" />
+		<property name="interceptorNames">
+			<list>
+				<value>druid-stat-interceptor</value>
+			</list>
+		</property>
+	</bean>
+  
+	<!-- ==================memcache 配置================== -->
+	<bean id="memcachedCacheManager"
+		class="com.alisoft.xplatform.asf.cache.memcached.MemcachedCacheManager" init-method="start"
+		destroy-method="stop">
+	</bean>
+
+	<bean id="memCache" factory-method="getCache" factory-bean="memcachedCacheManager">
+		<constructor-arg>
+			<value>mclient0</value>
+		</constructor-arg>
+	</bean>
+	
+	<!--
+	<context:property-placeholder location="classpath:dubbo.properties,classpath:dubbo-*.properties"/>
+	-->
+	<bean id="propertyConfigurerForProject2" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="order" value="2" />  
+	    <property name="ignoreUnresolvablePlaceholders" value="true" />  
+	    <property name="location">
+	    	<value>classpath:conf/dubbo.properties</value>
+	    </property>
+	</bean>
+</beans>

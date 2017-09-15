@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts> 
+	<!-- 短信管理 -->
+	<package name="eis-sms" extends="default" namespace="/sms">
+		<action name="smsUseConfig" class="net.zdsoft.eis.sms.action.SmsUseConfigAction">
+			<result name="success" type="freemarker">smsUseConfig.ftl</result>
+		</action>
+		<action name="smsUseConfig-remote" class="net.zdsoft.eis.sms.action.SmsUseConfigAction">
+			<interceptor-ref name="burlap" />
+		</action>
+		<action name="smsStat" class="net.zdsoft.eis.sms.action.SmsAction" method="smsStat">
+			<result name="success" type="freemarker">smsStat.ftl</result>
+		</action>
+		<action name="smsManage" class="net.zdsoft.eis.sms.action.SmsAction" method="smsManage">
+			<result name="success" type="freemarker">smsManage.ftl</result>
+		</action>
+		<action name="smsManage-remote" class="net.zdsoft.eis.sms.action.SmsAction">
+			<interceptor-ref name="burlap" />
+		</action>
+	</package>
+	
+</struts>

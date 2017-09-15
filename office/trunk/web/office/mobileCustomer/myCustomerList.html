@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>我的客户</title>
+<script src="js/flexible_css.debug.js"></script>
+<script src="js/flexible.debug.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body class="fn-rel">
+<a href="#" id="apply" class="report-add" ></a>
+<div class="filter-layer" id="filter" style="right:-7.6rem;">
+	<p class="tt">客户类型</p>
+	<ul id="customerTypeUl" class="fn-clear f-11">
+		<li dataval="01"><span>代理商<i class="icon-img icon-current"></i></span></li>
+		<li dataval="02"><span>K12<i class="icon-img icon-current"></i></span></li>
+		<li dataval="03"><span>教育局<i class="icon-img icon-current"></i></span></li>
+		<li dataval="04"><span>培训机构<i class="icon-img icon-current"></i></span></li>
+	</ul>
+	<p class="line"></p>
+    <p class="sel" id="selRegion"><span class="icon-img icon-arrow"></span>客户所在地：<span class="tips" id="selRegionTips">请选择</span><span class="seled" id="region" style="display: none;">所有地区</span></p>
+    <p class="line line2"></p>
+    <p id="stateChoiseName" class="tt">状态</p>
+    <ul id="stateChoise" class="fn-clear f-11">
+    	
+    </ul>
+    <p class="opt fn-flex fn-flex-row f-16">
+        <a href="#" class="reset fn-flex-auto">重置</a>
+        <a id="confirm" href="#" class="submit fn-flex-auto">确认</a>
+    </p>
+</div>
+<div class="region-layer fn-flex fn-flex-col" id="regionLayer" style="right:-7.6rem;">
+	<p id="regionTxt" style="display: none;"><span class="province"></span><span class="city"></span><span class="district"></span></p>
+	<div id="multi-select" class="fn-flex-auto">
+		<div id="province">
+			<p class="tt">省</p>
+			<ul class="fn-clear f-11"></ul>
+		</div>
+		<div id="city" style="display: none;">
+			<p class="tt">市</p>
+			<ul class="fn-clear f-11"></ul>
+		</div>
+		<div id="district" style="display: none;">
+			<p class="tt">区</p>
+			<ul class="fn-clear f-11"></ul>
+		</div>
+	</div>
+	<p class="opt fn-flex fn-flex-row f-16">
+        <a href="#" class="reset fn-flex-auto">重置</a>
+        <a href="#" class="submit fn-flex-auto">确认</a>
+    </p>
+</div>
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header style="display:none">
+        	<h1 class="f-20">我的客户</h1>
+            <a href="#" class="abtn abtn-left2 f-18 close  html-window-close"><span>关闭</span></a>
+        </header>
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container">
+            	<div class="tab-wrap">
+                    <ul class="tab fn-flex fn-flex-row f-15">
+                        <li id="list_tab_1" class="fn-flex-auto current" ></li>
+                        <li id="list_tab_2" class="fn-flex-auto" ></li>
+                        <li id="list_tab_3" class="fn-flex-auto" ></li>
+                    </ul>
+                </div>
+                <form class="my-search-form">
+            	<div class="ui-search fn-flex fn-flex-row my-search-form">
+                	<p class="ui-search-inner fn-flex-auto"><span class="icon-img icon-search"></span><input id="queryText" type="search" class="f-16" placeholder="搜索"></p>
+                    <p class="ui-search-opt f-14"><a href="#" class="btn">搜索</a><a href="#" class="filter">筛选<span class="icon-img icon-filter"></span></a></p>
+                </div>
+                </form>
+                <div class="tab-grid">
+                	<div id="listDiv" class="tab-item">
+                        <ul id = "list" class="ui-list">
+                        </ul>
+                        <p class="loading-more f-16"></p>
+                    </div>
+                	<div id="empty" style="display:none" class="no-data">
+		        		<p><span class="icon-img icon-no-data"></span></p>
+			            <p class="pt-30 f-16">暂时还没有相关内容</p>
+			        </div>
+                </div>
+            </div>
+        </div>
+        <footer class="fn-flex fn-flex-row">
+			<a href="#" class="abtn abtn-wd fn-flex-auto active"><span></span>我的客户</a>
+			<a href="#" class="abtn abtn-sq fn-flex-auto"><span></span>客户申请</a>
+			<a href="#" class="abtn abtn-dq fn-flex-auto"><span></span>地区客户</a>
+			<a href="#" class="abtn abtn-bd fn-flex-auto"><span></span>本部客户</a>
+			<a href="#" class="abtn abtn-sy fn-flex-auto active"><span></span>所有客户</a>
+			<a href="#" class="abtn abtn-sh fn-flex-auto"><span></span>客户审核</a>
+			<a href="#" class="abtn abtn-zyk fn-flex-auto"><span></span>客户资源库</a>
+		</footer>
+    </div>
+</div>
+
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/jquery.Layer.js"></script>
+<script src="js/myscript.js"></script>
+<script src="js/wap.js"></script>
+<script src="js/wapEntities.js"></script>
+<script src="js/wapNetwork.js"></script>
+<script src="js/wapNetworkService.js"></script>
+<script src="js/public.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/common.js"></script>
+<script src="js/validate.js"></script>
+<script src="js/weike.js"></script>
+<script src="js/myWeike.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+	init();
+	  setTimeout(wap.initList(), 200);
+	}, false);
+	
+function init(){
+	var Request = new UrlSearch();
+	var init = Request.init;
+	if(init==1){
+		var unitId = storage.get(Constants.UNIT_ID);
+		var userId = storage.get(Constants.USER_ID);
+	    officeAjax.doAjax("/common/open/customer/customer.action", {'userId':userId,'unitId':unitId}, function(data) {
+		   closeMsgTip();
+		   var obj = data.result_object;
+		 	//用户角色
+			storage.set(Constants.ROLE_TYPE, obj.roleType);
+	    }, 'json',false).error(function(data) {
+	    	closeMsgTip();
+	    	viewToast("连接出错");
+		   console.log('[error] wapNetwork--customer error.');
+	    });
+	}
+	//获取市数据
+    $('#selRegion,#showRegion').unbind('click');
+    $('#province').off('click','li');
+    $('#city').off('click','li');
+    $('#district').off('click','li');
+    $('.region-layer .opt .submit').unbind('click');
+    $('.filter-layer .opt .reset').unbind('click');
+    $('.region-layer .opt .reset').unbind('click');
+    
+    $('#selRegion').click(function(){
+		$('.region-layer').animate({'right':'0'},500);
+	});
+	$('#showRegion').click(function(){
+		$('body').prepend('<div class="ui-layer-mask ui-layer-mask-close" id="______regionMask" onclick="closeRegion()"></div>');
+		$('.region-layer').animate({'right':'0'},500);
+	});
+    //获取省数据
+	$('#selRegion,#showRegion').click(function(){
+		$('#regionTxt span').text('');
+		$('#regionTxt .province').attr('dataValue','');
+		$('#city,#district').hide();
+		$.getJSON(storage.get(Constants.MOBILE_CONTEXT_PATH)+'/common/open/region/regionData.action', function(data1) {
+	        $('.region-layer ul').html('');//清空省、市、区列表
+	        $.each(data1, function(x, item1) {
+	            //插入省列表
+	            $('#province ul').append(
+                    '<li pro-sort="'+ x +'" dataName="'+item1.fullName+'"  dataValue="'+item1.code+'"><span>' + item1.name + '<i class="icon-img icon-current"></i></span></li>'
+                );
+	        });
+        });
+	});
+    
+	$('#province').on('click','li',function(){
+		var cityTop=$('#province').height();
+		$('#multi-select').animate({scrollTop:cityTop},300);
+		var proName=$(this).attr('dataName');
+		var proValue = $(this).attr('dataValue');
+		$('#regionTxt .city').attr('dataValue', '00');
+		$('#regionTxt .district').attr('dataValue', '00');
+		$('#regionTxt span').text('');
+		$('#regionTxt .province').text(proName);
+		$('#regionTxt .province').attr('dataValue', proValue);
+		var proSort=$(this).attr('pro-sort');
+		//$.getJSON('js/data.json', function(data2) {
+		$.getJSON(storage.get(Constants.MOBILE_CONTEXT_PATH)+'/common/open/region/regionData.action', function(data2) {
+	        $('#city ul,#district ul').html('');//清空市、区列表
+	        $.each(data2[proSort].city, function(y, item2) {
+	        	//插入市列表
+	        	$('#city').show().siblings('#district').hide();
+	            $('#city ul').append(
+                    '<li pro-sort="'+ proSort +'" city-sort="'+ y +'" dataName="'+item2.fullName+'" dataValue="'+item2.code+'"><span>' + item2.name + '<i class="icon-img icon-current"></i></span></li>' 
+                );
+	        });
+        });
+	});
+	//获取区数据
+	$('#city').on('click','li',function(){
+		var disTop=$('#province').height()+$('#city').height();
+		$('#multi-select').animate({scrollTop:disTop},300);
+		var cityName=$(this).attr('dataName');
+		var cityValue=$(this).attr('dataValue');
+		$('#regionTxt .district').attr('dataValue', '00');
+		$('#regionTxt .district').text('');
+		$('#regionTxt .province').text(cityName);
+		$('#regionTxt .city').attr('dataValue', cityValue);
+		var proSort=$(this).attr('pro-sort');
+		var citySort=$(this).attr('city-sort');
+		$.getJSON(storage.get(Constants.MOBILE_CONTEXT_PATH)+'/common/open/region/regionData.action', function(data3) {
+	        $('#district ul').html('');//清空区列表
+	        $.each(data3[proSort].city[citySort].district, function(z, item3) {
+	        	//插入区列表
+	            $('#district').show().children('ul').append(
+                    '<li dataName="'+item3.fullName+'" dataValue="'+item3.code+'"><span>' + item3.name + '<i class="icon-img icon-current"></i></span></li>' 
+                );
+	        });
+        });
+	});
+	//选中区数据
+	$('#district').on('click','li',function(){
+		var disName=$(this).attr('dataName');
+		var disValue=$(this).attr('dataValue');
+		$('#regionTxt .province').text(disName);
+		$('#regionTxt .district').attr('dataValue', disValue);
+	});
+	//确认
+	$('.region-layer .opt .submit').click(function(e){
+		e.preventDefault();
+		$('.region-layer').animate({'right':'-7.6rem'},500);
+		$('#selRegionTips').hide().next('#region').show().text($('#regionTxt').text());
+		
+	});
+   
+   $('.region-layer-form .opt .submit').click(function(e){
+		e.preventDefault();
+		$('.ui-layer-mask').remove();
+		$('#showRegion .txt').val($('#regionTxt').text());
+	});
+	$('.filter-layer .opt .reset').click(function(e){
+		e.preventDefault();
+		$('.filter-layer li').removeClass('current');
+		$('#selRegion #selRegionTips').show().next('#region').hide().text('所有地区');
+		$('#regionTxt .province').attr('dataValue','');
+	});
+	$('.region-layer .opt .reset').click(function(e){
+		e.preventDefault();
+		$('.region-layer li').removeClass('current');
+		$('#regionTxt .province').attr('dataValue','');
+		$('#region').html('');
+	});
+	
+}	
+</script>
+</body>
+</html>

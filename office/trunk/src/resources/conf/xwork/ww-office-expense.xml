@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="expense" extends="default" namespace="/office/expense">
+		<action name="expense" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction">
+	    	<result name="success" type="freemarker">expenseAdmin.ftl</result>
+	    </action>
+		<!-- 我的报销 -->
+		<action name="expense-myExpense" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="myExpense">
+	    	<result name="success" type="freemarker">myExpense.ftl</result>
+	    </action>
+	    <action name="expense-myExpense-list" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="myExpenseList">
+	    	<result name="success" type="freemarker">myExpenseList.ftl</result>
+	    </action>
+	    <action name="expense-myExpense-add" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="myExpenseAdd">
+	    	<result name="success" type="freemarker">myExpenseAdd.ftl</result>
+	    </action>
+	    <action name="expense-myExpense-edit" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="myExpenseEdit">
+	    	<result name="success" type="freemarker">myExpenseAdd.ftl</result>
+	    </action>
+	    <action name="expense-myExpense-save" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="myExpenseSave">
+          	<result name="success" type="json">
+          		<param name="root">promptMessageDto</param>
+          		<param name="noCache">true</param>  
+                <param name="contentType">text/html</param>
+          	</result>
+		</action>
+	    <action name="expense-myExpense-delete" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="myExpenseDelete">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+	    <action name="expense-deleteFileAttach" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="deleteFileAttach">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+	    <action name="expense-saveFileAttach" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="saveFileAttach">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		
+		<!-- 报销审批 -->
+		<action name="expense-expenseAudit" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="expenseAudit">
+	    	<result name="success" type="freemarker">expenseAudit.ftl</result>
+	    </action>
+		<action name="expense-expenseAudit-edit" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="expenseAuditEdit">
+	    	<result name="success" type="freemarker">expenseAuditEdit.ftl</result>
+	    </action>
+		<action name="expense-expenseAudit-list" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="expenseAuditList">
+	    	<result name="success" type="freemarker">expenseAuditList.ftl</result>
+	    </action>
+		<action name="expense-expenseAudit-save" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="expenseAuditSave">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		
+		<!-- 查询 -->
+		<action name="expense-expenseQueryAdmin" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="expenseQueryAdmin">
+	    	<result name="success" type="freemarker">expenseQueryAdmin.ftl</result>
+	    </action>
+		<action name="expense-expenseQueryList" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="expenseQueryList">
+	    	<result name="success" type="freemarker">expenseQueryList.ftl</result>
+	    </action>
+		<action name="expense-expenseExport" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="expenseExport">
+	    </action>
+		<action name="expense-expenseDown" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="expenseDown">
+	    </action>
+		
+		<!-- 撤回 -->
+		<action name="expense-retractFlow" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="retractFlow" >
+           <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+        </action>
+        
+        <action name="expense-changeFlow" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="changeFlow"></action>
+        <!-- 跳转获得当前步骤 -->
+		<action name="expense-findCurrentstep" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="findCurrentstep">
+			<result name="success" type="freemarker">expenseCurrentStep.ftl</result>
+		</action>
+		<!-- 修改获得当前步骤 -->
+		<action name="expense-changeCurrentstep" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="changeCurrentstep">
+		</action>
+        
+	</package>
+	<!-- 局长信箱 -->
+	<package name="jzmailmanage" extends="default" namespace="/office/jzmailmanage">
+		<action name="jzmailmanage" class="net.zdsoft.office.secretaryMail.action.secretaryMailAction">
+			<result name="success" type="freemarker">secretaryMail.ftl</result>
+		</action>
+		<action name="jzmailmanage-myMailAdmin" class="net.zdsoft.office.secretaryMail.action.secretaryMailAction" method="myMailAdmin">
+			<result name="success" type="freemarker">mySecretaryMailAdmin.ftl</result>
+		</action>
+		<action name="jzmailmanage-myMailList" class="net.zdsoft.office.secretaryMail.action.secretaryMailAction" method="myMailList">
+			<result name="success" type="freemarker">mySecretaryMailList.ftl</result>
+		</action>
+		<action name="jzmailmanage-myMailEdit" class="net.zdsoft.office.secretaryMail.action.secretaryMailAction" method="myMailEdit">
+			<result name="success" type="freemarker">mySecretaryMailEdit.ftl</result>
+		</action>
+		<action name="jzmailmanage-myMailSave" class="net.zdsoft.office.secretaryMail.action.secretaryMailAction" method="myMailSave">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+				<param name="noCache">true</param>  
+                <param name="contentType">text/html</param>
+			</result>
+		</action>
+		<action name="jzmailmanage-myMailDelete" class="net.zdsoft.office.secretaryMail.action.secretaryMailAction" method="myMailDelete">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="jzmailmanage-myMailView" class="net.zdsoft.office.secretaryMail.action.secretaryMailAction" method="myMailView">
+			<result name="success" type="freemarker">mySecretaryMailView.ftl</result>
+		</action>
+		<action name="jzmailmanage-myPictureView" class="net.zdsoft.office.secretaryMail.action.secretaryMailAction" method="showAttachment">
+			<result name="success" type="freemarker">myPictureView.ftl</result>
+		</action>
+		<!-- 信箱查询 -->
+		<action name="jzmailmanage-mailAdmin" class="net.zdsoft.office.secretaryMail.action.secretaryMailAction" method="mailAdmin">
+			<result name="success" type="freemarker">secretaryMailAdmin.ftl</result>
+		</action>
+		<action name="jzmailmanage-mailList" class="net.zdsoft.office.secretaryMail.action.secretaryMailAction" method="mailList">
+			<result name="success" type="freemarker">secretaryMailList.ftl</result>
+		</action>
+		<action name="jzmailmanage-mailSave" class="net.zdsoft.office.secretaryMail.action.secretaryMailAction" method="mailSave">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="jzmailmanage-mailView" class="net.zdsoft.office.secretaryMail.action.secretaryMailAction" method="mailView">
+			<result name="success" type="freemarker">secretaryMailView.ftl</result>
+		</action>
+		<action name="jzmailmanage-mailEdit" class="net.zdsoft.office.secretaryMail.action.secretaryMailAction" method="mailEdit">
+			<result name="success" type="freemarker">secretaryMailEdit.ftl</result>
+		</action>
+		<action name="jzmailmanage-mailInfoSave" class="net.zdsoft.office.secretaryMail.action.secretaryMailAction" method="mailInfoSave">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="jzmailmanage-mailWebSave" class="net.zdsoft.office.secretaryMail.action.secretaryMailAction" method="saveAttachment">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="jzmailmanage-deleteAttachment" class="net.zdsoft.office.secretaryMail.action.secretaryMailAction" method="deleteAttachment">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+	</package>
+	
+	<!-- 假期值班管理 -->
+	<package name="dutymanage" extends="default" namespace="/office/dutymanage">
+		<action name="dutymanage" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction">
+			<result name="success" type="freemarker">dutyInformation.ftl</result>
+		</action>
+		<action name="dutymanage-dutyInformationAdmin" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="dutyInformationAdmin">
+			<result name="success" type="freemarker">dutyInformationAdmin.ftl</result>
+		</action>
+		<action name="dutymanage-dutyInformationList" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="dutyInformationList">
+			<result name="success" type="freemarker">dutyInformationList.ftl</result>
+		</action>
+		<action name="dutymanage-dutyInformationEdit" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="dutyInformationEdit">
+			<result name="success" type="freemarker">dutyInformationEdit.ftl</result>
+		</action>
+		<action name="dutymanage-dutyInformationView" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="dutyInformationView">
+			<result name="success" type="freemarker">dutyInformationView.ftl</result>
+		</action>
+		<action name="dutymanage-dutyInformationSave" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="dutyInformationSave">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action> 
+		<action name="dutymanage-dutyInformationDelete" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="dutyInformationDelete">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		 
+		<action name="dutymanage-dutyInformationApply" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="dutyInformationApply">
+			<result name="success" type="freemarker">dutyInformationApply.ftl</result>
+		</action>
+		<action name="dutymanage-dutyInformationApplyList" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="dutyInformationApplyList">
+			<result name="success" type="freemarker">dutyInformationApplyList.ftl</result>
+		</action>
+		<action name="dutymanage-saveApplyInfo" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="saveApplyInfo">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="dutymanage-applyGetPhoneNumber" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="applyGetPhoneNumber">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<!-- 巡查地点 -->
+		<action name="dutymanage-patrolPlaceList" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="patrolPlaceList">
+			<result name="success" type="freemarker">patrolPlaceList.ftl</result>
+		</action>
+		<action name="dutymanage-patrolPlaceEdit" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="patrolPlaceEdit">
+			<result name="success" type="freemarker">patrolPlaceEdit.ftl</result>
+		</action>
+		<action name="dutymanage-patrolPlaceSave" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="patrolPlaceSave">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="dutymanage-patrolPlaceDelete" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="patrolPlaceDelete">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<!-- 值班情况登记 -->
+		<action name="dutymanage-dutyRegister" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="dutyRegister">
+			<result name="success" type="freemarker">dutyRegister.ftl</result>
+		</action>
+		<action name="dutymanage-dutyRegisterAdmin" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="dutyRegisterAdmin">
+			<result name="success" type="freemarker">dutyRegisterAdmin.ftl</result>
+		</action>
+		<action name="dutymanage-dutyRegisterUser" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="dutyRegisterUser">
+			<result name="success" type="freemarker">dutyRegisterUser.ftl</result>
+		</action>
+		<action name="dutymanage-dutyRegisterSave" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="dutyRegisterSave">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<!-- 值班统计查询 -->
+		<action name="dutymanage-dutyQuery" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="dutyQuery">
+			<result name="success" type="freemarker">dutyQuery.ftl</result>
+		</action>
+		<action name="dutymanage-dutyQueryList" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="dutyQueryList">
+			<result name="success" type="freemarker">dutyQueryList.ftl</result>
+		</action>
+		<action name="dutymanage-dutyExport" class="net.zdsoft.office.dutyinformation.action.OfficeDutyInformationSetAction" method="dutyExport"></action>
+	</package>
+</struts>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://code.alibabatech.com/schema/dubbo
+	http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="dubbo-service-base" />
+	<dubbo:consumer check="false" timeout="10000" />
+	<dubbo:provider delay="-1" timeout="6000" retries="2"/>
+	
+	<!-- 使用multicast广播注册中心暴露服务地址
+	<dubbo:registry address="zookeeper://192.168.22.199:2181" /> -->
+	<!-- --> <dubbo:registry address="${dubbo.registry.address}" />
+	<!-- 用dubbo协议在20881端口暴露服务 
+	<dubbo:protocol name="dubbo" port="20777" /> -->
+	<!-- <dubbo:protocol name="dubbo" port="${dubbo.eis.protocol.port}" />-->
+
+	<!-- 远程调用接口-->
+	<dubbo:reference id="teacherRemoteService"
+		interface="net.zdsoft.basedata.remote.service.TeacherRemoteService" /> 
+		
+	<dubbo:reference id="userRemoteService"
+		interface="net.zdsoft.basedata.remote.service.UserRemoteService" /> 
+		
+	<dubbo:reference id="unitRemoteService"
+		interface="net.zdsoft.basedata.remote.service.UnitRemoteService" /> 
+		
+</beans>

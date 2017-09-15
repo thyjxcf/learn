@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>请假申请</title>
+<link  rel="stylesheet" type="text/css" href="../../../static/html/css/style.css?v=20170619">
+<link rel="stylesheet" type="text/css" href="../../../static/html/css/mobiscroll.custom-3.0.0-beta2.min.css">
+</head>
+
+<body class="gray">
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header style="display:none">
+        	<h1 class="f-20">请假申请</h1>
+            <a href="#" class="abtn abtn-left f-18 html-window-back" id="cancelId"><span>取消</span></a>
+            <a href="javascript:void(0)" class="abtn abtn-left2 f-18 html-window-close"><span>关闭</span></a>
+        </header>
+
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container">
+<form id="dataForm">
+<input id="id" name="officeTeacherLeave.id" value="" type="hidden" />
+	<input id="userId" name="userId" value="" type="hidden" />
+	<input id="unitId" name="officeTeacherLeave.unitId" value="" type="hidden" />
+	<input id="deptId" name="officeTeacherLeave.deptId" value="" type="hidden" /> 
+	<input id="trIndex" type="hidden" value=""/>
+            	<ul class="ui-form f-14">
+            		<li id="applyUserDiv">
+                        <span class="tt">申请人</span>
+                        <span class="dd">
+                        	<input type="text" id="applyUserName" class="txt" value="" readonly placeholder="请选择（必填）">
+                        	<input type="hidden" id="applyUserId" name="officeTeacherLeave.applyUserId" class="txt" readonly value="" placeholder="请选择">
+                        </span>
+                        <i class="icon-arrow"></i>
+                    </li>
+            		<li class="date">
+                        <span class="tt">开始时间</span>
+                        <span class="dd"><input type="text" id="startDate" name="officeTeacherLeave.leaveBeignTime" class="txt" value="" placeholder="请选择（必填）"></span>
+                        <i class="icon-arrow"></i>
+                    </li>
+            		<li class="date">
+                        <span class="tt">结束时间</span>
+                        <span class="dd"><input type="text" id="endDate" name="officeTeacherLeave.leaveEndTime" class="txt" value="" placeholder="请选择（必填）"></span>
+                        <i class="icon-arrow"></i>
+                    </li>
+                    <!-- 请假时间明细 -->
+                    <div id="leaveDaysDetail" style="display:none;">
+                    </div>
+            		<li>
+                        <span class="tt">请假天数</span>
+                        <span class="dd"><input type="number" id="leaveDays" name="officeTeacherLeave.days" class="txt" maxlength="5" value="" placeholder="请输入（必填）"></span>
+                    </li>
+                    
+            		<li class="sel">
+                        <span class="tt">请假类型</span>
+                        <span class="dd">
+                        	<select id="leaveType" name="officeTeacherLeave.leaveType" class="demo-test-select txt" data-role="none">
+                               	<!--<option value="1">公差</option>
+                                <option value="2">事假</option>
+                                <option value="3">产假</option>
+                                <option value="4">路途假</option>
+                                <option value="5">年假</option>
+                                <option value="6">集体活动</option>-->
+                            </select>
+                        </span>
+                        <i class="icon-arrow"></i>
+                    </li>
+            		<li class="mt-20">
+                        <span class="dd-area" id=""><textarea id="remark" name="officeTeacherLeave.leaveReason" maxlength="100" placeholder="请输入请假原因（必填）"></textarea></span>
+                    </li>
+            		<li class="sel mt-20">
+                        <span class="tt">请假流程</span>
+                        <span class="dd">
+                            <select id="leaveFlow" name="officeTeacherLeave.flowId" class="demo-test-select txt" data-role="none">
+                                <!--<option value="1">公差</option>
+                                <option value="2">事假</option>
+                                <option value="3">产假</option>
+                                <option value="4">路途假</option>
+                                <option value="5">年假</option>
+                                <option value="6">集体活动</option>-->
+                            </select>
+                        </span>
+                        <i class="icon-arrow"></i>
+                    </li>
+                    <!-- 
+            		<li class="acc">
+                        <span class="tt">图片</span>
+                        <a href="#" class="icon-img icon-adjunct ui-file"><input type="file" accept="image/*" name="uploadContentFile" id="upFile"></a>
+                        <span class="dd"><input type="text" id="fileName" readonly class="txt" value=""></span>
+                    </li>
+                     -->
+                    <li class="mt-20">
+                    	<p class="ui-file">
+                    	<!-- 
+                            <input type="file" id="upFile" name="uploadContentFile"  accept="image/*">
+                          --> 
+                            <span class="tt">图片</span>
+                            <span class="dd">
+                                <i class="icon-img icon-adjunct"></i>
+                            </span>
+	                        <input type="hidden" name="removeAttachment" id="attDelIds" >
+                        </p>
+		                <ul class="acc-wrap  ios-touch" id="accFooter">
+				        </ul>
+                    </li>
+            		<li class="mt-20" style="display:none;">
+                        <p class="tit">通知人员<span>（点击名字可删除）</span></p>
+                        <div class="did pb-20">
+                        	<input type="hidden" id="noticePersonIds" name="officeTeacherLeave.noticePersonIds" value=""/>
+                        	<a href="#" class="icon-img icon-add" id="noticeAddress"></a>
+                        	<div>
+	                        	<span class="dd-scroll ios-touch"  id="noticePersonNames">
+	                            </span>
+                        	</div>
+                        </div>
+                    </li>
+                    
+                    <div id="flowDetail"></div>
+                    
+            	</ul>
+            	<p class="abtn-full f-16"><a href="javascript:void(0);" id="save">提交</a></p>
+            </form>  
+            </div>
+        </div>
+      
+    </div>
+</div>
+<iframe id="addressIframe" style="display:none;height:100%;width:100%"></iframe>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible_css.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery-1.9.1.min.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.Layer.js?v=20170619"></script>
+<script src="../../../static/html/js/storage.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.form.js?v=20170619"></script>
+<script src="../../../static/html/js/mobiscroll.custom-3.0.0-beta2.min.js?v=20170619"></script>
+
+<script  src="../../../static/html/js/public.js?v=20170619"></script>
+<script src="../../../static/html/js/myscript.js?v=20170619"></script>
+<script  src="../../../static/html/js/common.js?v=20170619"></script>
+<script  src="../../../static/html/js/validate.js?v=20170619"></script>
+<script  src="../../../static/html/js/weike.js?v=20170619"></script>
+<script  src="../../../static/html/js/myWeike.js?v=20170619"></script>
+<script  src="js/wap.js?v=20170619"></script>
+<script  src="js/wapEntities.js?v=20170619"></script>
+<script  src="js/wapNetwork.js?v=20170619"></script>
+<script  src="js/wapNetworkService.js?v=20170619"></script>
+
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+		initWieikeGoBack();
+  		setTimeout(wap.initLeaveApply(), 200);
+}, false);
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+/*[公共common*/
+BODY {
+	margin:0px;
+	background-image: url(bg.jpg);
+	background-repeat: repeat-x;
+	background-position: top;
+}
+td {
+	font-size: 12px;
+	color: #333333;
+	line-height:18px;
+}
+
+
+/*
+开始说明：默认超链接样式
+*/
+a:link{
+	color: #141414;
+	text-decoration: none;
+}
+a:visited {
+	color: #141414;
+	text-decoration: none;
+}
+a:active {
+	color:#FF8400;
+	text-decoration:none;
+}
+a:hover {
+	color: #FF8400;
+	text-decoration: underline;
+}
+
+/*
+开始说明：兰色超链接样式
+*/
+a.blue12:link{
+	color: #4190DB;
+	text-decoration: none;
+}
+a.blue12:visited {
+	color: #4190DB;
+	text-decoration: none;
+}
+a.blue12:active {
+	color:#4190DB;
+	text-decoration:none;
+}
+a.blue12:hover {
+	color: #4190DB;
+	text-decoration: underline;
+}
+
+.input_1px {
+	border: 1px solid #cdd8ea;
+}
+
+.green_12 {
+	color: #5fa635;
+}
+
+.white_green{
+filter:glow(Color=#549030,Strength=2);font-weight:bold;color:#fff;
+}
+
+
+.button_pagination {
+	background-repeat: no-repeat;
+	font-size: 12px;
+	height:18px;
+	width:44px;
+	border:0px;
+	color:#fff;
+	font-weight: bold;
+	background-color: #93b64e;
+}
+
+.line_green_1px {
+	background-color: #f6fcf2;
+	border: 1px solid #b0d58b;
+	height:100%;
+}

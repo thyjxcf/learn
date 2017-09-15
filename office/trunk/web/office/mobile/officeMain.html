@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>首页</title>
+<script src="../../static/html5/js/flexible_css.debug.js"></script>
+<script src="../../static/html5/js/flexible.debug.js"></script>
+<link rel="stylesheet" type="text/css" href="../../static/html5/css/style.css">
+</head>
+
+<body class="home">
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container">
+            	<p class="head">
+	            	<div style="position：absolute;">
+            			<img src="../../static/html5/images/home_bg.jpg" class="w-10">
+            			<div style="position:absolute;top:15px;left:15px;" class="f-18 html-window-close">
+            				<font color="#fff">关闭</font>
+            			</div>
+	            	</div>
+            	</p>
+                <div id="moduleDiv" class="list f-14">
+                	<!-- 
+                	<a href="javascript:doLoad();"><img src="images/icon/app_work.png" alt="工作汇报"><span class="txt">工作汇报</span></a>
+                	<a><img src="images/icon/app_notice.png" alt="公告"><span class="txt">公告</span></a>
+                	<a><img src="images/icon/app_note.png" alt="备忘"><span class="txt">备忘</span></a>
+                	<a><img src="images/icon/app_leave.png" alt="请假"><span class="txt">请假</span></a>
+                	 -->
+                </div>
+            </div>
+        </div>
+        
+		<footer class="fn-flex fn-flex-row">
+			<a href="#" class="abtn abtn-message fn-flex-auto"><span></span>消息</a>
+			<a href="#" class="abtn abtn-note fn-flex-auto"><span></span>公文</a>
+			<a href="#" class="abtn abtn-office fn-flex-auto active"><span></span>办公</a>
+		</footer>
+    </div>
+</div>
+
+<script src="../../static/html5/js/jquery-1.9.1.min.js"></script>
+<script src="../../static/html5/js/myscript.js"></script>
+<script type="text/javascript" src="../../static/html5/js/storage.js"></script>
+<script type="text/javascript" src="../../static/html5/js/public.js"></script>
+<script src="../../static/html5/js/weike.js"></script>
+<script src="../../static/html5/js/myWeike.js"></script>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	initFooter('3');
+
+	var unitId = storage.get(Constants.UNIT_ID);
+	var userId = storage.get(Constants.USER_ID);
+	var contextPath = storage.get(Constants.MOBILE_CONTEXT_PATH);
+	var modulelist = storage.get(OfficeConstants.OFFICE_MODULE_LIST);
+	var module_array = $.parseJSON(modulelist);
+	var htmlStr = "";
+	$.each(module_array, function(index, json) {
+		var name = json.name;
+		var url = json.url + "?unitId="+unitId+"&userId="+userId;
+		var picture = json.picture;
+		htmlStr += '<a href="'+contextPath + url +'"><img src="../../static/html5/images/icon/'+picture+'.png" alt="'+name+'"><span class="txt">'+name+'</span></a>';
+	});
+	$("#moduleDiv").html(htmlStr);
+}, false);
+</script>
+</html>

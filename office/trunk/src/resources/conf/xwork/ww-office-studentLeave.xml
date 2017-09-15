@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="stuLeave" extends="default" namespace="/office/studentLeave/stuplatform">
+		<action name="studentLeaveAdmin" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction"
+			method="stuLeaveManage">
+			<result name="success" type="freemarker">/office/studentLeave/stuLeaveAdmin.ftl</result>
+		</action>
+		<action name="studentLeaveAdmin-deleteLeave" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="deleteLeave" >
+           <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+        </action>
+		<!-- 长期通校申请单 -->
+		<action name="studentLeaveAdmin-longLeave" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction"
+			method="longLeave">
+			<result name="success" type="freemarker">/office/studentLeave/longLeave.ftl</result>
+		</action>
+		<action name="studentLeaveAdmin-longLeaveEdit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction"
+			method="longLeaveEdit">
+			<result name="success" type="freemarker">/office/studentLeave/longLeaveEdit.ftl</result>
+		</action>
+		<action name="studentLeaveAdmin-longLeaveSave" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="longLeaveSave">
+          	<result name="success" type="json">
+          		<param name="root">promptMessageDto</param>
+          		<param name="noCache">true</param>  
+                <param name="contentType">text/html</param>
+          	</result>
+		</action>
+		<!-- 暂时通校、住校申请单 -->
+		<action name="studentLeaveAdmin-liveLeave" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction"
+			method="liveLeave">
+			<result name="success" type="freemarker">/office/studentLeave/liveLeave.ftl</result>
+		</action>
+		<action name="studentLeaveAdmin-liveLeaveEdit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction"
+			method="liveLeaveEdit">
+			<result name="success" type="freemarker">/office/studentLeave/liveLeaveEdit.ftl</result>
+		</action>
+		<action name="studentLeaveAdmin-liveLeaveSave" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="liveLeaveSave">
+          	<result name="success" type="json">
+          		<param name="root">promptMessageDto</param>
+          		<param name="noCache">true</param>  
+                <param name="contentType">text/html</param>
+          	</result>
+		</action>
+		<!-- 临时出校申请单 -->
+		<action name="studentLeaveAdmin-temporaryLeave" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction"
+		 method="temporaryLeave">
+			<result name="success" type="freemarker">/office/studentLeave/temporaryLeave.ftl</result>
+		</action>
+		<action name="studentLeaveAdmin-temporaryLeaveEdit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction"
+			method="temporaryLeaveEdit">
+			<result name="success" type="freemarker">/office/studentLeave/temporaryLeaveEdit.ftl</result>
+		</action>
+		<action name="studentLeaveAdmin-temporaryLeaveSave" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="temporaryLeaveSave">
+          	<result name="success" type="json">
+          		<param name="root">promptMessageDto</param>
+          		<param name="noCache">true</param>  
+                <param name="contentType">text/html</param>
+          	</result>
+		</action>
+		<!-- 一般请假 -->
+		<action name="studentLeaveAdmin-generalLeave" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction"
+			method="generalLeave">
+			<result name="success" type="freemarker">/office/studentLeave/generalLeave.ftl</result>
+		</action>
+		<action name="studentLeaveAdmin-generalLeaveEdit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction"
+			method="generalLeaveEdit">
+			<result name="success" type="freemarker">/office/studentLeave/generalLeaveEdit.ftl</result>
+		</action>
+		<action name="studentLeaveAdmin-generalLeaveSave" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="generalLeaveSave">
+          	<result name="success" type="json">
+          		<param name="root">promptMessageDto</param>
+          		<param name="noCache">true</param>  
+                <param name="contentType">text/html</param>
+          	</result>
+		</action>
+		<action name="studentLeaveManage" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction">
+    		<result name="success" type="freemarker">/office/studentLeave/studentLeaveManage.ftl</result>
+    	</action>
+    	<!-- 请假审核 -->
+    	<action name="studentLeaveManage-generalLeaveAudit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction">
+	    	<result name="success" type="freemarker">/office/studentLeave/generalLeaveAudit.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-generalLeaveAudit-edit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="generalLeaveAuditEdit">
+	    	<result name="success" type="freemarker">/office/studentLeave/generalLeaveAuditEdit.ftl</result>
+	    </action>
+	    <action name="studentLeaveManage-generalLeaveAudit-view" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction"
+			method="generalLeaveEdit">
+			<result name="success" type="freemarker">/office/studentLeave/generalLeaveEdit.ftl</result>
+		</action>
+		<action name="studentLeaveManage-generalLeaveAudit-list" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="generalLeaveAuditList">
+	    	<result name="success" type="freemarker">/office/studentLeave/generalLeaveAuditList.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-generalLeaveAudit-save" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="leaveAuditSave">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="studentLeaveManage-temporaryLeaveAudit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction">
+	    	<result name="success" type="freemarker">/office/studentLeave/temporaryLeaveAudit.ftl</result>
+	    </action>
+	    <action name="studentLeaveManage-temporaryLeaveAudit-view" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction"
+			method="temporaryLeaveEdit">
+			<result name="success" type="freemarker">/office/studentLeave/temporaryLeaveEdit.ftl</result>
+		</action>
+		<action name="studentLeaveManage-temporaryLeaveAudit-edit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="temporaryLeaveAuditEdit">
+	    	<result name="success" type="freemarker">/office/studentLeave/temporaryLeaveAuditEdit.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-temporaryLeaveAudit-list" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="temporaryLeaveAuditList">
+	    	<result name="success" type="freemarker">/office/studentLeave/temporaryLeaveAuditList.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-temporaryLeaveAudit-save" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="leaveAuditSave">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+    	<action name="studentLeaveManage-liveLeaveAudit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction">
+	    	<result name="success" type="freemarker">/office/studentLeave/liveLeaveAudit.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-liveLeaveAudit-edit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="liveLeaveAuditEdit">
+	    	<result name="success" type="freemarker">/office/studentLeave/liveLeaveAuditEdit.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-liveLeaveAudit-list" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="liveLeaveAuditList">
+	    	<result name="success" type="freemarker">/office/studentLeave/liveLeaveAuditList.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-liveLeaveAudit-save" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="leaveAuditSave">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+    	<action name="studentLeaveManage-liveLeaveAudit-view" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction"
+			method="liveLeaveEdit">
+			<result name="success" type="freemarker">/office/studentLeave/liveLeaveEdit.ftl</result>
+		</action>
+    	<action name="studentLeaveManage-longLeaveAudit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction">
+	    	<result name="success" type="freemarker">/office/studentLeave/longLeaveAudit.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-longLeaveAudit-edit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="longLeaveAuditEdit">
+	    	<result name="success" type="freemarker">/office/studentLeave/longLeaveAuditEdit.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-longLeaveAudit-list" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="longLeaveAuditList">
+	    	<result name="success" type="freemarker">/office/studentLeave/longLeaveAuditList.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-longLeaveAudit-save" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="leaveAuditSave">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="studentLeaveManage-longLeaveAudit-view" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction"
+			method="longLeaveEdit">
+			<result name="success" type="freemarker">/office/studentLeave/longLeaveEdit.ftl</result>
+		</action>
+	</package>
+    <!-- 学生请假管理 -->
+    <package name="studentLeave" extends="default" namespace="/office/studentLeave">
+    <!-- 请假流程管理 -->
+    	<action name="studentLeaveManage" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction">
+    		<result name="success" type="freemarker">studentLeaveManage.ftl</result>
+    	</action>
+    	<action name="studentLeaveManage-queryFlowList" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="queryFlowList">
+    		<result name="success" type="freemarker">flowList.ftl</result>
+    	</action>
+    	<action name="studentLeaveManage-getUserDataPopup" class="net.zdsoft.office.studentLeave.action.FlowDivAction"
+			method="getObjectsByUnitId">
+			<result name="success" type="freemarker">popupObjectDiv.ftl</result>
+		</action>
+    	<action name="studentLeaveManage-saveFlow" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="saveFlow">
+        	<result name="success" type="json">
+        		<param name="root">promptMessageDto</param>
+        	</result>
+        </action>
+    	<!-- 请假审核 -->
+    	<action name="studentLeaveManage-generalLeaveAudit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction">
+	    	<result name="success" type="freemarker">generalLeaveAudit.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-generalLeaveAudit-edit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="generalLeaveAuditEdit">
+	    	<result name="success" type="freemarker">generalLeaveAuditEdit.ftl</result>
+	    </action>
+	    <action name="studentLeaveManage-generalLeaveAudit-view" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction"
+			method="generalLeaveEdit">
+			<result name="success" type="freemarker">generalLeaveEdit.ftl</result>
+		</action>
+		<action name="studentLeaveManage-generalLeaveAudit-list" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="generalLeaveAuditList">
+	    	<result name="success" type="freemarker">generalLeaveAuditList.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-generalLeaveAudit-save" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="leaveAuditSave">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="studentLeaveManage-temporaryLeaveAudit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction">
+	    	<result name="success" type="freemarker">temporaryLeaveAudit.ftl</result>
+	    </action>
+	    <action name="studentLeaveManage-temporaryLeaveAudit-view" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction"
+			method="temporaryLeaveEdit">
+			<result name="success" type="freemarker">temporaryLeaveEdit.ftl</result>
+		</action>
+		<action name="studentLeaveManage-temporaryLeaveAudit-edit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="temporaryLeaveAuditEdit">
+	    	<result name="success" type="freemarker">temporaryLeaveAuditEdit.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-temporaryLeaveAudit-list" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="temporaryLeaveAuditList">
+	    	<result name="success" type="freemarker">temporaryLeaveAuditList.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-temporaryLeaveAudit-save" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="leaveAuditSave">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+    	<action name="studentLeaveManage-liveLeaveAudit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction">
+	    	<result name="success" type="freemarker">liveLeaveAudit.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-liveLeaveAudit-edit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="liveLeaveAuditEdit">
+	    	<result name="success" type="freemarker">liveLeaveAuditEdit.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-liveLeaveAudit-list" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="liveLeaveAuditList">
+	    	<result name="success" type="freemarker">liveLeaveAuditList.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-liveLeaveAudit-save" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="leaveAuditSave">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+    	<action name="studentLeaveManage-liveLeaveAudit-view" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction"
+			method="liveLeaveEdit">
+			<result name="success" type="freemarker">liveLeaveEdit.ftl</result>
+		</action>
+    	<action name="studentLeaveManage-longLeaveAudit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction">
+	    	<result name="success" type="freemarker">longLeaveAudit.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-longLeaveAudit-edit" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="longLeaveAuditEdit">
+	    	<result name="success" type="freemarker">longLeaveAuditEdit.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-longLeaveAudit-list" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="longLeaveAuditList">
+	    	<result name="success" type="freemarker">longLeaveAuditList.ftl</result>
+	    </action>
+		<action name="studentLeaveManage-longLeaveAudit-save" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction" method="leaveAuditSave">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="studentLeaveManage-longLeaveAudit-view" class="net.zdsoft.office.studentLeave.action.StudentLeaveManageAction"
+			method="longLeaveEdit">
+			<result name="success" type="freemarker">longLeaveEdit.ftl</result>
+		</action>
+    <!--******************************************************************************************************-->
+    	<action name="studentLeave" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction">
+    		<result name="success" type="freemarker">studentAdmin.ftl</result>
+    	</action>
+        <action name="studentLeave-apply" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="studentLeaveApply">
+        	<result name="success" type="freemarker">applyStudentLeave.ftl</result>
+        </action>
+        <action name="studentLeave-applyList" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="studentLeaveApplyList">
+        	<result name="success" type="freemarker">studentLeaveApplyList.ftl</result>
+        </action>
+        <action name="studentLeave-applyEdit" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="addApply">
+        	<result name="success" type="freemarker">studentLeaveDetail.ftl</result>
+        </action>
+        <action name="studentLeave-applySave" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="saveApply">
+        	<result name="success" type="json">
+        		<param name="root">promptMessageDto</param>
+        	</result>
+        </action>
+        <action name="studentLeave-applySubmit" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="saveToApprove">
+        	<result name="success" type="json">
+        		<param name="root">promptMessageDto</param>
+        	</result>
+        </action>
+        <action name="studentLeave-deleteApply" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="deleteApply">
+        	<result name="success" type="json">
+        		<param name="root">promptMessageDto</param>
+        	</result>
+        </action>
+        <action name="studentLeave-doInvalid" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="doInvalid">
+        	<result name="success" type="json">
+        		<param name="root">promptMessageDto</param>
+        	</result>
+        </action>
+        <action name="studentLeave-approve" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="studentLeaveApprove">
+        	<result name="success" type="freemarker">auditStudentLeave.ftl</result>
+        </action>
+        <action name="studentLeave-approveList" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="studentLeaveApproveList">
+        	<result name="success" type="freemarker">auditStudentLeaveList.ftl</result>
+        </action>
+        <action name="studentLeave-approveEdit" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="approveEdit">
+        	<result name="success" type="freemarker">auditStudentLeaveEdit.ftl</result>
+        </action>
+        <action name="studentLeave-approvePass" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="auditPass">
+        	<result name="success" type="json">
+        		<param name="root">promptMessageDto</param>
+        	</result>
+        </action>
+        <action name="studentLeave-approveNoPass" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="auditNoPass">
+        	<result name="success" type="json">
+        		<param name="root">promptMessageDto</param>
+        	</result>
+        </action>
+        <action name="studentLeave-auditView" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="auditView">
+        	<result name="success" type="freemarker">auditStudentLeaveEdit.ftl</result>
+        </action>
+        <action name="studentLeave-leaveQuery" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="leaveQuery">
+        	<result name="success" type="freemarker">queryStudentLeave.ftl</result>
+        </action>
+        <action name="studentLeave-queryList" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="queryList">
+        	<result name="success" type="freemarker">queryStudentLeaveList.ftl</result>
+        </action>
+        <action name="studentLeave-leaveClassQuery" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="leaveClassQuery">
+        	<result name="success" type="freemarker">leaveClassQuery.ftl</result>
+        </action>
+        <action name="studentLeave-queryView" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="queryView">
+        	<result name="success" type="freemarker">queryStudentLeaveDetail.ftl</result>
+        </action>
+        <action name="studentLeave-leaveCount" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="leaveCount">
+        	<result name="success" type="freemarker">studentLeaveCount.ftl</result>
+        </action>
+         <action name="studentLeave-countList" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="countList">
+        	<result name="success" type="freemarker">studentLeaveCountList.ftl</result>
+        </action>
+        <action name="studentLeave-leaveCountExport" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="leaveCountExport">
+        </action>
+        <action name="studentLeave-leaveType" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="leaveTypeList">
+        	<result name="success" type="freemarker">leaveTypeList.ftl</result>
+        </action>
+        <action name="studentLeave-delLeaveType" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="deleteLeaveType">
+        	<result name="success" type="json">
+        		<param name="root">promptMessageDto</param>
+        	</result>
+        </action>
+        <action name="studentLeave-addLeaveType" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="addLeaveType">
+        	<result name="success" type="freemarker">leaveTypeEdit.ftl</result>
+        </action>
+        <action name="studentLeave-saveLeaveType" class="net.zdsoft.office.studentLeave.action.StudentLeaveAction" method="saveLeaveType">
+        	<result name="success" type="json">
+        		<param name="root">promptMessageDto</param>
+        	</result>
+        </action>
+    </package>
+    
+</struts>
+    

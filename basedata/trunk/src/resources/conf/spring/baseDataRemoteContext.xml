@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+	<!-- 教育局端验证学校信息 -->
+	<bean id="jwSchoolinfoService"
+		class="net.zdsoft.eis.base.remote.service.impl.JwSchoolinfoServiceImpl">
+		<property name="commonParamService">
+			<ref bean="commonParamService" />
+		</property>
+		<property name="schoolService">
+			<ref bean="schoolService" />
+		</property>
+	</bean>
+
+	<bean id="unitRemoteService"
+		class="net.zdsoft.eis.base.remote.service.impl.UnitRemoteServiceImpl">
+	</bean>
+
+</beans>

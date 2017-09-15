@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true" default-autowire="byName">
+	<bean id="baseDao" class="net.zdsoft.eis.frame.client.BaseDao" abstract="true"></bean>
+
+	<bean id="deleteXmlDataService"
+		class="net.zdsoft.eis.frame.service.impl.DeleteXmlDataServiceImpl">
+	</bean>
+
+	<bean id="baseSubsystemService"
+		class="net.zdsoft.eis.base.subsystemcall.service.impl.BaseSubsystemServiceImpl">
+	</bean>
+	
+	<bean id="swfUploadService"
+		class="net.zdsoft.eis.frame.service.impl.SwfUploadServiceImpl">
+	</bean>
+
+	<!-- ==================eis自身接口====================== -->
+	<!-- webservice 接口参数 -->
+	<bean id="commonParamService"
+		class="net.zdsoft.eis.base.remote.param.service.impl.CommonParamServiceImpl">
+		<property name="unitService">
+			<ref bean="unitService" />
+		</property>
+		<property name="userService">
+			<ref bean="userService" />
+		</property>
+	</bean>
+</beans>

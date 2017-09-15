@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!-- 教师请假管理 -->
+    <package name="teacherLeave" extends="default" namespace="/office/teacherLeave">
+    	<action name="teacherLeave" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveAction" >
+           <result name="success" type="freemarker">teacherLeaveTab.ftl</result>
+        </action>
+        
+    	<action name="teacherLeave-applyList" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveAction" method="applyList" >
+           <result name="success" type="freemarker">applyTeacherLeaveList.ftl</result>
+        </action>
+        
+    	<action name="teacherLeave-applyTeacherLeave" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveAction" method="applyTeacherLeave" >
+           <result name="success" type="freemarker">applyTeacherLeave.ftl</result>
+        </action>
+        
+    	<action name="teacherLeave-saveTeacherLeave" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveAction" method="saveTeacherLeave" >
+           <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      			<param name="noCache">true</param>  
+                <param name="contentType">text/html</param>
+      		</result>
+        </action>
+        
+    	<action name="teacherLeave-submitTeacherLeave" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveAction" method="submitTeacherLeave" >
+           <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      			<param name="noCache">true</param>  
+                <param name="contentType">text/html</param>
+      		</result>
+        </action>
+        
+    	<action name="teacherLeave-updateTeacherLeave" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveAction" method="applyTeacherLeave" >
+           <result name="success" type="freemarker">applyTeacherLeave.ftl</result>
+        </action>
+    	
+    	
+    	<action name="teacherLeave-auditList" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveAction" method="auditList" >
+           <result name="success" type="freemarker">auditTeacherLeaveList.ftl</result>
+        </action>
+        
+        <action name="teacherLeave-auditTeacherLeave" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveAction" method="auditTeacherLeave" >
+           <result name="success" type="freemarker">auditTeacherLeave.ftl</result>
+        </action>
+        
+         <action name="teacherLeave-auditPassLeave" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveAction" method="auditPassLeave" >
+            <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      			<param name="noCache">true</param>  
+                <param name="contentType">text/html</param>
+      		</result>
+        </action>
+    	
+    	<action name="teacherLeave-applyQueryList" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveAction" method="applyQueryList" >
+           <result name="success" type="freemarker">teacherLeaveQueryList.ftl</result>
+        </action>
+    	<action name="teacherLeave-applyDetail" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveAction" method="applyDetail" >
+           <result name="success" type="freemarker">teacherLeaveDetail.ftl</result>
+        </action>
+        <action name="teacherLeave-deleteLeave" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveAction" method="deleteLeave" >
+           <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+        </action>
+        <action name="teacherLeave-revokeLeave" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveAction" method="revokeLeave" >
+           <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+        </action>
+        <action name="teacherLeave-invalidLeave" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveAction" method="invalidLeave" >
+           <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+        </action>
+    	<action name="teacherLeave-applySummary" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveAction" method="applySummary" >
+           <result name="success" type="freemarker">applySummary.ftl</result>
+        </action>
+    	<action name="teacherLeave-applySummaryList" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveAction" method="applySummaryList" >
+           <result name="success" type="freemarker">applySummaryList.ftl</result>
+        </action>
+        <action name="teacherLeave-applySummaryExport" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveAction" method="applySummaryExport">
+		</action>
+        
+    </package>
+    
+    <package name="teacherLeaveNh" extends="default" namespace="/office/teacherLeaveNh">
+    	<action name="teacherLeaveNh" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" >
+           <result name="success" type="freemarker">teacherLeaveNhAdmin.ftl</result>
+        </action>
+        <action name="teacherLeaveNh-leaveApply" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="leaveApply">
+           <result name="success" type="freemarker">leaveApply.ftl</result>
+        </action>
+        <action name="teacherLeaveNh-leaveApplyList" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="leaveApplyList">
+           <result name="success" type="freemarker">leaveApplyList.ftl</result>
+        </action>
+        <action name="teacherLeaveNh-leaveApplyEdit" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="leaveApplyEdit">
+           <result name="success" type="freemarker">leaveApplyEdit.ftl</result>
+        </action>
+        <action name="teacherLeaveNh-saveTeacherLeaveNh" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="saveTeacherLeaveNh">
+           <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+        </action>
+        <action name="teacherLeaveNh-delete" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="deleteLeaveApply">
+           <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+        </action>
+        <action name="teacherLeaveNh-submitTeacherLeaveNh" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="submitTeacherLeaveNh">
+           <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+        </action>
+        <action name="teacherLeaveNh-viewDetail" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="viewDetail">
+           <result name="success" type="freemarker">leaveApplyView.ftl</result>
+        </action>
+        <action name="teacherLeaveNh-leaveAudit" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="leaveAudit">
+           <result name="success" type="freemarker">leaveAudit.ftl</result>
+        </action>
+        <action name="teacherLeaveNh-leaveAuditList" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="leaveAuditList">
+           <result name="success" type="freemarker">leaveAuditList.ftl</result>
+        </action>
+        <action name="teacherLeaveNh-leaveAuditEdit" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="leaveAuditEdit">
+           <result name="success" type="freemarker">leaveAuditEdit.ftl</result>
+        </action>
+        <action name="teacherLeaveNh-flowDiv" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="flowDiv">
+           <result name="success" type="freemarker">leaveApplyFlowDiv.ftl</result>
+        </action>
+        <action name="teacherLeaveNh-saveTeacherLeaveNhAudit" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="saveTeacherLeaveNhAudit">
+           <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+        </action>
+        <action name="teacherLeaveNh-leaveTypeList" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="leaveTypeList">
+           <result name="success" type="freemarker">leaveTypeList.ftl</result>
+        </action>
+        <action name="teacherLeaveNh-addLeaveType" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="addLeaveType">
+           <result name="success" type="freemarker">leaveTypeEdit.ftl</result>
+        </action>
+        <action name="teacherLeaveNh-deleteLeaveType" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="deleteLeaveType">
+           <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+        </action>
+        <action name="teacherLeaveNh-saveLeaveType" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="saveLeaveType">
+           <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+        </action>
+        <action name="teacherLeaveNh-leaveSearch" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="leaveSearch">
+        	<result name="success" type="freemarker">leaveQuery.ftl</result>
+        </action>
+        <action name="teacherLeaveNh-queryList" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="teacherLeaveList">
+        	<result name="success" type="freemarker">leaveQueryList.ftl</result>
+        </action>
+        <action name="teacherLeaveNh-leaveSummary" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="leaveSummary">
+        	<result name="success" type="freemarker">leaveCount.ftl</result>
+        </action>
+         <action name="teacherLeaveNh-leaveSummaryList" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="leaveSummaryList">
+        	<result name="success" type="freemarker">leaveCountList.ftl</result>
+        </action>
+        <action name="teacherLeaveNh-leaveSummaryExport" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="leaveSummaryExport"></action>
+        <action name="teacherLeaveNh-infoPrint" class="net.zdsoft.office.teacherLeave.action.TeacherLeaveNhAction" method="infoPrint">
+        	<result name="success" type="freemarker">applyInfoPrint.ftl</result>
+        </action>
+   	</package>
+</struts>
+    

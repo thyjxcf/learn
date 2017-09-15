@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="remote-officeWeiKe" extends="default" namespace="/common/open/remote/weike">
+	      <global-results>
+		      <result name="input" type="freemarker">/remote/office/none.ftl</result>
+		      <result name="none" type="freemarker">/remote/office/none.ftl</result>
+	      </global-results>
+	      
+	      <!-- 办公模块入口拆分 跟微课对接整合  -->
+	       <action name="officeMessage" class="net.zdsoft.office.remote.RemoteWeikeOfficeAction" method="verifyToken">
+	           <result name="success" type="redirect">/office/mobileh5/message/messageList.html?syncUserId=${syncUserId}</result>
+	     </action>
+	      <!-- 待我审批 -->
+	      <action name="officeAuditData" class="net.zdsoft.office.remote.RemoteWeikeOfficeAction" method="verifyToken">
+	          <result name="success" type="redirect">/office/mobileh5/workflow/workflowAuditList.html?syncUserId=${syncUserId}</result>
+	     </action>
+	     <!-- 我发起的 -->
+	     <action name="officeApplyData" class="net.zdsoft.office.remote.RemoteWeikeOfficeAction" method="verifyToken">
+	         <result name="success" type="redirect">/office/mobileh5/workflow/workflowApplyList.html?syncUserId=${syncUserId}</result>
+	     </action>
+	     <!-- 教师请假申请 -->
+	     <action name="officeTeacherLeaveApply" class="net.zdsoft.office.remote.RemoteWeikeOfficeAction" method="verifyToken">
+	         <result name="success" type="redirect">/office/mobileh5/workflow/leaveApplyEdit.html?syncUserId=${syncUserId}</result>
+	     </action>
+	     <!-- 外出申请 -->
+	     <action name="officeGoOutApply" class="net.zdsoft.office.remote.RemoteWeikeOfficeAction" method="verifyToken">
+	         <result name="success" type="redirect">/office/mobileh5/workflow/goOutApplyEdit.html?syncUserId=${syncUserId}</result>
+	     </action>
+	     <!-- 集体外出申请 -->
+	     <action name="officeJtGoOutApply" class="net.zdsoft.office.remote.RemoteWeikeOfficeAction" method="verifyToken">
+	         <result name="success" type="redirect">/office/mobileh5/workflow/goOutjtApplyEdit.html?syncUserId=${syncUserId}</result>
+	     </action>
+	     <!-- 出差申请 -->
+	     <action name="officeEvectionApply" class="net.zdsoft.office.remote.RemoteWeikeOfficeAction" method="verifyToken">
+	         <result name="success" type="redirect">/office/mobileh5/workflow/evectionApplyEdit.html?syncUserId=${syncUserId}</result>
+	     </action>
+	     <!-- 报销申请 -->
+	     <action name="officeExpenseApply" class="net.zdsoft.office.remote.RemoteWeikeOfficeAction" method="verifyToken">
+	         <result name="success" type="redirect">/office/mobileh5/workflow/expenseApplyEdit.html?syncUserId=${syncUserId}</result>
+	     </action>
+	     <!-- 物品领用申请 -->
+	     <action name="officeGoodsApply" class="net.zdsoft.office.remote.RemoteWeikeOfficeAction" method="verifyToken">
+	         <result name="success" type="redirect">/office/mobileh5/workflow/goodsManagerApplyList.html?syncUserId=${syncUserId}</result>
+	     </action>
+	     <!-- 听课申请 -->
+	     <action name="officeAttendLectureApply" class="net.zdsoft.office.remote.RemoteWeikeOfficeAction" method="verifyToken">
+	         <result name="success" type="redirect">/office/mobileh5/workflow/attendLectureApplyEdit.html?syncUserId=${syncUserId}</result>
+	     </action>
+	     <!-- 工作汇报 -->
+	     <action name="officeWorkReport" class="net.zdsoft.office.remote.RemoteWeikeOfficeAction" method="verifyToken">
+	         <result name="success" type="redirect">/office/mobileh5/workreport/workreportList.html?syncUserId=${syncUserId}</result>
+	     </action>
+	     <!-- 工作日志 -->
+	     <action name="officeWorkSchedule" class="net.zdsoft.office.remote.RemoteWeikeOfficeAction" method="verifyToken">
+	         <result name="success" type="redirect">/office/mobileh5/work/schedule/scheduleList.html?syncUserId=${syncUserId}</result>
+	     </action>
+	     <!-- 报修 -->
+	     <action name="officeRepair" class="net.zdsoft.office.remote.RemoteWeikeOfficeAction" method="verifyToken">
+	         <result name="success" type="redirect">/office/mobileh5/repair/repairAdmin.html?syncUserId=${syncUserId}</result>
+	     </action>
+	     <!-- 通知公告 -->
+	     <action name="officeBulletin" class="net.zdsoft.office.remote.RemoteWeikeOfficeAction" method="verifyToken">
+	         <result name="success" type="redirect">/office/mobileh5/work/bulletin/bulletinList.html?syncUserId=${syncUserId}</result>
+	     </action>
+  </package>
+    
+	<package name="officeh5-remote" extends="default" namespace="/common/open/officeh5">
+	    
+	    <!-- 启用的模块 -->
+	    <action name="applist" class="net.zdsoft.office.remote.RemoteAppParmAction" method="getAppList"/>
+	    <!-- 安卓下载附件跳转页面 -->
+	    <action name="downloadAtt" class="net.zdsoft.office.remote.RemoteDownloadAttachmentAction" method="downloadAtt">
+			<result name="success" type="freemarker">/office/mobileh5/downloadAtt.ftl</result>
+	    </action>
+	    <!-- 审批 -->
+	    <action name="getAuditList" class="net.zdsoft.office.remote.RemoteConvertFlowAction" method="getAuditList"></action>
+	    <action name="getApplyList" class="net.zdsoft.office.remote.RemoteConvertFlowAction" method="getApplyList"></action>
+	    
+	    <!-- 工作汇报 -->
+	     <action name="workReport-list" class="net.zdsoft.office.remote.RemoteOfficeWorkReportAction" method="workReportList"/>
+	     <action name="workReport-detail" class="net.zdsoft.office.remote.RemoteOfficeWorkReportAction" method="workReportDetail"/>
+	     <action name="workReport-cancelReport" class="net.zdsoft.office.remote.RemoteOfficeWorkReportAction" method="cancelReport"/>
+	     <action name="workReport-getReportById" class="net.zdsoft.office.remote.RemoteOfficeWorkReportAction" method="getReportById"/>
+	     <action name="workReport-saveReport" class="net.zdsoft.office.remote.RemoteOfficeWorkReportAction" method="saveWorkReport"/>
+	     <action name="workReport-saveReply" class="net.zdsoft.office.remote.RemoteOfficeWorkReportAction" method="saveWorkReportEx"/>
+	    
+	    <!-- 消息邮件 -->
+	     <action name="receivedMessagesList" class="net.zdsoft.office.remote.RemoteOfficeMsgCenterH5Action" method="receivedMessagesList" />
+	     <action name="sendedMessagesList" class="net.zdsoft.office.remote.RemoteOfficeMsgCenterH5Action" method="sendedMessagesList" />
+	     <action name="draftMessagesList" class="net.zdsoft.office.remote.RemoteOfficeMsgCenterH5Action" method="draftMessagesList" />
+	     <action name="messageEdit" class="net.zdsoft.office.remote.RemoteOfficeMsgCenterH5Action" method="messageEdit" />
+	     <action name="messageSave" class="net.zdsoft.office.remote.RemoteOfficeMsgCenterH5Action" method="messageSave" />
+	     <action name="messageDetail" class="net.zdsoft.office.remote.RemoteOfficeMsgCenterH5Action" method="messageDetail" />
+	     <action name="messageReceiveDetail" class="net.zdsoft.office.remote.RemoteOfficeMsgCenterH5Action" method="messageReceiveDetail" />
+	     <action name="messageDetailContent" class="net.zdsoft.office.remote.RemoteOfficeMsgCenterH5Action" method="messageDetailContent" />
+	     <action name="messageRemove" class="net.zdsoft.office.remote.RemoteOfficeMsgCenterH5Action" method="messageRemove" />
+	     <action name="changeStar" class="net.zdsoft.office.remote.RemoteOfficeMsgCenterH5Action" method="changeStar" />
+	    <!-- 数量 -->
+	    <action name="manage-count" class="net.zdsoft.office.remote.RemoteManageCountAction" method="manageCount"/>
+	</package>
+	
+	
+	
+	<package name="customer-remote" extends="default" namespace="/common/open/customer">
+	    <!-- 跟进人 -->
+		<action name="getFollowUserDataPopup" class="net.zdsoft.office.customer.action.FollowUserDivAction"
+			method="getObjectsByUnitId">
+			<result name="success" type="freemarker">/common/popupObjectDiv.ftl</result>
+		</action>
+		<!-- 抄送人 -->
+		<action name="getCopyUserDataPopup" class="net.zdsoft.office.customer.action.CopyUserDivAction"
+			method="getObjectsByUnitId">
+			<result name="success" type="freemarker">/common/popupObjectDiv.ftl</result>
+		</action>
+		
+	    <action name="address-getUserList" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="getFollowUserList"/>
+	    <!-- 客户管理 -->
+	     <action name="customer" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" />
+	     <action name="customer-list" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="customerList"/>
+	     <action name="customer-apply" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="applyCustomer"/>
+	     <action name="customer-save" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="saveCustomer"/>
+	     <action name="customer-canReadDetail" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="canReadDetail"/>
+	     <action name="customer-doSaveFollowMan" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="doSaveFollowMan"/>
+	     <action name="customer-doSaveFollowInfo" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="doSaveFollowInfo"/>
+	     <action name="customer-followDetail" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="followDetail"/>
+	     <action name="customer-auditDetail" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="auditDetail"/>
+	     <action name="customer-zykDetail" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="zykDetail"/>
+	     <action name="customer-doSaveDelayInfo" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="doSaveDelayInfo"/>
+	     <action name="customer-doAudit" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="doAudit"/>
+	     <action name="customer-doGiveUpApply" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="doGiveUpApply"/>
+	     <action name="customer-doDelete" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="doDelete"/>
+	     <action name="customer-followInfo" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="followInfo"/>
+	</package>
+	<package name="health-remote" extends="default" namespace="/common/open/health">
+		<action name="health-getIndexFtl" class="net.zdsoft.office.remote.RemoteHealthAction" method="getIndexFtl">
+			<result name="success" type="freemarker">/office/mobileh5/health/healthIndex.ftl</result>
+			<result name="none" type="freemarker">/office/mobileh5/health/none.ftl</result>
+		</action>
+		<action name="health-getDetail" class="net.zdsoft.office.remote.RemoteHealthAction" method="getDetail"/>
+		<action name="health-getClassRank" class="net.zdsoft.office.remote.RemoteHealthAction" method="getClassRank"/>
+	</package>
+</struts>

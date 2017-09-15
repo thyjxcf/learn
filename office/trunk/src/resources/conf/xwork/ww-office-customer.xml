@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 基层销售 -->
+	<package name="customer"  extends="default" namespace="/office/customer">
+		<action name="customer" class="net.zdsoft.office.customer.action.CustomerAction" >
+			<result name="success" type="freemarker">customerAdmin.ftl</result>
+		</action>
+		<!-- 客户申请显示列表-->
+		<action name="customer-applyList" class="net.zdsoft.office.customer.action.CustomerAction" method="customerApplyList">
+			<result name="success" type="freemarker">applyCustomer.ftl</result>
+		</action>
+		<!-- 客户新增页-->
+		<action name="customer-addCustomer" class="net.zdsoft.office.customer.action.CustomerAction" method="customerAdd">
+			<result name="success" type="freemarker">editCustomer.ftl</result>
+		</action>
+		<!-- 客户保存-->
+		<action name="customer-save" class="net.zdsoft.office.customer.action.CustomerAction" method="save">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<!--再次申请-->
+		<action name="customer-applyAgain" class="net.zdsoft.office.customer.action.CustomerAction" method="applyAgain">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<!-- 客户删除-->
+		<action name="customer-delete" class="net.zdsoft.office.customer.action.CustomerAction" method="delete">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<!-- 客户删除-->
+		<action name="customer-giveUp" class="net.zdsoft.office.customer.action.CustomerAction" method="giveUp">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<!-- 客户列表提交-->
+		<action name="customer-goApply" class="net.zdsoft.office.customer.action.CustomerAction" method="goApply">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<!-- 查看信息-->
+		<action name="customer-goDetail" class="net.zdsoft.office.customer.action.CustomerAction" method="goDetail">
+			<result name="success" type="freemarker">detailCustomer.ftl</result>
+		</action>
+		
+		<!-- 客户审核 -->
+	     <action name="customer-audit" class="net.zdsoft.office.customer.action.CustomerAuditAction" method="auditAdmin">
+	            <result name="success" type="freemarker">audit/customerAuditAdmin.ftl</result>
+	     </action>
+	     
+	     <action name="customer-auditList" class="net.zdsoft.office.customer.action.CustomerAuditAction" method="auditList">
+	            <result name="success" type="freemarker">audit/customerAuditList.ftl</result>
+	     </action>  
+	     <action name="customer-auditEdit" class="net.zdsoft.office.customer.action.CustomerAuditAction" method="auditEdit">
+	            <result name="success" type="freemarker">audit/customerAuditEdit.ftl</result>
+	     </action>
+	     <action name="customer-saveAudit" class="net.zdsoft.office.customer.action.CustomerAuditAction" method="saveAudit">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+	     <action name="customer-goAuditDetail" class="net.zdsoft.office.customer.action.CustomerAction" method="goDetail">
+			<result name="success" type="freemarker">audit/detailAuditCustomer.ftl</result>
+		</action>
+		
+		
+		<!-- 我的客户显示列表-->
+		<action name="customer-myCustomerList" class="net.zdsoft.office.customer.action.CustomerAction" method="myCustomerList">
+			<result  name="success" type="freemarker">myCustomer.ftl</result>
+		</action>
+		<!-- 我的客户编辑转发跳转-->
+		<action name="customer-editMyCustomer" class="net.zdsoft.office.customer.action.CustomerAction" method="editMyCustomer">
+			<result  name="success" type="freemarker">editMyCustomer.ftl</result>
+		</action>
+		<!-- 我的客户编辑转发入库-->
+		<action name="customer-editMyCustomerToSQL" class="net.zdsoft.office.customer.action.CustomerAction" method="editMyCustomerToSQL">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<!-- 延期申请入库-->
+		<action name="customer-putOffApply" class="net.zdsoft.office.customer.action.CustomerAction" method="putOffApply">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<!-- 添加跟进记录跳转-->
+		<action name="customer-addRecord" class="net.zdsoft.office.customer.action.CustomerAction" method="addRecord">
+			<result  name="success" type="freemarker">addRecord.ftl</result>
+		</action>
+		<!-- 跟进记录入库-->
+		<action name="customer-addRecordIntoSQL" class="net.zdsoft.office.customer.action.CustomerAction" method="addRecordToSQL">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<!-- 查看带有跟进记录-->
+		<action name="customer-goDetailRecord" class="net.zdsoft.office.customer.action.CustomerAction" method="goDetailRecord">
+			<result  name="success" type="freemarker">detailRecordCustomer.ftl</result>
+		</action>
+		
+		
+		<!--地区本部 所有客户显示列表-->
+		<action name="customer-getAllList" class="net.zdsoft.office.customer.action.CustomerAction" method="getAllList">
+			<result   name="success" type="freemarker">allCustomer.ftl</result>
+		</action>
+		<!--导出-->
+		<action name="customer-export" class="net.zdsoft.office.customer.action.CustomerAction" method="doExport">
+		</action>
+		<!--客户资源库显示列表-->
+		<action name="customer-customerLibraryList" class="net.zdsoft.office.customer.action.CustomerAction" method="customerLibraryList">
+			<result   name="success" type="freemarker">customerLibrary.ftl</result>
+		</action>
+		<!-- 资源库客户申请-->
+		<action name="customer-libraryApply" class="net.zdsoft.office.customer.action.CustomerAction" method="customerLibraryApply">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		
+		<!-- 运营人员添加客户-->
+		<action name="customer-addCustomerNoAudit" class="net.zdsoft.office.customer.action.CustomerAction" method="addCustomer">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<!-- 省市区变化 -->
+		<action name="customer-findRegionList" class="net.zdsoft.office.customer.action.CustomerAction" method="findRegionList">
+			<result name="success" type="json">
+				<param name="root" >jsonMessageDto</param>
+			</result>
+		</action>
+	</package>
+</struts>

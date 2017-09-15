@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>详情</title>
+<link rel="stylesheet" type="text/css" href="../../../static/html5/css/style.css">
+<script src="../../../static/html5/js/flexible_css.debug.js"></script>
+<script src="../../../static/html5/js/flexible.debug.js"></script>
+<script src="../../../static/html5/js/jquery-1.9.1.min.js"></script>
+<script src="../../../static/html5/js/jquery.Layer.js"></script>
+<script src="../../../static/html5/js/jquery.form.js"></script>
+<script src="../../../static/html5/js/common.js"></script>
+<script src="../../../static/html5/js/public.js"></script>
+<script src="../../../static/html5/js/storage.js"></script>
+<script src="../../../static/html5/js/myscript.js"></script>
+<script src="../../../static/html5/js/validate.js"></script>
+<script src="../../../static/html5/js/weike.js"></script>
+<script src="../../../static/html5/js/myWeike.js"></script>
+
+<script src="js/wap.js"></script>
+<script src="js/wapEntities.js"></script>
+<script src="js/wapNetwork.js"></script>
+<script src="js/wapNetworkService.js"></script>
+</head>
+
+<body class="gray">
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header>
+        	<h1 class="f-20">详情</h1>
+            <a href="#" class="abtn abtn-img abtn-back abtn-left html-window-back" id="cancelId"><span></span></a>
+            <a href="#" class="abtn abtn-left2 f-18 html-window-close"><span>关闭</span></a>
+        </header>
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container">
+            	<ul class="ui-detail f-14">
+            		<li class="tit"><!--<span class="time f-14">10:15</span>--><span class="f-18" id="title"></span></li>
+                    <li class="fn-clear mt-20">
+                        <span class="tt">汇报类型：</span>
+                        <span class="dd" id="reportType"></span>
+                    </li>
+                    <li class="fn-clear">
+                        <span class="tt">时间：</span>
+                        <span class="dd" id="time"></span>
+                    </li>
+                    <div id="receiveDiv">
+                    	 <li class="fn-clear">
+	                        <span class="tt">汇报人单位：</span>
+	                        <span class="dd" id="unitName"></span>
+	                    </li>
+	                    <li class="fn-clear">
+	                        <span class="tt">汇报人部门：</span>
+	                        <span class="dd" id="deptName"></span>
+	                    </li>
+                    </div>
+                    <div id="sendDiv">
+                    	 <li class="fn-clear">
+	                        <span class="tt">接收人：</span>
+	                        <span class="dd" id="receiveNames"></span>
+	                    </li>
+                    </div>
+                   
+                    <li class="fn-clear">
+                        <span class="tt">发送时间：</span>
+                        <span class="dd" id="sendTime"></span>
+                    </li>
+                </ul>
+                <ul class="ui-detail mt-20 f-14">
+                    <li class="fn-clear">
+                        <span class="tt">汇报内容：</span>
+                        <span class="dd" id="content"></span>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+	  setTimeout(wap.initDetail(), 200);
+	}, false);
+</script>	
+</html>

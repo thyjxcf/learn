@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project name="bulid" basedir="." default="jar">
+
+	<property name="top.dir" value=".." />
+	<import file="${top.dir}/common-ant/macrodef.xml"/>
+	<property name="depends" value="depend-eisu90,depend-eis60-trunk" />
+
+	<property name="module" value="system" />
+	<property name="codeURL" value="trunk" />
+
+	<property name="java.home" value="${env.JAVA_HOME}" />
+	<property name="ant.home" value="${env.ANT_HOME}" />
+		
+	
+	<!-- 初始配置 -->
+	<property name="build.dir" value="build" />
+
+	<property name="build.classes" value="${build.dir}/classes" />
+	<property name="build.classes.conf" value="${build.classes}/conf" />
+	<property name="build.classes.businessconf" value="${build.classes}/businessconf" />
+	<property name="mini.lib.dir" value="${top.dir}/mini-lib" />
+	<property name="ant.depend.lib" value="${top.dir}/common-ant/depend-lib" />
+	<property name="jar-version" value="9.0" />
+
+
+	<tstamp>
+          <format property="today" pattern="yyyyMMddHHmm" offset="0" unit="day"/>
+    </tstamp>
+
+	<target name="clean">
+		<delete dir="${build.dir}" failonerror="false" />
+		<for list="${depends}" param="project">
+		    <sequential>
+				<delete file="${top.dir}/@{project}/${module}.jar" />
+				<delete file="${top.dir}/@{project}/${module}-${jar-version}.jar" />
+		    </sequential>
+		</for>
+
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${build.classes}" />
+		<mkdir dir="${build.classes.conf}" />
+		<mkdir dir="${build.classes.businessconf}" />
+	</target>
+
+	<!-- Tomcat Ant Tasks -->
+	<taskdef file="${top.dir}/common-ant/tomcatTasks.properties">
+	    <classpath>
+	        <fileset dir="${ant.depend.lib}">
+	            <include name="catalina-ant.jar"/>
+	        </fileset>
+	    </classpath>
+	</taskdef>	
+		
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="${top.dir}/common-ant/depend-lib/ant-contrib-1.0b3.jar"/>
+		</classpath>
+	</taskdef>
+
+
+	<target name="path">
+		<for list="${depends}" param="project">
+		    <sequential>
+				<path id="@{project}">
+					<fileset dir="${mini.lib.dir}">
+						<include name="**/*.jar" />
+					</fileset>
+					<fileset dir="${ant.depend.lib}">
+						<include name="**/*.jar" />
+					</fileset>
+					<fileset dir="${top.dir}/@{project}">
+						<include name="**/*.jar" />
+					</fileset>
+				</path>
+		    </sequential>
+		</for>
+	</target>
+
+
+	<target name="jar" depends="clean,path">
+		<for list="${depends}" param="project">
+		    <sequential>
+				<javac-code srcPath="src/java" destPath="${build.classes}" classpath="@{project}" staticFilePath="web/static" resourcePath="src/resources"/>
+				<create-jar jarname="${module}-${jar-version}" version="${codeURL}-build${today}" dest="${top.dir}/@{project}" classes="${build.classes}"/>
+		    </sequential>
+		</for>
+	</target>
+	
+</project>

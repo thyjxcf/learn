@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true" default-autowire="byName">
+
+	<!-- =======================附件====================== -->
+	<bean id="attachmentDao" class="net.zdsoft.eis.base.attachment.dao.impl.AttachmentDaoImpl">
+	</bean>
+
+	<bean id="attachmentService"
+		class="net.zdsoft.eis.base.attachment.service.impl.AttachmentServiceImpl">
+	</bean>
+
+	<!-- =======================发布====================== -->
+	<bean id="systemDeployService" class="net.zdsoft.eis.base.deploy.SystemDeployServiceImpl">
+	</bean>
+
+	<!-- =======================事件====================== -->
+	<bean id="groupEventDispatcher" class="net.zdsoft.eis.base.event.impl.GroupEventDispatcher">
+	</bean>
+
+	<bean id="userEventDispatcher" class="net.zdsoft.eis.base.event.impl.UserEventDispatcher">
+	</bean>
+
+	<!-- =======================MQ====================== -->	
+	<bean id="addSyncAdvice" class="net.zdsoft.eis.base.sync.advice.AddSyncAdvice" />
+	<bean id="updateSyncAdvice" class="net.zdsoft.eis.base.sync.advice.UpdateSyncAdvice" />
+	<bean id="deleteSyncAdvice" class="net.zdsoft.eis.base.sync.advice.DeleteSyncAdvice" />
+	<bean id="businessSyncInterceptor"
+		class="net.zdsoft.eis.base.sync.advice.BusinessSyncInterceptor" />
+
+	<bean name="syncHelper" class="net.zdsoft.eis.base.sync.SyncHelper"
+		lazy-init="false">
+	</bean>
+	<bean id="abstractHandlerTemplate" class="net.zdsoft.eis.base.sync.AbstractHandlerTemplate"
+		abstract="true" init-method="init" lazy-init="false" />
+
+	<!-- =======================待办事项====================== -->
+	<bean id="affairDao" class="net.zdsoft.eis.base.affair.AffairDaoImpl"></bean>
+	<bean id="affairService" class="net.zdsoft.eis.base.affair.AffairServiceImpl"></bean>
+	<!-- 不有延迟初始化 -->
+	<bean id="abstractTransact"
+		class="net.zdsoft.eis.base.affair.AbstractTransact" lazy-init="false"
+		abstract="true">
+	</bean>
+
+	<!-- =======================文件存储====================== -->
+	<bean id="storageFileService" class="net.zdsoft.eis.base.storage.StorageFileServiceImpl"></bean>
+	
+	<!-- =======================字段====================== -->
+	<bean id="fieldDao" class="net.zdsoft.eis.base.form.FieldDaoImpl"/>
+	<bean id="fieldService" class="net.zdsoft.eis.base.form.FieldServiceImpl"/>
+	
+	<!-- =======================流程模板====================== -->
+	<bean id="flowTemplateService" class="net.zdsoft.eis.base.auditflow.template.service.impl.FlowTemplateServiceImpl">
+	</bean>
+	<bean id="flowStepDao" class="net.zdsoft.eis.base.auditflow.template.dao.impl.FlowStepDaoImpl"/>
+	<bean id="flowDao" class="net.zdsoft.eis.base.auditflow.template.dao.impl.FlowDaoImpl"/>
+
+	<!-- =======================申请审核====================== -->
+	<bean id="flowApplyDao" class="net.zdsoft.eis.base.auditflow.manager.dao.impl.FlowApplyDaoImpl"></bean>
+	<bean id="flowAuditDao" class="net.zdsoft.eis.base.auditflow.manager.dao.impl.FlowAuditDaoImpl"></bean>
+		
+	<bean id="flowApplyService" class="net.zdsoft.eis.base.auditflow.manager.service.impl.FlowApplyServiceImpl"></bean>
+	<bean id="flowAuditService" class="net.zdsoft.eis.base.auditflow.manager.service.impl.FlowAuditServiceImpl"></bean>
+	<bean id="businessTeacherService" class="net.zdsoft.eis.base.auditflow.manager.service.impl.BusinessTeacherServiceImpl"></bean>
+	<bean id="businessStudentService" class="net.zdsoft.eis.base.auditflow.manager.service.impl.BusinessStudentServiceImpl"></bean>
+	
+	<!--  学校内部流程申请和审核 -->
+	<bean id="schFlowApplyService" class="net.zdsoft.eis.base.auditflow.manager.service.impl.SchFlowApplyServiceImpl"></bean>
+	<bean id="schFlowAuditService" class="net.zdsoft.eis.base.auditflow.manager.service.impl.SchFlowAuditServiceImpl"></bean>
+			
+</beans>

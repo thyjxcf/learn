@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>发件箱详情</title>
+<link rel="stylesheet" type="text/css" href="../../../static/html/css/style.css?v=20170619">
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="../../../static/html/js/flexible_css.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery-1.9.1.min.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.form.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.Layer.js?v=20170619"></script>
+<script src="../../../static/html/js/storage.js?v=20170619"></script>
+</head>
+
+<body class="gray">
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header style="display:none">
+        	<h1 class="f-20">邮件详情</h1>
+        	<a href="#" id="cancelId" class="abtn abtn-img abtn-back abtn-left html-window-back"><span></span></a>
+            <a href="javascript:void(0)" class="abtn abtn-left2 f-18 html-window-close"><span>关闭</span></a>
+        </header>
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container">
+            	<ul class="ui-detail f-14">
+                	<li class="dt">
+                		<p class="f-16" id="title" ></p>
+                		<p class="mt-10 f-12 c-999" id="sendUserName" ></p>
+            		</li>
+                    <li class="f-15 c-333" id="content">
+                    </li>
+                </ul>
+                <ul class="acc-wrap acc-wrap2 mt-20" id="fileDiv">
+                </ul>
+            	<ul class="ui-form mb-20 f-14">
+            		<li id="unReadUserLi" class="user user-opt mt-20">
+            		 <p class="f-15 c-666"><a href="#" class="pt-20 show-more"><span class="arrow"></span><span id="unReadNum" class="mr-10 c-red"></span>未读</a></p>
+                    </li>
+            		<li id="readUserLi" class="user user-opt mt-20">
+            		 <p class="f-15 c-666"><a href="#" class="pt-20 show-more"><span class="arrow"></span><span id="readNum" class="mr-10"></span>已读</a></p>
+                    </li>
+            		<li id="replyLi" class="mt-20">
+                    </li>
+            	</ul>
+                
+            </div>
+        </div>
+        <div class="replay-footer">
+        	<p class="label f-15">输入回复全部的内容...</p>
+    		<p contenteditable="true" class="analog-txt" id="replyCon"></p>
+        	<p class="fn-clear">
+	        	<a href="#" id="saveReply" class="f-15">发送</a>
+        		<span id="sendSms" class="analog-chk mt-15 f-12 c-999"><i></i>同时发短信通知</span>
+        	</p>
+       </div>
+         <form id="dataForm">
+           	<input type="hidden" name="title" id="msgTitle" >
+           	<input type="hidden" name="replyMsgId" id="replyMsgId" >
+           	<input type="hidden" name="simpleContent" id="msgCon" >
+           	<input type="hidden" name="userIds" id="userIds" >
+           	<input type="hidden" name="userId" id="userId" >
+           	<input type="hidden" name="sendUserName" id="userName" >
+           	<input type="hidden" name="unitId" id="unitId" >
+           	<input type="hidden" name="isNeedsms" id="isNeedsms" >
+           	<input type="hidden" name="oprateType" id="oprateType" >
+       	 </form>
+    </div>
+</div>
+
+<script  src="../../../static/html/js/myscript.js?v=20170619"></script>
+<script src="../../../static/html/js/public.js?v=20170619"></script>
+<script src="../../../static/html/js/common.js?v=20170619"></script>
+<script src="../../../static/html/js/validate.js?v=20170619"></script>
+
+<script src="js/msgWap.js?v=20170619"></script>
+<script src="js/msgWapEntities.js?v=20170619"></script>
+<script src="js/msgWapNetwork.js?v=20170619"></script>
+<script src="js/msgWapNetworkService.js?v=20170619"></script>
+
+<script src="../../../static/html/js/weike.js?v=20170619"></script>
+<script src="../../../static/html/js/myWeike.js?v=20170619"></script>
+<script type="text/javascript">
+$(function () {
+	$('.user-opt .show-more').click(function(e){
+		e.preventDefault();
+		$(this).parents('.user-opt').toggleClass('user-open');
+	});
+	$('.replay-footer .label').click(function(){
+		$(this).hide().next('.analog-txt').show().focus();
+	});
+	$('.replay-footer .analog-txt').blur(function(){
+		var txt=$(this).text();
+		if(!txt){
+			$(this).prev('.label').show();
+		};
+	});
+});
+document.addEventListener('DOMContentLoaded', function() {
+		setTimeout(wap.initDetail(), 200);
+}, false);
+</script>
+</body>
+</html>

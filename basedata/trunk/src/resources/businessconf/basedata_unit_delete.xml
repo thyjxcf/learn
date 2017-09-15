@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+<deleteTables>
+	<table name="base_family" field="student_id in (select id from base_student where school_id = ?) " />
+	<!--
+	<table name="base_student_ex" field="id in (select id from base_student where school_id = ?) " />
+	  -->
+	<table name="base_student" field="school_id = ?" />
+	
+	<table name="base_class" field="school_id = ?" />
+	<table name="stusys_subschool" field="school_id = ?" />
+	<table name="stusys_cols_display" field="unit_id = ?" />
+	<table name="base_dept" field="unit_id = ?" />
+	<table name="base_eduinfo" field="id = ?" />
+	<table name="base_grade" field="school_id = ?" />
+	<table name="jw_basic_school_district" field="eduid = ?" />
+	<table name="log_user_login" field="unit_id = ?" />
+	<table name="stusys_semester" field="school_id = ?" />	
+	<table name="base_teacher" field="unit_id = ?" />
+	<table name="base_user" field="unit_id = ?" />
+	<table name="base_unit" field="id = ?" />
+	<table name="base_school" field="id = ?" />
+	
+ 	<table name="sys_date_info" field="sch_id = ?" />
+  	<table name="sys_systemini_unit" field="unitid = ?" />
+</deleteTables>
+</root>

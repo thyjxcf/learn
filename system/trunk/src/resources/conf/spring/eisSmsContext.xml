@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true" default-autowire="byName">
+	<!-- DAO -->
+	<bean id="baseSmsUseConfigDao"
+		class="net.zdsoft.eis.sms.dao.impl.BaseSmsUseConfigDaoImpl">
+	</bean>
+	
+	<bean id="smsDao"
+		class="net.zdsoft.eis.sms.dao.impl.SmsDaoImpl">
+	</bean>
+	
+	<!-- service -->
+	<bean id="baseSmsUseConfigService"
+		class="net.zdsoft.eis.sms.service.impl.BaseSmsUseConfigServiceImpl">
+	</bean>
+	
+	<bean id="smsService"
+		class="net.zdsoft.eis.sms.service.impl.SmsServiceImpl">
+	</bean>
+
+</beans>

@@ -1,0 +1,8 @@
+<mail-config>
+    <manager class="net.zdsoft.leadin.mail.MailServerManager">
+        <property>
+            <name>config-file</name>
+            <value>eis-mail.cfg.xml</value>
+        </property>
+    </manager>
+</mail-config>

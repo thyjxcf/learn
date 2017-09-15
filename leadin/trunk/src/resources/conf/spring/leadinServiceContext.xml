@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="true" default-autowire="byName">
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false" autowire="no">
+		<property name="triggers">
+			<list>
+				<ref local="leadinSchedulerTokenTrigger" />		
+				<ref local="leadinImportDataUpdateStatusTrigger" />						
+			</list>
+		</property>
+	</bean> 
+		
+	<!-- ====================处理调度标识======================-->
+	<bean id="leadinSchedulerTokenJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="schedulerTokenService" />
+		</property>
+		<property name="targetMethod">
+			<value>saveRunJob</value>
+		</property>
+	</bean>
+
+	<bean id="leadinSchedulerTokenTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="leadinSchedulerTokenJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0/50 * * * ? </value>
+		</property>
+	</bean> 
+	
+	<bean id="leadinImportDataUpdateStatusJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="leadinDataImportJob" />
+		</property>
+		<property name="targetMethod">
+			<value>updateJobNoHand</value>
+		</property>
+	</bean>
+	
+	<bean id="leadinImportDataUpdateStatusTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="leadinImportDataUpdateStatusJobDetail" />			
+		</property>
+		<property name="cronExpression">
+			<value>0 0/50 * * * ? </value>
+		</property>
+	</bean> 
+	
+	<!-- =============================导入===================================== -->
+	<!-- 导入任务定时器 -->
+	<bean id="leadinDataImportJob" class="net.zdsoft.leadin.common.job.BusinessTaskQuartzJob"
+		autowire="byName" init-method="init">
+		<property name="businessTaskService">
+			<ref bean="leadinImportDataJobService" />
+		</property>
+	</bean>
+	<bean id="leadinDataImportTask"
+		class="org.springframework.scheduling.timer.ScheduledTimerTask">
+		<property name="timerTask"><ref bean="leadinDataImportJob" /></property>	
+		<property name="delay">
+			<value>300000</value>
+		</property>
+	</bean>
+	<bean class="org.springframework.scheduling.timer.TimerFactoryBean"
+		lazy-init="false">
+		<property name="scheduledTimerTasks">
+			<list>
+				<ref bean="leadinDataImportTask" />
+			</list>
+		</property>
+	</bean>	
+	
+	
+	<bean id="leadinImportDataJobDao"
+		class="net.zdsoft.leadin.dataimport.dao.ImportDataJobDaoImpl">
+	</bean>
+	
+	<bean id="leadinImportDataJobService"
+		class="net.zdsoft.leadin.dataimport.service.impl.ImportDataJobServiceImpl"
+		autowire="byName">
+	</bean>
+	
+	<bean name="dataImportListener"
+		class="net.zdsoft.leadin.dataimport.core.DataImportListenerImpl">
+	</bean>
+
+
+	<!-- =============================缓存===================================== -->
+	<bean name="wrappedCache" class="net.zdsoft.leadin.cache.WrappedCache"></bean>
+
+	<bean name="simpleCacheManager" class="net.zdsoft.leadin.cache.SimpleCacheManagerImpl"></bean>
+	
+	<bean name="cacheHelper" class="net.zdsoft.leadin.cache.CacheHelper" lazy-init="false"
+		init-method="init">
+	</bean>
+
+	<!-- ==============导入模板==============-->
+	<bean id="leadinImportDataTemplateDao"
+		class="net.zdsoft.leadin.dataimport.dao.ImportDataTemplateDaoImpl">
+	</bean>
+
+	<bean id="leadinImportDataTemplateService"
+		class="net.zdsoft.leadin.dataimport.service.impl.ImportDataTemplateServiceImpl">
+	</bean>
+
+	<bean id="defaultDataImportService"
+		class="net.zdsoft.leadin.dataimport.service.impl.DefaultDataImportServiceImpl">
+	</bean>
+
+	<!-- ==============common==============-->
+	<bean id="systemCommonDao" class="net.zdsoft.leadin.common.dao.impl.SystemCommonDaoImpl"></bean>
+
+	<bean id="maxCodeDao" class="net.zdsoft.leadin.common.dao.impl.MaxCodeDaoImpl"></bean>
+<!--  -->
+	<bean id="dividedTransactionService"
+		class="net.zdsoft.leadin.common.service.impl.DividedTransactionServiceImpl">
+		<property name="transactionManager" ref="transactionManager"></property>
+	</bean>
+	
+	<bean id="schedulerTokenDao"
+		class="net.zdsoft.leadin.common.dao.impl.SchedulerTokenDaoImpl">		
+	</bean>
+	
+	<bean id="schedulerTokenService"
+		class="net.zdsoft.leadin.common.service.impl.SchedulerTokenServiceImpl">		
+	</bean>
+
+</beans>
+

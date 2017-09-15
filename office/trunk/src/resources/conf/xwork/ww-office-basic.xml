@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="officeBasic" extends="default" namespace="/office/basic">
+		<action name="appAuth" class="net.zdsoft.office.basic.action.OfficeAppParmAction">
+	            <result name="success" type="freemarker">appAuthList.ftl</result>
+	     </action>
+	     <action name="appAuth-save" class="net.zdsoft.office.basic.action.OfficeAppParmAction" method="save">
+	            <result name="success" type="json">
+	      			<param name="root">promptMessageDto</param>
+	      		</result>
+	     </action>
+	</package>
+	<package name="officeCommon" extends="default" namespace="/office/common">
+	     <!-- 检查附件状态 -->
+		<action name="checkAttachment" class="net.zdsoft.office.basic.action.OfficeAttachmentAction" method="checkAttachment">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		<action name="showAttachment" class="net.zdsoft.office.basic.action.OfficeAttachmentAction" method="showAttachment">
+			<result name="success" type="freemarker">/office/basic/viewAttachment.ftl</result>
+		</action>
+		<action name="showConvertAttachment" class="net.zdsoft.office.basic.action.OfficeAttachmentAction" method="showConvertAttachement">
+		</action>
+		
+		<!-- 办公流程 -->
+		<action name="loadNextStepTaskLayer" class="net.zdsoft.office.officeFlow.action.OfficeFlowAction" method="loadNextStepTaskLayer">
+			<result name="success" type="freemarker">/office/common/officeFlowNextTask.ftl</result>
+		</action>
+		<action name="changeNextStep" class="net.zdsoft.office.officeFlow.action.OfficeFlowAction" method="changeNextStep">
+			<result name="success" type="freemarker">/office/common/officeChangeNextStep.ftl</result>
+		</action>
+		<action name="saveNextStepUsers" class="net.zdsoft.office.officeFlow.action.OfficeFlowAction" method="saveNextStepUsers">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		
+	</package>
+</struts>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  app 各项子元素是对产品基本信息的描述；
+  id 产品标识
+  appName 产品名称；  
+  version 产品的版本号
+  image 产品的图标；
+  description 产品描述；
+  xurl 产品相对于根目录的主页面地址；
+  shareDataService 数据同步服务地址
+  testService 测试应用平台服务是否正常地址
+  shareDataSign 需同步的数据类型
+  type 接口类型:1表示完全兼容（完全采用基础平台机制）,2表示半兼容（应用系统实现校验用户名和密码接口）,3表示第三方产品（应用系统不用作任何修改）
+               2和3采用账号关联机制
+  parameters:	  应用系统登录页面上的参数，格式为：param1=value1;param2=value2(只对type为2和3的有效)
+  
+  service:其它的服务接口，校验用户名和密码是否有效
+  dataBasePass：数据库密码(只需接口类型为1的配置)
+  isDBPassEncoded:是否加密码(只需接口类型为1的配置):0表示不加密;1表示加密
+  urlExample:主页地址样例
+  isInWork:是否由运营平台管理
+-->
+<xmlConfig>
+	<applicationConfig>
+		<app id="zdsoft">
+			<appName>统一平台</appName>
+			<version>3.6</version>
+			<image>pic_system.gif</image>
+			<description>统一平台</description>
+			<xurl>/fpf/login/login.action</xurl>
+			<shareDataService>/fpfServices/sharedata</shareDataService>
+			<testService>/fpfServices/test</testService>
+			<shareDataSign>unit;group;employee;user</shareDataSign>
+			<type>1</type>
+			<urlExample>http://localhost:port/zdsoft</urlExample>
+		</app>
+		<app id="eiss">
+			<appName>校校通</appName>
+			<version>7.0.1</version>
+			<image>pic_eiss.gif</image>
+			<description>学校管理平台</description>
+			<xurl>/framework/login.do</xurl>
+			<shareDataService>/fpfServices/sharedata</shareDataService>
+			<testService>/fpfServices/test</testService>
+			<shareDataSign>unit;group;employee;user</shareDataSign>
+			<type>1</type>
+			<dataBasePass>TLS86EK7GHUVT8GXWTAFBBAP8N8UMPMNNMUSUNUDPNZAQB7GMY4VT4FP833CMHYP</dataBasePass>
+			<isDBPassEncoded>1</isDBPassEncoded>
+			<urlExample>http://localhost:port/eissweb</urlExample>
+		</app>		
+		<app id="sbw">
+	      <appName>校园网站生成</appName>
+	      <version>v4.6.2.60809</version>
+	      <image>pic_sbw.gif</image>
+	      <description>自助网站建设工具</description>
+	      <xurl>/FPFLogin/login.aspx</xurl>
+	      <shareDataService>/FPFLogin/ShareData.aspx</shareDataService>
+	      <testService>/FPFLogin/test.xml</testService>
+	      <shareDataSign>user</shareDataSign>
+	      <type>1</type>
+	      <dataBasePass>zdsoft</dataBasePass>
+		  <isDBPassEncoded>0</isDBPassEncoded>
+		  <urlExample>http://localhost:port/sbw</urlExample>
+	    </app>
+	    <app id="source">
+			<appName>资源库</appName>
+			<version>2.5</version>
+			<image>pic_source.gif</image>
+			<description>资源库管理平台</description>
+			<xurl>/login.jsp</xurl>
+			<shareDataService>/fpfServices/sharedata</shareDataService>
+			<testService>/fpfServices/test</testService>
+			<shareDataSign>unit;group;employee;user</shareDataSign >
+			<type>1</type>
+			<dataBasePass>zdsoftsourceadmin</dataBasePass>
+		  	<isDBPassEncoded>0</isDBPassEncoded>
+		  	<urlExample>http://localhost:port/source</urlExample>
+		</app>	 
+		<app id="vod">
+			<appName>VOD视频系统</appName>
+			<version>3.0</version>
+			<image>pic_source.gif</image>
+			<description>VOD视频系统</description>
+			<xurl>/verify.asp</xurl>
+			<shareDataService>/ShareData.asp</shareDataService>
+			<testService>/fpf/test.xml</testService>
+			<shareDataSign>user</shareDataSign >
+			<type>1</type>
+			<dataBasePass>zdsoftsourceadmin</dataBasePass>
+		  	<isDBPassEncoded>0</isDBPassEncoded>
+		  	<urlExample>http://localhost:port</urlExample>
+		</app>
+		<app id="etoh2">
+			<appName>家校互联</appName>
+			<version>2.0</version>
+			<image>etoh.gif</image>
+			<description>家校互联</description>
+			<xurl></xurl>
+			<shareDataService>/eis/dataDisposeRequest.htm</shareDataService>
+			<shareDataSign>basicSchoolinfo;group;duty;employee;user;basicGrade;basicClass;studentInfo;studentFamily;subject;classTeachingPlan;examCourseSchedule;exam;examSubjectInfo;examAchievement</shareDataSign>
+			<type>1</type>
+			<urlExample>http://localhost:port</urlExample>
+			<isInWork>1</isInWork>
+		</app>
+		
+		<app id="gzsys22">
+			<appName>学籍管理22</appName>
+			<image>pic_stusys.gif</image>
+			<description>学籍管理33</description>
+			<xurl></xurl>
+			<type>3</type>
+			<parameters>loginNameField=uid;passwordField=pwd</parameters>
+		</app>
+	</applicationConfig>
+</xmlConfig>
+

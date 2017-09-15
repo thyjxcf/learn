@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true" default-autowire="byName">
+
+	<!-- ==============================httpInvoker调用======================== -->
+	<!-- 调用运营平台 
+	<bean id="essSupportServiceProxy"
+		class="net.zdsoft.eis.dataservice.client.proxy.EisHttpInvokerProxyFactoryBean">
+		<property name="serviceUrl" value="remoting/SupportService" />
+		<property name="invokerServer" value="ess"></property>
+		<property name="serviceInterface" value="net.zdsoft.eschoolsupport.remoting.SupportService" />
+	</bean>
+-->
+</beans>
+

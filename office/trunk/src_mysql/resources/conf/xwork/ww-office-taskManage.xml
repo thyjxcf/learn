@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!-- 任务管理系统 -->
+    <package name="taskManage" extends="default" namespace="/office/taskManage">
+		<action name="taskManage"
+			class="net.zdsoft.office.taskManage.action.TaskManageAction" >
+			<result name="success" type="freemarker">taskManageTab.ftl</result>
+		</action>
+		
+		<!-- 教师DIV -->
+		<action name="taskManage-getTeacherDataPopup"
+			class="net.zdsoft.office.taskManage.action.TeacherDivAction" method="getObjectsByGroupId">
+			<result name="success" type="freemarker">/common/popupObjectDiv.ftl</result>
+		</action>
+		
+		<!-- 领导 -->
+		<action name="taskManage-assignTask-list"
+			class="net.zdsoft.office.taskManage.action.TaskManageAction" method="assignTaskList">
+			<result name="success" type="freemarker">assignTaskList.ftl</result>
+		</action>
+		<action name="taskManage-assignTask-add"
+			class="net.zdsoft.office.taskManage.action.TaskManageAction" method="assignTaskAdd">
+			<result name="success" type="freemarker">assignTaskEdit.ftl</result>
+		</action>
+		<action name="taskManage-assignTask-edit"
+			class="net.zdsoft.office.taskManage.action.TaskManageAction" method="assignTaskEdit">
+			<result name="success" type="freemarker">assignTaskEdit.ftl</result>
+		</action>
+		<action name="taskManage-assignTask-save"
+			class="net.zdsoft.office.taskManage.action.TaskManageAction" method="assignTaskSave">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+				<param name="noCache">true</param>  
+                <param name="contentType">text/html</param>
+			</result>
+		</action>
+		<action name="taskManage-assignTask-delete"
+			class="net.zdsoft.office.taskManage.action.TaskManageAction" method="assignTaskDelete">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		
+		<!-- 负责人 -->
+		<action name="taskManage-dealTask-list"
+			class="net.zdsoft.office.taskManage.action.TaskManageAction" method="dealTaskList">
+			<result name="success" type="freemarker">dealTaskList.ftl</result>
+		</action>
+		<action name="taskManage-dealTask-edit"
+			class="net.zdsoft.office.taskManage.action.TaskManageAction" method="dealTaskEdit">
+			<result name="success" type="freemarker">dealTaskEdit.ftl</result>
+		</action>
+		<action name="taskManage-dealTask-save"
+			class="net.zdsoft.office.taskManage.action.TaskManageAction" method="dealTaskSave">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+				<param name="noCache">true</param>  
+                <param name="contentType">text/html</param>
+			</result>
+		</action>
+		
+    </package>
+    
+</struts>
+    

@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="office-remote" extends="default" namespace="/common/open/office">
+	    
+	    <!-- 短信提醒 -->
+	    <action name="remindSms" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="remindSms"/>
+	    <!-- 发消息 -->
+	    <action name="sendNote" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="sendNote"/>
+	    <!-- 保存 -->
+	    <action name="saveNote" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="saveNote"/>
+	    <!-- 获取未读条数 -->
+	    <action name="getUnReadNum" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="getUnReadNum"/>
+	    <!-- 收件箱列表 -->
+	    <action name="remoteReceivedMessagesList" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="remoteReceivedMessagesList" />
+	    <!-- 会话列表 -->
+	    <action name="msgDetail" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="msgDetail" />
+	    <!-- 会话明细 -->
+	    <action name="msgDetailContent" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="msgDetailContent" />
+	    <!-- 全部设置为已读 -->
+	    <action name="readAll" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="readAll" />
+	    <!-- 统一加星 -->
+	    <action name="changeAllStar" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="changeAllStar" />
+	    <!-- 单个加星 -->
+	    <action name="changeStar" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="changeStar" />
+	    <!-- 删除 -->
+	    <action name="removeMsg" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="removeMsg" />
+	    <!-- 批量删除 -->
+	    <action name="removeMsgs" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="removeMsgs" />
+	    <!-- 发件箱列表 -->
+	    <action name="remoteSendedMessagesList" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="remoteSendedMessagesList" />
+		<!-- 查看明细 -->
+	    <action name="viewMsgSingle" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="viewMsgSingle" />
+		<!-- 获取收件人信息 -->
+	    <action name="obtainUserNames" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="obtainUserNames" />
+	    <!-- 草稿箱列表 -->
+	    <action name="remoteDraftMessagesList" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="listDraftMessages" />
+	    <!-- 获得新的下载地址 -->
+	    <action name="remoteDownLoad" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="downloadAttachment"/>
+	    <!-- 网站图片被拦截处理 -->
+	    <action name="netDownLoad" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="netDownloadAttahment"/>
+	    
+	    <action name="remoteMsgCentSave" class="net.zdsoft.office.remote.RemoteMsgCenterAction" method="remoteMsgCentSave"/>
+	</package>
+	
+	<!-- 办公OA手机端页面模块 -->
+	<package name="office-remote-mobile" extends="default" namespace="/common/open/officemobile">
+	    <!-- 二维码扫码下载 -->
+	    <action name="download" class="net.zdsoft.office.remote.RemoteQrCodeAction" method="download">
+	        <result name="success" type="freemarker">/office/mobile/qrCode/download.ftl</result>
+	    </action>
+	    
+	    <!-- 工作汇报 -->
+	    <action name="workReport" class="net.zdsoft.office.remote.RemoteWorkReportAction">
+	        <result name="success" type="freemarker">/office/mobile/workreport/workReportAdmin.ftl</result>
+	    </action>
+	    
+	    <action name="workReport-list" class="net.zdsoft.office.remote.RemoteWorkReportAction" method="workReportList">
+	    </action>
+	    
+	    <action name="workReport-detail" class="net.zdsoft.office.remote.RemoteWorkReportAction" method="workReportDetail">
+	    </action>
+	    
+	    <action name="workReport-save" class="net.zdsoft.office.remote.RemoteWorkReportAction" method="saveWorkReport">
+	    </action>
+	    
+	    <!-- 跨单位工作汇报 -->
+	    <action name="workReportTl" class="net.zdsoft.office.remote.RemoteWorkReportTlAction" method="workReport">
+	    	<result name="success" type="freemarker">/office/mobile/workReportTl/workReportAdmin.ftl</result>
+	    </action>
+	    <action name="workReportTl-applyList" class="net.zdsoft.office.remote.RemoteWorkReportTlAction" method="myWorkReportList">
+	    </action>
+	    <action name="workReportTl-applyWorkReport" class="net.zdsoft.office.remote.RemoteWorkReportTlAction" method="applyWorkReport">
+	    </action>
+	    <action name="workReportTl-submitWorkReport" class="net.zdsoft.office.remote.RemoteWorkReportTlAction" method="submitWorkReport">
+	    </action>
+	    <action name="workReportTl-deleteWorkReport" class="net.zdsoft.office.remote.RemoteWorkReportTlAction" method="deleteWorkReport">
+	    </action>
+	    <action name="workReportTl-workReportSearchList" class="net.zdsoft.office.remote.RemoteWorkReportTlAction" method="workReportSearchList">
+	    </action>
+	    <action name="workReportTl-aduitWorkReport" class="net.zdsoft.office.remote.RemoteWorkReportTlAction" method="aduitWorkReport">
+	    </action>
+	    <action name="workReportTl-aduitWorkReportSave" class="net.zdsoft.office.remote.RemoteWorkReportTlAction" method="aduitWorkReportSave">
+	    </action>
+	    <action name="workReportTl-applyDetail" class="net.zdsoft.office.remote.RemoteWorkReportTlAction" method="applyDetail">
+	    </action>
+	    
+	    <!-- 获取下一步处理人 -->
+	     <action name="getAuditUser" class="net.zdsoft.office.remote.RemoteTeacherLeaveAction" method="getFlowAuditUser" />
+	    <!-- 教师请假 -->
+	    <action name="teacherLeave" class="net.zdsoft.office.remote.RemoteTeacherLeaveAction" >
+	        <result name="success" type="freemarker">/office/mobile/teacherleave/leaveAdmin.ftl</result>
+        </action>
+    	<action name="teacherLeave-applyList" class="net.zdsoft.office.remote.RemoteTeacherLeaveAction" method="applyList" >
+        </action>
+    	<action name="teacherLeave-applyTeacherLeave" class="net.zdsoft.office.remote.RemoteTeacherLeaveAction" method="applyTeacherLeave" >
+        </action>
+    	<action name="teacherLeave-saveTeacherLeave" class="net.zdsoft.office.remote.RemoteTeacherLeaveAction" method="saveTeacherLeave" >
+        </action>
+    	<action name="teacherLeave-submitTeacherLeave" class="net.zdsoft.office.remote.RemoteTeacherLeaveAction" method="submitTeacherLeave" >
+        </action>
+    	<action name="teacherLeave-updateTeacherLeave" class="net.zdsoft.office.remote.RemoteTeacherLeaveAction" method="applyTeacherLeave" >
+        </action>
+    	<action name="teacherLeave-auditList" class="net.zdsoft.office.remote.RemoteTeacherLeaveAction" method="auditList" >
+        </action>
+        <action name="teacherLeave-auditTeacherLeave" class="net.zdsoft.office.remote.RemoteTeacherLeaveAction" method="auditTeacherLeave" >
+        </action>
+         <action name="teacherLeave-auditPassLeave" class="net.zdsoft.office.remote.RemoteTeacherLeaveAction" method="auditPassLeave" >
+        </action>
+    	<action name="teacherLeave-applyDetail" class="net.zdsoft.office.remote.RemoteTeacherLeaveAction" method="applyDetail" >
+        </action>
+        <action name="teacherLeave-revokeLeave" class="net.zdsoft.office.remote.RemoteTeacherLeaveAction" method="revokeLeave" >
+        </action>
+        <action name="teacherLeave-deleteLeave" class="net.zdsoft.office.remote.RemoteTeacherLeaveAction" method="deleteLeave" >
+        </action>
+        <action name="teacherLeave-doDeleteApply" class="net.zdsoft.office.remote.RemoteTeacherLeaveAction" method="doDeleteApply" >
+        </action>
+        
+        <!-- 报销 -->
+	    <action name="expense" class="net.zdsoft.office.remote.RemoteExpenseManageAction" >
+	        <result name="success" type="freemarker">/office/mobile/expense/expenseAdmin.ftl</result>
+        </action>
+    	<action name="expense-applyList" class="net.zdsoft.office.remote.RemoteExpenseManageAction" method="applyList" >
+        </action>
+    	<action name="expense-applyExpense" class="net.zdsoft.office.remote.RemoteExpenseManageAction" method="applyExpense" >
+        </action>
+    	<action name="expense-saveExpenseApply" class="net.zdsoft.office.remote.RemoteExpenseManageAction" method="saveExpenseApply" >
+        </action>
+    	<action name="expense-submitExpenseApply" class="net.zdsoft.office.remote.RemoteExpenseManageAction" method="submitExpenseApply" >
+        </action>
+    	<action name="expense-deleteExpense" class="net.zdsoft.office.remote.RemoteExpenseManageAction" method="deleteExpense" >
+        </action>
+        <action name="expense-auditList" class="net.zdsoft.office.remote.RemoteExpenseManageAction" method="auditList" >
+        </action>
+        <action name="expense-auditExpense" class="net.zdsoft.office.remote.RemoteExpenseManageAction" method="auditExpense" >
+        </action>
+        <action name="expense-saveExpenseAudit" class="net.zdsoft.office.remote.RemoteExpenseManageAction" method="saveExpenseAudit" >
+        </action>
+        <action name="expense-expenseApplyDetail" class="net.zdsoft.office.remote.RemoteExpenseManageAction" method="expenseApplyDetail" >
+        </action>
+        
+        <!-- 出差 -->
+        <action name="evection" class="net.zdsoft.office.remote.RemoteBusinessTripAction" >
+	        <result name="success" type="freemarker">/office/mobile/evection/evectionAdmin.ftl</result>
+        </action>
+        <action name="evection-applyBusinessTripList" class="net.zdsoft.office.remote.RemoteBusinessTripAction" method="applyList"/>
+		<action name="evection-applyBusinessTrip" class="net.zdsoft.office.remote.RemoteBusinessTripAction" method="applyBusinessTrip"/>
+		<action name="evection-saveBusinessTrip" class="net.zdsoft.office.remote.RemoteBusinessTripAction" method="saveBusinessTrip"/>
+		<action name="evection-submitBusinessTrip" class="net.zdsoft.office.remote.RemoteBusinessTripAction" method="submitBusinessTrip"/>
+		<action name="evection-deleteBusinessTrip" class="net.zdsoft.office.remote.RemoteBusinessTripAction" method="deleteBusinessTrip"/>
+		<action name="evection-auditList" class="net.zdsoft.office.remote.RemoteBusinessTripAction" method="auditList"/>
+		<action name="evection-aduitBusinessTrip" class="net.zdsoft.office.remote.RemoteBusinessTripAction" method="aduitBusinessTrip"/>
+		<action name="evection-auditPassBusinessTrip" class="net.zdsoft.office.remote.RemoteBusinessTripAction" method="auditPassBusinessTrip"/>
+		<action name="evection-applyDetail" class="net.zdsoft.office.remote.RemoteBusinessTripAction" method="applyDetail"/>
+        <!-- 外出 -->
+        <action name="goOut" class="net.zdsoft.office.remote.RemoteGoOutAction" >
+	        <result name="success" type="freemarker">/office/mobile/goOut/goOutAdmin.ftl</result>
+        </action>
+        <action name="goOut-applyGoOutList" class="net.zdsoft.office.remote.RemoteGoOutAction" method="applyList"/>
+		<action name="goOut-applyGoOut" class="net.zdsoft.office.remote.RemoteGoOutAction" method="applyGoOut"/>
+		<action name="goOut-saveGoOut" class="net.zdsoft.office.remote.RemoteGoOutAction" method="saveGoOut"/>
+		<action name="goOut-submitGoOut" class="net.zdsoft.office.remote.RemoteGoOutAction" method="submitGoOut"/>
+		<action name="goOut-deleteBusinessTrip" class="net.zdsoft.office.remote.RemoteGoOutAction" method="deleteBusinessTrip"/>
+		<action name="goOut-auditList" class="net.zdsoft.office.remote.RemoteGoOutAction" method="auditList"/>
+		<action name="goOut-auditGoOut" class="net.zdsoft.office.remote.RemoteGoOutAction" method="auditGoOut"/>
+		<action name="goOut-auditPassGoOut" class="net.zdsoft.office.remote.RemoteGoOutAction" method="auditPassGoOut"/>
+		<action name="goOut-applyDetail" class="net.zdsoft.office.remote.RemoteGoOutAction" method="applyDetail"/>
+		<action name="goOut-doDeleteApply" class="net.zdsoft.office.remote.RemoteGoOutAction" method="doDeleteApply"/>
+		
+		<!-- 集体外出 -->
+		<action name="goOutJt-applyGoOutJt" class="net.zdsoft.office.remote.RemoteGoOutJtAction" method="applyGoOutJt"/>
+		<action name="goOutJt-submitGoOutJt" class="net.zdsoft.office.remote.RemoteGoOutJtAction" method="submitGoOutJt"/>
+		<action name="goOutJt-applyDetailJt" class="net.zdsoft.office.remote.RemoteGoOutJtAction" method="applyDetailJt"/>
+		<action name="goOutJt-auditGoOutJt" class="net.zdsoft.office.remote.RemoteGoOutJtAction" method="auditGoOutJt"/>
+		<action name="goOutJt-auditPassGoOutJt" class="net.zdsoft.office.remote.RemoteGoOutJtAction" method="auditPassGoOutJt"/>
+		<action name="goOutJt-deDeleteApply" class="net.zdsoft.office.remote.RemoteGoOutJtAction" method="deDeleteApply"/>
+		
+		<!--教师考勤 补卡申请 -->
+		<action name="attendance-auditAttendanceClock" class="net.zdsoft.office.remote.RemoteAttendanceAction" method="auditAttendanceClock"/>
+		<action name="attendance-saveAudit" class="net.zdsoft.office.remote.RemoteAttendanceAction" method="saveAudit"/>
+		<action name="attendance-applyDetail" class="net.zdsoft.office.remote.RemoteAttendanceAction" method="applyDetail"/>
+		
+		  <!-- 客户端补卡审批详情 -->
+	    <action name="appApplyDetail" class="net.zdsoft.office.remote.RemoteAttendanceAction" method="appApplyDetail">
+			<result name="success" type="redirect">/office/mobileh5/workflow/tchAttendanceDetail.html?id=${id}&amp;businessType=${businessType}</result>   
+	    </action>
+		
+        <!-- 听课2016-9-14-->
+		<action name="attendLecture-applyAttendLecture" class="net.zdsoft.office.remote.RemoteAttendLectureAction" method="applyAttendLecture"/>
+		<action name="attendLecture-submitAttendLecture" class="net.zdsoft.office.remote.RemoteAttendLectureAction" method="submitAttendLecture"/>
+		<action name="attendLecture-auditAttendLecture" class="net.zdsoft.office.remote.RemoteAttendLectureAction" method="auditAttendLecture"/>
+		<action name="attendLecture-auditPassAttendLecture" class="net.zdsoft.office.remote.RemoteAttendLectureAction" method="auditPassAttendLecture"/>
+		<action name="attendLecture-applyDetail" class="net.zdsoft.office.remote.RemoteAttendLectureAction" method="applyDetail"/>
+        <!-- 报修 -->
+        <action name="repair" class="net.zdsoft.office.remote.RemoteRepaireAction" method="repair">
+        	<result name="success" type="freemarker">/office/mobile/repair/repairAdmin.ftl</result>
+        </action>
+        <action name="repair-powerManager" class="net.zdsoft.office.remote.RemoteRepaireAction" method="powerManager"/>
+        <action name="repair-applyRepaireList" class="net.zdsoft.office.remote.RemoteRepaireAction" method="applyList"/>
+        <action name="repair-applyRepaireType" class="net.zdsoft.office.remote.RemoteRepaireAction" method="applyRepaireType"/>
+        <action name="repair-applyRepaire" class="net.zdsoft.office.remote.RemoteRepaireAction" method="applyRepaire"/>
+        <action name="repair-saveRepaire" class="net.zdsoft.office.remote.RemoteRepaireAction" method="saveRepaire"/>
+        <action name="repair-deleteRepaire" class="net.zdsoft.office.remote.RemoteRepaireAction" method="deleteRepaire"/>
+        <action name="repair-repaireManagerList" class="net.zdsoft.office.remote.RemoteRepaireAction" method="repaireManagerList"/>
+        <action name="repair-repaireManagerListH5" class="net.zdsoft.office.remote.RemoteRepaireAction" method="repaireManagerListH5"/>
+        <action name="repair-repaireManagerListH5Count" class="net.zdsoft.office.remote.RemoteRepaireAction" method="repaireManagerListH5Count"/>
+        <action name="repair-aduitRepaire" class="net.zdsoft.office.remote.RemoteRepaireAction" method="aduitRepaire"/>
+        <action name="repair-aduitRepaireSave" class="net.zdsoft.office.remote.RemoteRepaireAction" method="aduitRepaireSave"/>
+        <!-- 物品管理==== -->
+	    <action name="goods" class="net.zdsoft.office.remote.RemoteGoodsManagerAction" method="myGoods">
+	        <result name="success" type="freemarker">/office/mobile/goodsManager/goodsManagerAdmin.ftl</result>
+        </action>
+        <!-- 我的物品列表 -->
+	    <action name="goods-myGoodsList" class="net.zdsoft.office.remote.RemoteGoodsManagerAction" method="myGoodsList"/>
+	    <!-- 物品审核列表-->
+	    <action name="goods-goodsAuditList" class="net.zdsoft.office.remote.RemoteGoodsManagerAction" method="goodsAuditList"/>
+	    <!-- 物品详情-->
+	    <action name="goods-goodsAuditDetail" class="net.zdsoft.office.remote.RemoteGoodsManagerAction" method="goodsAuditDetail"/>
+	    <!-- 领用申请列表-->
+	    <action name="goods-goodsApplyList" class="net.zdsoft.office.remote.RemoteGoodsManagerAction" method="goodsApplyList"/>
+	    <!-- 领用申请列表详情内容-->
+	    <action name="goods-goodsApplyListGoodsInfo" class="net.zdsoft.office.remote.RemoteGoodsManagerAction" method="goodsApplyListGoodsInfo"/>
+	    <!-- 提交申请-->
+	    <action name="goods-goodsApplySave" class="net.zdsoft.office.remote.RemoteGoodsManagerAction" method="goodsApplySave"/>
+	    <!-- 物品类别 -->
+	    <action name="goods-goodsApplyType" class="net.zdsoft.office.remote.RemoteGoodsManagerAction" method="goodsApplyType"/>
+	    
+	    <action name="goods-goodsAuditSave" class="net.zdsoft.office.remote.RemoteGoodsManagerAction" method="goodsAuditSave"/>
+	    <action name="goods-goodsReturnSave" class="net.zdsoft.office.remote.RemoteGoodsManagerAction" method="goodsReturnSave"/>
+	    
+	    <!-- 通知公告 -->
+	    <action name="bulletin" class="net.zdsoft.office.remote.RemoteBulletinAction">
+	    	<result name="success" type="freemarker">/office/mobile/bulletin/bulletinAdmin.ftl</result>
+	    </action>
+	    <action name="bulletin-list" class="net.zdsoft.office.remote.RemoteBulletinAction" method="bulletinList"/>
+	    <action name="bulletin-detail" class="net.zdsoft.office.remote.RemoteBulletinAction" method="bulletinDetail"/>
+	    <!-- 工作日志 -->
+	    <action name="schedule" class="net.zdsoft.office.remote.RemoteScheduleAction">
+	    	<result name="success" type="freemarker">/office/mobile/schedule/scheduleAdmin.ftl</result>
+	    </action>
+	    <action name="schedule-calendar" class="net.zdsoft.office.remote.RemoteScheduleAction" method="scheduleCalendar"/>
+	    <action name="schedule-list" class="net.zdsoft.office.remote.RemoteScheduleAction" method="scheduleList"/>
+	    <action name="schedule-detail" class="net.zdsoft.office.remote.RemoteScheduleAction" method="scheduleDetail"/>
+	    <action name="schedule-apply" class="net.zdsoft.office.remote.RemoteScheduleAction" method="scheduleApply"/>
+	    <action name="schedule-save" class="net.zdsoft.office.remote.RemoteScheduleAction" method="scheduleSave"/>
+    </package>
+    
+	<package name="office-remote-hfive" extends="default" namespace="/common/open/officehfive">
+	    
+	    <!-- 发消息 -->
+	    <action name="sendNote" class="net.zdsoft.office.remote.RemoteMsgCenterHfiveAction" method="sendNote"/>
+	    <!-- 保存 -->
+	    <action name="saveNote" class="net.zdsoft.office.remote.RemoteMsgCenterHfiveAction" method="saveNote"/>
+	    <!-- 获取未读条数 -->
+	    <action name="getUnReadNum" class="net.zdsoft.office.remote.RemoteMsgCenterHfiveAction" method="getUnReadNum"/>
+	    <!-- 收件箱列表 -->
+	    <action name="remoteReceivedMessagesList" class="net.zdsoft.office.remote.RemoteMsgCenterHfiveAction" method="remoteReceivedMessagesList" />
+	    <!-- 会话列表 -->
+	    <action name="msgDetail" class="net.zdsoft.office.remote.RemoteMsgCenterHfiveAction" method="msgDetail" />
+	    <!-- 会话明细 -->
+	    <action name="msgDetailContent" class="net.zdsoft.office.remote.RemoteMsgCenterHfiveAction" method="msgDetailContent" />
+	    <!-- 全部设置为已读 -->
+	    <action name="readAll" class="net.zdsoft.office.remote.RemoteMsgCenterHfiveAction" method="readAll" />
+	    <!-- 统一加星 -->
+	    <action name="changeAllStar" class="net.zdsoft.office.remote.RemoteMsgCenterHfiveAction" method="changeAllStar" />
+	    <!-- 单个加星 -->
+	    <action name="changeStar" class="net.zdsoft.office.remote.RemoteMsgCenterHfiveAction" method="changeStar" />
+	    <!-- 删除 -->
+	    <action name="removeMsg" class="net.zdsoft.office.remote.RemoteMsgCenterHfiveAction" method="removeMsg" />
+	    <!-- 批量删除 -->
+	    <action name="removeMsgs" class="net.zdsoft.office.remote.RemoteMsgCenterHfiveAction" method="removeMsgs" />
+	    <!-- 发件箱列表 -->
+	    <action name="remoteSendedMessagesList" class="net.zdsoft.office.remote.RemoteMsgCenterHfiveAction" method="remoteSendedMessagesList" />
+		<!-- 查看明细 -->
+	    <action name="viewMsgSingle" class="net.zdsoft.office.remote.RemoteMsgCenterHfiveAction" method="viewMsgSingle" />
+		<!-- 获取收件人信息 -->
+	    <action name="obtainUserNames" class="net.zdsoft.office.remote.RemoteMsgCenterHfiveAction" method="obtainUserNames" />
+	    <!-- 草稿箱列表 -->
+	    <action name="remoteDraftMessagesList" class="net.zdsoft.office.remote.RemoteMsgCenterHfiveAction" method="listDraftMessages" />
+	    <!-- 获得新的下载地址 -->
+	    <action name="remoteDownLoad" class="net.zdsoft.office.remote.RemoteMsgCenterHfiveAction" method="downloadAttachment"/>
+	    
+	</package>
+	
+	<package name="office-data-region" extends="default" namespace="/common/open/region">
+		
+		<action name="regionData" class="net.zdsoft.office.remote.RemoteRegionDataAction" method="getRegionData">
+	    </action>	    
+	    
+	</package>
+	
+	<package name="office-remote-im" extends="default" namespace="/common/open/im">
+	    
+	    <!-- 推送条数 -->
+	    <action name="pushMessageNumber" class="net.zdsoft.office.remote.RemoteMsgCenterToImAction" method="pushMessageNumber"/>
+	    <!-- 推送详细信息数据 -->
+	    <action name="pushAllMessage" class="net.zdsoft.office.remote.RemoteMsgCenterToImAction" method="pushAllMessage"/>
+	    
+	</package>
+	
+</struts>

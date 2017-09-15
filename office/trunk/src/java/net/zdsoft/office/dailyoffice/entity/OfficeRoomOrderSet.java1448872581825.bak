@@ -1,0 +1,45 @@
+package net.zdsoft.office.dailyoffice.entity;
+
+import java.io.Serializable;
+
+public class OfficeRoomOrderSet implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
+	private String id;
+	private String this_id;//'微代码DM-CDLX';
+	private String use_type;//'1：节次，2：时间段';
+	private String need_audit;//'0：不审核，1：审核';
+	private String unit_id;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getThis_id() {
+		return this_id;
+	}
+	public void setThis_id(String this_id) {
+		this.this_id = this_id;
+	}
+	public String getUse_type() {
+		return use_type;
+	}
+	public void setUse_type(String use_type) {
+		this.use_type = use_type;
+	}
+	public String getNeed_audit() {
+		return need_audit;
+	}
+	public void setNeed_audit(String need_audit) {
+		this.need_audit = need_audit;
+	}
+	public String getUnit_id() {
+		return unit_id;
+	}
+	public void setUnit_id(String unit_id) {
+		this.unit_id = unit_id;
+	}
+	
+	
+}

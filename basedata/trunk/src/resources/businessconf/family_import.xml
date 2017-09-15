@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by zdsoft (zdsoft)
+-->
+<root> 
+	<object define="学生家长信息" name="family_import" entityclassname="net.zdsoft.eis.base.data.entity.FamilyImport" tablename="base_family" description="身份证号必须唯一,不可重复。">
+		<!-- leadin.jar中 -->
+		<listeners>
+			<listener>dataImportListener</listener>
+		</listeners>
+		<field define="学生学号" name="stucode" required="Y" type="String(20)" unionPrimary="mobilephone" example="如：440111008202200420091。&lt;font color='red'&gt;如果不能正常显示，请将excel中，这列的格式设置成文本格式&lt;/font&gt;" />
+		<field define="学生姓名" name="stuname" required="Y" type="String(100)"  example="如：张三" />
+		<field define="家长姓名" name="realname" dbname="real_name" required="Y" type="String(100)" example="如：张建设" />
+		<field define="关系" name="relation" mcode="DM-CGX" required="Y" example="如：父亲"/>
+		<field define="性别" name="sex"  mcode="DM-XB" example="如：男" />
+		<field define="出生年月" name="birthday"  type="String(6)" regex="^(^[0-9]{4}[0]{1}[1-9]{1}$)|(^[0-9]{4}[1]{1}[0-2]{1}$)$" errorMsg="格式不对，201409(年份+月份)。" example="如：200308(年份+月份)。&lt;font color='red'&gt;请将excel中，这列的格式设置成文本格式&lt;/font&gt;" help="日期型"/>
+		<field define="身份证件类型" name="identitycardType" dbname="identitycard_type" displayOrder="" unionPrimary="identitycardType" mcode="DM-CZJLX" defaultValue="" example="如：身份证"/>
+		<field define="身份证件号" name="identitycard" dbname="identity_card" unique="N"  type="String(18)" example="如：33252517771203002x。&lt;font color='red'&gt;严格按国家身份证标准。如果不能正常显示，请将excel中，这列的格式设置成文本格式&lt;/font&gt;"/>
+		<!-- regex="\d{15}|\d{18}|\d{17}x|\d{17}X" errorMsg="格式无效。" --> 
+		<field define="联系电话" name="linkphone" dbname="link_phone" required="Y" type="String(20)" regex="^[0-9]{1,20}$" errorMsg="请输入正确的家庭电话(不能超过20个数字)。" example="如：13800000000。&lt;font color='red'&gt;如果不能正常显示，请将excel中，这列的格式设置成文本格式&lt;/font&gt;"/>
+		<field define="家庭地址" name="linkaddress" dbname="link_address"  type="String(60)" example="如：杭州市文三路43号"/>
+		<field define="手机号码" name="mobilephone" dbname="mobile_phone" unique="N" unionPrimary="stucode" type="String(20)" 
+				regex="^[0-9]{1,20}$" errorMsg="请输入正确的手机号码(不能超过20个数字)。" example="如：1395555555。&lt;font color='red'&gt;。如果不能正常显示，请将excel中，这列的格式设置成文本格式&lt;/font&gt;"/>
+		<field define="办公电话" name="officetel" dbname="office_tel"  type="String(20)" regex="^[0-9]{1,20}$" errorMsg="请输入正确的办公电话(不能超过20个数字)。" example="如：0571-85555555。&lt;font color='red'&gt;如果不能正常显示，请将excel中，这列的格式设置成文本格式&lt;/font&gt;"/>
+		<field define="是否监护人" name="isguardian" dbname="is_guardian" required="" mcode="DM-BOOLEAN" defaultValue="0" example="如：否"/>
+		<field define="民族" name="nation" mcode="DM-MZ" defaultValue="01" example="如：汉族" />
+		<field define="职业" name="workcode" dbname="work_code" mcode="DM-ZYM" example="如：军人" />
+		<field define="职务" name="duty"  type="String(20)" example="如：校长" />
+		<field define="婚姻状况" name="maritalstatus" dbname="marital_status" mcode="DM-CHYZK" example="如：已婚" />
+		<field define="工作或学习单位" name="company"  type="String(60)" example="如：演示学校" />
+		<field define="健康状况" name="health" dbname="health" mcode="DM-CJKZK" defaultValue="10" displayOrder="" example="如：健康或良好"/>
+		<field define="政治面貌" name="politicalstatus" dbname="political_status"   mcode="DM-ZZMM" example="如：中国共产党党员" />
+		<field define="文化程度" name="culture"   mcode="DM-WHCD" example="如：大学毕业" />
+		<field define="邮政编码" name="postalcode" type="String(6)"  regex="[0-9]{6}" errorMsg="只能是六位数字。" example="如。312361。&lt;font color='red'&gt;只能是六位数字&lt;/font&gt;"/>
+		<field define="电子邮箱" name="email"   type="String(40)" regex="email" errorMsg="格式无效。" example="如：zhangjianshe@163.com。&lt;font color='red'&gt;字符串中必须含有“@”符号&lt;/font&gt;"/>
+		<field define="备注" name="remark"  type="String(255)" example="如：此学生家长张建设。"/>
+	</object>
+	<object define="学生家长信息" name="family_import_eis" entityclassname="net.zdsoft.eis.base.data.entity.FamilyImport" tablename="base_family" description="身份证号必须唯一,不可重复。">
+		<!-- leadin.jar中 -->
+		<listeners>
+			<listener>dataImportListener</listener>
+		</listeners>
+		<field define="学生学号" name="stucode" required="Y" type="String(20)" unionPrimary="mobilephone" example="如：440111008202200420091。&lt;font color='red'&gt;如果不能正常显示，请将excel中，这列的格式设置成文本格式&lt;/font&gt;" />
+		<field define="学生姓名" name="stuname" required="Y" type="String(100)"  example="如：张三" />
+		<field define="家长姓名" name="realname" dbname="real_name" required="Y" type="String(100)" example="如：张建设" />
+		<field define="关系" name="relation" mcode="DM-GX" required="Y" example="如：父亲"/>
+		<field define="性别" name="sex"  mcode="DM-XB" example="如：男" />
+		<field define="出生年月" name="birthday"  type="String(6)" regex="^(^[0-9]{4}[0]{1}[1-9]{1}$)|(^[0-9]{4}[1]{1}[0-2]{1}$)$" errorMsg="格式不对，201409(年份+月份)。" example="如：200308(年份+月份)。&lt;font color='red'&gt;请将excel中，这列的格式设置成文本格式&lt;/font&gt;" help="日期型"/>
+		<field define="身份证件类型" name="identitycardType" dbname="identitycard_type" displayOrder="" unionPrimary="identitycardType" mcode="DM-CZJLX" defaultValue="" example="如：身份证"/>
+		<field define="身份证件号" name="identitycard" dbname="identity_card" unique="N"  type="String(18)" example="如：33252517771203002x。&lt;font color='red'&gt;严格按国家身份证标准。如果不能正常显示，请将excel中，这列的格式设置成文本格式&lt;/font&gt;"/>
+		<!-- regex="\d{15}|\d{18}|\d{17}x|\d{17}X" errorMsg="格式无效。" --> 
+		<field define="联系电话" name="linkphone" dbname="link_phone" required="Y" type="String(20)" regex="^[0-9]{1,20}$" errorMsg="请输入正确的家庭电话(不能超过20个数字)。" example="如：13800000000。&lt;font color='red'&gt;如果不能正常显示，请将excel中，这列的格式设置成文本格式&lt;/font&gt;"/>
+		<field define="家庭地址" name="linkaddress" dbname="link_address"  type="String(60)" example="如：杭州市文三路43号"/>
+		<field define="手机号码" name="mobilephone" dbname="mobile_phone" unique="N" unionPrimary="stucode" type="String(20)" 
+				regex="^[0-9]{1,20}$" errorMsg="请输入正确的手机号码(不能超过20个数字)。" example="如：1395555555。&lt;font color='red'&gt;。如果不能正常显示，请将excel中，这列的格式设置成文本格式&lt;/font&gt;"/>
+		<field define="办公电话" name="officetel" dbname="office_tel"  type="String(20)" regex="^[0-9]{1,20}$" errorMsg="请输入正确的办公电话(不能超过20个数字)。" example="如：0571-85555555。&lt;font color='red'&gt;如果不能正常显示，请将excel中，这列的格式设置成文本格式&lt;/font&gt;"/>
+		<field define="是否监护人" name="isguardian" dbname="is_guardian" required="" mcode="DM-BOOLEAN" defaultValue="0" example="如：否"/>
+		<field define="民族" name="nation" mcode="DM-MZ" defaultValue="01" example="如：汉族" />
+		<field define="职业" name="workcode" dbname="work_code" mcode="DM-ZYM" example="如：军人" />
+		<field define="职务" name="duty"  type="String(20)" example="如：校长" />
+		<field define="婚姻状况" name="maritalstatus" dbname="marital_status" mcode="DM-CHYZK" example="如：已婚" />
+		<field define="工作或学习单位" name="company"  type="String(60)" example="如：演示学校" />
+		<field define="健康状况" name="health" dbname="health" mcode="DM-CJKZK" defaultValue="10" displayOrder="" example="如：健康或良好"/>
+		<field define="政治面貌" name="politicalstatus" dbname="political_status"   mcode="DM-ZZMM" example="如：中国共产党党员" />
+		<field define="文化程度" name="culture"   mcode="DM-WHCD" example="如：大学毕业" />
+		<field define="邮政编码" name="postalcode" type="String(6)"  regex="[0-9]{6}" errorMsg="只能是六位数字。" example="如。312361。&lt;font color='red'&gt;只能是六位数字&lt;/font&gt;"/>
+		<field define="电子邮箱" name="email"   type="String(40)" regex="email" errorMsg="格式无效。" example="如：zhangjianshe@163.com。&lt;font color='red'&gt;字符串中必须含有“@”符号&lt;/font&gt;"/>
+		<field define="备注" name="remark"  type="String(255)" example="如：此学生家长张建设。"/>
+	</object>
+	<!-- 
+	<object name="commonobject">
+		<field define="学生学号" name="stucode" table_name="base_family" required="Y"  description="学生学号" example="XH000001" />
+		<field define="家长姓名" name="base_family.real_name" table_name="base_family" required="Y"  stringLength="30" example="张**" />
+		<field define="性别" name="base_family.sex" table_name="base_family"    example="男，女，未知" mcode="DM-XB"/>
+		<field define="出生日期" name="base_family.birthday" table_name="base_family"  type="Date" example="20030810(年份+月份+日期),建议将excel中,这列的格式设置成文本格式"/>
+		<field define="民族" name="base_family.nation" table_name="base_family"    example="汉族" mcode="DM-MZ"/>
+		<field define="联系电话" name="base_family.link_phone" table_name="base_family" unique="N"   stringLength="30" example="例如：13800000000" />
+		<field define="关系" name="base_family.relation" table_name="base_family"  mcode="DM-GX" required="Y" example="父亲、母亲、兄、弟、姐姐、妹妹"/>
+		<field define="职业" name="base_family.work_code" table_name="base_family"   mcode="DM-ZYM" example="军人" />
+		<field define="职务" name="base_family.duty" table_name="base_family"   stringLength="20" example="校长" />
+		<field define="专业技术职务" name="base_family.profession_code" table_name="base_family"   mcode="DM-JSZC1" example="医师" />
+		<field define="职务级别" name="base_family.duty_level" table_name="base_family"   mcode="DM-DZZJ" example="正科级" />
+		<field define="婚姻状况" name="base_family.marital_status" table_name="base_family"   mcode="DM-HYZK" example="已婚" />
+		<field define="单位名称" name="base_family.company" table_name="base_family"   stringLength="60" example="演示学校" />
+		<field define="政治面貌" name="base_family.political_status" table_name="base_family"   mcode="DM-ZZMM" example="中国共产党党员" />
+		<field define="文化程度" name="base_family.culture" table_name="base_family"   mcode="DM-WHCD" example="大学毕业" />
+		<field define="侨居地" name="base_family.emigration_place" table_name="base_family"   mcode="DM-COUNTRY"  example="法国" />
+		<field define="监护人" name="base_family.is_guardian" table_name="base_family"  sql="select '是','1' union select '否','0'" sqlcacheble="true" mcode="DM-BOOLEAN" example="是"/>
+		<field define="个人主页" name="base_family.homepage" table_name="base_family"   stringLength="40" example="http://mypage.mysite.com"/>
+		<field define="邮政编码" name="base_family.postalcode" table_name="base_family"  type="String(6)" example="例如:312361"/>
+		<field define="联系地址" name="base_family.link_address" table_name="base_family"   stringLength="60" example="例如:杭州市文三路43号"/>
+		<field define="手机号码" name="base_family.mobile_phone" table_name="base_family"   stringLength="30" example="例如:1395555555"/>
+		<field define="电子邮箱" name="base_family.email" table_name="base_family"    stringLength="40" example="例如:xxx@163.com" />
+		<field define="办公电话" name="base_family.office_tel" table_name="base_family"   stringLength="30" example="例如:0571-85555555"/>
+		<field define="备注" name="base_family.remark" table_name="base_family"  example="例如:此学生家长xx"/>
+		<field define="身份证号码" name="base_family.identity_card" table_name="base_family"  regex="\d{15}|\d{18}|\d{17}x|\d{17}X" errorMsg="数据不对,请输入正确的身份证号." example=""/>
+		<field define="扣费号码" name="base_family.charge_number" table_name="base_family"   stringLength="60" example="扣费号码，不能超过60个字符"></field>
+	</object>
+	-->
+</root>
+ 

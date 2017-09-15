@@ -1,0 +1,8 @@
+/*定制的css*/
+.edui-for-simpleupload,.edui-for-insertimage,.edui-for-music,.edui-for-attachment,.edui-for-inserttable{float: left !important;}
+.edui-default .edui-toolbar .edui-button.edui-for-simpleupload .edui-icon,.edui-default .edui-toolbar .edui-button.edui-for-insertimage .edui-icon,.edui-default .edui-toolbar .edui-button.edui-for-music .edui-icon,.edui-default .edui-toolbar .edui-button.edui-for-attachment .edui-icon,.edui-default .edui-toolbar .edui-splitbutton.edui-for-inserttable .edui-icon{width: 51px !important;height: 70px !important;background: url(../themes/default/images/edui_bg.png) no-repeat 0 0;}
+.edui-default .edui-toolbar .edui-button.edui-for-simpleupload .edui-icon{background-position: -11px 0 !important;}
+.edui-default .edui-toolbar .edui-button.edui-for-insertimage .edui-icon{background-position: -11px -75px !important;}
+.edui-default .edui-toolbar .edui-button.edui-for-music .edui-icon{background-position: -11px -150px !important;}
+.edui-default .edui-toolbar .edui-button.edui-for-attachment .edui-icon{background-position: -11px -225px !important;}
+.edui-default .edui-toolbar .edui-splitbutton.edui-for-inserttable .edui-icon{background-position: -11px -302px !important;}

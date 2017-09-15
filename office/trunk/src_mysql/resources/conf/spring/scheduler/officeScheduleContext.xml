@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false">
+		<!--添加触发器-->
+		<property name="triggers">
+			<list>
+				<ref local="studentSmsRemindTrigger" />
+				<ref local="yktSynckqTrigger" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- ====================清除日志======================-->
+	<bean id="studentSmsRemindTask" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>net.zdsoft.office.frame.timer.StudentSmsRemindTimerTask</value>
+		</property>
+	</bean>
+	<bean id="studentSmsRemindTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="studentSmsRemindTask" />
+
+		<!--每天的8点执行-->
+		<property name="cronExpression">
+			<value>0 0 8 * * ?</value>
+		</property>
+	</bean>
+	
+	
+	<!-- 镇海考勤数据同步时间 -->
+	<bean id="yktSynckqTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="yktSynckqJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 15 6 * * ?</value>
+		</property>
+	</bean>
+	<!-- 镇海考勤任务及方法 -->
+	<bean id="yktSynckqJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="yktSynckqJobBean" />
+		</property>
+		<property name="targetMethod">
+			<value>run</value>
+		</property>
+		<!-- 禁止并发 -->
+		<property name="concurrent">
+		    <value>false</value>
+		</property>
+	</bean>	
+
+</beans>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!-- 备忘录 -->
+    <package name="memo" extends="default" namespace="/office/desktop/memo">
+        <action name="memo" class="net.zdsoft.office.desktop.action.MemoAction" method="memoIndex">
+            <result name="success" type="freemarker">/office/desktop/memo/memoIndex.ftl</result>
+        </action>
+        <action name="memo-add" class="net.zdsoft.office.desktop.action.MemoAction" method="newMemo">
+            <result name="success" type="freemarker">/office/desktop/memo/newMemo.ftl</result>
+        </action>
+        <action name="memo-newMemo" class="net.zdsoft.office.desktop.action.MemoAction" method="newMemo">
+            <result name="success" type="freemarker">/office/desktop/memo/newmemorandum.ftl</result>
+        </action>
+        <action name="memo-remoteSave" class="net.zdsoft.office.desktop.action.MemoAction" method="saveMemo">
+        	<result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="memo-memorandum" class="net.zdsoft.office.desktop.action.MemoAction" method="memorandum">
+            <result name="success" type="freemarker">/office/desktop/memo/memorandum.ftl</result>
+        </action>
+        <action name="memo-listMemos" class="net.zdsoft.office.desktop.action.MemoAction" method="listMemos">
+            <result name="success" type="freemarker">/office/desktop/memo/memorandumDetail.ftl</result>
+        </action>
+        <action name="memo-memorandumWeek" class="net.zdsoft.office.desktop.action.MemoAction" method="memorandumWeek">
+            <result name="success" type="freemarker">/office/desktop/memo/memorandumWeek.ftl</result>
+        </action>
+        <action name="memo-memorandumMonth" class="net.zdsoft.office.desktop.action.MemoAction" method="memorandumMonth">
+            <result name="success" type="freemarker">/office/desktop/memo/memorandumMonth.ftl</result>
+        </action>
+        
+        <action name="memo-listMon" class="net.zdsoft.office.desktop.action.MemoAction" method="listMon">
+            <result name="success" type="freemarker">/office/desktop/memo/listMon.ftl</result>
+        </action>
+        <action name="memo-week" class="net.zdsoft.office.desktop.action.MemoAction" method="week">
+            <result name="success" type="freemarker">/office/desktop/memo/week.ftl</result>
+        </action>
+        <action name="memo-addMon" class="net.zdsoft.office.desktop.action.MemoAction" method="addMon">
+            <result name="success" type="freemarker">/office/desktop/memo/addMon.ftl</result>
+        </action>
+
+        <action name="memo-viewMemo" class="net.zdsoft.office.desktop.action.MemoAction" method="viewMemo">
+            <result name="success" type="freemarker">/office/desktop/memo/newmemorandum.ftl</result>
+        </action>
+        <action name="memo-updateMemo" class="net.zdsoft.office.desktop.action.MemoAction" method="saveMemo">
+        </action>
+        <action name="memo-saveOrUpdate" class="net.zdsoft.office.desktop.action.MemoAction" method="saveOrUpdate">
+        	<result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="memo-removeMemo" class="net.zdsoft.office.desktop.action.MemoAction" method="removeMemos">
+        	<result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="memo-memoCount" class="net.zdsoft.office.desktop.action.MemoAction" method="memoCount">
+        	<result name="success" type="json">
+        		<param name="root">resultList</param>
+           </result>
+        </action>
+    </package>
+   
+</struts>

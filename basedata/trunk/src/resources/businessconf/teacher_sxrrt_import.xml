@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by zdsoft (zdsoft) -->
+<root> 
+	<!-- 教育局端教职工导入 -->
+	<object define="教职工基本信息" name="teacher_import_edu" entityclassname="net.zdsoft.eis.base.data.entity.TeacherImport" unitguid="false" noxxdm="true" >
+		<listeners>
+			<listener>dataImportListener</listener>
+		</listeners>
+		<field define="所属单位" name="unitid" dbname="unit_id" unionPrimary="teachercode" type="String(60)" required="Y" displayOrder="1" example="如：杭州市教育局。&lt;font color='red'&gt;本单位，也可以是本单位的下属单位(包括教育局和学校)&lt;/font&gt;" />
+	</object>
+	
+	<!-- 学校局端教职工导入 -->
+	<object define="教职工基本信息" name="teacher_import_sch" entityclassname="net.zdsoft.eis.base.data.entity.TeacherImport" unitguid="false" noxxdm="true" >
+		<listeners>
+			<listener>dataImportListener</listener>
+		</listeners>
+	</object>
+	
+	<!-- 公共部分，如果为更新，则primary='Y'时表示required='Y',否则required='N'。注意增加dbname -->
+	<!-- 注意：在新的导入框架的配置文件中，default不可用，取而代之的是defautValue  -->		
+	<object name="commonobject">	
+		<field define="姓名" name="teachername" dbname="teacher_name" required="Y" type="String(20)" example="如：张三。&lt;font color='red'&gt;姓名（曾用名）包含汉字、字母、数字、点号、空格和下划线，且须以汉字或字母开头、非空格结尾&lt;/font&gt;" />
+		<field define="性别" name="sex" required="Y" mcode="DM-XB" example="如：男"/>
+		<field define="电子邮件" name="email" type="String(40)" regex="email"  errorMsg="格式无效。" example="如：zhangsan@zdsoft.net。&lt;font color='red'&gt;字符串中必须含有“@”符号&lt;/font&gt;"/>
+		<field define="账号" name="username" unique="Y" required="Y" type="String(20)" example="如：zhangsan。"/>
+		<field define="登录密码" name="password" type="String(20)"   example="如：123456789。&lt;font color='red'&gt;默认为系统指定的默认密码。&lt;/font&gt;"/>			
+	</object>
+</root>

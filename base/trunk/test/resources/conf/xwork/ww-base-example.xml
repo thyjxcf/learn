@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="baseShowcase" extends="default" namespace="/base/showcase">
+		<action name="i18n" class="net.zdsoft.eis.base.example.i18n.I18NAction">
+			<result name="success" type="freemarker">i18n.ftl</result>
+		</action>
+		<action name="i18np1" class="net.zdsoft.eis.base.example.i18n.p1.I18NP1Action">
+			<result name="success" type="freemarker">i18n.ftl</result>
+		</action>
+		<action name="i18np2" class="net.zdsoft.eis.base.example.i18n.p1.p2.I18NP2Action">
+			<result name="success" type="freemarker">i18n.ftl</result>
+		</action>
+	</package>	
+</struts>
+

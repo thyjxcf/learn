@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<!-- 要暴露给外部系统调用的url配置，比如客户端要如此访问http://eissystemip:port/eschoolInvoker.service 
+		同时注意在web.xml配置*.service的url-pattern -->
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/baseDataInvoker.service">httpBaseDataService</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 以下是具体的调用的service类定义 -->
+	<bean id="httpBaseDataService"
+		class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="baseDataService"></property>
+		<property name="serviceInterface"
+			value="net.zdsoft.eis.dataservice.middle.service.v3.BaseDataService">
+		</property>
+	</bean>
+
+	<!-- 基础数据与部署工具交互接口 -->
+	<bean id="baseDataService"
+		class="net.zdsoft.eis.dataservice.server.service.impl.v3.BaseDataServiceImpl" autowire="byName" />
+</beans>

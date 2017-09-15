@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!-- 工作会议 -->
+    <package name="meeting" extends="default" namespace="/office/meeting">
+   		   <action name="workmeeting" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="workmeetingAdmin">
+	            <result name="success" type="freemarker">/office/meeting/workmeetingAdmin.ftl</result>
+	       </action>
+	       <action name="workmeeting-myMeeting" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="myMeeting">
+	            <result name="success" type="freemarker">/office/meeting/myMeeting.ftl</result>
+	       </action>
+	       <action name="workmeeting-myMeetingList"  class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="myMeetingList">
+	            <result name="success" type="freemarker">/office/meeting/myMeetingList.ftl</result>
+	        </action>
+	        
+	       <action name="workmeeting-queryMeeting" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="queryMeet">
+	       		<result name="success" type="freemarker">/office/meeting/meetQuery.ftl</result>
+	       </action>
+	       <action name="workmeeting-queryMeetingList" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="queryMeetList">
+	       		<result name="success" type="freemarker">/office/meeting/meetQueryList.ftl</result>
+	       </action>
+	       <action name="workmeeting-showAttendInfo" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="showAttendInfo">
+	       		<result name="success" type="freemarker">/office/meeting/showAttendInfoView.ftl</result>
+	       </action>
+	       <action name="workmeeting-meetingMinutesManage" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="meetingMinutesManage">
+	       		<result name="success" type="freemarker">/office/meeting/meetMinutesManage.ftl</result>
+	       </action>
+	       <action name="workmeeting-meetingMinutesManageList" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="meetingMinutesManageList">
+	       		<result name="success" type="freemarker">/office/meeting/meetMinutesManageList.ftl</result>
+	       </action>
+	       <action name="workmeeting-meetingMinutesManageEdit" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="meetingMinutesManageEdit">
+	       		<result name="success" type="freemarker">/office/meeting/meetMinutesManageEdit.ftl</result>
+	       </action>
+	       <action name="workmeeting-meetingMinutesManageSave" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="meetingManageInfoSave">
+	       		<result name="success" type="json">
+	       			<param name="root">promptMessageDto</param>
+	       			<param name="noCache">true</param>  
+                	<param name="contentType">text/html</param>
+	       		</result>
+	       </action>
+	        <action name="workmeeting-queryView" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="meetingApplyAdd">
+	       		<result name="success" type="freemarker">/office/meeting/queryView.ftl</result>
+	       </action>
+	       <action name="workmeeting-meetAuthList" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="meetAuthList">
+	       		<result name="success" type="freemarker">/office/meeting/meetAuthList.ftl</result>
+	       </action>
+	       <action name="workmeeting-meetAuthEdit" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="meetAuthEdit">
+	       		<result name="success" type="json">
+	       			<param name="root">promptMessageDto</param>
+	       		</result>
+	       </action>
+	       
+
+	        <action name="workmeeting-meetingApply" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="meetingApply">
+	            <result name="success" type="freemarker">/office/meeting/meetingApply.ftl</result>
+	       </action>
+	       <action name="workmeeting-meetingApplyAdd" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="meetingApplyAdd">
+	            <result name="success" type="freemarker">/office/meeting/meetingApplyEdit.ftl</result>
+	       </action>
+	       <action name="workmeeting-meetingView" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="meetingApplyAdd">
+	            <result name="success" type="freemarker">/office/meeting/meetingView.ftl</result>
+	       </action>
+	       <action name="workmeeting-minutesView" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="minutesView">
+	            <result name="success" type="freemarker">/office/meeting/minutesView.ftl</result>
+	       </action>
+	       <action name="workmeeting-meetingApplyAddSave" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="meetingApplySave">
+	            <result name="success" type="json">
+					<param name="root">jsonError</param>
+				</result>
+	       </action>
+	       <action name="workmeeting-meetingApplyList" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="meetingApplyList">
+	            <result name="success" type="freemarker">/office/meeting/meetingApplyList.ftl</result>
+	       </action>
+
+	       <action name="workmeeting-deletedMeeting" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="deletedMeeting">
+	            <result name="success" type="json">
+					<param name="root">jsonError</param>
+				</result>
+	       </action>
+	       <action name="workmeeting-publishMeeting" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="publishMeeting">
+	            <result name="success" type="json">
+					<param name="root">jsonError</param>
+				</result>
+	       </action>
+	       <action name="workmeeting-yesMeeting" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="yesMeeting">
+	            <result name="success" type="json">
+					<param name="root">jsonError</param>
+				</result>
+	       </action>
+	       <action name="workmeeting-transferMeeting" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="transferMeeting">
+	            <result name="success" type="json">
+					<param name="root">jsonError</param>
+				</result>
+	       </action>
+	       <action name="workmeeting-noMeeting" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="noMeeting">
+	            <result name="success" type="json">
+					<param name="root">jsonError</param>
+				</result>
+	       </action>
+	       <action name="workmeeting-submitMeeting" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="submitMeeting">
+	            <result name="success" type="json">
+					<param name="root">jsonError</param>
+				</result>
+	       </action>
+	       <action name="workmeeting-meetingAuditSave" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="meetingAuditSave">
+	            <result name="success" type="json">
+					<param name="root">jsonError</param>
+				</result>
+	       </action>
+	      <action name="workmeeting-meetingAudit" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="meetingAudit">
+	          <result name="success" type="freemarker">/office/meeting/meetingAudit.ftl</result>
+	      </action>
+	      <action name="workmeeting-meetingAuditList" class="net.zdsoft.office.meeting.action.WorkmeetingAction" method="meetingAuditList">
+	          <result name="success" type="freemarker">/office/meeting/meetingAuditList.ftl</result>
+	      </action>
+
+    </package>
+    
+    <!-- 局务会议 -->
+    <package name="executiveMeet" extends="default" namespace="/office/executiveMeet">
+		<action name="executiveMeet" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="executiveMeetAdmin">
+		     <result name="success" type="freemarker">/office/executiveMeet/executiveMeetAdmin.ftl</result>
+		</action>
+		
+		<!-- 会议添加 -->
+		<action name="executiveMeet-meetManage" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="meetManage">
+		     <result name="success" type="freemarker">/office/executiveMeet/meetManage.ftl</result>
+		</action>
+		<action name="executiveMeet-meetManageList" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="meetManageList">
+		     <result name="success" type="freemarker">/office/executiveMeet/meetManageList.ftl</result>
+		</action>
+		<action name="executiveMeet-meetEdit" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="meetEdit">
+		     <result name="success" type="freemarker">/office/executiveMeet/meetEdit.ftl</result>
+		</action>
+		<action name="executiveMeet-meetView" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="meetView">
+		     <result name="success" type="freemarker">/office/executiveMeet/meetView.ftl</result>
+		</action>
+		<action name="executiveMeet-meetSave" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="meetSave">
+			<result name="success" type="json">
+		    	<param name="root">promptMessageDto</param>
+	    	</result>
+		</action>
+		<action name="executiveMeet-publishMeet" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="publishMeet">
+			<result name="success" type="json">
+		    	<param name="root">promptMessageDto</param>
+	    	</result>
+		</action>
+		<action name="executiveMeet-deleteMeet" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="deleteMeet">
+			<result name="success" type="json">
+		    	<param name="root">promptMessageDto</param>
+	    	</result>
+		</action>
+		<action name="executiveMeet-manageIssues" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="manageIssues">
+		     <result name="success" type="freemarker">/office/executiveMeet/manageIssues.ftl</result>
+		</action>
+		<action name="executiveMeet-viewIssues" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="manageIssues">
+		     <result name="success" type="freemarker">/office/executiveMeet/viewIssues.ftl</result>
+		</action>
+		<action name="executiveMeet-export" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="export">
+		</action>
+		<action name="executiveMeet-removeIssue" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="removeIssue">
+			<result name="success" type="json">
+		    	<param name="root">promptMessageDto</param>
+	    	</result>
+		</action>
+		<action name="executiveMeet-sortIssue" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="sortIssue">
+			<result name="success" type="json">
+		    	<param name="root">jsonError</param>
+	    	</result>
+		</action>
+		<action name="executiveMeet-meetIssueAdd" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="meetIssueAdd">
+		     <result name="success" type="freemarker">/office/executiveMeet/meetIssueAdd.ftl</result>
+		</action>
+		<action name="executiveMeet-btnAddIssue" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="btnAddIssue">
+			<result name="success" type="json">
+		    	<param name="root">jsonError</param>
+	    	</result>
+		</action>
+		
+		<!-- 我的会议 -->
+		<action name="executiveMeet-myMeet" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="myMeet">
+		     <result name="success" type="freemarker">/office/executiveMeet/myMeet.ftl</result>
+		</action>
+		<action name="executiveMeet-myMeetList" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="myMeetList">
+		     <result name="success" type="freemarker">/office/executiveMeet/myMeetList.ftl</result>
+		</action>
+		
+		<!-- 议题提报 -->
+		<action name="executiveMeet-issueApply" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="issueApply">
+		     <result name="success" type="freemarker">/office/executiveMeet/issueApply.ftl</result>
+		</action>
+		<action name="executiveMeet-issueApplyList" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="issueApplyList">
+		     <result name="success" type="freemarker">/office/executiveMeet/issueApplyList.ftl</result>
+		</action>
+		<action name="executiveMeet-issueApplyEdit" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="issueApplyEdit">
+		     <result name="success" type="freemarker">/office/executiveMeet/issueApplyEdit.ftl</result>
+		</action>
+		<action name="executiveMeet-issueSubmit" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="issueSubmit">
+			<result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+		</action>
+		<action name="executiveMeet-issueApplySave" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="issueApplySave">
+			<result name="success" type="json">
+				<param name="root">jsonError</param>
+				<param name="noCache">true</param>  
+                <param name="contentType">text/html</param>
+			</result>
+	    </action>
+		<action name="executiveMeet-issueDelete" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="issueDelete">
+			<result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+		</action>
+		<action name="executiveMeet-issueOpinionList" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="issueOpinionList">
+		     <result name="success" type="freemarker">/office/executiveMeet/issueOpinionList.ftl</result>
+		</action>
+		<action name="executiveMeet-issueOpinionEdit" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="issueOpinionEdit">
+		     <result name="success" type="freemarker">/office/executiveMeet/issueOpinionEdit.ftl</result>
+		</action>
+		<action name="executiveMeet-issueOpinionReEdit" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="issueOpinionEdit">
+		     <result name="success" type="freemarker">/office/executiveMeet/issueOpinionReEdit.ftl</result>
+		</action>
+		<action name="executiveMeet-issueOpinionEditSave" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="issueOpinionEditSave">
+			<result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+	    </action>
+		<action name="executiveMeet-issueOpinionListSave" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="issueOpinionListSave">
+			<result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+	    </action>
+		
+		<!-- 议题审批 -->
+		<action name="executiveMeet-issueAudit" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="issueAudit">
+		     <result name="success" type="freemarker">/office/executiveMeet/issueAudit.ftl</result>
+		</action>
+		<action name="executiveMeet-issueAuditList" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="issueAuditList">
+		     <result name="success" type="freemarker">/office/executiveMeet/issueAuditList.ftl</result>
+		</action>
+		<action name="executiveMeet-issueAuditEdit" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="issueAuditEdit">
+		     <result name="success" type="freemarker">/office/executiveMeet/issueAuditEdit.ftl</result>
+		</action>
+		<action name="executiveMeet-issueAuditSave" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="issueAuditSave">
+			<result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+	    </action>
+		
+		<!-- 纪要维护 -->
+		<action name="executiveMeet-minutesManage" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="minutesManage">
+		     <result name="success" type="freemarker">/office/executiveMeet/minutesManage.ftl</result>
+		</action>
+		<action name="executiveMeet-minutesManageList" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="minutesManageList">
+		     <result name="success" type="freemarker">/office/executiveMeet/minutesManageList.ftl</result>
+		</action>
+		<action name="executiveMeet-minutesEdit" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="minutesEdit">
+		     <result name="success" type="freemarker">/office/executiveMeet/minutesEdit.ftl</result>
+		</action>
+		<action name="executiveMeet-minutesView" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="minutesView">
+		     <result name="success" type="freemarker">/office/executiveMeet/minutesView.ftl</result>
+		</action>
+		<action name="executiveMeet-minutesViewLimit" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="minutesViewLimit">
+		     <result name="success" type="freemarker">/office/executiveMeet/minutesView.ftl</result>
+		</action>
+		<action name="executiveMeet-minutesSave" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="minutesSave">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		
+		<!-- 参数设置 -->
+		<action name="executiveMeet-parameterSet" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="parameterSet">
+		     <result name="success" type="freemarker">/office/executiveMeet/parameterSet.ftl</result>
+		</action>
+		<action name="executiveMeet-fixedDepts" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="fixedDepts">
+			<result name="success" type="json">
+		    	<param name="root">promptMessageDto</param>
+	    	</result>
+		</action>
+		<action name="executiveMeet-minutesUsers" class="net.zdsoft.office.meeting.action.ExecutiveMeetAction" method="minutesUsers">
+			<result name="success" type="json">
+		    	<param name="root">promptMessageDto</param>
+	    	</result>
+		</action>
+		
+    </package>
+</struts>
+    

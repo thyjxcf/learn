@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false">
+		 <!--添加触发器-->
+		<property name="triggers">
+			<list>
+				<ref local="semesterTrigger" />
+				<ref local="affairTrigger" />
+				<ref local="swfUploadTrigger" />
+			</list>
+		</property>
+	</bean> 
+	
+	<!-- ====================学年学期======================--> 
+	<bean id="semesterJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="semesterService" />
+		</property>
+		<property name="targetMethod">
+			<value>clearCache</value>
+		</property>
+	</bean>
+
+	<bean id="semesterTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="semesterJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 5 * * ?</value>
+		</property>
+	</bean>
+	
+	<!-- ====================待办事项======================--> 
+	<bean id="affairJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="affairService" />
+		</property>
+		<property name="targetMethod">
+			<value>runAffairJob</value>
+		</property>
+	</bean>
+
+	<bean id="affairTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="affairJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 5 * * ?</value>
+		</property>
+	</bean>
+	
+	<!-- ====================上传临时文件删除======================--> 
+	<bean id="swfUploadJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="swfUploadService" />
+		</property>
+		<property name="targetMethod">
+			<value>deleteUploadTempFile</value>
+		</property>
+	</bean>
+
+	<bean id="swfUploadTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="swfUploadJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 4 * * ?</value>
+		</property>
+	</bean>
+</beans>

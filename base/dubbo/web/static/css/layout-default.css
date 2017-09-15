@@ -1,0 +1,112 @@
+﻿/*---------桌面---------*/
+#deskApp{width:800px;height:570px;border:1px solid #dedede;overflow:hidden;zoom:1;}
+#deskApp .app-slider{float:left;width:175px;height:570px;background:#f1f2f6;}
+#deskApp .app-slider .dt{font-size:14px;font-weight:700;color:#444;padding:15px 0 15px 20px;}
+#deskApp .app-slider .no_app{ height:146px;background:url(../images/no_app.png) center center no-repeat;}
+#deskApp .app-slider .app-wrap ul{ overflow:hidden; zoom:1;}
+#deskApp .app-slider .app-wrap ul li{float:left;width:64px;height:105px;text-align:center;color:#444;margin-left:15px;position:relative;cursor:pointer;}
+#deskApp .app-slider .app-wrap ul li i{display:none;position:absolute;top:-6px;right:-6px;width:18px;height:18px;}
+#deskApp .app-slider .app-wrap ul li:hover i{display:block;}
+#deskApp .app-slider .app-wrap ul li img{display:block;width:64px;height:64px;margin:0 auto 10px;}
+#deskApp .app-content{float:left;width:595px;height:570px;margin-left:20px;background:#fff;}
+#deskApp .app-content .tips{height:59px;border-bottom:1px solid #f3f3f3;color:#999fa5;}
+#deskApp .app-content .tips span{margin-top:35px;}
+#deskApp .app-content .tips span.fn-right{margin-top:25px;}
+#deskApp .app-content .app-wrap{height:470px;margin-top:20px;padding-right:10px !important;}
+#deskApp .app-content .app-wrap ul{padding:0 1px 1px 0;overflow:hidden;zoom:1;}
+#deskApp .app-content .app-wrap ul li{float:left;position:relative;z-index:1;}
+#deskApp .app-content .app-wrap ul li.small{width:33.3333%;}
+#deskApp .app-content .app-wrap ul li.big{width:66.6666%;}
+#deskApp .app-content .app-wrap ul li p{height:155px;background:#fff;border:1px dashed #dedede;margin:0 -1px -1px 0;overflow:hidden;text-align:center;font-size:14px;color:#999fa5;}
+#deskApp .app-content .app-wrap ul li i{display:none;position:absolute;top:8px;right:8px;background:url(../images/icon/del.png) no-repeat;width:11px;height:11px;cursor:pointer;}
+#deskApp .app-content .app-wrap ul li img{display:block;width:44px;height:44px;margin:35px auto 10px;}
+#deskApp .app-content .app-wrap ul li:hover{z-index:4; cursor:move;}
+#deskApp .app-content .app-wrap ul li:hover i{display:block;}
+#deskApp .app-content .app-wrap ul li:hover i:hover{background-position:0 -19px;}
+/*最新消息*/
+.newest .tab{float:left;margin:-5px 0 0 10px;}
+.newest .tab span{display:inline-block;cursor:pointer;height:25px;line-height:25px;padding:0 8px;margin:0 5px;border-radius:3px;font-size:14px;}
+.newest .tab span.tab-tt{font-size:14px;font-weight:700;margin-left:-15px;}
+.news-list{padding-top:3px;}
+.news-list li{height:36px;line-height:36px;padding:0 10px 0 5px;margin:2px 0;overflow:hidden;}
+.NB-news-list li{height:28px;line-height:28px;margin:0;}/*宁波定制*/
+.NB-news-list li .abtn-orange,.NB-news-list li .abtn-blue{height:22px;line-height:22px;margin-top:3px;}
+.news-list li.unread{font-weight:700;}
+.news-list li.hover{background:#f3f3f3;}
+.news-list li span.date{float:right;margin-right:20px;}
+.newest-two .news-list{height:190px;margin-top:5px;overflow:hidden;}
+.newest-two .news-list li{float:left;width:312px;border-right:1px solid #f3f3f3;margin:0;padding:0;cursor:pointer;}
+.newest-two .news-list li p.inner{margin:0 22px 0 0;}
+.newest-two .news-list li a{display:none;}
+.newest-two .news-list li span.date{margin-right:10px;}
+.newest-two .news-list li.even{border-right:0;}
+.newest-two .news-list li.even p.inner{margin:0 0 0 22px;}
+.newest-two .news-list li.hover{background:none;}
+.newest-two .news-list li.hover p.inner{background:#f3f3f3;}
+.school-notice .news-list li span.date{margin-right:10px;}
+.news-list li a{float:right;margin-top:6px;}
+.news-list li a.del{display:none;background:url(../images/icon/del2.png) no-repeat;width:15px;height:16px;text-indent:-9999em;margin-top:10px;}
+.news-list li .ui-checkbox{float:left;margin:10px 10px 0 12px;}
+.news-list li .news-tt{float:left;}
+.news-list-inside li{height:auto;min-height:36px;}
+.news-list-inside li .des{display:none;font-size:12px;font-weight:100;color:#555;line-height:24px;padding:0 0 0 37px;text-indent:2em;}
+.news-list-inside li.current{background:#f3f3f3;padding-bottom:10px;}
+.news-list-inside li.current .des,.news-list-inside li.current .del{display:inline-block;}
+#newsLayer .news-grid{padding:20px;}
+#newsLayer .tit{font-size:14px;font-weight:700;}
+#newsLayer .des{line-height:24px;}
+#newsLayer .des p{text-indent:2em;padding-top:15px;}
+#newsLayer .info{margin:20px 0 0;padding:10px 0 0;border-top:1px solid #f3f3f3;}
+#newsLayer .info span{float:right;color:#999fa5;}
+/*常用操作*/
+.common .dt .set,.common .dt .set-link,.re-common .dt .set{float:right;display:inline-block;height:15px;padding-left:20px;color:#444;}
+.common .dt .set:hover,.common .dt .set-link:hover,.re-common .dt .set:hover{text-decoration:underline;}
+.common ul.app-list{height:158px;padding:0 1px 1px 0;margin-top:20px;position:relative;overflow:hidden;zoom:1;overflow:hidden;}
+.common ul.app-list li{float:left;position:relative;width:33.3333%;}
+.common ul.app-list li p{height:78px;margin:0 -1px -1px 0;overflow:hidden;background:#f1f2f6;border:1px dashed #dedede;text-align:center;}
+.common ul.app-list li p a{display:inline-block;width:100%;height:78px;color:#444;}
+.common ul.app-list li p a:hover{text-decoration:underline;}
+.common ul.app-list li p img{display:block;width:32px;height:32px;margin:11px auto;}
+.common-new .desk-item-inner{height:159px;}
+.common-new ul.app-list{height:120px;padding:0;}
+.common-new ul.app-list li{width:12.5%;}
+.common-new ul.app-list li p{height:120px;margin:0;overflow:hidden;background:none;border:0;text-align:center;}
+.common-new ul.app-list li p a{display:inline-block;width:100%;height:auto;color:#000;}
+.common-new ul.app-list li p img{width:64px;height:64px;margin:0 auto 10px;}
+#commonApp h3{font-size:14px;font-weight:700;color:#444;padding-left:20px;}
+#commonApp h3 span{font-size:12px;font-weight:100;color:#999fa5;}
+#commonApp .app-class{padding:0 20px;line-height:24px;padding-top:5px;}
+#commonApp .app-class a{color:#444;margin-right:10px;}
+#commonApp .app-class a:hover,#commonApp .app-class a.current{color:#026db7;}
+#commonApp .app-list{overflow:hidden;zoom:1;padding:0 0 15px 20px;}
+#commonApp .app-list li{float:left;width:16.25%;text-align:right;margin-top:15px;}
+#commonApp .app-wrap-new .app-list li{width:12.5%;}
+#commonApp .app-list li a{display:block;width:98px;height:78px;background:#fff;border:1px dashed #dedede;text-align:center;color:#444;}
+#commonApp .app-list li a:hover{text-decoration:none;}
+#commonApp .app-list-yes li a:hover{background:url(../images/icon/app_del.png) no-repeat top right;}
+#commonApp .app-list li a img{display:block;width:32px;height:32px;margin:10px auto;}
+/*课程表*/
+.timetable .no_data{ padding-top:140px; margin-top:7px; background:url(../images/no_data3.png) center 45px no-repeat; text-align:center; font:normal 14px/14px "Microsoft YaHei";}
+.timetable table{width:100%;border-collapse:collapse;}
+.timetable table th,.timetable table td{width:13%;text-align:center;border:1px solid #c8c8c8;}
+.timetable table th{height:24px;background:#f1f2f6;color:#242424;}
+.timetable table td{height:20px;background:#fff;}
+.timetable table th.first,.timetable table td.first{width:9%;background:#f1f2f6;color:#242424;}
+.timetable .table-wrap{height:195px;margin:7px 0;overflow:hidden;}
+.timetable .table-wrap-scroll table{width:99%;}
+.re-timetable table th,.re-timetable table td{width:17%;}
+.re-timetable table th.first,.re-timetable table td.first{width:15%;}
+.report-card-wrap table th,.report-card-wrap table td{width:7%;}
+.report-card-wrap table th.first,.report-card-wrap table td.first{width:16%;}
+/*---------桌面---------*/
+
+/*通讯录*/
+#addressLayer .address-wrap{height:476px;overflow:hidden;}
+#addressLayer .re-address-wrap{height:350px;}
+#addressLayer #addressFrame{width:950px;height:550px;padding-left:10px;border:0;overflow:hidden;}
+.query-fixed{position:fixed;top:0;left:220px;background:#fff;width:100%;padding-bottom:10px;}
+.query-result{padding-top:70px;}
+.address-wrap .user-grid{margin-left:220px;}
+
+/*----------页面宽度超过1200像素后的框架结构----------*/
+body.widescreen .newest-two .news-list li{width:378px;}

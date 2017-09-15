@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="officeAsset" extends="default" namespace="/office/asset">
+		<action name="assetAdmin" class="net.zdsoft.office.asset.action.OfficeAssetAction">
+	            <result name="success" type="freemarker">assetAdmin.ftl</result>
+	     </action>
+	     <!-- 资产类别维护 -->
+	     <action name="assetAdmin-category" class="net.zdsoft.office.asset.action.OfficeAssetCategoryAction">
+	            <result name="success" type="freemarker">assetCategoryList.ftl</result>
+	     </action>
+	     <action name="assetAdmin-addCategory" class="net.zdsoft.office.asset.action.OfficeAssetCategoryAction" method="addCategory">
+	            <result name="success" type="freemarker">assetCategoryEdit.ftl</result>
+	     </action>
+	     <action name="assetAdmin-updateCategory" class="net.zdsoft.office.asset.action.OfficeAssetCategoryAction" method="updateCategoryUpdate">
+	            <result name="success" type="freemarker">assetCategoryEdit.ftl</result>
+	     </action>
+	     <action name="assetAdmin-saveCategory" class="net.zdsoft.office.asset.action.OfficeAssetCategoryAction" method="saveCategory">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+	     <action name="assetAdmin-deleteCategory" class="net.zdsoft.office.asset.action.OfficeAssetCategoryAction" method="deleteCategory">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+	     
+	     <!-- 请购申请 -->
+	     <action name="assetAdmin-apply" class="net.zdsoft.office.asset.action.OfficeAssetAction" method="applyList">
+	            <result name="success" type="freemarker">assetApplyList.ftl</result>
+	     </action>
+	     <action name="assetAdmin-addApply" class="net.zdsoft.office.asset.action.OfficeAssetAction" method="addApply">
+	            <result name="success" type="freemarker">assetApplyEdit.ftl</result>
+	     </action>   
+	     <action name="assetAdmin-editApply" class="net.zdsoft.office.asset.action.OfficeAssetAction" method="editApply">
+	            <result name="success" type="freemarker">assetApplyEdit.ftl</result>
+	     </action>
+	     <action name="assetAdmin-saveApply" class="net.zdsoft.office.asset.action.OfficeAssetAction" method="saveApply">
+	            <result name="success" type="json">
+	            <param name="root">promptMessageDto</param>
+	            <param name="contentType">text/html</param>
+	            </result>
+	     </action> 
+	     
+	     
+	     <!-- 请购审核 -->
+	     <action name="assetAdmin-audit" class="net.zdsoft.office.asset.action.OfficeAssetAction" method="auditAdmin">
+	            <result name="success" type="freemarker">assetAuditAdmin.ftl</result>
+	     </action>
+	     
+	     <action name="assetAdmin-auditList" class="net.zdsoft.office.asset.action.OfficeAssetAction" method="auditList">
+	            <result name="success" type="freemarker">assetAuditList.ftl</result>
+	     </action>  
+	     <action name="assetAdmin-auditEdit" class="net.zdsoft.office.asset.action.OfficeAssetAction" method="auditEdit">
+	            <result name="success" type="freemarker">assetAuditEdit.ftl</result>
+	     </action>
+	     <action name="assetAdmin-saveAudit" class="net.zdsoft.office.asset.action.OfficeAssetAction" method="saveAudit">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+	     
+	     
+	     <!-- 采购单维护 -->
+	     <action name="assetAdmin-purchaseList" class="net.zdsoft.office.asset.action.OfficeAssetPurchaseAction" method="purchaseList">
+	            <result name="success" type="freemarker">assetPurchaseList.ftl</result>
+	     </action>
+	     <action name="assetAdmin-purchaseEdit" class="net.zdsoft.office.asset.action.OfficeAssetPurchaseAction" method="purchaseEdit">
+	            <result name="success" type="freemarker">assetPurchaseEdit.ftl</result>
+	     </action>
+	     <action name="assetAdmin-savePurchase" class="net.zdsoft.office.asset.action.OfficeAssetPurchaseAction" method="savePurchase">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action> 
+	     
+	     <!-- 采购审核 -->
+	     <action name="assetAdmin-purchaseAudit" class="net.zdsoft.office.asset.action.OfficeAssetPurchaseAction" method="purchaseAudit">
+	            <result name="success" type="freemarker">assetPurchaseAuditList.ftl</result>
+	     </action>
+	     <action name="assetAdmin-purchaseAuditEdit" class="net.zdsoft.office.asset.action.OfficeAssetPurchaseAction" method="purchaseAuditEdit">
+	            <result name="success" type="freemarker">assetPurchaseAuditEdit.ftl</result>
+	     </action>
+	     <action name="assetAdmin-savePurchaseAudit" class="net.zdsoft.office.asset.action.OfficeAssetPurchaseAction" method="savePurchaseAudit">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>   
+	     
+	     <!-- 审核意见维护 -->
+	     <action name="assetAdmin-opinion" class="net.zdsoft.office.asset.action.OfficeAssetOpinionAction">
+	            <result name="success" type="freemarker">assetOpinionList.ftl</result>
+	     </action>
+	     <action name="assetAdmin-addOpinion" class="net.zdsoft.office.asset.action.OfficeAssetOpinionAction" method="add">
+	            <result name="success" type="freemarker">assetOpinionEdit.ftl</result>
+	     </action>
+	     <action name="assetAdmin-editOpinion" class="net.zdsoft.office.asset.action.OfficeAssetOpinionAction" method="edit">
+	            <result name="success" type="freemarker">assetOpinionEdit.ftl</result>
+	     </action>
+	     <action name="assetAdmin-saveOpinion" class="net.zdsoft.office.asset.action.OfficeAssetOpinionAction" method="save">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+	     <action name="assetAdmin-deleteOpinion" class="net.zdsoft.office.asset.action.OfficeAssetOpinionAction" method="delete">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+	     
+	     <!-- 资产汇总 -->
+	     <action name="assetAdmin-assetQuery" class="net.zdsoft.office.asset.action.OfficeAssetDataAction" method="list">
+			<result name="success" type="freemarker">assetDataList.ftl</result>
+		</action>
+		<action name="assetAdmin-assetExport" class="net.zdsoft.office.asset.action.OfficeAssetDataAction" 
+    		method="assetExport">
+    	</action>
+    	<action name="assetAdmin-assetToGoods" class="net.zdsoft.office.asset.action.OfficeAssetDataAction" method="doAssetToGoods">
+			<result name="success" type="freemarker">assetToGoods.ftl</result>
+		</action>
+		<action name="assetAdmin-save" class="net.zdsoft.office.asset.action.OfficeAssetDataAction" method="save">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false">
+		<!--添加触发器-->
+		<property name="triggers">
+			<list>
+				<ref local="clearLogsTrigger" />
+				<ref local="moveLoginLogsTrigger" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- ====================清除日志======================-->
+	<bean id="clearLogsTimerTask" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>net.zdsoft.eis.system.frame.timer.LogClearTimerTask</value>
+		</property>
+	</bean>
+	<bean id="clearLogsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="clearLogsTimerTask" />
+
+		<!--每天的5点执行-->
+		<property name="cronExpression">
+			<value>0 0 5 * * ?</value>
+		</property>
+	</bean>
+	
+	<!-- ====================移动一个月前的登录日志到历史表======================-->
+	<bean id="moveLoginLogsTimerTask" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>net.zdsoft.eis.system.frame.timer.LoginLogMoveTimerTask</value>
+		</property>
+	</bean>
+	<bean id="moveLoginLogsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="moveLoginLogsTimerTask" />
+
+		<!--每月的第一天的2：00触发0 0 2 1 * ? 测试配置每天从下午2点开始到2：55分结束每5分钟一次触发0 0/5 14 * * ?-->
+		<property name="cronExpression">
+			<value>0 0 2 1 * ?</value>
+		</property>
+	</bean>
+
+</beans>

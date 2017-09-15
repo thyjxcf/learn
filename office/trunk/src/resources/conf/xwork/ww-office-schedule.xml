@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="schedulecommon" extends="default" namespace="/office/schedule/common">
+		<action name="getDeptUserSelectDivData" class="net.zdsoft.office.schedule.action.DeptUserSelectDivAction"
+			method="getObjectsByCondition">
+			<result name="success" type="freemarker">/common/popupObjectDiv.ftl</result>
+		</action>	
+	</package>
+    
+    <!-- 个人日程-->
+    <package name="schedule" extends="default" namespace="/office/schedule">
+   		   <action name="schedule" class="net.zdsoft.office.schedule.action.ScheduleAction" method="scheduleAdmin">
+	            <result name="success" type="freemarker">/office/schedule/scheduleAdmin.ftl</result>
+	       </action>
+	       <action name="schedule-toPersonal" class="net.zdsoft.office.schedule.action.ScheduleAction" method="toPersonal">
+	            <result name="success" type="freemarker">/office/schedule/personal.ftl</result>
+	       </action>
+	       <action name="schedule-toData" class="net.zdsoft.office.schedule.action.ScheduleAction" method="toData">
+	            <result name="week" type="freemarker">/office/schedule/calendarWeekList.ftl</result>
+	            <result name="month" type="freemarker">/office/schedule/calendarMonthList.ftl</result>
+	            <result name="day" type="freemarker">/office/schedule/calendarDayList.ftl</result>
+	       </action>
+	       <action name="schedule-toEdit" class="net.zdsoft.office.schedule.action.ScheduleAction" method="toEdit">
+	            <result name="success" type="freemarker">/office/schedule/calendarEdit.ftl</result>
+	       </action>
+	       <action name="schedule-saveCal" class="net.zdsoft.office.schedule.action.ScheduleAction" method="saveCal">
+	            <result name="success" type="json">
+	            	<param name="root">promptMessageDto</param>
+	            </result>
+	       </action>
+	       <action name="schedule-toDetails" class="net.zdsoft.office.schedule.action.ScheduleAction" method="toDetails">
+	            <result name="success" type="freemarker">/office/schedule/calendarDetails.ftl</result>
+	       </action>
+	       <action name="schedule-delCal" class="net.zdsoft.office.schedule.action.ScheduleAction" method="delCal">
+	            <result name="success" type="json">
+	            	<param name="root">promptMessageDto</param>
+	            </result>
+	       </action>
+	       <action name="schedule-toDown" class="net.zdsoft.office.schedule.action.ScheduleAction" method="toDown" ></action>
+	       <!-- 科室负责人日志 -->
+	       <action name="schedule-deptLeaderSchedule" class="net.zdsoft.office.schedule.action.ScheduleAction" method="deptLeaderSchedule">
+	            <result name="success" type="freemarker">deptLeaderSchedule.ftl</result>
+	       </action>
+	       <action name="schedule-deptLeaderScheduleList" class="net.zdsoft.office.schedule.action.ScheduleAction" method="deptLeaderScheduleList">
+	            <result name="success" type="freemarker">deptLeaderScheduleList.ftl</result>
+	       </action>
+	       <action name="schedule-toAuth" class="net.zdsoft.office.schedule.action.CalendarInfoAction" method="toAuth">
+	            <result name="success" type="freemarker">/office/schedule/auth.ftl</result>
+	       </action>
+	       <action name="schedule-authEdit" class="net.zdsoft.office.schedule.action.CalendarInfoAction" method="authEdit">
+	            <result name="success" type="json">
+	       			<param name="root">promptMessageDto</param>
+	       		</result>
+	       </action>
+
+    <!-- 科室周工作重点 -->
+    		<action name="schedule-workOutline" class="net.zdsoft.office.schedule.action.WeekWorkOutlineAction" method="toDeptWeekWork">
+    			<result type="freemarker" name="success">/office/schedule/officeWorkOutlineWeekWork.ftl</result>
+    		</action>
+    		<!-- 周视图 -->
+    		<action name="schedule-workOutlineWeekList" class="net.zdsoft.office.schedule.action.WeekWorkOutlineAction" method="workOutlineListBySearchParams">
+    			<result type="freemarker" name="success">/office/schedule/officeWorkOutlineWeekWorkList.ftl</result>
+    		</action>
+    		<!-- 月视图 -->
+    		<action name="schedule-workOutlineMonthList" class="net.zdsoft.office.schedule.action.WeekWorkOutlineAction" method="workoutlineListOfMonthView">
+    			<result type="freemarker" name="success">/office/schedule/officeWorkOutlineMonthWorkList.ftl</result>
+    		</action>
+    		<!-- 日视图 -->
+    		<action name="schedule-workOutlineDayList" class="net.zdsoft.office.schedule.action.WeekWorkOutlineAction" method="getWorkOutlineListByDay">
+    			<result type="freemarker" name="success">/office/schedule/officeWorkOutlineDayWorkList.ftl</result>
+    		</action>
+    		<!-- 编辑 -->
+    		<action name="schedule-workOutlineAdd" class="net.zdsoft.office.schedule.action.WeekWorkOutlineAction" method="workOutlineAdd">
+    			<result type="freemarker" name="success">/office/schedule/officeWorkOutlineAdd.ftl</result>
+    		</action>
+    		<!-- save日程 -->
+    		<action name="schedule-workOutlineSave" class="net.zdsoft.office.schedule.action.WeekWorkOutlineAction" method="workOutlineSave">
+    			<result type="json" name="success">
+    				<param name="root">promptMessageDto</param>
+    			</result>
+    		</action>
+    		<!-- 删除日程 -->
+    		<action name="schedule-workOutlineDel" class="net.zdsoft.office.schedule.action.WeekWorkOutlineAction" method="deleteWorkOutLineInfo">
+    			<result type="json" name="success">
+    				<param name="root">promptMessageDto</param>
+    			</result>
+    		</action>
+    		<!-- workoutline科室导出周视图 -->
+    		<action name="schedule-workOutlineExport" class="net.zdsoft.office.schedule.action.WeekWorkOutlineAction" method="exportWorkOutline">
+    			<!-- <result type="json" name="success">
+    				<param name="root">promptMessageDto</param>
+    			</result> -->
+    		</action>
+    		<action name="schedule-workOutlineDayperiod" class="net.zdsoft.office.schedule.action.WeekWorkOutlineAction" method="getWorkOutLineListByDayPeriod">
+    			<result type="freemarker" name="success">/office/schedule/officeWorkOutlineDayDetail.ftl</result>
+    		</action>
+    		
+	       <!-- 行事历 -->
+	       <action name="schedule-toCalendarInfo" class="net.zdsoft.office.schedule.action.CalendarInfoAction" method="toCalendarInfo">
+	            <result name="success" type="freemarker">/office/schedule/calendar.ftl</result>
+	       </action>
+	       <action name="schedule-saveSemesterInfo" class="net.zdsoft.office.schedule.action.CalendarInfoAction" method="saveSemesterInfo">
+	            <result name="success" type="json">
+	       			<param name="root">promptMessageDto</param>
+	       		</result>
+	       </action>
+	       <action name="schedule-saveSemesterContent" class="net.zdsoft.office.schedule.action.CalendarInfoAction" method="saveSemesterContent">
+	            <result name="success" type="json">
+	       			<param name="root">promptMessageDto</param>
+	       		</result>
+	       </action>
+	       <action name="schedule-saveDayInfo" class="net.zdsoft.office.schedule.action.CalendarInfoAction" method="saveDayInfo">
+	            <result name="success" type="json">
+	       			<param name="root">promptMessageDto</param>
+	       		</result>
+	       </action>
+	       <action name="schedule-saveMonthInfo" class="net.zdsoft.office.schedule.action.CalendarInfoAction" method="saveMonthInfo">
+	            <result name="success" type="json">
+	       			<param name="root">promptMessageDto</param>
+	       		</result>
+	       </action>
+	       
+	       <!-- 科室人员日志 -->
+	       <action name="schedule-toDeptLog" class="net.zdsoft.office.schedule.action.ScheduleAction" method="toDeptLog">
+	            <result name="success" type="freemarker">/office/schedule/deptLog.ftl</result>
+	       </action>
+	       <action name="schedule-toDeptLogList" class="net.zdsoft.office.schedule.action.ScheduleAction" method="toDeptLogList">
+	            <result name="success" type="freemarker">/office/schedule/deptLogList.ftl</result>
+	       </action>
+	       <action name="schedule-queryLogDetail" class="net.zdsoft.office.schedule.action.ScheduleAction" method="queryLogDetail">
+	            <result name="success" type="freemarker">/office/schedule/queryLogDetail.ftl</result>
+	       </action>
+    </package>
+    
+</struts>
+    

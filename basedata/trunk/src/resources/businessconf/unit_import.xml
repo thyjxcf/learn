@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root> 
+	<!-- 单位信息导入 -->
+	<object define="单位信息" name="unit_import" entityclassname="net.zdsoft.eis.base.data.entity.BaseUnitImport" 
+			tablename="base_unit" description="单位名称必须唯一">
+		<listeners>
+			<listener>dataImportListener</listener>
+		</listeners>
+		<field define="单位名称" name="unitName" required="Y" unique="Y" dbname="unit_name" type="String(75)" example="如:蓝天幼儿园"/>
+		<field define="单位类型" name="unitType" dbname="unit_type" required="Y" type="Select" example="如:托管中小学"/>
+		<field define="上级单位" name="parentId" dbname="parent_id" required="Y" type="Select" example="如:西安市新城区教育局"/>
+		<field define="单位使用类别" name="unitUseType" dbname="unit_use_type" required="N" mcode="DM-UNITUSETYPE" example="如:中学"/>
+		<field define="学校代码" name="schCode" dbname="school_code" exported="Y" required="Y" unique="Y"  type="String(46)" regex="[0-9]{1,46}" errorMsg="只能是1-46位数字。" example="&lt;font color='red'&gt;只能是1-46位数字。&lt;/font&gt;"/>
+		<field define="区域属性码" name="regionPropertyCode" dbname="region_property_code" required="Y" mcode="DM-TZ-QYSX" example="如:主城区"/>
+		<field define="学校类别" name="schType" dbname="school_type" required="Y" mcode="DM-XXLB" example="如:小学"/>
+		<field define="办学性质" name="runschtype" dbname="run_school_type" required="Y" mcode="DM-XXBB" example="如:民办"/>
+		<field define="单位管理员用户名" name="userName" dbname="user_name" required="Y" unique="Y" type="String(20)" regex="[a-zA-Z0-9_]{4,20}" errorMsg="必须是4-20位的英文(A-Z，a-z)或数字(0-9)及下划线。" example="如：zhangsan。&lt;font color='red'&gt;必须是4-20位的英文(A-Z，a-z)或数字(0-9)及下划线&lt;/font&gt;" />
+		<field define="单位管理员密码" name="password"  dbname="password" required="Y" type="String(20)" regex="[\w\W]{6,18}" errorMsg="密码为6-18个字符，由英文字母（区分大小写）、数字或符号组成,且密码不能为纯数字或纯字母或相同的符号。" example="如：12345678。&lt;font color='red'&gt;密码为6-18个字符，由英文字母（区分大小写）、数字或符号组成,且密码不能为纯数字或纯字母或相同的符号。&lt;/font&gt;"/>
+	</object>
+</root>
+ 	
+	
+	
+	
+	

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+	<title>详情</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+    <script>
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.2 + 'px';
+    </script>
+</head>
+<body class="fn-flex fn-flex-col">
+	<header style="display:none">
+        	<h1 class="f-20">请假申请</h1>
+            <a href="javascript:void(0)" class="abtn abtn-left2 f-18 html-window-close"><span>关闭</span></a>
+     </header>
+    <div class="tabMenu1 maintab_menu" id="studentDiv">
+    </div>
+    <div class="centerContainer fn-flex-auto">
+        <div class="tab1Container">
+            <div class="tabBox1 maintab_box">
+                <!-- 王小蓝 开始 -->
+                <div>
+                    <div class="tab2Container">
+                        <div class="tabBox2 secondtab_box">
+                            <!-- 日 开始 -->
+                            <div>
+                                <div class="healthDetail">
+                                    <div class="hd fn-flex">
+                                        <a class="arrow-l" href="javascript:void(0);"></a>
+                                        <input type="hidden" id="queryDateStr"/>
+                                        <span class="fn-flex-auto" id="showDate"></span>
+                                        <a class="arrow-r" href="javascript:void(0);"></a>
+                                    </div>
+                                    <div class="bd">
+                                        <div id="echarts5"></div>
+                                        <table width="100%">
+                                            <tr>
+                                                <th width="33%"><span id="step"></span></th>
+                                                <th width="33%"><span id="distance"></span></th>
+                                                <th width="33%"><span id="calorie"></span></th>
+                                            </tr>
+                                            <tr>
+                                                <td>步数</td>
+                                                <td>公里</td>
+                                                <td>千卡</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="ft fn-flex" id="classRankDiv">
+                                        <span class="fn-flex-auto green" id="stuRank"></span>
+                                        <a class="grey no_unl" href="javascript:void(0);">查看榜单</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 日 结束 -->
+                        </div>
+                        <div class="tabMenu2 secondtab_menu">
+                            <ul class="tabMenu2_ul">
+                                <li id="today" class="active"><a href="javascript:void(0);">日</a></li>
+                                <li ><a href="javascript:void(0);">周</a></li>
+                                <li ><a href="javascript:void(0);">月</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- 王小蓝 结束 -->
+                <!-- 王小红 开始 -->
+                <div class="none">王小红</div>
+                <!-- 王小红 结束 -->
+            </div>
+        </div>
+    </div>
+	<script src="../../../static/html/js/jquery-1.9.1.min.js"></script>
+	<script src="../../../static/html/js/storage.js?version=v1.0"></script>
+    <script  src="../../../static/html/js/public.js"></script>
+	<script src="../../../static/html/js/jquery.form.js?version=v1.0"></script>
+	<script src="../../../static/html/js/jquery.Layer.js?version=v1.0"></script>
+	<script src="../../../static/html/js/common.js?version=v1.0"></script>
+	<script src="../../../static/html/js/weike.js?version=v1.0"></script>
+	<script src="../../../static/html/js/myWeike.js?version=v1.0"></script>
+	
+    <script  src="js/echarts.js"></script>
+    <script  src="js/wapEntities.js"></script>
+    <script  src="js/wap.js"></script>
+	<script  src="js/wapNetwork.js"></script>
+	<script  src="js/wapNetworkService.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+   		setTimeout(wap.initDetail(), 200);
+    }, false);	
+	
+    </script>
+</body>
+</html>

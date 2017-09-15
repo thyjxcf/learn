@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true" default-autowire="byName">
+	<bean id="baseClassDao" class="net.zdsoft.eis.base.data.dao.impl.BaseClassDaoImpl">
+
+	</bean>
+
+	<bean id="baseDeptDao" class="net.zdsoft.eis.base.data.dao.impl.BaseDeptDaoImpl">
+
+	</bean>
+
+	<bean id="baseEduInfoDao" class="net.zdsoft.eis.base.data.dao.impl.BaseEduInfoDaoImpl">
+
+	</bean>
+
+	<bean id="baseGradeDao" class="net.zdsoft.eis.base.data.dao.impl.BaseGradeDaoImpl">
+
+	</bean>
+
+	<bean id="baseMcodeDetailDao"
+		class="net.zdsoft.eis.base.data.dao.impl.BaseMcodeDetailDaoImpl">
+
+	</bean>
+
+	<bean id="baseMcodeListDao" class="net.zdsoft.eis.base.data.dao.impl.BaseMcodeListDaoImpl">
+
+	</bean>
+
+	<bean id="baseSchoolDao" class="net.zdsoft.eis.base.data.dao.impl.BaseSchoolDaoImpl">
+
+	</bean>
+
+	<bean id="baseSchoolSemesterDao"
+		class="net.zdsoft.eis.base.data.dao.impl.BaseSchoolSemesterDaoImpl">
+
+	</bean>
+
+	<bean id="baseSemesterDao" class="net.zdsoft.eis.base.data.dao.impl.BaseSemesterDaoImpl">
+
+	</bean>
+
+	<bean id="baseStudentFamilyDao"
+		class="net.zdsoft.eis.base.data.dao.impl.BaseStudentFamilyDaoImpl">
+
+	</bean>
+
+	<bean id="baseSystemIniDao" class="net.zdsoft.eis.base.data.dao.impl.BaseSystemIniDaoImpl">
+
+	</bean>
+
+	<bean id="baseTeacherDao" class="net.zdsoft.eis.base.data.dao.impl.BaseTeacherDaoImpl">
+
+	</bean>
+	<bean id="baseServerDao" class="net.zdsoft.eis.base.data.dao.impl.BaseServerDaoImpl">
+
+	</bean>
+	<bean id="baseWareDao" class="net.zdsoft.eis.base.data.dao.impl.BaseWareDaoImpl">
+
+	</bean>
+	<bean id="baseOrderDao" class="net.zdsoft.eis.base.data.dao.impl.BaseOrderDaoImpl">
+
+	</bean>
+
+	<bean id="baseUnitDao" class="net.zdsoft.eis.base.data.dao.impl.BaseUnitDaoImpl">
+		<property name="incre">
+			<bean
+				class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+				<property name="incrementerName" value="s_unit_partition_num" />
+				<property name="dataSource" ref="dataSource" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="baseUserDao" class="net.zdsoft.eis.base.data.dao.impl.BaseUserDaoImpl">
+
+	</bean>
+
+	<bean id="baseSubSchoolDao" class="net.zdsoft.eis.base.data.dao.impl.BaseSubSchoolDaoImpl">
+
+	</bean>
+
+	<bean id="baseSchoolDistrictDao"
+		class="net.zdsoft.eis.base.data.dao.impl.BaseSchoolDistrictDaoImpl">
+
+	</bean>
+	<bean id="eisuBaseSchoolDao" class="net.zdsoft.eis.school.dao.impl.BaseSchoolDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="baseColsDisplayDao"
+		class="net.zdsoft.eis.base.data.dao.impl.BaseColsDisplayDaoImpl">
+
+	</bean>
+
+	<bean id="baseDateInfoDao" class="net.zdsoft.eis.base.data.dao.impl.BaseDateInfoDaoImpl">
+
+	</bean>
+
+
+	<bean id="baseCodeRuleDetailDao"
+		class="net.zdsoft.eis.base.data.dao.impl.BaseCodeRuleDetailDaoImpl">
+
+	</bean>
+	<bean id="baseCodeRuleDao" class="net.zdsoft.eis.base.data.dao.impl.BaseCodeRuleDaoImpl">
+
+	</bean>
+
+	<!-- 职务dao -->
+	<bean id="dutyDao" class="net.zdsoft.eis.base.data.dao.impl.DutyDaoImpl">
+
+	</bean>
+	<!-- 模块dao -->
+	<bean id="baseModuleDao" class="net.zdsoft.eis.base.data.dao.impl.BaseModuleDaoImpl">
+
+	</bean>
+
+	<bean id="baseSysOptionDao" class="net.zdsoft.eis.base.data.dao.impl.BaseSysOptionDaoImpl">
+
+	</bean>
+
+	<bean id="baseStorageDirDao" class="net.zdsoft.eis.base.data.dao.impl.BaseStorageDirDaoImpl">
+
+	</bean>
+	
+	<bean id="baseTeacherDutyDao" class="net.zdsoft.eis.base.data.dao.impl.BaseTeacherDutyDaoImpl">
+
+	</bean>
+	
+	<bean id="baseSchtypeSectionDao" class="net.zdsoft.eis.base.data.dao.impl.BaseSchtypeSectionDaoImpl">
+	</bean>
+
+	<bean id="baseServerAuthorizeDao"
+		class="net.zdsoft.eis.base.data.dao.impl.BaseServerAuthorizeDaoImpl">
+	</bean>
+	
+	<!-- 节次时间设置 -->
+	<bean id="stusysSectionTimeSetDao" class="net.zdsoft.eis.base.data.dao.impl.StusysSectionTimeSetDaoImpl" />
+	
+	<bean id="eisBaseStudentDao" class="net.zdsoft.eis.base.data.dao.impl.EisBaseStudentDaoImpl"></bean>
+	
+	<bean id="countOnlineTimeDao" class="net.zdsoft.eis.base.data.dao.impl.CountOnlineTimeDaoImpl" ></bean>
+	
+	<!-- 教研组管理 -->
+	<bean id="researchGroupDao" class="net.zdsoft.eis.base.data.dao.impl.ResearchGroupDaoImpl" ></bean>
+	<bean id="researchGroupExDao" class="net.zdsoft.eis.base.data.dao.impl.ResearchGroupExDaoImpl" ></bean>
+
+</beans>

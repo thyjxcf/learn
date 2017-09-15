@@ -1,0 +1,897 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!-- 车辆管理 -->
+    <package name="carmanage" extends="default" namespace="/office/carmanage">
+    	<action name="carmanage" class="net.zdsoft.office.dailyoffice.action.CarManageAction">
+            <result name="success" type="freemarker">/office/carmanage/carAdmin.ftl</result>
+		</action>
+    	<!-- 车辆申请 -->
+    	<action name="carmanage-apply" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carApply">
+            <result name="success" type="freemarker">/office/carmanage/carApply.ftl</result>
+		</action>
+		<action name="carmanage-carApplyGetPhoneNumber" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carApplyGetPhoneNumber">
+          <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+        </action>
+    	<action name="carmanage-carApplyList" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carApplyList">
+            <result name="success" type="freemarker">/office/carmanage/carApplyList.ftl</result>
+		</action>
+    	<action name="carmanage-carApplyEdit" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carApplyEdit">
+            <result name="success" type="freemarker">/office/carmanage/carApplyEdit.ftl</result>
+		</action>
+    	<action name="carmanage-carApplyView" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carApplyView">
+            <result name="success" type="freemarker">/office/carmanage/carApplyView.ftl</result>
+		</action>
+		<action name="carmanage-saveOvertime" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="saveOvertime">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+		</action>
+		<action name="carmanage-saveCarApply" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="saveCarApply">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+		</action>
+		<action name="carmanage-deleteCarApply" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="deleteCarApply">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+		</action>
+		<!-- 单位审核 -->
+    	<action name="carmanage-carAudit" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carAudit">
+            <result name="success" type="freemarker">/office/carmanage/carAudit.ftl</result>
+		</action>
+    	<action name="carmanage-carAuditEdit" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carAuditEdit">
+            <result name="success" type="freemarker">/office/carmanage/carAuditEdit.ftl</result>
+		</action>
+		<action name="carmanage-carCancelAuditEdit" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carApplyView">
+            <result name="success" type="freemarker">/office/carmanage/carCancelAuditEdit.ftl</result>
+		</action>
+    	<action name="carmanage-carAuditList" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carAuditList">
+            <result name="success" type="freemarker">/office/carmanage/carAuditList.ftl</result>
+		</action>
+		<action name="carmanage-carUseInfo" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carUseInfo">
+            <result name="success" type="freemarker">/office/carmanage/carUseInfo.ftl</result>
+		</action>
+		<action name="carmanage-auditInfo" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="auditInfo">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+		</action>
+		<action name="carmanage-cancelAuditInfo" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="cancelAuditInfo">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+		</action>
+		<action name="carmanage-carCancelApply" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carCancelApply">
+			<result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+		</action>
+		<!-- 车辆管理 -->
+		<action name="carmanage-carManage" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carManage">
+            <result name="success" type="freemarker">/office/carmanage/carManage.ftl</result>
+		</action>
+		<action name="carmanage-carManageList" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carManageList">
+            <result name="success" type="freemarker">/office/carmanage/carManageList.ftl</result>
+		</action>
+		<action name="carmanage-carManageEdit" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carManageEdit">
+            <result name="success" type="freemarker">/office/carmanage/carManageEdit.ftl</result>
+		</action>
+		<action name="carmanage-saveCarInfo" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="saveCarInfo">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+		</action>
+		<action name="carmanage-deleteCar" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="deleteCar">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+		</action>
+		<!-- 驾驶员管理 -->
+    	<action name="carmanage-driverManage" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="driverManage">
+            <result name="success" type="freemarker">/office/carmanage/driverManage.ftl</result>
+		</action>
+		<action name="carmanage-saveDriver" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="saveDriver">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+		</action>
+		<action name="carmanage-deleteDriver" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="deleteDriver">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+		</action>
+		<!-- 出车补贴设置 -->
+		<action name="carmanage-subsidyManage" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="subsidyManage">
+            <result name="success" type="freemarker">/office/carmanage/subsidyManage.ftl</result>
+		</action>
+		<action name="carmanage-saveSubsidy" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="saveSubsidy">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+		</action>
+		<action name="carmanage-deleteSubsidy" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="deleteSubsidy">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+		</action>
+		<!-- 用车情况汇总 -->
+    	<action name="carmanage-carUseSummary" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carUseSummary">
+            <result name="success" type="freemarker">/office/carmanage/carUseSummary.ftl</result>
+		</action>
+		<action name="carmanage-carUseSummaryList" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carUseSummaryList">
+            <result name="success" type="freemarker">/office/carmanage/carUseSummaryList.ftl</result>
+            <result name="detail" type="freemarker">/office/carmanage/carUseSummaryDetail.ftl</result>
+		</action>
+		<!-- 用车加班时间 -->
+    	<action name="carmanage-carOverTime" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carOverTime">
+            <result name="success" type="freemarker">/office/carmanage/carOverTime.ftl</result>
+		</action>
+		<action name="carmanage-carOverTimeList" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carOverTimeList">
+            <result name="success" type="freemarker">/office/carmanage/carOverTimeList.ftl</result>
+		</action>
+		<action name="carmanage-carOverTimeEdit" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carOverTimeEdit">
+            <result name="success" type="freemarker">/office/carmanage/carOverTimeEdit.ftl</result>
+		</action>
+		<action name="carmanage-carOverTimeSave" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="carOverTimeSave">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="carmanage-carOverTimeExport" class="net.zdsoft.office.dailyoffice.action.CarManageAction"
+		    method="carOverTimeExport">
+		</action>
+		<!-- 我的用车详情 -->
+		<action name="carmanage-myCarUseDetail" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="myCarUseDetail">
+            <result name="success" type="freemarker">/office/carmanage/myCarUseDetail.ftl</result>
+		</action>
+		<action name="carmanage-myCarUseDetailList" class="net.zdsoft.office.dailyoffice.action.CarManageAction" method="myCarUseDetailList">
+            <result name="success" type="freemarker">/office/carmanage/myCarUseDetailList.ftl</result>
+		</action>
+    </package>
+    
+    <package name="meetingmanage" extends="default" namespace="/office/meetingmanage">
+    	<!-- 接待管理 -->
+       <action name="receptionmanage" class="net.zdsoft.office.dailyoffice.action.ReceptionManageAction" >
+            <result name="success" type="freemarker">/office/meetingmanage/receptionmanage.ftl</result>
+       </action>
+       <action name="receptionmanage-receptionManageList" class="net.zdsoft.office.dailyoffice.action.ReceptionManageAction" method="receptionManageList">
+     	    <result name="success" type="freemarker">/office/meetingmanage/receptionmanageList.ftl</result>
+       </action>
+       <action name="receptionmanage-receptionManageAdd" class="net.zdsoft.office.dailyoffice.action.ReceptionManageAction" method="receptionManageAdd">
+     	    <result name="success" type="freemarker">/office/meetingmanage/receptionmanageEdit.ftl</result>
+       </action>
+        <action name="receptionmanage-receptionManageSave" class="net.zdsoft.office.dailyoffice.action.ReceptionManageAction" method="receptionManageSave">
+     	    <result name="success" type="json">
+     	    <param name="root">promptMessageDto</param>
+     	    </result>
+       </action>
+        <action name="receptionmanage-receptionManageDelete" class="net.zdsoft.office.dailyoffice.action.ReceptionManageAction" method="receptionManageDelete">
+     	    <result name="success" type="json">
+     	    <param name="root">promptMessageDto</param>
+     	    </result>
+       </action>
+       	<!-- 会议申请 -->
+       	<action name="meetingmanage" class="net.zdsoft.office.dailyoffice.action.MeetingManageAction">
+            <result name="success" type="freemarker">/office/meetingmanage/meetingmanage.ftl</result>
+       	</action>
+       	<action name="meetingmanage-meetingList" class="net.zdsoft.office.dailyoffice.action.MeetingManageAction" method="meetingList">
+            <result name="success" type="freemarker">/office/meetingmanage/meetingList.ftl</result>
+       	</action>
+       	<action name="meetingmanage-meetingEdit" class="net.zdsoft.office.dailyoffice.action.MeetingManageAction" method="meetingEdit">
+            <result name="success" type="freemarker">/office/meetingmanage/meetingEdit.ftl</result>
+       	</action>
+       	<action name="meetingmanage-remote-save" class="net.zdsoft.office.dailyoffice.action.MeetingManageAction" method="save">
+			<result name="success" type="json">
+				<param name="contentType">text/html</param>
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="meetingmanage-remote-submit" class="net.zdsoft.office.dailyoffice.action.MeetingManageAction" method="submit">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="meetingmanage-remote-delete" class="net.zdsoft.office.dailyoffice.action.MeetingManageAction" method="delete">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+	   	<!-- 会议审核 -->
+	   	<action name="meetingmanage-auditList" class="net.zdsoft.office.dailyoffice.action.MeetingManageAction" method="meetingList">
+            <result name="success" type="freemarker">/office/meetingmanage/meetingAuditList.ftl</result>
+       	</action>
+       	<action name="meetingmanage-auditEdit" class="net.zdsoft.office.dailyoffice.action.MeetingManageAction" method="meetingEdit">
+            <result name="success" type="freemarker">/office/meetingmanage/meetingAuditEdit.ftl</result>
+       	</action>
+       	<action name="meetingmanage-auditSave" class="net.zdsoft.office.dailyoffice.action.MeetingManageAction" method="auditSave">
+	   	   <result name="success" type="json">
+	   	   		<param name="contentType">text/html</param>
+	   	   		<param name="root">promptMessageDto</param>
+	   	   </result>
+	   	</action>
+       
+    </package>
+    
+    <!-- 教室预约 -->
+    <package name="roomorder" extends="default" namespace="/office/roomorder">
+       <action name="roomorder" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction">
+            <result name="success" type="freemarker">/office/roomorder/roomorder.ftl</result>
+       </action>
+       <action name="roomorder-myOrderList" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="myOrderList">
+            <result name="success" type="freemarker">/office/roomorder/myOrderList.ftl</result>
+       </action>
+       <action name="roomorder-orderApply" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="orderApply">
+            <result name="success" type="freemarker">/office/roomorder/orderApply.ftl</result>
+       </action>
+       <action name="roomorder-orderApplyList" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="orderApplyList">
+            <result name="success" type="freemarker">/office/roomorder/orderApplyList.ftl</result>
+       </action>
+       <action name="roomorder-orderApplyView" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="orderApplyView">
+            <result name="success" type="freemarker">/office/roomorder/orderApplyView.ftl</result>
+       </action>
+       <action name="roomorder-saveApplyInfo" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="saveApplyInfo">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       </action>
+       <action name="roomorder-saveMeetingRoomInfo" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="saveMeetingRoomInfo">
+            <result name="success" type="json">
+                <param name="contentType">text/html</param>
+				<param name="root">jsonError</param>
+			</result>
+       </action>
+       <action name="roomorder-orderAudit" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="orderAudit">
+            <result name="success" type="freemarker">/office/roomorder/orderAudit.ftl</result>
+       </action>
+       <action name="roomorder-orderAuditList" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="orderAuditList">
+            <result name="success" type="freemarker">/office/roomorder/orderAuditList.ftl</result>
+       </action>
+       <action name="roomorder-orderAuditEdit" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="orderAuditEdit">
+            <result name="success" type="freemarker">/office/roomorder/orderAuditEdit.ftl</result>
+       </action>
+       <action name="roomorder-feedback" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="feedback">
+            <result name="success" type="freemarker">/office/roomorder/feedback.ftl</result>
+       </action>
+       <action name="roomorder-saveFeedback" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="saveFeedback">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+       </action>
+       <action name="roomorder-audit" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="audit">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+       </action>
+       <action name="roomorder-passSelected" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="passSelected">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+       </action>
+       <action name="roomorder-timeSet" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="timeSet">
+            <result name="success" type="freemarker">/office/roomorder/timeSet.ftl</result>
+       </action>
+       <action name="roomorder-timeSetSave" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="timeSetSave">
+        	<result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <!-- 类型信息设置 -->
+        <action name="roomorder-orderSet" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="orderSet">
+            <result name="success" type="freemarker">/office/roomorder/orderSet.ftl</result>
+       	</action>
+        <action name="roomorder-orderSetSave" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="orderSetSave">
+        	<result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+       	</action>
+       	<!-- 实验种类设置 -->
+        <action name="roomorder-labTypeSet" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="labTypeSet">
+            <result name="success" type="freemarker">/office/roomorder/labTypeSet.ftl</result>
+       	</action>
+       	<action name="roomorder-labTypeSet-list" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="labTypeSetList">
+            <result name="success" type="freemarker">/office/roomorder/labTypeSetList.ftl</result>
+       	</action>
+       	<action name="roomorder-labTypeSet-add" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="labTypeSetAdd">
+            <result name="success" type="freemarker">/office/roomorder/labTypeSetEdit.ftl</result>
+       	</action>
+       	<action name="roomorder-labTypeSet-edit" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="labTypeSetEdit">
+            <result name="success" type="freemarker">/office/roomorder/labTypeSetEdit.ftl</result>
+       	</action>
+       	<action name="roomorder-labTypeSet-save" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="labTypeSetSave">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+       	<action name="roomorder-labTypeSet-delete" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="labTypeSetDelete">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+       	<!-- 实验室申请 -->
+       	<action name="roomorder-saveLabRoomInfo" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="saveLabRoomInfo">
+            <result name="success" type="json">
+                <param name="contentType">text/html</param>
+				<param name="root">jsonError</param>
+			</result>
+       </action>
+       <action name="roomorder-getSubjectSelect" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="getSubjectSelect">
+             <result name="success" type="freemarker">/office/roomorder/subjectSelect.ftl</result>
+       </action>
+       <action name="roomorder-getLabSetInfo" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="getLabSetInfo">
+			<result name="success" type="json">
+                <param name="contentType">text/html</param>
+				<param name="root">jsonMessageDto</param>
+			</result>
+       </action>
+       <!-- 实验室申请统计 -->
+       <action name="roomorder-labApplyCount" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="labApplyCount">
+            <result name="success" type="freemarker">/office/roomorder/labApplyCount.ftl</result>
+       	</action>
+       	<action name="roomorder-labApplyCount-list" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="labApplyCountList">
+            <result name="success" type="freemarker">/office/roomorder/labApplyCountList.ftl</result>
+       	</action>
+       	<action name="roomorder-labApplyCount-export" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="doExport">
+       	</action>
+       	
+       	<action name="roomorder-auditSms-save" class="net.zdsoft.office.dailyoffice.action.RoomOrderAction" method="auditSmsSave">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+    </package>
+    
+    <!-- 周工作安排 -->
+    <package name="weekwork" extends="default" namespace="/office/weekwork">
+        <action name="weekwork" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction">
+            <result name="success" type="freemarker">/office/weekwork/weekwork.ftl</result>
+        </action>
+        <action name="weekwork-outlineList" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="outlineList">
+            <result name="success" type="freemarker">/office/weekwork/outlineList.ftl</result>
+        </action>
+        <action name="weekwork-outlineEdit" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="outlineEdit">
+            <result name="success" type="freemarker">/office/weekwork/outlineEdit.ftl</result>
+        </action>
+        <action name="weekwork-outlineView" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="outlineEdit">
+            <result name="success" type="freemarker">/office/weekwork/outlineView.ftl</result>
+        </action>
+        <action name="weekwork-outlineSave" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="outlineSave">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="weekwork-outlineDelete" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="outlineDelete">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="weekwork-saveFileAttach" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="saveFileAttach">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="weekwork-deleteFileAttach" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="deleteFileAttach">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="weekwork-arrangeList" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="arrangeList">
+            <result name="success" type="freemarker">/office/weekwork/arrangeList.ftl</result>
+        </action>
+        <action name="weekwork-arrangeEdit" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="arrangeEdit">
+            <result name="success" type="freemarker">/office/weekwork/arrangeEdit.ftl</result>
+        </action>
+        <action name="weekwork-arrangeView" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="arrangeEdit">
+            <result name="success" type="freemarker">/office/weekwork/arrangeView.ftl</result>
+        </action>
+        <action name="weekwork-arrangeSave" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="arrangeSave">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="weekwork-arrangeAudit" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="arrangeAudit">
+            <result name="success" type="freemarker">/office/weekwork/arrangeAudit.ftl</result>
+        </action>
+        <action name="weekwork-auditList" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="auditList">
+            <result name="success" type="freemarker">/office/weekwork/auditList.ftl</result>
+        </action>
+        <action name="weekwork-detailInfo" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="detailInfo">
+            <result name="success" type="freemarker">/office/weekwork/detailInfo.ftl</result>
+        </action>
+        <action name="weekwork-contentInfo" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="contentInfo">
+            <result name="success" type="freemarker">/office/weekwork/contentInfo.ftl</result>
+        </action>
+        <action name="weekwork-deleteInfo" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="deleteInfo">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>  
+        <action name="weekwork-modifyRemark" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="modifyRemark">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="weekwork-modifyContent" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="modifyContent">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="weekwork-publishInfo" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="publishInfo">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        
+        <action name="weekwork-arrangeReportAdmin" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="arrangeReportAdmin">
+			<result name="success" type="freemarker">/office/weekwork/arrangeReportAdmin.ftl</result>
+		</action>
+        <action name="weekwork-arrangeReportList" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="arrangeReportList">
+			<result name="success" type="freemarker">/office/weekwork/arrangeReportList.ftl</result>
+		</action>
+		<action name="weekwork-arrangeReportExport" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="arrangeReportExport">
+       	</action>
+        
+        <action name="weekwork-arrangeQuery" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="arrangeQuery">
+			<result name="success" type="freemarker">/office/weekwork/arrangeQuery.ftl</result>
+		</action>
+        <action name="weekwork-arrangeQueryList" class="net.zdsoft.office.dailyoffice.action.WorkArrangeOutlineAction" method="arrangeQueryList">
+			<result name="success" type="freemarker">/office/weekwork/arrangeQueryList.ftl</result>
+		</action>
+    </package>
+    <!-- 考勤管理 -->
+    <package name="attendance" extends="default" namespace="/office/attendance">
+        <action name="attendance" class="net.zdsoft.office.dailyoffice.action.AttendanceAction">
+            <result name="success" type="freemarker">/office/attendance/attendance.ftl</result>
+        </action>
+        <action name="attendance-list" class="net.zdsoft.office.dailyoffice.action.AttendanceAction" method="list">
+            <result name="success" type="freemarker">/office/attendance/attendanceList.ftl</result>
+        </action>
+        <action name="attendance-detail" class="net.zdsoft.office.dailyoffice.action.AttendanceAction" method="detail">
+            <result name="success" type="freemarker">/office/attendance/attendanceDetailList.ftl</result>
+        </action>
+        <action name="attendance-radio" class="net.zdsoft.office.dailyoffice.action.AttendanceAction" method="radio">
+            <result name="success" type="freemarker">/office/attendance/attendanceRadio.ftl</result>
+        </action>
+        <action name="attendance-query" class="net.zdsoft.office.dailyoffice.action.AttendanceAction" method="query">
+            <result name="success" type="freemarker">/office/attendance/attendanceQuery.ftl</result>
+        </action>
+        <action name="attendance-queryList" class="net.zdsoft.office.dailyoffice.action.AttendanceAction" method="queryList">
+            <result name="success" type="freemarker">/office/attendance/attendanceQueryList.ftl</result>
+        </action>
+        <action name="attendance-radioList" class="net.zdsoft.office.dailyoffice.action.AttendanceAction" method="radioList">
+            <result name="success" type="freemarker">/office/attendance/attendanceRadioList.ftl</result>
+        </action>
+        
+        <!-- 机房考勤数据同步链接触发 -->
+        <action name="attendance-sync" class="net.zdsoft.office.dailyoffice.sync.job.YKTSyncThread" method="unThreadRun">
+		   <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+    </package>
+    
+    <!-- 周工作安排 -->
+    <package name="workreport" extends="default" namespace="/office/workreport">
+        <action name="workReport" class="net.zdsoft.office.dailyoffice.action.WorkReportAction">
+            <result name="success" type="freemarker">/office/workreport/workReport.ftl</result>
+        </action>
+        <action name="workReport-myWorkReport" class="net.zdsoft.office.dailyoffice.action.WorkReportAction" method="myWorkReport">
+            <result name="success" type="freemarker">/office/workreport/myWorkReport.ftl</result>
+        </action>
+        <action name="workReport-myWorkReportEdit" class="net.zdsoft.office.dailyoffice.action.WorkReportAction" method="myWorkReportEdit">
+            <result name="success" type="freemarker">/office/workreport/myWorkReportEdit.ftl</result>
+        </action>
+        <action name="workReport-myWorkReportView" class="net.zdsoft.office.dailyoffice.action.WorkReportAction" method="myWorkReportView">
+            <result name="success" type="freemarker">/office/workreport/myWorkReportView.ftl</result>
+        </action>
+        <action name="workReport-myWorkReportSave" class="net.zdsoft.office.dailyoffice.action.WorkReportAction" method="myWorkReportSave">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="workReport-myWorkReportSubmit" class="net.zdsoft.office.dailyoffice.action.WorkReportAction" method="myWorkReportSubmit">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="workReport-myWorkReport-delete" class="net.zdsoft.office.dailyoffice.action.WorkReportAction" method="delete">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="workReport-myWorkReport-cancel" class="net.zdsoft.office.dailyoffice.action.WorkReportAction" method="cancel">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="workReport-myWorkReportList" class="net.zdsoft.office.dailyoffice.action.WorkReportAction" method="myWorkReportList">
+            <result name="success" type="freemarker">/office/workreport/myWorkReportList.ftl</result>
+        </action>
+        <action name="workReport-workReportSearch" class="net.zdsoft.office.dailyoffice.action.WorkReportAction" method="workReportSearch">
+            <result name="success" type="freemarker">/office/workreport/workReportSearch.ftl</result>
+        </action>
+        <action name="workReport-workReportSearchView" class="net.zdsoft.office.dailyoffice.action.WorkReportAction" method="workReportSearchView">
+            <result name="success" type="freemarker">/office/workreport/workReportSearchView.ftl</result>
+        </action>
+        <action name="workReport-workReportSearchList" class="net.zdsoft.office.dailyoffice.action.WorkReportAction" method="workReportSearchList">
+            <result name="success" type="freemarker">/office/workreport/workReportSearchList.ftl</result>
+        </action>
+    </package>
+    
+    <!-- 桐庐工作汇报 -->
+    <package name="workreporttl" extends="default" namespace="/office/workreporttl">
+        <action name="workReportTl" class="net.zdsoft.office.dailyoffice.action.WorkReportTlAction">
+            <result name="success" type="freemarker">/office/workreporttl/workReportTl.ftl</result>
+        </action>
+         <action name="workReportTl-myWorkReport" class="net.zdsoft.office.dailyoffice.action.WorkReportTlAction" method="myWorkReport">
+            <result name="success" type="freemarker">/office/workreporttl/myWorkReportTl.ftl</result>
+        </action>
+        <action name="workReportTl-myWorkReportEdit" class="net.zdsoft.office.dailyoffice.action.WorkReportTlAction" method="myWorkReportEdit">
+            <result name="success" type="freemarker">/office/workreporttl/myWorkReportTlEdit.ftl</result>
+        </action>
+        <action name="workReportTl-myWorkReportView" class="net.zdsoft.office.dailyoffice.action.WorkReportTlAction" method="myWorkReportView">
+            <result name="success" type="freemarker">/office/workreporttl/myWorkReportTlView.ftl</result>
+        </action>
+        <action name="workReportTl-myWorkReportSave" class="net.zdsoft.office.dailyoffice.action.WorkReportTlAction" method="myWorkReportSave">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="workReportTl-myWorkReportSubmit" class="net.zdsoft.office.dailyoffice.action.WorkReportTlAction" method="myWorkReportSubmit">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="workReportTl-myWorkReport-delete" class="net.zdsoft.office.dailyoffice.action.WorkReportTlAction" method="delete">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="workReportTl-myWorkReport-cancel" class="net.zdsoft.office.dailyoffice.action.WorkReportTlAction" method="cancel">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="workReportTl-myWorkReportList" class="net.zdsoft.office.dailyoffice.action.WorkReportTlAction" method="myWorkReportList">
+            <result name="success" type="freemarker">/office/workreporttl/myWorkReportTlList.ftl</result>
+        </action>
+        <action name="workReportTl-workReportSearch" class="net.zdsoft.office.dailyoffice.action.WorkReportTlAction" method="workReportSearch">
+            <result name="success" type="freemarker">/office/workreporttl/workReportTlSearch.ftl</result>
+        </action>
+        <action name="workReportTl-workReportSearchView" class="net.zdsoft.office.dailyoffice.action.WorkReportTlAction" method="workReportSearchView">
+            <result name="success" type="freemarker">/office/workreporttl/workReportTlSearchView.ftl</result>
+        </action>
+        <action name="workReportTl-workReportSearchList" class="net.zdsoft.office.dailyoffice.action.WorkReportTlAction" method="workReportSearchList">
+            <result name="success" type="freemarker">/office/workreporttl/workReportTlSearchList.ftl</result>
+        </action>
+         <action name="workReportTl-workReportSearchEdit" class="net.zdsoft.office.dailyoffice.action.WorkReportTlAction" method="workReportSearchEdit">
+            <result name="success" type="freemarker">/office/workreporttl/workReportTlSearchEdit.ftl</result>
+        </action>
+        <action name="workReportTl-workReportSearchSave" class="net.zdsoft.office.dailyoffice.action.WorkReportTlAction" method="workReportSearchSave">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="workReportTl-workReportExport" class="net.zdsoft.office.dailyoffice.action.WorkReportTlAction" method="workReportExport">
+	    </action>
+        <action name="workReportTl-workReportSearchExport" class="net.zdsoft.office.dailyoffice.action.WorkReportTlAction" method="workReportSearchExport">
+	    </action>
+    </package>
+    <!-- 滨江出差 -->
+    <package name="businessTrip" extends="default" namespace="/office/businesstrip">
+    	<action name="businessTrip" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction">
+    		<result name="success" type="freemarker">businessTrip.ftl</result>
+    	</action>
+    	<action name="businessTrip-myBusinessTrip" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="myBusinessTrip">
+            <result name="success" type="freemarker">/office/businesstrip/myBusinessTrip.ftl</result>
+        </action>
+    	<action name="businessTrip-myBusinessTripList" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="myBusinessTripList">
+            <result name="success" type="freemarker">/office/businesstrip/myBusinessTripList.ftl</result>
+        </action>
+    	<action name="businessTrip-businessTripQueryList" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="businessTripQueryList">
+            <result name="success" type="freemarker">/office/businesstrip/businessTripQueryList.ftl</result>
+        </action>
+    	<action name="businessTrip-myBusinessTripEdit" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="myBusinessTripEdit">
+            <result name="success" type="freemarker">/office/businesstrip/myBusinessTripEdit.ftl</result>
+        </action>
+    	<action name="businessTrip-myBusinessTripSave" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="myBusinessTripSave">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		        <param name="contentType">text/html</param>
+		    </result>
+        </action>
+    	<action name="businessTrip-myBusinessTripSubmit" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="myBusinessTripSubmit">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		        <param name="noCache">true</param>
+                <param name="contentType">text/html</param>
+		    </result>
+        </action>
+         <action name="businessTrip-myBusinessTripDelete" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="myBusinessTripDelete">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+         <action name="businessTrip-myBusinessTripView" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="myBusinessTripView">
+            <result name="success" type="freemarker">/office/businesstrip/myBusinessTripView.ftl</result>
+        </action>
+         <action name="businessTrip-businessTripDown" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="businessTripDown">
+        </action>
+        
+         <action name="businessTrip-revokeBusinessTrip" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="revokeBusinessTrip">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+         <action name="businessTrip-invalidBusinessTrip" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="invalidBusinessTrip">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        
+        <action name="businessTrip-changeFlow" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="changeFlow"></action>
+        <!-- 跳转获得当前步骤 -->
+		<action name="businessTrip-findCurrentstep" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="findCurrentstep">
+			<result name="success" type="freemarker">/office/businesstrip/businessTripCurrentStep.ftl</result>
+		</action>
+		<!-- 修改获得当前步骤 -->
+		<action name="businessTrip-changeCurrentstep" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="changeCurrentstep">
+		</action>
+        
+        
+        
+         <action name="businessTrip-businessTrip" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="businessTrip">
+            <result name="success" type="freemarker">/office/businesstrip/businessTripSearch.ftl</result>
+        </action>
+         <action name="businessTrip-businessTripList" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="businessTripList">
+            <result name="success" type="freemarker">/office/businesstrip/businessTripList.ftl</result>
+        </action>
+         <action name="businessTrip-businessTripExport" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="businessTripExport">
+        </action>
+         <action name="businessTrip-businessTripAudit" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="businessTripAudit">
+            <result name="success" type="freemarker">/office/businesstrip/businessTripAudit.ftl</result>
+        </action>
+         <action name="businessTrip-businessTripPass" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="businessTripPass" >
+            <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      			<param name="noCache">true</param>  
+                <param name="contentType">text/html</param>
+      		</result>
+        </action>
+         <action name="businessTrip-deleteFileAttach" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="deleteFileAttach" >
+            <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+        </action>
+         <action name="businessTrip-saveFileAttach" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="saveFileAttach" >
+            <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+        </action>
+         <action name="businessTrip-businessTripView" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="businessTripView">
+            <result name="success" type="freemarker">/office/businesstrip/businessTripView.ftl</result>
+        </action>
+        
+        <!-- 撤回 -->
+		<action name="businessTrip-retractFlow" class="net.zdsoft.office.dailyoffice.action.BusinessTripAction" method="retractFlow" >
+           <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+        </action>
+        
+    </package>
+    <!-- 套红模板 -->
+    <package name="tempcomment" extends="default" namespace="/office/tempcomment">
+        <action name="tempComment" class="net.zdsoft.office.dailyoffice.action.TempCommentAction">
+            <result name="success" type="freemarker">tempComment.ftl</result>
+        </action>
+        <action name="tempComment-edit" class="net.zdsoft.office.dailyoffice.action.TempCommentAction" method="tempCommentEdit">
+            <result name="success" type="freemarker">tempCommentEdit.ftl</result>
+        </action>
+        <action name="tempComment-save" class="net.zdsoft.office.dailyoffice.action.TempCommentAction" method="tempCommentSave">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="tempComment-remove" class="net.zdsoft.office.dailyoffice.action.TempCommentAction" method="tempCommentRemove">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="tempComment-tempSelectDiv" class="net.zdsoft.office.dailyoffice.action.TempCommentAction" method="tempSelectDiv">
+            <result name="success" type="freemarker">tempSelectDiv.ftl</result>
+        </action>
+        <action name="tempComment-tempSelectList" class="net.zdsoft.office.dailyoffice.action.TempCommentAction" method="tempSelectList">
+            <result name="success" type="freemarker">tempSelectList.ftl</result>
+        </action>
+        <action name="tempComment-tempCommentView" class="net.zdsoft.office.dailyoffice.action.TempCommentAction" method="tempCommentView">
+            <result name="success" type="freemarker">tempCommentView.ftl</result>
+        </action>
+    </package>
+    <!-- 滨江外出 -->
+    <package name="goout" extends="default" namespace="/office/goout">
+    	<action name="goout" class="net.zdsoft.office.dailyoffice.action.GoOutAction">
+    		<result name="success" type="freemarker">/office/goout/goOut.ftl</result>
+    	</action>
+    	<action name="goout-myGoOut" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="myGoOut">
+            <result name="success" type="freemarker">/office/goout/myGoOut.ftl</result>
+        </action>
+    	<action name="goout-myGoOutList" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="myGoOutList">
+            <result name="success" type="freemarker">/office/goout/myGoOutList.ftl</result>
+        </action>
+    	<action name="goout-myGoOutEdit" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="myGoOutEdit">
+            <result name="success" type="freemarker">/office/goout/myGoOutEdit.ftl</result>
+        </action>
+    	<action name="goout-myGoOutSave" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="myGoOutSave">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+				<param name="noCache">true</param>
+                <param name="contentType">text/html</param>
+		    </result>
+        </action>
+    	<action name="goout-myGoOutSubmit" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="myGoOutSubmit">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		        <param name="noCache">true</param>
+                <param name="contentType">text/html</param>
+		    </result>
+        </action>
+         <action name="goout-myGoOutDelete" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="myGoOutDelete">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="goout-myGoOutRevoke" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="myGoOutRevoke">
+        	<result name="success" type="json">
+        		<param name="root">promptMessageDto</param>
+        	</result>
+        </action>
+         <action name="goout-invalidLeave" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="invalidLeave">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+         <action name="goout-myGoOutView" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="myGoOutView">
+            <result name="success" type="freemarker">/office/goout/myGoOutView.ftl</result>
+        </action>
+         <action name="goout-goOut" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="goOut">
+            <result name="success" type="freemarker">/office/goout/goOutSearch.ftl</result>
+        </action>
+         <action name="goout-goOutList" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="goOutList">
+            <result name="success" type="freemarker">/office/goout/goOutList.ftl</result>
+        </action>
+         <action name="goout-goOutAudit" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="goOutAudit">
+            <result name="success" type="freemarker">/office/goout/goOutAudit.ftl</result>
+        </action>
+         <action name="goout-goOutPass" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="goOutPass" >
+            <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      			<param name="noCache">true</param>  
+                <param name="contentType">text/html</param>
+      		</result>
+        </action>
+         <action name="goout-goOutView" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="goOutView">
+            <result name="success" type="freemarker">/office/goout/goOutView.ftl</result>
+        </action>
+        <action name="goout-deleteFileAttach" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="deleteFileAttach">
+        	<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+        </action>
+        <action name="goout-saveFileAttach" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="saveFileAttach">
+        	<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+        </action>
+        <!-- 外出统计 -->
+        <action name="goout-statistics" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="goStatistics">
+            <result name="success" type="freemarker">/office/goout/goStatistics.ftl</result>
+        </action>
+        <action name="goout-statisticsList" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="goStatisticsList">
+            <result name="success" type="freemarker">/office/goout/goStatisticsList.ftl</result>
+        </action>
+        <action name="goout-statisticsExport" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="goStatisticsExport">
+        </action>
+        <!-- 集体外出 -->
+        <action name="goout-jtGoOut" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="jtGoOut">
+        	<result name="success" type="freemarker">/office/goout/jtGoOut.ftl</result>
+        </action>
+        <action name="goout-jtGoOutList" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="jtGoOutList">
+        	<result name="success" type="freemarker">/office/goout/jtGoOutList.ftl</result>
+        </action>
+        <action name="goout-jtGoOutEdit" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="jtGoOutEdit">
+        	<result name="success" type="freemarker">/office/goout/jtGoOutEdit.ftl</result>
+        </action>
+        <action name="goout-jtGoOutSave" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="jtGoOutSave">
+        	<result name="success" type="json">
+        		<param name="root">promptMessageDto</param>
+        		<param name="noCache">true</param>
+                <param name="contentType">text/html</param>
+        	</result>
+        </action>
+        <action name="goout-jtGoOutSubmit" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="jtGoOutSubmit">
+        	<result name="success" type="json">
+        		<param name="root">promptMessageDto</param>
+        		<param name="noCache">true</param>
+                <param name="contentType">text/html</param>
+        	</result>
+        </action>
+        <action name="goout-jtGoOutDelete" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="jtGoOutDelete">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="goout-jtGoOutView" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="jtGoOutView">
+        	<result name="success" type="freemarker">/office/goout/jtGoOutView.ftl</result>
+        </action>
+        <action name="goout-jtGoOutAudit" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="jtGoOutAudit">
+            <result name="success" type="freemarker">/office/goout/jtGoOutAudit.ftl</result>
+        </action>
+        <action name="goout-invalidJtGoOut" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="invalidJtGoOut">
+            <result name="success" type="json">
+		        <param name="root">promptMessageDto</param>
+		    </result>
+        </action>
+        <action name="goout-jtGoOutPass" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="jtGoOutPass" >
+            <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      			<param name="noCache">true</param>  
+                <param name="contentType">text/html</param>
+      		</result>
+        </action>
+        
+        <action name="goout-changeFlow" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="changeFlow">
+		</action>
+		
+		<!-- 跳转获得当前步骤 -->
+		<action name="goout-findCurrentstep" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="findCurrentstep">
+			<result name="success" type="freemarker">gooutCurrentStep.ftl</result>
+		</action>
+		<!-- 修改获得当前步骤 -->
+		<action name="goout-changeCurrentstep" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="changeCurrentstep">
+		</action>
+		
+		<!-- 撤回 -->
+		<action name="goout-retractFlow" class="net.zdsoft.office.dailyoffice.action.GoOutAction" method="retractFlow" >
+           <result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+        </action>
+    </package>
+    <!-- 签到 -->
+    <package name="signmanage" extends="default" namespace="/office/signmanage">
+    	<action name="signmanage" class="net.zdsoft.office.dailyoffice.action.SignedOnAction">
+    		<result name="success" type="freemarker">/office/signedon/signedOn.ftl</result>
+    	</action>
+    	<action name="signmanage-signmanage" class="net.zdsoft.office.dailyoffice.action.SignedOnAction" method="signmanage">
+    		<result name="success" type="freemarker">/office/signedon/signmanage.ftl</result>
+    	</action>
+    	<action name="signmanage-signmanageSave" class="net.zdsoft.office.dailyoffice.action.SignedOnAction" method="signmanageSave">
+    		<result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+    	</action>
+    	<action name="signmanage-signmanageList" class="net.zdsoft.office.dailyoffice.action.SignedOnAction" method="signmanageList">
+    		<result name="success" type="freemarker">/office/signedon/signmanageList.ftl</result>
+    	</action>
+    	<action name="signmanage-signmanageCount" class="net.zdsoft.office.dailyoffice.action.SignedOnAction" method="signmanageCount">
+    		<result name="success" type="freemarker">/office/signedon/signmanageCount.ftl</result>
+    	</action>
+    	<action name="signmanage-signmanageCountList" class="net.zdsoft.office.dailyoffice.action.SignedOnAction" method="signmanageCountList">
+    		<result name="success" type="freemarker">/office/signedon/signmanageCountList.ftl</result>
+    	</action>
+    	<action name="signmanage-signmanageTimeSet" class="net.zdsoft.office.dailyoffice.action.SignedOnAction" method="signmanageTimeSet">
+    		<result name="success" type="freemarker">/office/signedon/signmanageTimeSet.ftl</result>
+    	</action>
+    	<action name="signmanage-signmanageTimeSetSave" class="net.zdsoft.office.dailyoffice.action.SignedOnAction" method="signmanageTimeSetSave">
+    		<result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+    	</action>
+    	<action name="signmanage-doExport" class="net.zdsoft.office.dailyoffice.action.SignedOnAction" method="doExport">
+        </action>
+    </package>
+
+</struts>
+    

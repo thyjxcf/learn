@@ -1,0 +1,14 @@
+﻿.table-list th,.table-list td{height:28px;}
+.desk-item{width:50%;}
+.desk-item-small{width:33.3333%;}
+.desk-item-big{width:66.6666%;}
+.desk-item-inner{height:155px;padding:1px;}
+.desk-item-inner-hover{border:1px solid #dedede;}
+.desk-tt{height:37px;background:url(../images/tit.png) no-repeat left top;padding:0 15px 0 30px;overflow:hidden;zoom:1;}
+.desk-tt .name{float:left;display:inline-block;height:36px;line-height:36px;font-size:14px;font-weight:700;color:#fff;}
+.desk-tt i{float:left;display:inline-block;min-width:18px;height:18px;background:#ff7200;border-radius:9px;margin:9px 0 0 6px;text-align:center;font:normal 700 14px/18px SimSun;color:#fff;}
+.desk-tt .more{float:right;color:#000;}
+.desk-list{padding:0 15px;margin-top:10px;}
+.desk-list li{height:26px;line-height:26px;background:url(../images/icon/arrow_txl3.png) no-repeat left center;padding-left:10px;}
+.desk-list li a{color:#000;}
+.desk-list li a:hover{text-decoration:none;color:#f67307;}

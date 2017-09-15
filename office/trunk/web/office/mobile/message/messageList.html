@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>消息列表</title>
+<script src="../../../static/html5/js/flexible_css.debug.js"></script>
+<script src="../../../static/html5/js/flexible.debug.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../../../static/html5/css/style.css">
+<script src="../../../static/html5/js/jquery-1.9.1.min.js"></script>
+<script src="../../../static/html5/js/jquery.Layer.js"></script>
+<script src="../../../static/html5/js/common.js"></script>
+<script src="../../../static/html5/js/public.js"></script>
+<script src="../../../static/html5/js/storage.js"></script>
+<script src="../../../static/html5/js/myscript.js"></script>
+<script src="../../../static/html5/js/validate.js"></script>
+
+<script src="js/msgWap.js"></script>
+<script src="js/msgWapEntities.js"></script>
+<script src="js/msgWapNetwork.js"></script>
+<script src="js/msgWapNetworkService.js"></script>
+</head>
+
+<body>
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header>
+        	<h1 class="f-20">
+            	<span class="more-sel">
+                    <span class="txt" id="tabTxt"></span>
+                    <span class="icon-img icon-down"></span> 
+                </span>
+                <div class="more-layer">
+                    <span class="arrow-up"></span>
+                    <p id="myTab3" dataValue="3">收件箱</p>
+                    <p id="myTab2" dataValue="2">发件箱</p>
+                    <p id="myTab1" dataValue="1">草稿箱</p>
+                </div>
+            </h1>
+            <a href="javascript:void(0)" class="abtn abtn-left f-18 html-window-close" id="windowClose"><span>关闭</span></a>
+            <a href="javascript:void(0)" class="abtn abtn-img abtn-search abtn-right"><span></span></a>
+            <a href="javascript:void(0)" class="abtn abtn-img abtn-edit abtn-right"><span></span></a>
+        </header>
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container">
+            	<form action="" class='my-search-form'>
+            	<p class="list-search-wrap" style="display:none;">
+                    <input type="search" id="searchMsg" class="txt f-16" placeholder="请输入标题">
+                </p>
+                </form>
+                <div id="list" style="display:none">
+                <ul class="mail-list">
+                </ul>
+                <p class="loading-more f-16"><a href="javascript:void(0)">加载更多</a></p>
+                </div>
+		        <div id="empty" style="display:none" class="no-data">
+		        	<p><span class="icon-img icon-no-data"></span></p>
+		            <p class="pt-30 f-16">暂时还没有相关内容</p>
+		        </div>
+            </div>
+        </div>
+		<footer class="fn-flex fn-flex-row">
+			<a href="javascript:void(0)" class="abtn abtn-message fn-flex-auto active"><span></span>消息</a>
+			<a href="javascript:void(0)" class="abtn abtn-note fn-flex-auto"><span></span>公文</a>
+			<a href="javascript:void(0)" class="abtn abtn-office fn-flex-auto"><span></span>办公</a>
+		</footer>
+    </div>
+</div>
+
+</body>
+
+<script src="../../../static/html5/js/weike.js"></script>
+<script src="../../../static/html5/js/myWeike.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	 initFooter('1');
+    setTimeout(wap.initList(), 200);
+}, false);
+
+</script>
+</html>

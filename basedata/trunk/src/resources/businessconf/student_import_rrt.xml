@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by zdsoft (zdsoft) -->
+<root> 
+	<!-- 山西人人通模板 -->  
+	<!-- 教育局端学生信息导入 -->
+	<object define="学生基本信息" name="student_import_edu" entityclassname="net.zdsoft.eis.base.data.entity.StudentImport"
+	 unitguid="false" noxxdm="true" description="账号必须唯一,不可重复。">
+		<listeners>
+			<listener>dataImportListener</listener>
+		</listeners>
+		<field define="所属单位" name="schid" dbname="school_id" type="String(60)" required="Y" displayOrder="1" example="如：杭州市学军中学。&lt;font color='red'&gt;该学校必须在本教育的管辖范围内真实存在&lt;/font&gt;" />
+	</object>
+	
+	<!-- 学校局端教职工导入 -->
+	<object define="学生基本信息" name="student_import_sch" entityclassname="net.zdsoft.eis.base.data.entity.StudentImport"
+	 unitguid="false" noxxdm="true" description="账号必须唯一,不可重复。">
+		<listeners>
+			<listener>dataImportListener</listener>
+		</listeners>
+	</object>
+	
+	<object name="commonobject">
+		<field define="姓名" name="stuname" dbname="student_name" required="Y" type="String(30)" example="如：刘函"/>
+		<field define="性别" name="sex" dbname="sex" required="Y" mcode="DM-XB" example="如：男" />
+		<field define="班级" name="classid" dbname="class_id" required="Y" type="String(60)" example="如：初一(01)班" />
+		<field define="账号" name="username" unique="Y" required="Y" type="String(20)" example="如：liuhan。"/>			
+		<field define="登录密码" name="password" type="String(20)"   example="如：123456789。&lt;font color='red'&gt;默认为系统指定的默认密码。&lt;/font&gt;"/>
+	</object>
+	
+</root>

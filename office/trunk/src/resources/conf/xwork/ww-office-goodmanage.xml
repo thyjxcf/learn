@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="goodmanage" extends="default" namespace="/office/goodmanage">
+		<action name="goodmanage" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction">
+	    	<result name="success" type="freemarker">goodmanageAdmin.ftl</result>
+	    	<result name="success2" type="freemarker">goodmanageAdmin2.ftl</result>
+	    </action>
+	    <!-- 用户DIV -->
+		<action name="goodmanage-getTeacherDataPopup"
+			class="net.zdsoft.office.goodmanage.action.TeacherDivAction" method="getObjectsByGroupId">
+			<result name="success" type="freemarker">/common/popupObjectDiv.ftl</result>
+		</action>
+		<!-- 物品登记 -->
+		<action name="goodmanage-goodsManage" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsManage">
+	    	<result name="success" type="freemarker">goodsManage.ftl</result>
+	    </action>
+	    <action name="goodmanage-goodsManage-list" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsManageList">
+	    	<result name="success" type="freemarker">goodsManageList.ftl</result>
+	    </action>
+	    <action name="goodmanage-goodsManage-add" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsManageAdd">
+	    	<result name="success" type="freemarker">goodsManageAdd.ftl</result>
+	    </action>
+	    <action name="goodmanage-goodsManage-edit" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsManageEdit">
+	    	<result name="success" type="freemarker">goodsManageAdd.ftl</result>
+	    </action>
+	    <action name="goodmanage-goodsManage-save" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsManageSave">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+	    <action name="goodmanage-goodsDelete"
+			class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsDelete">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="goodmanage-goodsChangeLog" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsChangeLog">
+	    	<result name="success" type="freemarker">goodsChangeLog.ftl</result>
+	    </action>
+	    <action name="goodmanage-goodsNameDiv" class="net.zdsoft.office.goodmanage.action.GoodsDivAction"
+			method="getObjectsByCondition">
+			<result name="success" type="freemarker">goodsFuzzySelectDiv.ftl</result>
+		</action>
+		<action name="goodmanage-goodsUnitDiv" class="net.zdsoft.office.goodmanage.action.GoodsDivAction"
+			method="getObjectsByCondition">
+			<result name="success" type="freemarker">/common/commonObjectFuzzySelectDiv.ftl</result>
+		</action>
+		
+		<action name="goodmanage-goodsManage2" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsManage2">
+	    	<result name="success" type="freemarker">goodsManage2.ftl</result>
+	    </action>
+	    <action name="goodmanage-goodsManage2-list" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsManageList2">
+	    	<result name="success" type="freemarker">goodsManageList2.ftl</result>
+	    </action>
+	    <action name="goodmanage-goodsManage2-add" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsManageAdd2">
+	    	<result name="success" type="freemarker">goodsManageAdd2.ftl</result>
+	    </action>
+	    <action name="goodmanage-goodsManage2-edit" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsManageEdit2">
+	    	<result name="success" type="freemarker">goodsManageAdd2.ftl</result>
+	    </action>
+	    <action name="goodmanage-goodsManage2-distribute" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsManageDistribute">
+	    	<result name="success" type="freemarker">goodsManageDistribute.ftl</result>
+	    </action>
+	    <action name="goodmanage-goodsManage2-save" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsManageSave2">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="goodmanage-goodsDelete2"
+			class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsDelete2">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		
+		<!-- 我的物品 -->
+		<action name="goodmanage-myGoods" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="myGoods">
+	    	<result name="success" type="freemarker">myGoods.ftl</result>
+	    </action>
+	    <action name="goodmanage-myGoods-list" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="myGoodsList">
+	    	<result name="success" type="freemarker">myGoodsList.ftl</result>
+	    </action>
+	    <action name="goodmanage-myGoods-return" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="myGoodsReturn">
+	    	<result name="success" type="freemarker">myGoodsReturn.ftl</result>
+	    </action>
+	    <action name="goodmanage-myGoods-save" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="myGoodsSave">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+	    <action name="goodmanage-myGoods-apply" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="myGoodsApply">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+		
+		<action name="goodmanage-myGoods2" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="myGoods2">
+	    	<result name="success" type="freemarker">myGoods2.ftl</result>
+	    </action>
+	    <action name="goodmanage-myGoods2-list" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="myGoodsList2">
+	    	<result name="success" type="freemarker">myGoodsList2.ftl</result>
+	    </action>
+		
+		<!-- 物品申请 -->
+	    <action name="goodmanage-goodsApply" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsApply">
+	    	<result name="success" type="freemarker">goodsApply.ftl</result>
+	    </action> 
+	    <action name="goodmanage-goodsApply-list" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsApplyList">
+	    	<result name="success" type="freemarker">goodsApplyList.ftl</result>
+	    </action>
+	    <action name="goodmanage-goodsApply-add" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsApplyAdd">
+	    	<result name="success" type="freemarker">goodsApplyAdd.ftl</result>
+	    </action>
+	    <action name="goodmanage-goodsApply-save" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsApplySave">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+	     
+		<!-- 申请审核 -->
+		<action name="goodmanage-goodsAudit" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsAudit">
+	    	<result name="success" type="freemarker">goodsAudit.ftl</result>
+	    </action>
+	    <action name="goodmanage-goodsAudit-list" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsAuditList">
+	    	<result name="success" type="freemarker">goodsAuditList.ftl</result>
+	    </action>
+	    <action name="goodmanage-goodsAudit-edit" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsAuditEdit">
+	    	<result name="success" type="freemarker">goodsAuditEdit.ftl</result>
+	    </action>
+	    <action name="goodmanage-goodsAudit-save" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsAuditSave">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		<action name="goodmanage-goodsAudit-export" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="doExport">
+       	</action>
+		
+		<!-- 物品类别 -->
+	    <action name="goodmanage-goodsType" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsType">
+	    	<result name="success" type="freemarker">goodsType.ftl</result>
+	    </action>
+	    <action name="goodmanage-goodsType-add" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsTypeAdd">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+	    <action name="goodmanage-goodsType-edit" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsTypeEdit">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+	    <action name="goodmanage-goodsType-delete" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsTypeDelete">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+	    
+	    <!-- 权限设置 -->
+	    <action name="goodmanage-goodsAuth" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsAuth">
+	    	<result name="success" type="freemarker">goodsAuth.ftl</result>
+	    </action> 
+	    <action name="goodmanage-goodsAuth-list" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsAuthList">
+	    	<result name="success" type="freemarker">goodsAuthList.ftl</result>
+	    </action>
+	    <action name="goodmanage-goodsAuth-edit" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsAuthEdit">
+	    	<result name="success" type="freemarker">goodsAuthEdit.ftl</result>
+	    </action>
+	    <action name="goodmanage-goodsAuth-save" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsAuthSave">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action> 
+	    <action name="goodmanage-goodsAuth-delete" class="net.zdsoft.office.goodmanage.action.OfficeGoodManageAction" method="goodsAuthDelete">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+		
+	</package>
+</struts>

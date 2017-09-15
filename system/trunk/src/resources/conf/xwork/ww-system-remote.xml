@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="system-remote" extends="default" namespace="/common/open">
+		<action name="login" class="net.zdsoft.eis.remote.RemoteAppLoginAction"
+			method="login" />
+		<action name="loginRedirect" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="loginIndex">
+			<result name="success" type="freemarker">/system/index/userRedirect.ftl</result>
+		</action>
+		<!-- for sichuan zigong -->
+		<action name="loginForSchx" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="loginForSchx">
+			<result name="input" type="freemarker">/system/index/custom/userBind.ftl</result>
+			<result name="success" type="freemarker">/system/index/custom/userRedirect.ftl</result>
+		</action>
+		<action name="loginForSchx-local" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="redirectLocal">
+			<result name="success" type="freemarker">/system/index/custom/userRedirect.ftl</result>
+			<result name="input" type="freemarker">/system/index/custom/userBind.ftl</result>
+		</action>
+		<action name="loginForSchx-bind" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="bindUser">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		
+		<!-- login in & redirect to ap -->
+		<action name="redirectToAp" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="redirectToAp">
+			<result name="input" type="freemarker">/system/index/custom/apUserBind.ftl</result>
+			<result name="success" type="freemarker">/system/index/custom/redirectToAp.ftl</result>
+		</action>
+		<action name="redirectToAp-jump" class="net.zdsoft.eis.homepage.action.HomepageAction"
+			method="jumpToAp">
+			<result name="success" type="freemarker">/system/index/custom/redirectToAp.ftl</result>
+		</action>
+		
+		<!-- 设置-用户绑定 -->
+		<action name="apUserBind" class="net.zdsoft.eis.system.data.action.SysUserBindAction">
+			<result name="success" type="freemarker">/system/desktop/app/userBind.ftl</result>
+		</action>
+		<action name="apUserBind-save" class="net.zdsoft.eis.system.data.action.SysUserBindAction"
+			method="save">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="apUserBind-unbind" class="net.zdsoft.eis.system.data.action.SysUserBindAction"
+			method="unbind">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+	</package>
+	<package name="system-remoteh5" extends="default" namespace="/common/open/loginH5">
+		<action name="login" class="net.zdsoft.eis.remote.RemoteAppLoginH5Action">
+		<result type="freemarker">/office/mobileh5/login/appH5Login.ftl</result>
+		</action>
+		<action name="appH5Login" class="net.zdsoft.eis.remote.RemoteAppLoginH5Action"
+			method="login" />
+	</package>
+	
+</struts>

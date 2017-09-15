@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!-- 通知公告 -->
+    <package name="bulletin" extends="default" namespace="/office/bulletin">
+        <action name="bulletin" class="net.zdsoft.office.bulletin.action.BulletinAction" method="viewList">
+            <result name="success" type="freemarker">/office/bulletin/bulletinViewList.ftl</result>
+        </action>
+        <action name="bulletin-manageList" class="net.zdsoft.office.bulletin.action.BulletinAction" method="manageList">
+            <result name="success" type="freemarker">/office/bulletin/bulletinManageList.ftl</result>
+        </action>
+        <action name="bulletin-viewDetail" class="net.zdsoft.office.bulletin.action.BulletinAction" method="viewDetail">
+            <result name="success" type="freemarker">bulletinDetail.ftl</result>
+        </action>
+        <action name="bulletin-onlyViewDetail" class="net.zdsoft.office.bulletin.action.BulletinAction" method="onlyViewDetail">
+            <result name="success" type="freemarker">bulletinDetail.ftl</result>
+        </action>
+        <action name="bulletin-add" class="net.zdsoft.office.bulletin.action.BulletinAction" method="bulletinEdit">
+            <result name="success" type="freemarker">/office/bulletin/bulletinEditNew.ftl</result>
+        </action>
+        <action name="bulletin-edit" class="net.zdsoft.office.bulletin.action.BulletinAction" method="bulletinEdit">
+            <result name="success" type="freemarker">/office/bulletin/bulletinEditNew.ftl</result>
+        </action>
+        <action name="bulletin-viewIsReadInfo" class="net.zdsoft.office.bulletin.action.BulletinAction" method="viewIsReadInfo">
+            <result name="success" type="freemarker">/office/bulletin/bulletinReadInfo.ftl</result>
+        </action>
+        <action name="bulletin-sendMsg" class="net.zdsoft.office.bulletin.action.BulletinAction" method="sendMsg">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+        <action name="bulletin-delete" class="net.zdsoft.office.bulletin.action.BulletinAction" method="bulletinDelete">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletin-deleteIds" class="net.zdsoft.office.bulletin.action.BulletinAction" method="bulletinDeleteIds">
+			<result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+		</action>
+        <action name="bulletin-publishIds" class="net.zdsoft.office.bulletin.action.BulletinAction" method="bulletinPublishIds">
+			<result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+		</action>
+        <action name="bulletin-publish" class="net.zdsoft.office.bulletin.action.BulletinAction" method="bulletinPublish">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletin-qxPublish" class="net.zdsoft.office.bulletin.action.BulletinAction" method="bulletinQxPublish">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletin-unpublish" class="net.zdsoft.office.bulletin.action.BulletinAction" method="bulletinUnPublish">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletin-top" class="net.zdsoft.office.bulletin.action.BulletinAction" method="bulletinTop">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletin-qxtop" class="net.zdsoft.office.bulletin.action.BulletinAction" method="bulletinQxTop">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletin-saveOrder" class="net.zdsoft.office.bulletin.action.BulletinAction" method="saveOrder">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletin-submit" class="net.zdsoft.office.bulletin.action.BulletinAction" method="bulletinSubmit">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletin-saveOrUpdate" class="net.zdsoft.office.bulletin.action.BulletinAction" method="saveOrUpdate">
+        	<result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletin-auditList" class="net.zdsoft.office.bulletin.action.BulletinAction" method="auditList">
+            <result name="success" type="freemarker">/office/bulletin/bulletinAuditList.ftl</result>
+        </action>
+        <action name="bulletin-auditSet" class="net.zdsoft.office.bulletin.action.BulletinAction" method="auditSet">
+            <result name="success" type="freemarker">/office/bulletin/bulletinAuditSet.ftl</result>
+        </action>
+        <action name="bulletin-auditSetSave" class="net.zdsoft.office.bulletin.action.BulletinAction" method="auditSetSave">
+            <result name="success" type="json">
+        	    <param name="root">promptMessageDto</param>
+			</result>
+        </action>
+        
+        <action name="bulletin-fileManageJson" class="net.zdsoft.office.bulletin.action.FileManageJsonAction" method="execute">
+        </action>
+        
+        <action name="bulletin-uploadJson" class="net.zdsoft.office.bulletin.action.UploadJsonAction" method="execute1">
+        </action>
+        
+    </package>
+    
+    <!-- 桐庐教育局定制通知 -->
+    <package name="bulletinTl" extends="default" namespace="/office/bulletinTl">
+        <action name="bulletinTl" class="net.zdsoft.office.bulletin.action.BulletinTlAction" method="viewList">
+            <result name="success" type="freemarker">bulletinTlViewList.ftl</result>
+        </action>
+        <action name="bulletinTl-manageList" class="net.zdsoft.office.bulletin.action.BulletinTlAction" method="manageList">
+            <result name="success" type="freemarker">bulletinTlManageList.ftl</result>
+        </action>
+        <action name="bulletinTl-viewDetail" class="net.zdsoft.office.bulletin.action.BulletinTlAction" method="viewDetail">
+            <result name="success" type="freemarker">bulletinTlDetail.ftl</result>
+        </action>
+        <action name="bulletinTl-onlyViewDetail" class="net.zdsoft.office.bulletin.action.BulletinTlAction" method="onlyViewDetail">
+            <result name="success" type="freemarker">bulletinTlDetail.ftl</result>
+        </action>
+        <action name="bulletinTl-add" class="net.zdsoft.office.bulletin.action.BulletinTlAction" method="bulletinEdit">
+            <result name="school" type="freemarker">bulletinTlSchoolEdit.ftl</result>
+            <result name="edu" type="freemarker">bulletinTlEduEdit.ftl</result>
+        </action>
+        <action name="bulletinTl-edit" class="net.zdsoft.office.bulletin.action.BulletinTlAction" method="bulletinEdit">
+            <result name="school" type="freemarker">bulletinTlSchoolEdit.ftl</result>
+            <result name="edu" type="freemarker">bulletinTlEduEdit.ftl</result>
+        </action>
+        <action name="bulletinTl-delete" class="net.zdsoft.office.bulletin.action.BulletinTlAction" method="bulletinDelete">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletinTl-deleteIds" class="net.zdsoft.office.bulletin.action.BulletinTlAction" method="bulletinDeleteIds">
+			<result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+		</action>
+        <action name="bulletinTl-publishIds" class="net.zdsoft.office.bulletin.action.BulletinTlAction" method="bulletinPublishIds">
+			<result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+		</action>
+        <action name="bulletinTl-publish" class="net.zdsoft.office.bulletin.action.BulletinTlAction" method="bulletinPublish">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletinTl-qxPublish" class="net.zdsoft.office.bulletin.action.BulletinTlAction" method="bulletinQxPublish">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletinTl-top" class="net.zdsoft.office.bulletin.action.BulletinTlAction" method="bulletinTop">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletinTl-qxtop" class="net.zdsoft.office.bulletin.action.BulletinTlAction" method="bulletinTop">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletinTl-saveOrder" class="net.zdsoft.office.bulletin.action.BulletinTlAction" method="saveOrder">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletinTl-saveOrUpdate" class="net.zdsoft.office.bulletin.action.BulletinTlAction" method="saveOrUpdate">
+        	<result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletinTl-remind" class="net.zdsoft.office.bulletin.action.BulletinTlAction" method="bulletinRemind">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletinTl-remindIds" class="net.zdsoft.office.bulletin.action.BulletinTlAction" method="bulletinRemindIds">
+			<result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+		</action>
+        
+    </package>
+    
+    <!-- 新疆定制公告教育信息 -->
+    <package name="bulletinXj" extends="default" namespace="/office/bulletinXj">
+        <action name="bulletinXj" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="viewList">
+            <result name="success" type="freemarker">/office/bulletinXj/bulletinXjViewList.ftl</result>
+        </action>
+        <action name="bulletinXj-manageList" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="manageList">
+            <result name="success" type="freemarker">/office/bulletinXj/bulletinXjManageList.ftl</result>
+        </action>
+        <action name="bulletinXj-viewDetail" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="viewDetail">
+            <result name="success" type="freemarker">bulletinXjDetail.ftl</result>
+        </action>
+        <action name="bulletinXj-onlyViewDetail" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="onlyViewDetail">
+            <result name="success" type="freemarker">bulletinXjDetail.ftl</result>
+        </action>
+        <action name="bulletinXj-add" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="bulletinEdit">
+            <result name="success" type="freemarker">/office/bulletinXj/bulletinXjEditNew.ftl</result>
+        </action>
+        <action name="bulletinXj-edit" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="bulletinEdit">
+            <result name="success" type="freemarker">/office/bulletinXj/bulletinXjEditNew.ftl</result>
+        </action>
+        <action name="bulletinXj-getLatestIssue" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="getLatestIssue">
+            <result name="success" type="json">
+        	    <param name="root">promptMessageDto</param>
+			</result>
+        </action>
+        <action name="bulletinXj-validateIssue" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="validateIssue">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletinXj-delete" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="bulletinDelete">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletinXj-deleteIds" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="bulletinDeleteIds">
+			<result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+		</action>
+        <action name="bulletinXj-publishIds" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="bulletinPublishIds">
+			<result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+		</action>
+        <action name="bulletinXj-publish" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="bulletinPublish">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletinXj-qxPublish" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="bulletinQxPublish">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletinXj-unpublish" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="bulletinUnPublish">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletinXj-top" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="bulletinTop">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletinXj-qxtop" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="bulletinQxTop">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletinXj-saveOrder" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="saveOrder">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletinXj-submit" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="bulletinSubmit">
+            <result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletinXj-saveOrUpdate" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="saveOrUpdate">
+        	<result name="success" type="json">
+        	    <param name="root">jsonError</param>
+			</result>
+        </action>
+        <action name="bulletinXj-auditList" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="auditList">
+            <result name="success" type="freemarker">/office/bulletinXj/bulletinXjAuditList.ftl</result>
+        </action>
+        <action name="bulletinXj-export" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="doExport">
+       	</action>
+   		 <action name="bulletinXj-auditSet" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="auditSet">
+            <result name="success" type="freemarker">/office/bulletinXj/bulletinXjAuditSet.ftl</result>
+        </action>
+        <action name="bulletinXj-auditSetSave" class="net.zdsoft.office.bulletin.action.BulletinXjAction" method="auditSetSave">
+            <result name="success" type="json">
+        	    <param name="root">promptMessageDto</param>
+			</result>
+        </action>
+        
+    </package>
+</struts>

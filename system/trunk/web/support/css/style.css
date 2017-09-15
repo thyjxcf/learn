@@ -1,0 +1,32 @@
+/*[公共common*/
+BODY {
+	margin:0px;
+}
+td {
+	font-size: 12px;
+	color: #333333;
+	line-height:18px;
+}
+
+
+/*
+开始说明：列表超链接样式
+*/
+a:link {color: #333333;text-decoration: none;}
+a:visited {color: #333333;text-decoration: none;}
+a:hover{color: #ff8500;text-decoration: underline;}
+a:active {color: #ff8500;text-decoration: underline;}
+
+.bg_gray {
+	background-color: #eeeeee;
+}
+.button_pagination {
+	background-repeat: no-repeat;
+	font-size: 12px;
+	height:18px;
+	width:44px;
+	border:0px;
+	color:#fff;
+	font-weight: bold;
+	background-color: #93b64e;
+}

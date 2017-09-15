@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true" default-autowire="byName">
+	<bean id="baseClassService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseClassServiceImpl"/>
+	
+	<bean id="baseGradeService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseGradeServiceImpl"/>
+	
+	<bean id="baseSchoolService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseSchoolServiceImpl"/>
+	
+	<bean id="baseDeptService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseDeptServiceImpl"/>
+	
+	<bean id="baseEduInfoService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseEduInfoServiceImpl"/>
+	
+	<bean id="baseMcodeDetailService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseMcodeDetailServiceImpl">
+	</bean>
+	
+	<bean id="baseMcodeListService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseMcodeListServiceImpl"/>
+
+	<bean id="baseSemesterService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseSemesterServiceImpl">
+		<property name="semesterAffair">
+			<bean
+				class="net.zdsoft.eis.base.data.service.impl.BaseSemesterServiceImpl.SemesterAffair"
+				parent="abstractTransact" />
+		</property>
+	</bean>
+	<bean id="eisuBaseSchoolService" class="net.zdsoft.eis.school.service.impl.BaseSchoolServiceImpl">
+		<property name="eisuBaseSchoolDao" ref="eisuBaseSchoolDao" />
+	</bean>
+
+	<bean id="baseSchoolSemesterService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseSchoolSemesterServiceImpl"/>
+	
+	<bean id="baseStudentFamilyService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseStudentFamilyServiceImpl"/>
+	
+	<bean id="baseTeacherService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseTeacherServiceImpl"/>
+	<bean id="baseServerService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseServerServiceImpl"/>
+	<bean id="baseWareService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseWareServiceImpl"/>
+	<bean id="baseOrderService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseOrderServiceImpl"/>
+	
+	<bean id="baseUnitService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseUnitServiceImpl"/>
+	
+	<bean id="baseUserService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseUserServiceImpl"/>
+	
+	<bean id="baseSystemIniService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseSystemIniServiceImpl"/>
+	
+	<bean id="jwSemesterUtil"
+		class="net.zdsoft.eis.base.data.service.impl.JwSemesterUtil">
+	</bean>
+	
+	<bean id="semesterUtil"
+		class="net.zdsoft.eis.base.data.service.impl.SemesterUtil">
+	</bean>
+	
+	<bean id="baseSchoolDistrictService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseSchoolDistrictServiceImpl"/>
+	
+	<bean id="baseColsDisplayService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseColsDisplayServiceImpl"/>
+	
+	<bean id="baseDateInfoService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseDateInfoServiceImpl"/>
+	
+	<!-- ==================号码规则====================== -->
+	<bean id="baseCodeRuleService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseCodeRuleServiceImpl">
+	</bean>
+	
+	<!-- passport -->
+	<bean id="passportAccountService"
+		class="net.zdsoft.eis.base.data.service.impl.PassportAccountServiceImpl"/>
+	
+	<bean id="dutyService"
+		class="net.zdsoft.eis.base.data.service.impl.DutyServiceImpl"
+		autowire="byName">
+	</bean>
+	
+	<bean id="baseTeacherDutyService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseTeacherDutyServiceImpl">
+	</bean>
+	
+	<!-- 序列号注册  对内容进行了修改 2009-1-6 -->
+	<bean id="serialRegisterService"
+		class="net.zdsoft.eis.base.data.service.impl.SerialRegisterServiceImpl"
+		lazy-init="false" init-method="initSerialRegist">
+		<property name="baseUnitService">
+			<ref bean="baseUnitService"/>
+		</property>
+		<property name="userService">
+			<ref bean="userService"/>
+		</property>
+	</bean>
+	<!-- 模块service -->
+	<bean id="baseModuleService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseModuleServiceImpl">
+	</bean>
+	
+	<!-- 教职工导入-->
+	<bean id="teacherImportService"
+		class="net.zdsoft.eis.base.data.service.impl.TeacherImportServiceImpl"/>
+	
+	<!-- 陕西人人通教职工导入-->	
+	<bean id="teacherSxrrtImportService"
+		class="net.zdsoft.eis.base.data.service.impl.TeacherSxrrtImportServiceImpl"/>
+		
+	<!-- base系统参数设置service -->
+	<bean id="baseSysOptionService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseSysOptionServiceImpl"/>
+
+	<bean id="baseStorageDirService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseStorageDirServiceImpl" />
+	
+	<bean id="baseSchtypeSectionService" class="net.zdsoft.eis.base.data.service.impl.BaseSchtypeSectionServiceImpl" />
+	
+	
+	<!-- 家庭成员导入 -->
+	<bean name="familyImportService"
+		class="net.zdsoft.eis.base.data.service.impl.FamilyImportServiceImpl"/>
+	
+	<bean name="baseServerAuthorizeService"
+		class="net.zdsoft.eis.base.data.service.impl.BaseServerAuthorizeServiceImpl"/>
+	
+	<!-- 节次时间设置 -->
+	<bean id="stusysSectionTimeSetService" class="net.zdsoft.eis.base.data.service.impl.StusysSectionTimeSetServiceImpl" />
+	
+	<!-- 单位导入-->
+	<bean id="unitImportService"
+		class="net.zdsoft.eis.base.data.service.impl.UnitImportServiceImpl" init-method="initUnitImport">
+		<property name="unitIncre">
+			<bean
+				class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+				<property name="incrementerName" value="s_unit_partition_num" />
+				<property name="dataSource" ref="dataSource" />
+			</bean>
+		</property>
+		<property name="unitIniIncre">
+			<bean
+				class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+				<property name="incrementerName" value="s_stusys_systemini_unit" />
+				<property name="dataSource" ref="dataSource" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="studentImportSxrrtService" class="net.zdsoft.eis.base.data.service.impl.StudentImportSxrrtServiceImpl"></bean>
+	
+	<bean id="eisBaseStudentService" class="net.zdsoft.eis.base.data.service.impl.EisBaseStudentServiceImpl"></bean>
+	<bean id="stuTeaQueryService" class="net.zdsoft.eis.base.data.service.impl.StuTeaQueryServiceImpl" ></bean>
+	
+	<bean id="countOnlineTimeService" class="net.zdsoft.eis.base.data.service.impl.CountOnlineTimeServiceImpl" ></bean>
+	<!-- 教研组管理 -->
+	<bean id="researchGroupService" class="net.zdsoft.eis.base.data.service.impl.ResearchGroupServiceImpl" ></bean>
+</beans>
+
+

@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>我审批的</title>
+<link  rel="stylesheet" type="text/css" href="../../../static/html/css/style.css?v=20170619">
+</head>
+<body class="fn-rel">
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header style="display:none">
+        	<h1 class="f-20">我审批的</h1>
+            <a href="#" class="abtn abtn-img abtn-back abtn-left html-window-back" id="cancelId"><span></span></a>
+            <a href="javascript:void(0)" class="abtn abtn-left2 f-18 html-window-close"><span>关闭</span></a>
+        </header>
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container">
+            	<div class="tab-wrap">
+                    <ul class="tab fn-flex fn-flex-row f-15">
+                        <li class="fn-flex-auto" value="1">待我审批的<span id="num"></span></li>
+                        <li class="fn-flex-auto" value="2">我已审批的</li>
+                    </ul>
+                </div>
+                <form action="" class='my-search-form'>
+            	<div class="ui-search fn-flex fn-flex-row">
+                		<p class="ui-search-inner fn-flex-auto"><span class="icon-img icon-search"></span><input type="search" id="queryText" class="f-16" placeholder="请输入申请人姓名"></p>
+                    	<p class="ui-search-opt f-14" ><a href="#" class="btn" id="queryBtn">搜索</a><a href="#" class="show-all"><font>全部</font><span class="icon-img icon-filter"></span></a></p>
+                </div>
+                </form>
+                <div class="tab-grid fn-rel">
+                	<div class="show-all-layer" id="showAllLayer" style="display:none;">
+                        <ul class="f-15">
+                            <li value="0"><i></i>全部</li>
+                            <li value="1"><i></i>请假</li>
+                            <li value="2"><i></i>外出</li>
+                            <li value="8"><i></i>集体外出</li>
+                            <li value="3"><i></i>出差</li>
+                            <li value="4"><i></i>报销</li>
+                            <li value="5"><i></i>物品领用</li>
+                            <li value="9"><i></i>补卡申请</li>
+                            <li id="li_6" style="display:none" value="6"><i></i>听课</li>
+                        </ul>
+                    </div>
+                	<div class="tab-item">
+                		<div id="listDiv">
+	                        <div class="ui-list-img" id="list">
+	                        </div>
+	                        <p class="loading-more f-14"><a href="#">加载更多……</a></p>
+                        </div>
+                        <div id="empty" style="display:none" class="no-data">
+			        		<p><span class="icon-img icon-no-data"></span></p>
+				            <p class="pt-30 f-16">暂时还没有相关内容</p>
+				        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible_css.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery-1.9.1.min.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.Layer.js?v=20170619"></script>
+<script src="../../../static/html/js/storage.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.form.js?v=20170619"></script>
+<script src="../../../static/html/js/mobiscroll.custom-3.0.0-beta2.min.js?v=20170619"></script>
+<!-- 需要加版本号刷新缓存的js -->
+<script  src="../../../static/html/js/public.js?v=20170619"></script>
+<script src="../../../static/html/js/myscript.js?v=20170619"></script>
+<script  src="../../../static/html/js/common.js?v=20170619"></script>
+<script  src="../../../static/html/js/validate.js?v=20170619"></script>
+<script  src="../../../static/html/js/weike.js?v=20170619"></script>
+<script  src="../../../static/html/js/myWeike.js?v=20170619"></script>
+<script  src="js/wap.js?v=20170619"></script>
+<script  src="js/wapEntities.js?v=20170619"></script>
+<script  src="js/wapNetwork.js?v=20170619"></script>
+<script  src="js/wapNetworkService.js?v=20170619"></script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+		initWieikeGoBack();
+      setTimeout(wap.initAuditList(), 200);
+}, false);
+</script>
+</html>

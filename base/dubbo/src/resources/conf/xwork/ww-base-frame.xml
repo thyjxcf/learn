@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="baseFrame" extends="default" namespace="/common">
+		<action name="charttest" class="net.zdsoft.eis.base.chart.test.OfcChartAction">
+	        <result name="success" type="freemarker">chartTest.ftl</result>
+		</action>
+	    <action name="chart" class="net.zdsoft.eis.base.chart.test.OfcChartAction">
+		</action>
+		
+		<!-- 测试 --> 
+		<action name="basetest" class="net.zdsoft.eis.frame.action.TestAction" method="basetest">
+			<result name="success" type="freemarker">basetest.ftl</result>
+		</action>
+		<!-- 开发 --> 
+		<action name="develop" class="net.zdsoft.eis.frame.action.BaseAction">
+			<result name="success" type="freemarker">develop.ftl</result>
+		</action>
+		
+		<!-- 组件 --> 
+		<action name="chinaexcel" class="net.zdsoft.eis.frame.action.ChinaExcelAction">
+			<result name="success" type="freemarker">chinaexcelreport.ftl</result>
+		</action>
+		<!--验证码-->		
+		<action name="verifyImage"
+            class="net.zdsoft.eis.base.common.action.VerifyImageAction" >
+        </action>
+        <!--脚部信息-->		
+		<action name="foot"
+            class="net.zdsoft.eis.base.common.action.FootAction">
+			<result name="success" type="freemarker">foot.ftl</result>
+        </action>
+        
+		<!-- 显示弹出窗口 -->  
+		<action name="showModalWindow" 
+			class="net.zdsoft.eis.frame.action.BaseAction">
+			<result name="success" type="freemarker">frame.ftl</result>
+		</action>
+		<!--=================== 校区选择======================= --> 	
+		<action name="getTeachAreaSelectDivData" class="net.zdsoft.eis.base.common.action.TeachAreaDivAction"
+			method="getObjectsByUnitId">
+			<result name="success" type="freemarker">commonObjectSelectDiv.ftl</result>
+		</action>
+		<!--=================== 部门选择====================== -->
+		<action name="getDeptSelectData" class="net.zdsoft.eis.base.common.action.DeptDivAction"
+			method="getObjectsByCondition">
+			<result name="success" type="freemarker">commonObjectSelect.ftl</result>
+		</action>
+		<action name="getDeptSelectDivData" class="net.zdsoft.eis.base.common.action.DeptDivAction"
+			method="getObjectsByCondition">
+			<result name="success" type="freemarker">commonObjectSelectDiv.ftl</result>
+		</action>
+		<!--=================== 用户选择====================== -->
+		<action name="getUserDataPopup" class="net.zdsoft.eis.base.common.action.UserDivAction"
+			method="getObjectsByUnitId">
+			<result name="success" type="freemarker">popupObjectDiv.ftl</result>
+		</action>
+		<!--=================== 院系选择====================== -->
+		<action name="getInstituteSelectData" class="net.zdsoft.eis.base.common.action.InstituteDivAction"
+			method="getObjectsByCondition">
+			<result name="success" type="freemarker">commonObjectSelect.ftl</result>
+		</action>
+		<!--=================== 专业选择====================== -->
+		<action name="getSpecialtySelectData" class="net.zdsoft.eis.base.common.action.SpecialtyDivAction"
+			method="getObjectsByCondition">
+			<result name="success" type="freemarker">commonObjectSelect.ftl</result>
+		</action>
+		<action name="getSpecialtySelectDivData" class="net.zdsoft.eis.base.common.action.SpecialtyDivAction"
+			method="getObjectsByCondition">
+			<result name="success" type="freemarker">commonObjectSelectDiv.ftl</result>
+		</action>
+		<!--=================== 年级选择====================== -->
+		<action name="getGradeSelectDataByUnitId" class="net.zdsoft.eis.base.common.action.GradeDivAction"
+			method="getObjectsByUnitId">
+			<result name="success" type="freemarker">commonObjectSelect.ftl</result>
+		</action>
+		<action name="getGradeSelectDivData" class="net.zdsoft.eis.base.common.action.GradeDivAction"
+			method="getObjectsByUnitId">
+			<result name="success" type="freemarker">commonObjectSelectDiv.ftl</result>
+		</action>
+		<action name="getGradeDataPopup" class="net.zdsoft.eis.base.common.action.GradeDivAction"
+			method="getObjectsByCondition">
+			<result name="success" type="freemarker">popupObjectDiv.ftl</result>
+		</action>
+		<action name="getEisGradeSelectDivData" class="net.zdsoft.eis.base.common.action.EisGradeDivAction"
+			method="getObjectsByUnitId">
+			<result name="success" type="freemarker">commonObjectSelectDiv.ftl</result>
+		</action>
+		<!--=================== 班级选择====================== -->
+		<action name="getClassSelectDataByUnitId" class="net.zdsoft.eis.base.common.action.ClassDivAction"
+			method="getObjectsByUnitId">
+			<result name="success" type="freemarker">commonObjectSelect.ftl</result>
+		</action>
+		<action name="getClassSelectDivData" class="net.zdsoft.eis.base.common.action.ClassDivAction"
+			method="getObjectsByCondition">
+			<result name="success" type="freemarker">commonObjectSelectDiv.ftl</result>
+		</action>
+		<action name="getEisClassSelectDivData" class="net.zdsoft.eis.base.common.action.EisClassDivAction"
+			method="getObjectsByCondition">
+			<result name="success" type="freemarker">commonObjectSelectDiv.ftl</result>
+		</action>
+		<action name="getFuzzyClassSelectDivData" class="net.zdsoft.eis.base.common.action.ClassDivAction"
+			method="getObjectsByCondition">
+			<result name="success" type="freemarker">commonObjectFuzzySelectDiv.ftl</result>
+		</action>
+		<action name="getFuzzyEisClassSelectDivData" class="net.zdsoft.eis.base.common.action.EisClassDivAction"
+			method="getObjectsByCondition">
+			<result name="success" type="freemarker">commonObjectFuzzySelectDiv.ftl</result>
+		</action>
+		<action name="getClassDataPopup" class="net.zdsoft.eis.base.common.action.ClassDivAction"
+			method="getObjectsByUnitId">
+			<result name="success" type="freemarker">popupObjectDiv.ftl</result>
+		</action>
+		<action name="getClassDataConditionPopup" class="net.zdsoft.eis.base.common.action.ClassDivAction"
+			method="getObjectsByCondition">
+			<result name="success" type="freemarker">popupObjectDiv.ftl</result>
+		</action>
+		<!--=================== 学生选择====================== -->
+		<action name="getStudentSelectDivData" class="net.zdsoft.eis.base.common.action.StudentDivAction"
+			method="getObjectsByGroupId">
+			<result name="success" type="freemarker">commonObjectSelectDiv.ftl</result>
+		</action>
+		<action name="getFuzzyStudentSelectDivData" class="net.zdsoft.eis.base.common.action.StudentDivAction"
+			method="getObjectsByGroupId">
+			<result name="success" type="freemarker">commonObjectFuzzySelectDiv.ftl</result>
+		</action>
+		<action name="getStudentSelectData" class="net.zdsoft.eis.base.common.action.StudentDivAction"
+			method="getObjectsByGroupId">
+			<result name="success" type="freemarker">popupObjectDiv.ftl</result>
+		</action>
+		<!--=================== 部门级联选择====================== -->
+		<action name="getDeptSelectDataByParentId" class="net.zdsoft.eis.base.common.action.DeptDivAction"
+			method="getObjectsByParentId">
+			<result name="success" type="freemarker">commonObjectCoupling.ftl</result>
+		</action>
+		<!--=================== 微代码DIV======================= -->  
+		<action name="getMcodeDetailData" class="net.zdsoft.eis.base.common.action.McodeDetailDivAction"
+			method="getObjectsByGroupId">
+			<result name="success" type="freemarker">commonObjectDiv.ftl</result>
+		</action>
+		<action name="getMcodeDetailDataPopup" class="net.zdsoft.eis.base.common.action.McodeDetailDivAction"
+			method="getObjectsByGroupId">
+			<result name="success" type="freemarker">popupObjectDiv.ftl</result>
+		</action>
+		
+		<!--=================== 教师DIV======================= -->  
+		<action name="getTeacherData" class="net.zdsoft.eis.base.common.action.TeacherDivAction"
+			method="getObjectsByGroupId">
+			<result name="success" type="freemarker">commonObjectDiv.ftl</result>
+		</action>
+		<action name="getTeacherDivData" class="net.zdsoft.eis.base.common.action.TeacherDivAction"
+			method="getObjectsByGroupId">
+			<result name="success" type="freemarker">commonObjectSelectDiv.ftl</result>
+		</action>
+		<action name="getTeacherDataPopup" class="net.zdsoft.eis.base.common.action.TeacherDivAction"
+			method="getObjectsByGroupId">
+			<result name="success" type="freemarker">popupObjectDiv.ftl</result>
+		</action>
+		<action name="showTeacherDiv" class="net.zdsoft.eis.base.common.action.TeacherDivAction">
+			<result name="success" type="freemarker">commonTeacherDiv.ftl</result>
+		</action>
+		<action name="showTeacherTreeDiv" class="net.zdsoft.eis.base.common.action.TeacherDivAction">
+			<result name="success" type="freemarker">commonTeacherTreeDiv.ftl</result>
+		</action>
+		<action name="getTeacherDataFaintness" class="net.zdsoft.eis.base.common.action.TeacherDivAction"
+			method="getObjectsFaintness">
+			<result name="success" type="freemarker">commonObjectDiv.ftl</result>
+		</action>
+		<!--=================== 学生DIV======================= --> 	
+		<action name="getStudentData" class="net.zdsoft.eis.base.common.action.StudentDivAction"
+			method="getObjectsByGroupId">
+			<result name="success" type="freemarker">commonObjectDiv.ftl</result>
+		</action>
+		<action name="getStudentDataPopup" class="net.zdsoft.eis.base.common.action.StudentDivAction"
+			method="getObjectsByGroupId">
+			<result name="success" type="freemarker">popupObjectDiv.ftl</result>
+		</action>
+		<action name="showStudentTreeDiv"
+			class="net.zdsoft.eis.base.common.action.StudentDivAction">
+			<result name="success" type="freemarker">commonStudentTreeDiv.ftl</result>
+		</action>
+		<action name="getStudentDataFaintness" class="net.zdsoft.eis.base.common.action.StudentDivAction"
+			method="getObjectsFaintness">
+			<result name="success" type="freemarker">commonObjectDiv.ftl</result>
+		</action>
+		<!--=================== 教学场地DIV======================= --> 	
+		<action name="getTeachPlaceData" class="net.zdsoft.eis.base.common.action.TeachPlaceDivAction"
+			method="getObjectsByGroupId">
+			<result name="success" type="freemarker">popupObjectDiv.ftl</result>
+		</action>
+		<action name="showTeachPlaceTreeDiv"
+			class="net.zdsoft.eis.base.common.action.TeachPlaceDivAction">
+			<result name="success" type="freemarker">commonTeachPlaceTreeDiv.ftl</result>
+		</action>
+		<action name="getTeachPlaceDataFaintness" class="net.zdsoft.eis.base.common.action.TeachPlaceDivAction"
+			method="getObjectsFaintness">
+			<result name="success" type="freemarker">popupObjectDiv.ftl</result>
+		</action>
+		
+		<!-- 专业类别弹出 -->
+		<action name="getSpecialtyTypeDiv" class="net.zdsoft.eis.base.common.action.SpecialtyTypeDivAction" method="getObjectsByUnitId">
+			<result name="success" type="freemarker">popupObjectDiv.ftl</result>
+		</action>
+				
+		<!--=================== 上传结果显示======================= -->  
+		<action name="swfUpload" class="net.zdsoft.eis.frame.action.SwfUploadAction" method="upload">
+		</action>	
+		<action name="swfUpload-remote" class="net.zdsoft.eis.frame.action.SwfUploadAction"> 
+			<result name="message" type="json">
+				<param name="root">action</param>
+			</result>   
+		</action>
+		
+		<action name="showUploadresult" class="net.zdsoft.eis.base.common.action.UploadResultAction">
+			<result name="success" type="freemarker">uploadresult.ftl</result>
+		</action>	
+		
+		<!--=================== 附件下载 ======================= -->  
+		<action name="downloadAttachment" class="net.zdsoft.eis.base.attachment.action.AttachmentAction">			
+		</action>
+		
+		<!--=================== 图片展示 ======================= -->
+		<action name="downloadFile" class="net.zdsoft.eis.base.common.action.DownloadFileAction">			
+		</action>
+		
+		<!--=================== logo展示 ======================= -->
+		<action name="logoFile" class="net.zdsoft.eis.base.common.action.LogoFileAction">			
+		</action>
+		
+		<!-- 页面的提示信息，如模块打开后，显示“请选择一个班级”等信息 -->
+		<action name="tipMsg" class="net.zdsoft.eis.base.common.action.TipMsgAction">
+			<result name="success" type="freemarker">tipMsg.ftl</result>
+		</action>
+		<!-- div 用来实现popup模式下的级联 -->
+		<action name="popDiv" class="net.zdsoft.eis.base.common.action.PopupDivAction">
+			<result name="success" type="freemarker">popDiv.ftl</result>
+		</action>
+                <action name="msg-confirm" class="net.zdsoft.eis.base.common.action.TipMsgAction" method="confirm">
+			<result name="success" type="freemarker">msg.ftl</result>
+		</action> 
+		
+		<action name="msg-alert" class="net.zdsoft.eis.base.common.action.TipMsgAction" method="alert">
+			<result name="success" type="freemarker">msg.ftl</result>
+		</action> 
+		
+		<action name="msg-error" class="net.zdsoft.eis.base.common.action.TipMsgAction" method="error">
+			<result name="success" type="freemarker">msg.ftl</result>
+		</action> 
+		
+		<action name="msg-message" class="net.zdsoft.eis.base.common.action.TipMsgAction" method="message">
+			<result name="success" type="freemarker">msg.ftl</result>
+		</action> 
+		
+		<!-- 通讯录 -->
+		<action name="address" class="net.zdsoft.eis.base.common.action.UserSortAction">
+			<result name="success" type="freemarker">address/userTab.ftl</result>
+		</action>
+
+		<action name="getEmployeeList" class="net.zdsoft.eis.base.common.action.UserSortAction"
+			method="getEmployeeList">
+			<result name="success" type="freemarker">address/addressBookTeachers.ftl
+			</result>
+		</action>
+	
+		<action name="getGroupList" class="net.zdsoft.eis.base.common.action.UserSortAction"
+			method="getGroupList">
+		</action>
+	
+		<action name="getDirectSubUnits" class="net.zdsoft.eis.base.common.action.UserSortAction"
+			method="getDirectSubUnits">
+		</action>
+	
+		<action name="getGroupListByUnitid" class="net.zdsoft.eis.base.common.action.UserSortAction"
+			method="getGroupListByUnitid">
+		</action>
+	
+		<action name="getParentUnit" class="net.zdsoft.eis.base.common.action.UserSortAction"
+			method="getParentUnit">
+		</action>
+	
+		<action name="getSameLevelUnits" class="net.zdsoft.eis.base.common.action.UserSortAction"
+			method="getSameLevelUnits">
+		</action>
+		
+		<action name="getAllDownUnits" class="net.zdsoft.eis.base.common.action.UserSortAction"
+			method="getAllDownUnits">
+		</action>
+	
+		<action name="queryAllDutys" class="net.zdsoft.eis.base.common.action.UserSortAction"
+			method="queryAllDutys">
+		</action>
+	
+		<action name="queryAllSubjects" class="net.zdsoft.eis.base.common.action.UserSortAction"
+			method="queryAllSubjects">
+		</action>
+	
+		<action name="queryDutyMemeber" class="net.zdsoft.eis.base.common.action.UserSortAction"
+			method="queryDutyMemeber">
+			<result name="success" type="freemarker">address/addressBookTeachers.ftl
+			</result>
+		</action>
+	
+		<action name="querySubjectMemeber" class="net.zdsoft.eis.base.common.action.UserSortAction"
+			method="querySubjectMemeber">
+			<result name="success" type="freemarker">address/addressBookTeachers.ftl
+			</result>
+		</action>
+	
+		<action name="getAdviserTeacherList" class="net.zdsoft.eis.base.common.action.UserSortAction"
+			method="getAdviserTeacherList">
+			<result name="success" type="freemarker">address/addressBookTeachers.ftl
+			</result>
+		</action>
+	
+		<action name="getTeachingTeacherList" class="net.zdsoft.eis.base.common.action.UserSortAction"
+			method="getTeachingTeacherList">
+			<result name="success" type="freemarker">address/addressBookTeachers.ftl
+			</result>
+		</action>
+	
+		<action name="getGradeHeadList" class="net.zdsoft.eis.base.common.action.UserSortAction"
+			method="getGradeHeadList">
+			<result name="success" type="freemarker">address/addressBookTeachers.ftl
+			</result>
+		</action>
+	
+		<action name="simpleAjaxSearch" class="net.zdsoft.eis.base.common.action.UserSortAction"
+			method="simpleAjaxSearch">
+			<result name="success" type="freemarker">address/addressBookTeachers.ftl
+			</result>
+		</action>
+	
+		<action name="getClassList" class="net.zdsoft.eis.base.common.action.UserSortAction"
+			method="getClassList">
+		</action>
+	
+		<action name="getStudentList" class="net.zdsoft.eis.base.common.action.UserSortAction"
+			method="getStudentList">
+			<result name="success" type="freemarker">address/addressBookTeachers.ftl
+			</result>
+		</action>
+		
+		<action name="getParentList" class="net.zdsoft.eis.base.common.action.UserSortAction"
+			method="getParentList">
+			<result name="success" type="freemarker">address/addressBookTeachers.ftl
+			</result>
+		</action>
+		<!-- 在线阅页面调用  -->
+		<action name="onlinePreviews" class="net.zdsoft.eis.base.common.action.OnlinePreviewsFileAction">
+			<result name="success" type="freemarker">onlinePreviewsFile.ftl</result>
+			<result name="rmsg" type="redirect">${retUrl}</result>
+		</action>
+		<action name="convertSuccess" class="net.zdsoft.eis.base.common.action.OnlinePreviewsFileAction" method="convertSuccess">
+       		<result name="success" type="json">
+       			<param name="root">promptMessageDto</param>
+       		</result>
+       </action>
+		<action name="showAttachmentView" class="net.zdsoft.eis.base.common.action.OnlinePreviewsFileAction" method="showAttachmentView">
+			<result name="success" type="freemarker">showAttachmentView.ftl</result>
+		</action>
+		
+	</package>
+	
+	<!-- 模板页面示例-->
+	<package name="exampleFrame" extends="default" namespace="/showcase">
+		<action name="main"
+			class="net.zdsoft.eis.base.common.action.ShowCaseAction"
+			method="returnSuccess">
+			<result name="success" type="freemarker">main.ftl</result>
+		</action>
+		<!--功能页面 -->
+		<action name="index"
+			class="net.zdsoft.eis.base.common.action.ShowCaseAction"
+			method="returnSuccess">
+			<result name="success" type="freemarker">index.ftl</result>
+		</action>
+		<!--功能页面中的头部页面 -->
+		<action name="head"
+			class="net.zdsoft.eis.base.common.action.ShowCaseAction"
+			method="returnSuccess">
+			<result name="success" type="freemarker">head.ftl</result>
+		</action>
+		<!--功能页面中的左边模块列表 -->
+		<action name="left"
+			class="net.zdsoft.eis.base.common.action.ShowCaseAction"
+			method="returnSuccess">
+			<result name="success" type="freemarker">left.ftl</result>
+		</action>
+		<!--树和表单的页面 -->
+		<action name="treeAndForm"
+			class="net.zdsoft.eis.base.common.action.ShowCaseAction"
+			method="returnSuccess">
+			<result name="success" type="freemarker">treeAndForm.ftl</result>
+		</action>
+		
+		<!--tab页面 -->
+		<action name="tab"
+			class="net.zdsoft.eis.base.common.action.ShowCaseAction"
+			method="returnSuccess">
+			<result name="success" type="freemarker">tab.ftl</result>
+		</action>
+		<!-- 导入页面-->
+		<action name="dataImport"
+			class="net.zdsoft.eis.base.common.action.ShowCaseAction"
+			method="returnSuccess">
+			<result name="success" type="freemarker">dataImport.ftl</result>
+		</action>
+		<!--异动 学生页面-->
+		<action name="abnormalStudent"
+			class="net.zdsoft.eis.base.common.action.ShowCaseAction"
+			method="returnSuccess">
+			<result name="success" type="freemarker">abnormalStudent.ftl</result>
+		</action>
+		
+		<!--异动 类型页面-->
+		<action name="abnormalType"
+			class="net.zdsoft.eis.base.common.action.ShowCaseAction"
+			method="returnSuccess">
+			<result name="success" type="freemarker">abnormalType.ftl</result>
+		</action>
+		
+		<!--调班页面 -->
+		<action name="deployClass"
+			class="net.zdsoft.eis.base.common.action.ShowCaseAction"
+			method="returnSuccess">
+			<result name="success" type="freemarker">deployClass.ftl</result>
+		</action>
+		
+		<!--分班页面 -->
+		<action name="assignClass"
+			class="net.zdsoft.eis.base.common.action.ShowCaseAction"
+			method="returnSuccess">
+			<result name="success" type="freemarker">assignClass.ftl</result>
+		</action>
+		
+		<!--号码设置页面 -->
+		<action name="setCode"
+			class="net.zdsoft.eis.base.common.action.ShowCaseAction"
+			method="returnSuccess">
+			<result name="success" type="freemarker">setCode.ftl</result>
+		</action>
+		
+		<!--系统管理主页面 -->
+		<action name="sysManagerIndex"
+			class="net.zdsoft.eis.base.common.action.ShowCaseAction"
+			method="returnSuccess">
+			<result name="success" type="freemarker">sysManagerIndex.ftl</result>
+		</action>
+		
+		<action name="sysLeft"
+			class="net.zdsoft.eis.base.common.action.ShowCaseAction"
+			method="returnSuccess">
+			<result name="success" type="freemarker">sysLeft.ftl</result>
+		</action>
+		
+		<action name="roleManag"
+			class="net.zdsoft.eis.base.common.action.ShowCaseAction"
+			method="returnSuccess">
+			<result name="success" type="freemarker">roleManag.ftl</result>
+		</action>
+	</package>
+
+	<!--=================== 系统监控======================= -->
+	<package name="base-monitor" extends="default" namespace="/base/background/monitor">
+		<action name="monitor" class="net.zdsoft.eis.frame.action.BaseAction">
+			<result name="success" type="freemarker">baseMonitor.ftl</result>
+		</action>
+		<action name="stat" class="net.zdsoft.eis.base.monitor.action.CacheStatAction">
+			<result name="success" type="freemarker">cachestat.ftl</result>
+		</action>
+		<action name="dbcpstatus" class="net.zdsoft.eis.base.monitor.action.DBCPConfigViewAction">
+			<result name="success" type="freemarker">dbcpstatus.ftl</result>
+		</action>
+	</package>
+		
+	<!-- 学生、后台管理等平台的帮助 -->
+	<package name="base-common-help" extends="default" namespace="/common/help">
+		<action name="helpIndex" class="net.zdsoft.eis.base.common.action.SimpleHelpAction">
+			<result name="success" type="freemarker">helpindex.ftl</result>
+		</action>
+		<action name="tree" class="net.zdsoft.eis.base.common.action.SimpleHelpAction" method="genTree">
+			<result name="success" type="freemarker">modulehelp.ftl</result>
+		</action>
+	</package>
+	
+	<!-- 教师平台的帮助 --> 
+	<package name="base-help" extends="default" namespace="/help">
+		<action name="helpIndex" class="net.zdsoft.eis.base.common.action.TeacherHelpAction">
+			<result name="success" type="freemarker">/common/help/helpindex.ftl</result>
+		</action>
+		<action name="tree" class="net.zdsoft.eis.base.common.action.TeacherHelpAction"
+			method="genTree">
+			<result name="success" type="freemarker">/common/help/modulehelp.ftl</result>
+		</action>
+	</package>
+
+	<package name="base-support" extends="default" namespace="/base/background/support">
+		<action name="support" class="net.zdsoft.eis.frame.action.BaseAction">
+			<result name="success" type="freemarker">baseSupport.ftl</result>
+		</action>
+		<!-- 数据初始化 -->
+		<action name="baseSupportInit" class="net.zdsoft.eis.base.support.BaseSupportAction">
+			<result name="success" type="freemarker">baseSupportInit.ftl</result>
+		</action>
+		<action name="remoteBaseSupportInit" class="net.zdsoft.eis.base.support.BaseSupportAction">
+			<interceptor-ref name="burlap" />
+		</action>
+		
+	</package>
+	
+	<package name="auditflow" extends="default-platform" namespace="/base/auditflow">
+	    <!-- 审核进度 -->
+		<action name="showSteps"
+			class="net.zdsoft.eis.base.auditflow.manager.action.ApplyAction" method="showSteps">
+			<result name="success" type="freemarker">auditSteps.ftl</result>
+		</action>
+		
+	    <action name="showStepsForSch"
+			class="net.zdsoft.eis.base.auditflow.manager.action.ApplyAction" method="showStepsForSch">
+			<result name="success" type="freemarker">auditSteps.ftl</result>
+		</action>
+		
+	    <!-- ==================================== 申请  ====================================-->
+	    <action name="apply" class="net.zdsoft.eis.base.auditflow.manager.action.ApplyAction" method="execute">
+			<result name="success" type="freemarker">apply.ftl</result>
+		</action>
+	    <action name="apply-add" class="net.zdsoft.eis.base.auditflow.manager.action.ApplyAction" method="add">
+			<result name="success" type="freemarker">applyAdd.ftl</result>
+		</action>
+		<action name="apply-edit" class="net.zdsoft.eis.base.auditflow.manager.action.ApplyAction" method="edit">
+			<result name="success" type="freemarker">applyEdit.ftl</result>
+		</action>
+		<!-- 删除申请、撤消申请、重新申请 -->
+		<action name="apply-modifyState" class="net.zdsoft.eis.base.auditflow.manager.action.ApplyAction" method="modifyState">
+		</action>
+		<!-- 删除未通过审核的申请 -->
+		<action name="apply-deleteUnPass" class="net.zdsoft.eis.base.auditflow.manager.action.ApplyAction" method="deleteUnPass">
+		</action>
+		<!-- 上报申请 -->
+		<action name="apply-toAudit"
+			class="net.zdsoft.eis.base.auditflow.manager.action.ApplyAction" method="toAudit" />
+		<!-- 保存 -->
+		<action name="apply-save"
+			class="net.zdsoft.eis.base.auditflow.manager.action.ApplyAction" method="save" />
+		
+		 <!-- ==================================== 审核  ====================================-->
+		<action name="audit" class="net.zdsoft.eis.base.auditflow.manager.action.AuditAction" method="execute">
+			<result name="success" type="freemarker">audit.ftl</result>
+		</action>
+		<action name="audit-list" class="net.zdsoft.eis.base.auditflow.manager.action.AuditAction" method="list">
+			<result name="success" type="freemarker">audit.ftl</result>
+		</action>
+		<action name="apply-edit" class="net.zdsoft.eis.base.auditflow.manager.action.AuditAction" method="edit">
+			<result name="success" type="freemarker">auditEdit.ftl</result>
+		</action>
+		<action name="apply-save" class="net.zdsoft.eis.base.auditflow.manager.action.AuditAction" method="save">
+		</action> 
+	</package>
+</struts>

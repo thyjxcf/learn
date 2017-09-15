@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="system-monitor" extends="default" namespace="/system/background/monitor">
+		<action name="monitor" class="net.zdsoft.eis.frame.action.BaseAction">
+			<result name="success" type="freemarker">systemMonitor.ftl</result>
+		</action>
+		<action name="runParam" class="net.zdsoft.eis.system.frame.action.SystemRunParamAction">
+			<result name="success" type="freemarker">runParam.ftl</result>
+		</action>
+		<action name="remoteRunParam" class="net.zdsoft.eis.system.frame.action.SystemRunParamAction">
+			<interceptor-ref name="burlap" />
+		</action>		
+	</package>
+	
+	<package name="eis-systemadmin" extends="default" namespace="/system/admin">
+		<!-- 保存系统参数设置，单个 -->
+		<action name="platformInfoAdmin-j-saveOne" class="net.zdsoft.eis.base.data.action.SystemIniConfigAction"
+			method="saveOne">
+			<result name="success" type="json" ><param name="root">action</param></result>
+		</action>
+		<!-- 保存系统参数设置，所有-->
+		<action name="platformInfoAdmin-j-saveAll" class="net.zdsoft.eis.base.data.action.SystemIniConfigAction"
+			method="saveAll">
+			<result name="success" type="json"><param name="root">action</param></result>
+		</action>
+		
+		<!-- 系统平台设置-->
+		<action name="platformInfoAdmin" class="net.zdsoft.eis.system.frame.action.PlatformInfoAction"
+			method="execute">
+			<result name="success" type="freemarker">/system/systeminfo/platformInfo.ftl</result>
+		</action>
+		<!-- 平台参数设定-->
+		<action name="platformInfoAdmin-systemIniConfig" class="net.zdsoft.eis.base.data.action.SystemIniConfigAction"
+			method="execute">
+			<result name="success" type="freemarker">/system/systeminfo/systeminiconfig.ftl</result>
+		</action>
+		<action name="platformInfoAdmin-systemIniConfigSave"
+			class="net.zdsoft.eis.base.data.action.SystemIniConfigAction" method="saveSystemIni">
+			<result name="input" type="freemarker">/system/systeminfo/systeminiconfig.ftl</result>
+		</action>
+		
+		<!-- 系统服务配置 -->
+		<action name="platformInfoAdmin-systemServerConfig"
+			class="net.zdsoft.eis.system.frame.action.SystemServerConfigAction" method="execute">
+			<result name="success" type="freemarker">
+				/system/systeminfo/systemServerConfig.ftl
+			</result>
+		</action>
+
+		<action name="platformInfoAdmin-remoteServerConfig-*"
+			class="net.zdsoft.eis.system.frame.action.SystemServerConfigAction" method="{1}">
+			<result name="success" type="json">
+			      <param name="root">returnJsonData</param>
+			</result>
+		</action>
+		
+		<!-- 微代码管理 -->
+		<action name="platformInfoAdmin-systemMcode" class="net.zdsoft.eis.base.data.action.McodedetailListAction">
+			<result name="success" type="freemarker">/system/systeminfo/systemMcodeAdmin.ftl</result>
+		</action>
+		<action name="platformInfoAdmin-systemMcodedetailList"
+			class="net.zdsoft.eis.base.data.action.McodedetailListAction" method="getList">
+			<result name="success" type="freemarker">/system/systeminfo/systemMcodedetailList.ftl</result>
+		</action>
+		<!--  
+		<action name="platformInfoAdmin-mcodeDel" class="net.zdsoft.eis.base.data.action.McodedetailListAction"
+			method="deleteMcode">
+		</action>
+		-->
+		<!--暂时没用到 
+		<action name="mcodeUpdate" class="net.zdsoft.eis.base.data.action.McodedetailListAction"
+			method="updateMcodedetail">
+		</action>
+		-->
+		<action name="platformInfoAdmin-remoteMcodedetailList-*"
+			class="net.zdsoft.eis.base.data.action.McodedetailListAction" method="{1}">
+			<result name="success" type="json">
+			      <param name="root">returnJsonData</param>
+			</result>
+		</action>
+		
+		<!--异常数据处理 -->
+		<action name="platformInfoAdmin-exceptionQuery" class="net.zdsoft.eis.system.frame.action.ExceptionDataAction"
+			method="execute">
+			<result name="success" type="freemarker">/system/systeminfo/systemQuery.ftl</result>
+		</action>
+		
+		<action name="platformInfoAdmin-doExceptioQuery" class="net.zdsoft.eis.system.frame.action.ExceptionDataAction"
+			method="executeQuery">
+			<result name="success" type="freemarker">
+				/system/systeminfo/systemQueryResult.ftl
+			</result>
+		</action>
+		
+		<!-- 日志维护 -->
+		<action name="platformInfoAdmin-logAdmin" class="net.zdsoft.eis.system.frame.action.LogAction">
+			<result name="success" type="freemarker">/system/systeminfo/systemLog.ftl</result>
+		</action>
+		<action name="platformInfoAdmin-logList" class="net.zdsoft.eis.system.frame.action.LogAction"
+			method="getLogList">
+			<result name="success" type="freemarker">/system/systeminfo/systemLogList.ftl</result>
+		</action>
+		<action name="platformInfoAdmin-remote-*" class="net.zdsoft.eis.system.frame.action.LogAction"
+			method="{1}">
+			<result name="success" type="json">
+			      <param name="root">returnJsonData</param>
+			</result>
+		</action>
+		
+		<action name="platformInfoAdmin-logExport" class="net.zdsoft.eis.system.frame.action.LogAction"
+			method="getLogExport">
+		</action>
+		
+		<action name="platformInfoAdmin-logConfig" class="net.zdsoft.eis.system.frame.action.LogConfigAction"
+			method="getLogConfig">
+			<result name="success" type="freemarker">/system/systeminfo/systemLogConfig.ftl</result>
+		</action>
+		<action name="platformInfoAdmin-remoteLogConfig-*" class="net.zdsoft.eis.system.frame.action.LogConfigAction"
+			method="{1}">
+			<result name="success" type="json">
+			      <param name="root">returnJsonData</param>
+			</result>
+		</action>
+		<!-- 
+		<action name="systemInfor" class="net.zdsoft.eis.system.frame.action.SystemInforAction"
+			method="execute">
+			<result name="success" type="freemarker">/system/systeminfo/systemInfo.ftl</result>
+		</action>
+		-->
+		
+		<!-- 存储目录设置 -->
+		<action name="platformInfoAdmin-storageDir"
+			class="net.zdsoft.eis.base.data.action.StorageDirAction">
+			<result name="success" type="freemarker">/basedata/param/storageDir.ftl</result>
+		</action>
+		<action name="platformInfoAdmin-StorageDirDetail"
+			class="net.zdsoft.eis.base.data.action.StorageDirAction" method="detail">
+			<result name="success" type="freemarker">/basedata/param/storageDirDetail.ftl</result>
+		</action>
+		<action name="platformInfoAdmin-delteStorageDir" class="net.zdsoft.eis.base.data.action.StorageDirAction" method="delete">
+			<result name="success" type="json"><param name="root">action</param></result>
+		</action>
+		<action name="platformInfoAdmin-remoteStorageDir" class="net.zdsoft.eis.base.data.action.StorageDirAction" method="remoteSave">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+    
+    <!-- 公共树参数设定-->
+		<action name="treeParamAdmin" class="net.zdsoft.eis.system.frame.action.TreeParamAction"
+			method="listParam">
+			<result name="success" type="freemarker">/system/systeminfo/treeiniconfig.ftl</result>
+			<result name="input" type="json"><param name="root">action</param></result>
+		</action>
+	    <action name="treeParamAdmin-save" class="net.zdsoft.eis.system.frame.action.TreeParamAction" method="saveParam">
+			<result name="success" type="json"><param name="root">action</param></result>
+		</action>
+	</package>
+
+
+	<!-- 系统管理 -->
+	<package name="eis-system" extends="default" namespace="/system/frame">
+		<action name="moduleLog" class="net.zdsoft.eis.system.frame.action.ModuleLogAction">
+			<result name="success" type="redirect">${url}</result>
+		</action>
+
+		<action name="systemAbout" class="net.zdsoft.eis.system.frame.action.SystemInforAction">
+			<result name="success" type="freemarker">system_about.ftl</result>
+		</action>
+
+		<!-- =================收藏夹================= -->
+		<action name="favorite" class="net.zdsoft.eis.system.frame.action.FavoriteAction">
+			<result type="freemarker" name="success">favorite.ftl</result>
+		</action>
+		<action name="favoriteBurlap" class="net.zdsoft.eis.system.frame.action.FavoriteAction">
+			<interceptor-ref name="burlap" />
+		</action>
+
+		<action name="addFavorite" class="net.zdsoft.eis.system.frame.action.FavoriteAction"
+			method="addFavorite">
+			<result type="freemarker" name="success">addfavorite.ftl</result>
+		</action>
+		<action name="favoriteSave" class="net.zdsoft.eis.system.frame.action.FavoriteAction"
+			method="saveFavorite">
+			<result type="freemarker" name="success">favorite.ftl</result>
+		</action>
+		<action name="deleteFavorite" class="net.zdsoft.eis.system.frame.action.FavoriteAction"
+			method="deleteFavorite">
+			<result type="freemarker" name="success">favorite.ftl</result>
+		</action>
+	</package>
+
+
+</struts>

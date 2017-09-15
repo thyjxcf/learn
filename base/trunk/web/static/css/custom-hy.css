@@ -1,0 +1,13 @@
+body.custom-hy{background:url(../images/hy_body_bg.jpg) no-repeat top center #0362e3;overflow-y:auto;}
+body.custom-hy .container{width:1000px;margin:0 auto;}
+body.custom-hy .login-wrap{float:right;width:288px;margin:252px 66px 0 0;}
+body.custom-hy .login-wrap p{height:40px;padding:1px 3px 21px 0;}
+body.custom-hy .login-wrap p.yzm-p{padding:1px 0 21px 0;}
+body.custom-hy .login-wrap p.login-p{padding:0;height:42px;}
+body.custom-hy .login-wrap label{float:left;display:inline-block;width:44px;height:40px;}
+body.custom-hy .login-wrap p.yzm-p label{width:65px;}
+body.custom-hy .login-wrap .txt{float:left;width:240px;height:12px;background:none;border:0;padding:14px 0;text-indent:10px;}
+body.custom-hy .login-wrap .txt-yzm{float:left;width:110px;}
+body.custom-hy .login-wrap .img-yzm{float:right;display:inline-block;width:93px;height:35px;margin:2px 5px 0 0;}
+body.custom-hy .login-wrap .img-yzm img{width:93px;height:35px;}
+body.custom-hy .login-btn{display:block;width:288px;height:42px;background:url(../images/hy_login_btn.png) no-repeat;}

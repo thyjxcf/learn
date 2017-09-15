@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="expense" extends="default" namespace="/office/expense">
+		<action name="expense" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction">
+	    	<result name="success" type="freemarker">expenseAdmin.ftl</result>
+	    </action>
+		<!-- 我的报销 -->
+		<action name="expense-myExpense" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="myExpense">
+	    	<result name="success" type="freemarker">myExpense.ftl</result>
+	    </action>
+	    <action name="expense-myExpense-list" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="myExpenseList">
+	    	<result name="success" type="freemarker">myExpenseList.ftl</result>
+	    </action>
+	    <action name="expense-myExpense-add" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="myExpenseAdd">
+	    	<result name="success" type="freemarker">myExpenseAdd.ftl</result>
+	    </action>
+	    <action name="expense-myExpense-edit" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="myExpenseEdit">
+	    	<result name="success" type="freemarker">myExpenseAdd.ftl</result>
+	    </action>
+	    <action name="expense-myExpense-save" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="myExpenseSave">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+	    <action name="expense-myExpense-delete" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="myExpenseDelete">
+			<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+		
+		<!-- 报销审批 -->
+		<action name="expense-expenseAudit" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="expenseAudit">
+	    	<result name="success" type="freemarker">expenseAudit.ftl</result>
+	    </action>
+		<action name="expense-expenseAudit-edit" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="expenseAuditEdit">
+	    	<result name="success" type="freemarker">expenseAuditEdit.ftl</result>
+	    </action>
+		<action name="expense-expenseAudit-list" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="expenseAuditList">
+	    	<result name="success" type="freemarker">expenseAuditList.ftl</result>
+	    </action>
+		<action name="expense-expenseAudit-save" class="net.zdsoft.office.expense.action.OfficeExpenseManageAction" method="expenseAuditSave">
+          	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+		</action>
+	</package>
+</struts>

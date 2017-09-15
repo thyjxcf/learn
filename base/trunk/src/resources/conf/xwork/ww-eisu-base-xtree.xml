@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="eisu-common" extends="default" namespace="/common/eisu">
+		<action name="showStudentTreeDivByPopedom"
+			class="net.zdsoft.eisu.base.common.action.EisuStudentDivAction">
+			<result name="success" type="freemarker">/common/eisu/studentTreeDivByPopedom.ftl</result>
+		</action>
+		<action name="showStudentDivByPopedom"
+			class="net.zdsoft.eisu.base.common.action.EisuStudentDivAction"
+			method="getStudentsByFaintnessInstituteId">
+			<result name="success" type="freemarker">/common/commonObjectDiv.ftl</result>
+		</action>
+	</package>
+
+	<package name="eisu-commontree" extends="default" namespace="/common/xtree">
+		<!-- 通用树，学校和教育局都可以使用：院树、院系树、专业树、专业方向树、年级树、班级树、学生树 -->
+		<action name="instituteTree" class="net.zdsoft.eisu.base.tree.action.InstituteTreeAction"
+			method="instituteTree">
+		</action>
+		<action name="instituteDeptTree"
+			class="net.zdsoft.eisu.base.tree.action.InstituteTreeAction" method="instituteDeptTree">
+		</action>
+		<action name="specialtyTree" class="net.zdsoft.eisu.base.tree.action.SpecialtyTreeAction"
+			method="specialtyTree">
+		</action>
+		<action name="specialtyPointTree" class="net.zdsoft.eisu.base.tree.action.SpecialtyPointTreeAction"
+			method="specialtyPointTree">
+		</action>
+
+		<action name="instituteTreeXml"
+			class="net.zdsoft.eisu.base.tree.action.InstituteTreeXmlAction" method="expandInstitute">
+		</action>
+
+		<!-- 院系部门 -->
+		<action name="instituteDeptTreeXml"
+			class="net.zdsoft.eisu.base.tree.action.EisuDeptTreeXmlAction" method="expandInstituteDept">
+		</action>
+
+		<action name="instituteSpecialtyTreeXml"
+			class="net.zdsoft.eisu.base.tree.action.EisuStudentTreeXmlAction"
+			method="expandInstituteSpecialty">
+		</action>
+
+		<action name="specialtyPointTreeXml"
+			class="net.zdsoft.eisu.base.tree.action.EisuStudentTreeXmlAction"
+			method="expandSpecialtyPoint">
+		</action>
+
+		<action name="eisuGradeTreeXml"
+			class="net.zdsoft.eisu.base.tree.action.EisuStudentTreeXmlAction" method="expandGrade">
+		</action>
+		<action name="eisuClassTreeXml"
+			class="net.zdsoft.eisu.base.tree.action.EisuStudentTreeXmlAction" method="expandClass">
+		</action>
+		<action name="eisuStudentTreeXml"
+			class="net.zdsoft.eisu.base.tree.action.EisuStudentTreeXmlAction" method="expandStudent">
+		</action>
+		<!-- 教研组树 -->
+		<action name="teachGroupTree" class="net.zdsoft.eisu.base.tree.action.TeachGroupTreeAction"
+			method="teachGroupTree">
+		</action>
+		<action name="instituteGroupTreeXml"
+			class="net.zdsoft.eisu.base.tree.action.TeachGroupTreeXmlAction" method="expandInstituteGroup">
+		</action>
+		<action name="teachGroupTreeXml"
+			class="net.zdsoft.eisu.base.tree.action.TeachGroupTreeXmlAction" method="expandTeachGroup">
+		</action>
+		
+		<!-- 教研组教师树 -->
+		<action name="groupTeacherTree" class="net.zdsoft.eisu.base.tree.action.GroupTeacherTreeAction"
+			method="teachGroupTeacherTree">
+		</action>
+		<action name="groupTeacherTreeXml"
+			class="net.zdsoft.eisu.base.tree.action.GroupTeacherTreeXmlAction" method="expandGroupTeacher">
+		</action>
+		<!-- 教学区、教学场地、教学资源树 -->
+		<action name="teachAreaTree" class="net.zdsoft.eisu.base.tree.action.TeachPlaceResTreeAction"
+			method="teachAreaTree">
+		</action>
+		<action name="teachPlaceTree" class="net.zdsoft.eisu.base.tree.action.TeachPlaceResTreeAction"
+			method="teachPlaceTree">
+		</action>
+		<action name="teachPlaceResTree"
+			class="net.zdsoft.eisu.base.tree.action.TeachPlaceResTreeAction" method="teachPlaceResTree">
+		</action>
+		<!-- 校区班级 -->
+		<action name="teachPlaceClassTree" class="net.zdsoft.eisu.base.tree.action.TeachPlaceResTreeAction"
+			method="teachPlaceClassTree">
+		</action>
+		
+		<action name="teachAreaTreeXml"
+			class="net.zdsoft.eisu.base.tree.action.TeachPlaceResTreeXmlAction" method="expandTeachArea">
+		</action>
+		<action name="teachPlaceTreeXml"
+			class="net.zdsoft.eisu.base.tree.action.TeachPlaceResTreeXmlAction" method="expandTeachPlace">
+		</action>
+		<action name="teachPlaceResTreeXml"
+			class="net.zdsoft.eisu.base.tree.action.TeachPlaceResTreeXmlAction"
+			method="expandTeachPlaceRes">
+		</action>
+		
+		<!-- 专业目录 -->
+		<action name="specialtyCatalogTree" class="net.zdsoft.eisu.base.tree.action.SpecialtyCatalogTreeAction"
+			method="specialtyCatalogTree"></action>
+			
+		<action name="specialtyCatalogTreeXml" class="net.zdsoft.eisu.base.tree.action.SpecialtyCatalogTreeXmlAction"
+			method="expandSpecialtyCatalog"></action>
+			
+
+			
+			
+			
+			
+	</package>
+</struts>

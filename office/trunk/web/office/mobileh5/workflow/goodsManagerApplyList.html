@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>物品管理</title>
+<link  rel="stylesheet" type="text/css" href="../../../static/html/css/style.css?v=20170619">
+<link rel="stylesheet" type="text/css" href="../../../static/html/css/mobiscroll.custom-3.0.0-beta2.min.css">
+</head>
+
+<body class="fn-rel">
+<div class="filter-layer" id="filter" style="right:-7.6rem;">
+	<p class="tt mt-10">物品类型</p>
+	<ul class="fn-clear goodsTypes">
+	</ul>
+    <p class="opt fn-flex fn-flex-row f-16">
+        <a href="javascript:void(0)" class="reset fn-flex-auto">重置</a>
+        <a href="javascript:void(0)" class="submit fn-flex-auto">确认</a>
+    </p>
+</div>
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header style="display:none">
+        	<h1 class="f-20">领用物品</h1>
+            <a href="javascript:void(0)" class="abtn abtn-img abtn-back abtn-left html-window-back" id="cancelId"><span></span></a>
+            <a href="javascript:void(0)" class="abtn abtn-left2 f-18 html-window-close"><span>关闭</span></a>
+        </header>
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container">
+                <form action="" class='my-search-form'>
+            	<div class="ui-search fn-flex fn-flex-row">
+                	<p class="ui-search-inner fn-flex-auto"><span class="icon-img icon-search"></span><input type="search" id="searchName" class="f-16" placeholder="请输入物品名称"></p>
+                    <p class="ui-search-opt f-14"><a href="javascript:void(0)" class="btn" id="search-btn">搜索</a><a href="javascript:void(0)" class="filter">筛选<span class="icon-img icon-filter"></span></a></p>
+                </div>
+                </form>
+                <div class="tab-grid">
+                	<div id="list" class="tab-item">
+                        <ul class="ui-list">
+                        </ul>
+                        <p class="loading-more f-16"><a href="javascript:void(0)">加载更多……</a></p>
+                    </div>
+                	
+                    <div id="empty" style="display:none" class="no-data">
+			        	<p><span class="icon-img icon-no-data"></span></p>
+			            <p class="pt-30 f-16">暂时还没有相关内容</p>
+		        	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible_css.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery-1.9.1.min.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.Layer.js?v=20170619"></script>
+<script src="../../../static/html/js/storage.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.form.js?v=20170619"></script>
+<script src="../../../static/html/js/mobiscroll.custom-3.0.0-beta2.min.js?v=20170619"></script>
+
+<script  src="../../../static/html/js/public.js?v=20170619"></script>
+<script src="../../../static/html/js/myscript.js?v=20170619"></script>
+<script  src="../../../static/html/js/common.js?v=20170619"></script>
+<script  src="../../../static/html/js/validate.js?v=20170619"></script>
+<script  src="../../../static/html/js/weike.js?v=20170619"></script>
+<script  src="../../../static/html/js/myWeike.js?v=20170619"></script>
+<script  src="js/wap.js?v=20170619"></script>
+<script  src="js/wapEntities.js?v=20170619"></script>
+<script  src="js/wapNetwork.js?v=20170619"></script>
+<script  src="js/wapNetworkService.js?v=20170619"></script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+		initWieikeGoBack();
+		setTimeout(wap.initGoodsApplyList(), 200);
+}, false);
+$('.filter-layer').on('click','li',function(){
+	if(!$('.filter-layer').hasClass('filter-layer-full')){
+		$(this).addClass('current').siblings('li').removeClass('current');
+	}else{
+		$('.filter-layer li').removeClass('current');
+		$(this).addClass('current');
+	};
+});
+</script>
+</html>

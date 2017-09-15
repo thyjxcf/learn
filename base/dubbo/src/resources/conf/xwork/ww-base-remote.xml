@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="baseremote" extends="default" namespace="/common/open">
+	    
+		<action name="remoteFileUpload" class="net.zdsoft.eis.remote.RemoteFileAction" method="remoteReceiveFile"></action>
+		<action name="remoteClasses" class="net.zdsoft.eis.remote.ClassAction"
+			method="getSchoolClass"></action>
+		<action name="remoteClassCheck" class="net.zdsoft.eis.remote.ClassAction"
+			method="getClassCheck"></action>
+		<action name="remoteClassCheckCommit" class="net.zdsoft.eis.remote.ClassAction"
+			method="getClassCheckCommit"></action>
+		<action name="remoteShowPic" class="net.zdsoft.eis.remote.ClassAction"
+			method="getClassCheckCommit"></action>
+			
+		<action name="showPicture" class="net.zdsoft.eis.base.common.action.DownloadFileAction" method="showPicture">
+		</action>
+		
+		<action name="showPictureAdmin" class="net.zdsoft.eis.base.common.action.DownloadFileAction" method="showPictureAdmin">
+		    <result name="success" type="freemarker">/common/mobileImage.ftl</result>
+		</action>
+		
+		
+		
+		<!-- 远程获取sysoption参数 -->
+		<action name="remoteSysOptionValue" class="net.zdsoft.eis.remote.RemoteSysOptionAction" method="remoteSysOptionValue">			
+		</action>
+			
+		
+	</package>
+</struts>

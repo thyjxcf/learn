@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName" default-lazy-init="true">
+
+	<!-- app权限设置 -->
+	<bean id="officeAppParmDao" class="net.zdsoft.office.basic.dao.impl.OfficeAppParmDaoImpl" />
+	
+    <!-- 消息中心 -->
+    <!-- 信息文件夹  -->
+	<bean id="officeMsgFolderDao" class="net.zdsoft.office.msgcenter.dao.impl.OfficeMsgFolderDaoImpl" />
+    <!-- 文件夹详细信息  -->
+	<bean id="officeMsgFolderDetailDao" class="net.zdsoft.office.msgcenter.dao.impl.OfficeMsgFolderDetailDaoImpl" />
+    <!-- 信息接受信息表  -->
+	<bean id="officeMsgReceivingDao" class="net.zdsoft.office.msgcenter.dao.impl.OfficeMsgReceivingDaoImpl" />
+	<!-- 信息回收  -->
+	<bean id="officeMsgRecycleDao" class="net.zdsoft.office.msgcenter.dao.impl.OfficeMsgRecycleDaoImpl" />
+    <!-- 信息发送表  -->
+	<bean id="officeMsgSendingDao" class="net.zdsoft.office.msgcenter.dao.impl.OfficeMsgSendingDaoImpl" />
+	<!-- 信息主送信息表  -->
+	<bean id="officeMsgMainsendDao" class="net.zdsoft.office.msgcenter.dao.impl.OfficeMsgMainsendDaoImpl" />
+	
+	<!-- 备忘录 -->
+	<bean id="memoDAO" class="net.zdsoft.office.desktop.dao.impl.MemoDAOImpl"/>
+	<!-- 通知公告  -->
+	<bean id="officeBulletinDao" class="net.zdsoft.office.bulletin.dao.impl.OfficeBulletinDaoImpl" />
+	<bean id="officeBulletinSetDao" class="net.zdsoft.office.bulletin.dao.impl.OfficeBulletinSetDaoImpl" />
+	<bean id="officeBulletinTypeDao" class="net.zdsoft.office.bulletin.dao.impl.OfficeBulletinTypeDaoImpl" />
+	<bean id="officeBulletinReadDao" class="net.zdsoft.office.bulletin.dao.impl.OfficeBulletinReadDaoImpl" />
+	<!-- 桐庐定制通知  -->
+	<bean id="officeBulletinTlDao" class="net.zdsoft.office.bulletin.dao.impl.OfficeBulletinTlDaoImpl" />
+	<bean id="officeBulletinTlUnitDao" class="net.zdsoft.office.bulletin.dao.impl.OfficeBulletinTlUnitDaoImpl" />
+	<!-- 新疆定制公告  -->
+	<bean id="officeBulletinXjDao" class="net.zdsoft.office.bulletin.dao.impl.OfficeBulletinXjDaoImpl" />
+	<!-- 报修管理 -->
+	<bean id="officeTypeAuthDao" class="net.zdsoft.office.repaire.dao.impl.OfficeTypeAuthDaoImpl" />
+	<bean id="officeRepaireDao" class="net.zdsoft.office.repaire.dao.impl.OfficeRepaireDaoImpl" />
+	<bean id="officeTeachAreaAuthDao" class="net.zdsoft.office.repaire.dao.impl.OfficeTeachAreaAuthDaoImpl" />
+	<bean id="officeRepaireTypeDao" class="net.zdsoft.office.repaire.dao.impl.OfficeRepaireTypeDaoImpl" />
+	<bean id="officeRepaireSmsDao" class="net.zdsoft.office.repaire.dao.impl.OfficeRepaireSmsDaoImpl" />
+	<!-- 教室预约 -->
+	<bean id="officeApplyNumberDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeApplyNumberDaoImpl" />
+	<bean id="officeTimeSetDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeTimeSetDaoImpl" />
+	<bean id="officeUtilityApplyDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeUtilityApplyDaoImpl" />
+	<bean id="officeUtilityNumberDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeUtilityNumberDaoImpl" />
+	<!-- 页面信息设置  -->
+	<bean id="officeRoomOrderSetDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeRoomOrderSetDaoImpl" />
+	<!-- 考勤管理 -->
+	<bean id="officeAttendanceStuRecordDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeAttendanceStuRecordDaoImpl" />
+	<bean id="officeAttendanceDoorRecordDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeAttendanceDoorRecordDaoImpl" />
+	<bean id="recordInfoDao" class="net.zdsoft.office.dailyoffice.sync.dao.impl.RecordInfoDaoImpl">
+		<property name="dataSource"  ref="yktdataSource"/>
+	</bean>
+	<bean id="doorRecordDao" class="net.zdsoft.office.dailyoffice.sync.dao.impl.DoorRecordDaoImpl">
+		<property name="dataSource"  ref="yktdataSource"/>
+	</bean>
+	<!-- 镇海一卡通 -->
+	<bean id="webBookroomDao" class="net.zdsoft.office.dailyoffice.dao.impl.WebBookroomDaoImpl" >
+	    <property name="dataSource"  ref="yktdataSource"/>
+	</bean>
+	
+	<!-- 审核流程中间转换表  手机端微办公使用 -->
+	<bean id="officeConvertFlowDao" class="net.zdsoft.office.convertflow.dao.impl.OfficeConvertFlowDaoImpl"/>
+	<bean id="officeConvertFlowTaskDao" class="net.zdsoft.office.convertflow.dao.impl.OfficeConvertFlowTaskDaoImpl"/>
+	
+	<!-- 车辆管理 -->
+	<bean id="officeCarApplyDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeCarApplyDaoImpl" />
+	<bean id="officeCarDriverDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeCarDriverDaoImpl" />
+	<bean id="officeCarInfoDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeCarInfoDaoImpl" />
+	<bean id="officeCarSubsidyDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeCarSubsidyDaoImpl" />
+	<!-- 会议管理 -->
+	<bean id="officeMeetingApplyDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeMeetingApplyDaoImpl" />
+	<bean id="officeMeetingUserDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeMeetingUserDaoImpl" />
+	<bean id="officeMeetingAuditDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeMeetingAuditDaoImpl" />
+	<!-- 接待管理 -->
+	<bean id="officeReceptionDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeReceptionDaoImpl" />
+	<!-- 周工作安排 -->
+	<bean id="officeWorkArrangeOutlineDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeWorkArrangeOutlineDaoImpl" />
+	<bean id="officeWorkArrangeDetailDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeWorkArrangeDetailDaoImpl" />
+	<bean id="officeWorkArrangeContentDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeWorkArrangeContentDaoImpl" />
+	
+	<!-- 资产 -->
+	<bean id="officeAssetApplyDao" class="net.zdsoft.office.asset.dao.impl.OfficeAssetApplyDaoImpl" />
+	<bean id="officeAssetCategoryDao" class="net.zdsoft.office.asset.dao.impl.OfficeAssetCategoryDaoImpl" />
+	<!-- 教师请假管理-->
+	<bean id="officeTeacherLeaveDao" class="net.zdsoft.office.teacherLeave.dao.impl.OfficeTeacherLeaveDaoImpl" />
+	<bean id="officeTeacherLeaveUserDao" class="net.zdsoft.office.teacherLeave.dao.impl.OfficeTeacherLeaveUserDaoImpl" />
+	<!-- 宁海教师请假系统 -->
+	<bean id="officeTeacherLeaveNhDao" class="net.zdsoft.office.teacherLeave.dao.impl.OfficeTeacherLeaveNhDaoImpl" />
+	<!-- 采购意见信息表  -->
+	<bean id="officeAssetPurchaseOpinionDao" class="net.zdsoft.office.asset.dao.impl.OfficeAssetPurchaseOpinionDaoImpl" />
+	
+	<!-- 学生请假 -->
+	<bean id="officeLeaveTypeDao" class="net.zdsoft.office.studentLeave.dao.impl.OfficeLeaveTypeDaoImpl" />
+	<bean id="officeStudentLeaveDao" class="net.zdsoft.office.studentLeave.dao.impl.OfficeStudentLeaveDaoImpl" />
+
+	<!-- 一卡通 -->
+	<bean id="studentCardRecordDao" class="net.zdsoft.office.studentcard.dao.impl.StudentCardRecordDaoImpl"></bean>
+	
+	<!-- 学生返校考勤 -->
+	<bean name="inspectionHolidaysInfoDao" class="net.zdsoft.office.studentBackSchool.dao.impl.InspectionHolidaysInfoDaoImpl" />
+    
+	<!-- 任务管理系统 -->
+	<bean id="officeTaskManageDao" class="net.zdsoft.office.taskManage.dao.impl.OfficeTaskManageDaoImpl" />
+	
+	<!-- 工作会议 -->
+	<bean id="officeWorkMeetingDao" class="net.zdsoft.office.meeting.dao.impl.OfficeWorkMeetingDaoImpl" />
+	<bean id="officeWorkMeetingMinutesDao" class="net.zdsoft.office.meeting.dao.impl.OfficeWorkMeetingMinutesDaoImpl" />
+	<bean id="officeWorkMeetingConfirmDao" class="net.zdsoft.office.meeting.dao.impl.OfficeWorkMeetingConfirmDaoImpl" />
+	<bean id="officeWorkMeetingAttendDao" class="net.zdsoft.office.meeting.dao.impl.OfficeWorkMeetingAttendDaoImpl" />
+	<bean id="officeDeptLeaderDao" class="net.zdsoft.office.meeting.dao.impl.OfficeDeptLeaderDaoImpl" />
+	
+	<!-- 日程管理 -->
+	<bean id="officeCalendarAuthDao" class="net.zdsoft.office.schedule.dao.impl.OfficeCalendarAuthDaoImpl" />
+	<bean id="officeCalendarDayInfoDao" class="net.zdsoft.office.schedule.dao.impl.OfficeCalendarDayInfoDaoImpl" />
+	<bean id="officeCalendarMonthInfoDao" class="net.zdsoft.office.schedule.dao.impl.OfficeCalendarMonthInfoDaoImpl" />
+	<bean id="officeCalendarSemesterDao" class="net.zdsoft.office.schedule.dao.impl.OfficeCalendarSemesterDaoImpl" />
+	<bean id="officeCalendarDao" class="net.zdsoft.office.schedule.dao.impl.OfficeCalendarDaoImpl" />
+	<bean id="officeWorkOutlineDao" class="net.zdsoft.office.schedule.dao.impl.OfficeWorkOutlineDaoImpl" />
+	
+	<!-- 局务会议 -->
+	<bean id="officeExecutiveFixedDeptDao" class="net.zdsoft.office.meeting.dao.impl.OfficeExecutiveFixedDeptDaoImpl" />
+	<bean id="officeExecutiveIssueAttendDao" class="net.zdsoft.office.meeting.dao.impl.OfficeExecutiveIssueAttendDaoImpl" />
+	<bean id="officeExecutiveIssueDao" class="net.zdsoft.office.meeting.dao.impl.OfficeExecutiveIssueDaoImpl" />
+	<bean id="officeExecutiveMeetAttendDao" class="net.zdsoft.office.meeting.dao.impl.OfficeExecutiveMeetAttendDaoImpl" />
+	<bean id="officeExecutiveMeetDao" class="net.zdsoft.office.meeting.dao.impl.OfficeExecutiveMeetDaoImpl" />
+	<bean id="officeExecutiveMeetMinutesDao" class="net.zdsoft.office.meeting.dao.impl.OfficeExecutiveMeetMinutesDaoImpl" />
+	<bean id="officeExecutiveMinutesUserDao" class="net.zdsoft.office.meeting.dao.impl.OfficeExecutiveMinutesUserDaoImpl" />
+	
+	<!-- 物品管理 -->
+	<bean id="officeGoodsDao" class="net.zdsoft.office.goodmanage.dao.impl.OfficeGoodsDaoImpl" />
+	<bean id="officeGoodsTypeDao" class="net.zdsoft.office.goodmanage.dao.impl.OfficeGoodsTypeDaoImpl" />
+	<bean id="officeGoodsReqDao" class="net.zdsoft.office.goodmanage.dao.impl.OfficeGoodsReqDaoImpl" />
+	<bean id="officeGoodsChangeLogDao" class="net.zdsoft.office.goodmanage.dao.impl.OfficeGoodsChangeLogDaoImpl" />
+	<bean id="officeGoodsTypeAuthDao" class="net.zdsoft.office.goodmanage.dao.impl.OfficeGoodsTypeAuthDaoImpl" />
+	<bean id="officeGoodsDistributeDao" class="net.zdsoft.office.goodmanage.dao.impl.OfficeGoodsDistributeDaoImpl" />
+	<!-- 工作汇报 -->
+	<bean id="officeWorkReportDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeWorkReportDaoImpl" />
+	<!-- 工作汇报扩展（评论） -->
+	<bean id="officeWorkReportExDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeWorkReportExDaoImpl" />
+	<!-- 桐庐工作汇报 -->
+	<bean id="officeWorkReportTlDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeWorkReportTlDaoImpl" />
+	<!-- 调研管理 -->
+	<bean id="officeSurveyApplyDao" class="net.zdsoft.office.survey.dao.impl.OfficeSurveyApplyDaoImpl" />
+	<bean id="officeSurveyAuditDao" class="net.zdsoft.office.survey.dao.impl.OfficeSurveyAuditDaoImpl" />
+	<!-- 报销管理 -->
+	<bean id="officeExpenseDao" class="net.zdsoft.office.expense.dao.impl.OfficeExpenseDaoImpl" />
+	<!-- 套红模板  -->
+	<bean id="officeTempCommentDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeTempCommentDaoImpl" />
+	<!-- 滨江出差 -->
+	<bean id="officeBusinessTripDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeBusinessTripDaoImpl" />
+	<!-- 滨江外出 -->
+	<bean id="officeGoOutDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeGoOutDaoImpl" />
+	<!-- 听课管理 -->
+	<bean id="officeAttendLectureDao" class="net.zdsoft.office.attendLecture.dao.impl.OfficeAttendLectureDaoImpl" />
+	<!-- 签到 -->
+	<bean id="officeSignedOnDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeSignedOnDaoImpl" />
+	<!-- 签到时间设置 -->
+	<bean id="officeSigntimeSetDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeSigntimeSetDaoImpl" />	<!-- 实验类型设置 -->
+	<bean id="officeLabSetDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeLabSetDaoImpl" />
+	<!-- 实验详情 -->
+	<bean id="officeLabInfoDao" class="net.zdsoft.office.dailyoffice.dao.impl.OfficeLabInfoDaoImpl" />
+	<!-- 会议室管理 -->
+	<bean id="officeBoardroomXjDao" class="net.zdsoft.office.boardroom.dao.impl.OfficeBoardroomXjDaoImpl" />
+	<!-- 会议室预约记录 -->
+	<bean id="officeBoardroomApplyXjDao" class="net.zdsoft.office.boardroom.dao.impl.OfficeBoardroomApplyXjDaoImpl" />
+	<bean id="officeApplyExXjDao" class="net.zdsoft.office.boardroom.dao.impl.OfficeApplyExXjDaoImpl" />
+	<bean id="officeApplyDetailsXjDao" class="net.zdsoft.office.boardroom.dao.impl.OfficeApplyDetailsXjDaoImpl" />
+	<!-- 场地审核人员短信接收设置 -->
+	<bean id="roomorderAuditSmsDao" class="net.zdsoft.office.dailyoffice.dao.impl.RoomorderAuditSmsDaoImpl" />
+	<!-- 用印管理 -->
+	<bean id="officeSealDao" class="net.zdsoft.office.seal.dao.impl.OfficeSealDaoImpl" />
+	<bean id="officeSealTypeDao" class="net.zdsoft.office.seal.dao.impl.OfficeSealTypeDaoImpl" />
+	<!-- 客户管理 -->
+	<bean id="officeCustomerApplyDao" class="net.zdsoft.office.customer.dao.impl.OfficeCustomerApplyDaoImpl" />
+	<bean id="officeCustomerFollowRecordDao" class="net.zdsoft.office.customer.dao.impl.OfficeCustomerFollowRecordDaoImpl" />
+	<bean id="officeCustomerInfoDao" class="net.zdsoft.office.customer.dao.impl.OfficeCustomerInfoDaoImpl" />
+	
+	</beans>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="basedata-query" extends="default" namespace="/basedata/query">
+		<!-- 学校综合信息查询 -->
+		<action name="schoolGeneralInfoQuery"
+			class="net.zdsoft.eis.base.data.action.JwSchGeneralInfoQueryAction">
+			<result name="success" type="freemarker">schoolGeneralInfoQueryMain.ftl</result>
+		</action>
+		<action name="schoolGeneralInfoQuery-queryBasicSchool"
+			class="net.zdsoft.eis.base.data.action.JwSchGeneralInfoQueryAction"
+			method="queryBasicSchool">
+			<result name="success" type="freemarker">schoolBasicInfoQuery.ftl</result>
+			<result name="input" type="freemarker">schoolBasicInfoQuery.ftl</result>
+		</action>
+		<action name="schoolGeneralInfoQuery-queryDetailSchool"
+			class="net.zdsoft.eis.base.data.action.JwSchGeneralInfoQueryAction"
+			method="queryDetailSchool">
+			<result name="success" type="freemarker">schoolDetailInfoQuery.ftl</result>
+		</action>
+		<action name="schoolGeneralInfoQuery-queryBasicSemester"
+			class="net.zdsoft.eis.base.data.action.JwSchGeneralInfoQueryAction"
+			method="queryBasicSemester">
+			<result name="success" type="freemarker">semesterBasicInfoQuery.ftl</result>
+			<result name="input" type="freemarker">semesterBasicInfoQuery.ftl</result>
+		</action>
+		<action name="schoolGeneralInfoQuery-queryDetailSemester"
+			class="net.zdsoft.eis.base.data.action.JwSchGeneralInfoQueryAction"
+			method="queryDetailSemester">
+			<result name="success" type="freemarker">semesterDetailInfoQuery.ftl</result>
+		</action>
+		<action name="schoolGeneralInfoQuery-queryBasicClass"
+			class="net.zdsoft.eis.base.data.action.JwSchGeneralInfoQueryAction"
+			method="queryBasicClass">
+			<result name="success" type="freemarker">classBasicInfoQuery.ftl</result>
+			<result name="input" type="freemarker">classBasicInfoQuery.ftl</result>
+		</action>
+		<action name="schoolGeneralInfoQuery-queryDetailClass"
+			class="net.zdsoft.eis.base.data.action.JwSchGeneralInfoQueryAction"
+			method="queryDetailClass">
+			<result name="success" type="freemarker">classDetailInfoQuery.ftl</result>
+		</action>
+		
+			<action name="stuTeaQuery" class="net.zdsoft.eis.base.data.action.StuTeaQueryAction"  >
+			<result name="success" type="freemarker" >stuTeaAdmin.ftl</result>
+		</action>
+		<action name="stuTeaQuery-list" class="net.zdsoft.eis.base.data.action.StuTeaQueryAction" method="queryList" >
+			<result name="success" type="freemarker">studentList.ftl</result>
+		</action>
+		<action name="stuTeaQuery-schOrEdu" class="net.zdsoft.eis.base.data.action.StuTeaQueryAction" method="queryJudge" >
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="stuTeaQuery-teacherList" class="net.zdsoft.eis.base.data.action.TeacherAction" method="doTeacherListByPage" >
+			<result name="success" type="freemarker">teacherList.ftl</result>
+		</action>
+		
+	</package>
+</struts>

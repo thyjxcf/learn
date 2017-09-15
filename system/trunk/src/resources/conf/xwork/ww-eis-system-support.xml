@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="msgtest" extends="default" namespace="/system/msg">
+		<action name="test" class="net.zdsoft.eis.message.test.MsgSendingTestAction">
+			<result name="success" type="freemarker">test.ftl</result>
+		</action>
+		<action name="sendMsg" class="net.zdsoft.eis.message.test.MsgSendingTestAction"
+			method="sendMsg">
+			<result name="success" type="freemarker">msgsuccess.ftl</result>
+		</action>
+		<action name="sendSms" class="net.zdsoft.eis.message.test.MsgSendingTestAction"
+			method="sendSms">
+			<result name="success" type="freemarker">msgsuccess.ftl</result>
+		</action>
+		<action name="sendMsgAndSms" class="net.zdsoft.eis.message.test.MsgSendingTestAction"
+			method="sendMsgAndSms">
+			<result name="success" type="freemarker">msgsuccess.ftl</result>
+		</action>
+	</package>
+
+	<package name="smstest" extends="default" namespace="/system/sms">
+		<action name="smstest" class="net.zdsoft.eis.sms.test.SmsSendingTestAction">
+			<result name="success" type="freemarker">smstest.ftl</result>
+		</action>
+	</package>
+
+	<package name="supportnewjoin" extends="default" namespace="/support/newjoin">
+		<action name="newjoinunit" class="net.zdsoft.eis.support.action.NewJoinUnitAction"
+			method="fetchUnitsByProvince">
+			<result name="success" type="freemarker">newJoinIndex.ftl</result>
+		</action>
+		<action name="newjoinunitcity" class="net.zdsoft.eis.support.action.NewJoinUnitAction"
+			method="fetchUnitByCity">
+			<result name="success" type="freemarker">newJoinIndex.ftl</result>
+		</action>
+		<action name="newjoinunitcounty" class="net.zdsoft.eis.support.action.NewJoinUnitAction"
+			method="fetchUnitByCounty">
+			<result name="success" type="freemarker">newJoinIndex.ftl</result>
+		</action>
+	</package>
+
+	<!-- 数字校园_推荐学校 -->
+	<package name="support" extends="default" namespace="/support">
+		<action name="getRecommendSchoolList"
+			class="net.zdsoft.eis.support.action.RecommendSchoolAction" method="showRecommendSchoolList">
+			<result name="success" type="freemarker">
+				/support/webShow/recommendSchoolInfoList.ftl
+			</result>
+		</action>
+		<action name="getAllRecommendSchoolList"
+			class="net.zdsoft.eis.support.action.RecommendSchoolAction" method="showAllRecommendSchoolList">
+			<result name="success" type="freemarker">
+				/support/webShow/recommendSchoolList.ftl
+			</result>
+		</action>
+		<action name="getRecommendSchoolInfo"
+			class="net.zdsoft.eis.support.action.RecommendSchoolAction" method="showRecommendSchoolInfo">
+			<result name="success" type="freemarker">
+				/support/webShow/recommendSchoolInfo.ftl
+			</result>
+		</action>
+		<action name="getRecommendSchoolDetail"
+			class="net.zdsoft.eis.support.action.RecommendSchoolAction" method="showRecommendSchoolInfo">
+			<result name="success" type="freemarker">/support/schoolDetail.ftl</result>
+		</action>
+		<action name="getRecommendSchoolRegion"
+			class="net.zdsoft.eis.support.action.RecommendSchoolAction" method="showRecommendSchoolInfo">
+			<result name="success" type="freemarker">/support/schoolDetailRegion.ftl</result>
+		</action>
+		<action name="updateRecommendSchoolInfo"
+			class="net.zdsoft.eis.support.action.RecommendSchoolAction" method="updateRecommendSchoolInfo">
+			<result name="success" type="freemarker">
+				/support/webShow/UpdareReSchInfosuccess.ftl
+			</result>
+		</action>
+		<action name="showAllSchoolInfoList" class="net.zdsoft.eis.support.action.RecommendSchoolAction"
+			method="showAllSchoolInfoList">
+			<result name="success" type="freemarker">
+				/support/manager/updateRecommendState.ftl
+			</result>
+		</action>
+		<action name="showUpdateRecSchInfo" class="net.zdsoft.eis.support.action.RecommendSchoolAction"
+			method="showUpdateRecSchInfo">
+			<result name="success" type="freemarker">
+				/support/manager/recommendSchoolUpdateInfo.ftl
+			</result>
+		</action>
+		<action name="updateRecommendState" class="net.zdsoft.eis.support.action.RecommendSchoolAction"
+			method="updateRecommendState">
+			<result name="success" type="freemarker">
+				/support/webShow/UpdareSchReStatesuccess.ftl
+			</result>
+		</action>
+		<action name="addRecommendSchool" class="net.zdsoft.eis.support.action.RecommendSchoolAction"
+			method="addRecommendSchool">
+			<result name="success" type="freemarker">
+				/support/webShow/addReSchInfosuccess.ftl
+			</result>
+		</action>
+		<action name="getSchoolsBySchName" class="net.zdsoft.eis.support.action.RecommendSchoolAction"
+			method="getSchoolsBySchName">
+			<result name="success" type="freemarker">/support/schoolDetailList.ftl</result>
+		</action>
+		<action name="addRecommendSchoolPage"
+			class="net.zdsoft.eis.support.action.RecommendSchoolAction">
+			<result name="success" type="freemarker">/support/manager/addReSchInfo.ftl</result>
+		</action>
+	</package>
+
+</struts>

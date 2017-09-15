@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="officeBoardRoom" extends="default" namespace="/office/boardroommanage">
+		<action name="boardroommanage" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction">
+	            <result name="success" type="freemarker">boardRoom.ftl</result>
+	     </action>
+	     <!-- 新疆会议室预约 -->
+	     <action name="boardroommanage-boardRoomAdmin" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomAdmin">
+	            <result name="success" type="freemarker">boardRoomAdmin.ftl</result>
+	     </action>
+	     <action name="boardroommanage-boardRoomList" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomList">
+	            <result name="success" type="freemarker">boardRoomList.ftl</result>
+	     </action>
+	     <action name="boardroommanage-addBoardRoom" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="editBoardRoom">
+	            <result name="success" type="freemarker">boardRoomEdit.ftl</result>
+	     </action>
+	     <action name="boardroommanage-saveBoardRoom" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="saveBoardRoom">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+	     <action name="boardroommanage-deleteBoardRoom" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="deleteBoardRoom">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+	     <action name="boardroommanage-ViewBoardRoom" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="viewBoardRoom">
+	            <result name="success" type="freemarker">boardRoomView.ftl</result>
+	     </action>
+	     <!-- 会议室申请 -->
+	     <action name="boardroommanage-boardRoomOrderAdmin" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomOrderAdmin">
+	            <result name="success" type="freemarker">boardRoomOrderAdmin.ftl</result>
+	     </action>
+	     <action name="boardroommanage-boardRoomOrderList" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomOrderList">
+	            <result name="success" type="freemarker">boardRoomOrderList.ftl</result>
+	     </action>
+	     <action name="boardroommanage-boardRoomOrderSave" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomOrderSave">
+	            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+	     </action>
+	     <!-- 会议室预约记录查询 -->
+	     <action name="boardroommanage-boardRoomOrderManageAdmin" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomOrderManageAdmin">
+	            <result name="success" type="freemarker">boardRoomOrderManageAdmin.ftl</result>
+	     </action>
+	     <action name="boardroommanage-boardRoomOrderManageList" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomOrderManageList">
+	            <result name="success" type="freemarker">boardRoomOrderManageList.ftl</result>
+	     </action>
+	     <action name="boardroommanage-boardRoomOrderManageDelete" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomOrderManageDelete">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+	     <!-- 会议室预约审核 -->
+	     <action name="boardroommanage-boardRoomAuditAdmin" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomAuditAdmin">
+	            <result name="success" type="freemarker">boardRoomAuditAdmin.ftl</result>
+	     </action>
+	     <action name="boardroommanage-boardRoomAuditList" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomAuditList">
+	            <result name="success" type="freemarker">boardRoomAuditList.ftl</result>
+	     </action>
+	     <action name="boardroommanage-boardRoomAuditSave" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomAuditSave">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+	     <!-- 审核权限设置 -->
+	     <action name="boardroommanage-auditSet" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="auditSet">
+            <result name="success" type="freemarker">boardRoomAuditSet.ftl</result>
+        </action>
+        <action name="boardroommanage-auditSetSave" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="auditSetSave">
+            <result name="success" type="json">
+        	    <param name="root">promptMessageDto</param>
+			</result>
+        </action>
+	</package>
+	<!-- 用印管理 -->
+	<package name="officeSeal" extends="default" namespace="/office/sealmanage">
+		<action name="sealmanage" class="net.zdsoft.office.seal.action.SealAction">
+			<result name="success" type="freemarker">seal.ftl</result>
+		</action>
+		<!-- 我的申请 -->
+		<action name="sealmanage-mySealAdmin" class="net.zdsoft.office.seal.action.SealAction" method="mySealAdmin">
+			<result name="success" type="freemarker">mySealAdmin.ftl</result>
+		</action>
+		<action name="sealmanage-mySealList" class="net.zdsoft.office.seal.action.SealAction" method="mySealList">
+			<result name="success" type="freemarker">mySealList.ftl</result>
+		</action>
+		<action name="sealmanage-deleteSeal" class="net.zdsoft.office.seal.action.SealAction" method="deleteSeal">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+		<action name="sealmanage-addSeal" class="net.zdsoft.office.seal.action.SealAction" method="editSeal">
+	            <result name="success" type="freemarker">mySealEdit.ftl</result>
+	     </action>
+		<action name="sealmanage-viewSeal" class="net.zdsoft.office.seal.action.SealAction" method="viewSeal">
+	            <result name="success" type="freemarker">mySealView.ftl</result>
+	     </action>
+		<action name="sealmanage-saveSeal" class="net.zdsoft.office.seal.action.SealAction" method="saveSeal">
+	        <result name="success" type="json">
+		       <param name="root">promptMessageDto</param>
+		    </result>
+	     </action>
+		<action name="sealmanage-submitSeal" class="net.zdsoft.office.seal.action.SealAction" method="submitSeal">
+	        <result name="success" type="json">
+		       <param name="root">promptMessageDto</param>
+		    </result>
+	     </action>
+	     <!-- 用印管理 -->
+	     <action name="sealmanage-sealManageAdmin" class="net.zdsoft.office.seal.action.SealAction" method="sealManageAdmin">
+	     	<result name="success" type="freemarker">sealManageAdmin.ftl</result>
+	     </action>
+	     <action name="sealmanage-sealManageList" class="net.zdsoft.office.seal.action.SealAction" method="sealManageList">
+	     	<result name="success" type="freemarker">sealManageList.ftl</result>
+	     </action>
+	     <action name="sealmanage-sealManageAudit" class="net.zdsoft.office.seal.action.SealAction" method="sealManageAudit">
+	     	<result name="success" type="freemarker">sealManageAudit.ftl</result>
+	     </action>
+	     <action name="sealmanage-sealManageView" class="net.zdsoft.office.seal.action.SealAction" method="sealManageView">
+	     	<result name="success" type="freemarker">sealManageView.ftl</result>
+	     </action>
+	     <action name="sealmanage-sealManageSave" class="net.zdsoft.office.seal.action.SealAction" method="sealManageSave">
+	     	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+	     <action name="sealmanage-sealManageConfirmSave" class="net.zdsoft.office.seal.action.SealAction" method="sealManageConfirmSave">
+	     	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+	     <!-- 印章类型 -->
+	     <action name="sealmanage-sealType" class="net.zdsoft.office.seal.action.SealAction" method="sealType">
+	     	<result name="success" type="freemarker">sealType.ftl</result>
+	     </action>
+	     <action name="sealmanage-sealTypeAdd" class="net.zdsoft.office.seal.action.SealAction" method="sealTypeAdd">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+	    <action name="sealmanage-sealTypeEdit" class="net.zdsoft.office.seal.action.SealAction" method="sealTypeEdit">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+	    <action name="sealmanage-sealTypeDelete" class="net.zdsoft.office.seal.action.SealAction" method="sealTypeDelete">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+	    <action name="sealmanage-saveFileAttach" class="net.zdsoft.office.seal.action.SealAction" method="saveFileAttach">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+	    <action name="sealmanage-deleteFileAttach" class="net.zdsoft.office.seal.action.SealAction" method="deleteFileAttach">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+	</package>
+	<package name="officeSalary" extends="default" namespace="/office/salarymanage">
+		<action name="salarymanage" class="net.zdsoft.office.salary.action.SalaryAction">
+			<result name="success" type="freemarker">salary.ftl</result>
+		</action>
+		<action name="salarymanage-salaryManageAdmin" class="net.zdsoft.office.salary.action.SalaryAction" method="salaryManageAdmin">
+			<result name="success" type="freemarker">salaryManageAdmin.ftl</result>
+		</action>
+		<action name="salarymanage-salaryManageList" class="net.zdsoft.office.salary.action.SalaryAction" method="salaryManageList">
+			<result name="success" type="freemarker">salaryManageList.ftl</result>
+		</action>
+		<action name="salarymanage-salaryManageEdit" class="net.zdsoft.office.salary.action.SalaryAction" method="salaryManageEdit">
+			<result name="success" type="freemarker">salaryManageEdit.ftl</result>
+		</action>
+		<action name="salarymanage-salaryImportEdit" class="net.zdsoft.office.salary.action.SalaryAction" method="salaryImportEdit">
+			<result name="success" type="freemarker">salaryImportEdit.ftl</result>
+		</action>
+		<action name="salarymanage-salarySortEdit" class="net.zdsoft.office.salary.action.SalaryAction" method="salarySortEdit">
+			<result name="success" type="freemarker">salarySortEdit.ftl</result>
+		</action>
+		<action name="salarymanage-salaryManageDelete" class="net.zdsoft.office.salary.action.SalaryAction" method="salaryManageDelete">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+		<action name="salarymanage-salaryImportSave" class="net.zdsoft.office.salary.action.SalaryAction" method="salaryImportSave">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+		<action name="salarymanage-salarySortSave" class="net.zdsoft.office.salary.action.SalaryAction" method="salarySortSave">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+		<action name="salarymanage-salaryManageSave" class="net.zdsoft.office.salary.action.SalaryAction" method="salaryManageSave">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+		<action name="salarymanage-doExport" class="net.zdsoft.office.salary.action.SalaryAction" method="doExport">
+	    </action>
+		<action name="salarymanage-mySalaryAdmin" class="net.zdsoft.office.salary.action.SalaryAction" method="mySalaryAdmin">
+			<result name="success" type="freemarker">mySalaryAdmin.ftl</result>
+		</action>
+		<action name="salarymanage-mySalaryList" class="net.zdsoft.office.salary.action.SalaryAction" method="mySalaryList">
+			<result name="success" type="freemarker">mySalaryList.ftl</result>
+			<result name="error" type="freemarker">mySalaryError.ftl</result>
+		</action>
+		
+		<!-- 加载项次 -->
+			<action name="salarymanage-getSalaryTime" class="net.zdsoft.office.salary.action.SalaryAction" method="getSalaryTime">
+			<result name="success" type="freemarker">salaryTime.ftl</result>
+		</action>
+		<!-- 项次修改 -->
+		<action name="salarymanage-salaryType" class="net.zdsoft.office.salary.action.SalaryAction" method="salaryType">
+			<result name="success" type="freemarker">salaryType.ftl</result>
+		</action>
+		<action name="salarymanage-salaryTypeSave" class="net.zdsoft.office.salary.action.SalaryAction" method="salaryTypeSave">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+	    <action name="salarymanage-salaryTypeDelete" class="net.zdsoft.office.salary.action.SalaryAction" method="salaryTypeDelete">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+		<!-- 工资导入 -->
+		<action name="salarymanage-import" class="net.zdsoft.office.salary.action.SalaryDataImportAction">
+			<result name="success" type="freemarker">/office/salarymanage/salaryImport.ftl</result>
+		</action>
+		<action name="salarymanage-import-jsonGetReplyById" class="net.zdsoft.office.salary.action.SalaryDataImportAction" method="jsonGetReplyById">
+		</action>
+		<action name="salarymanage-import-jsonRemoveReplyById" class="net.zdsoft.office.salary.action.SalaryDataImportAction" method="jsonRemoveReplyById">
+		</action>
+		<action name="salarymanage-import-jsonGetErrorData" class="net.zdsoft.office.salary.action.SalaryDataImportAction" method="jsonGetErrorData">
+		</action>
+		<!-- 数据导入 -->
+		<action name="salarymanage-import-dataImport" class="net.zdsoft.office.salary.action.SalaryDataImportAction" method="dataImport">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+				<param name="noCache">true</param>
+				<param name="contentType">text/html</param>
+			</result>
+		</action>
+		
+		<!-- 生成模块 -->
+		<action name="salarymanage-import-gettemplate" class="net.zdsoft.office.salary.action.SalaryDataImportAction" method="getTemplate">
+			<result name="success" type="excel" />
+		</action>
+		<!-- 导出列 -->
+		<action name="salarymanage-import-columnlist" class="net.zdsoft.office.salary.action.SalaryDataImportAction" method="columnList">
+			<result name="success" type="freemarker">/leadin/dataimport/column_select.ftl</result>
+		</action>
+		<!-- 获取错误数据 -->
+		<action name="salarymanage-import-getErrorData" class="net.zdsoft.office.salary.action.SalaryDataImportAction" method="getErrorData">
+		</action>
+		<action name="salarymanage-import-viewRecord-jsonDeleteJob" class="net.zdsoft.office.salary.action.SalaryDataImportAction" method="deleteJobs">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="salarymanage-import-viewRecord" class="net.zdsoft.office.salary.action.SalaryDataImportAction" method="viewRecordHead">
+			<result name="success" type="freemarker">/office/salarymanage/salaryImportView.ftl</result>
+		</action>
+		<action name="salarymanage-import-viewRecordList" class="net.zdsoft.office.salary.action.SalaryDataImportAction" method="viewRecordList">
+			<result name="success" type="freemarker">/topicreport/topic/topicreportViewList.ftl</result>
+		</action>
+		
+		<action name="salarymanage-import-viewRecordDelete" class="net.zdsoft.office.salary.action.SalaryDataImportAction" method="schReporDelete">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		
+	</package>
+</struts>

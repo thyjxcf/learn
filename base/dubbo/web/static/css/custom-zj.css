@@ -1,0 +1,11 @@
+body.custom-zj{background:url(../images/zj_body_bg.jpg) no-repeat top center #aab952;overflow-y:auto;}
+body.custom-zj .mr-12{margin-right:12px;}
+body.custom-zj .login-wrap{width:300px;height:278px;background:url(../images/zj_login_bg.png) no-repeat;margin:235px auto 0;padding:85px 98px 0 396px;}
+body.custom-zj .login-wrap p{height:32px;padding-top:16px;}
+body.custom-zj .login-wrap label{float:left;display:block;width:60px;line-height:32px;color:#666;}
+body.custom-zj .login-wrap .txt{float:left;width:230px;height:12px;background:none;border:0;padding:10px 0;text-indent:10px;}
+body.custom-zj .login-wrap .txt-yzm{width:140px;}
+body.custom-zj .login-wrap .img-yzm{float:right;display:inline-block;width:83px;height:30px;border:1px solid #d2d2d2;margin:-2px 0 0 10px;}
+body.custom-zj .login-wrap .img-yzm img{width:83px;height:30px;}
+body.custom-zj .login-btn{float:right;display:inline-block;width:240px;height:40px;background:url(../images/zj_login_btn.png) no-repeat;}
+body.custom-zj .footer{text-align:center;color:#fff;}

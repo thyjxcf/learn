@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="false" default-autowire="byName" default-init-method="initCache">
+	<!-- 角色dao -->
+	<bean id="roleDao"
+		class="net.zdsoft.eis.system.data.dao.impl.RoleDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+		<property name="incre">
+			<bean
+				class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+				<property name="incrementerName" value="s_sys_role" />
+				<property name="dataSource" ref="dataSource" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="rolePermDao"
+		class="net.zdsoft.eis.system.data.dao.impl.RolePermDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+		<property name="incre">
+			<bean
+				class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+				<property name="incrementerName" value="s_sys_role_perm" />
+				<property name="dataSource" ref="dataSource" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="userRoleRelationDao"
+		class="net.zdsoft.eis.system.data.dao.impl.UserRoleRelationDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+		<property name="incre">
+			<bean
+				class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+				<property name="incrementerName" value="s_sys_user_role" />
+				<property name="dataSource" ref="dataSource" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="unitChannelDao"
+		class="net.zdsoft.eis.system.data.dao.impl.UnitChannelDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 角色service -->
+	<bean id="moduleTreeService"
+		class="net.zdsoft.eis.system.frame.service.impl.ModuleTreeServiceImpl">		
+	</bean>
+	<bean id="roleService"
+		class="net.zdsoft.eis.system.data.service.impl.RoleServiceImpl">
+	</bean>
+	<bean id="userRoleRelationService"
+		class="net.zdsoft.eis.system.data.service.impl.UserRoleRelationServiceImpl">
+		<property name="userRoleRelationDao" ref="userRoleRelationDao" />
+		<property name="rolePermService" ref="rolePermService" />
+	</bean>
+	<bean id="unitChannelService"
+		class="net.zdsoft.eis.system.data.service.impl.UnitChannelServiceImpl">
+		<property name="unitChannelDao" ref="unitChannelDao" />
+	</bean>
+
+	<!-- 角色 -->
+	<bean id="rolePermService"
+		class="net.zdsoft.eis.system.data.service.impl.RolePermServiceImpl">
+	</bean>
+
+	<bean id="userLoginService"
+		class="net.zdsoft.eis.system.data.service.impl.UserLoginServiceImpl">
+	</bean>
+	
+	<bean id="baseCustomRoleUserDao"
+		class="net.zdsoft.eis.system.data.dao.impl.BaseCustomRoleUserDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="baseCustomRoleUserService"
+		class="net.zdsoft.eis.system.data.service.impl.BaseCustomRoleUserServiceImpl">
+	</bean>
+	
+	<bean id="externalAppDao"
+		class="net.zdsoft.eis.system.data.dao.impl.ExternalAppDaoImpl">
+	</bean>
+	
+	<bean id="externalAppService"
+		class="net.zdsoft.eis.system.data.service.impl.ExternalAppServiceImpl">
+	</bean>
+
+	<bean id="sysUserBindDao" class="net.zdsoft.eis.system.data.dao.impl.SysUserBindDaoImpl" />
+	<bean id="sysUserBindService" class="net.zdsoft.eis.system.data.service.impl.SysUserBindServiceImpl" />
+
+	<!-- ====================运营平台====================== -->
+	<!-- 推荐学校  -->
+	<bean id="recommendSchoolDao" class="net.zdsoft.eis.support.dao.impl.RecommendSchoolDaoImpl"
+		autowire="byName">
+	</bean>
+
+	<!-- 推荐学校事件 -->
+	<bean id="recommendSchoolService"
+		class="net.zdsoft.eis.support.service.impl.RecommendSchoolServiceImpl" autowire="byName">
+	</bean>
+
+
+</beans>

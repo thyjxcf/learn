@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>报修管理</title>
+<script src="../../../static/html5/js/flexible_css.debug.js"></script>
+<script src="../../../static/html5/js/flexible.debug.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../static/html5/css/style.css">
+<link rel="stylesheet" type="text/css" href="../../../static/html5/css/mobiscroll.2.13.2.css">
+<style>
+/*评分2017-03-20*/
+	.rating-star{display: block;width:175px;height:20px;background:url(../../../static/html5/images/rating_1x.png) repeat-x;position:relative;margin-top: 0.2rem;}
+	.rating-star a{display:block;height:20px;text-decoration:none; position:absolute;left:0;top:0;outline:none;}
+	.rating-star a:hover,.rating-star a.current{background:url(../../../static/html5/images/rating_1x.png) repeat-x 0 -20px;}
+	.rating-star a.star1{width:35px;z-index:5;}
+	.rating-star a.star2{width:70px;z-index:4;}
+	.rating-star a.star3{width:105px;z-index:3;}
+	.rating-star a.star4{width:140px;z-index:2;}
+	.rating-star a.star5{width:175px;z-index:1;}
+	.ui-rating .rating-info{display:none;color:#777;}
+	[data-dpr="2"] .rating-star{width:350px;height:40px;background:url(../../../static/html5/images/rating_2x.png) repeat-x;}
+	[data-dpr="2"] .rating-star a{height:40px;}
+	[data-dpr="2"] .rating-star a:hover,[data-dpr="2"] .rating-star a.current{background:url(../../../static/html5/images/rating_2x.png) repeat-x 0 -40px;}
+	[data-dpr="2"] .rating-star a.star1{width:70px;}
+	[data-dpr="2"] .rating-star a.star2{width:140px;}
+	[data-dpr="2"] .rating-star a.star3{width:210px;}
+	[data-dpr="2"] .rating-star a.star4{width:280px;}
+	[data-dpr="2"] .rating-star a.star5{width:350px;}
+	[data-dpr="3"] .rating-star{width:525px;height:60px;background:url(../../../static/html5/images/rating_3x.png) repeat-x;}
+	[data-dpr="3"] .rating-star a{height:60px;}
+	[data-dpr="3"] .rating-star a:hover,[data-dpr="3"] .rating-star a.current{background:url(../../../static/html5/images/rating_3x.png) repeat-x 0 -60px;}
+	[data-dpr="3"] .rating-star a.star1{width:105px;}
+	[data-dpr="3"] .rating-star a.star2{width:210px;}
+	[data-dpr="3"] .rating-star a.star3{width:315px;}
+	[data-dpr="3"] .rating-star a.star4{width:420px;}
+	[data-dpr="3"] .rating-star a.star5{width:525px;}
+</style>
+</head>
+
+<body class="gray">
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header>
+        	<h1 class="f-20">报修单</h1>
+            <a href="javascript:void(0)" class="abtn abtn-left f-18 html-window-back" id="back"><span>取消</span></a>
+            <a href="javascript:void(0)" class="abtn abtn-left2 f-18 html-window-close"><span>关闭</span></a>
+            <a href="javascript:void(0)" class="abtn abtn-right f-18 abtn-send" id="save" style="display:none"><span>提交</span></a>
+        </header>
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container">
+<form id="dataForm">
+	<input id="id" name="officeRepaire.id" value="" type="hidden" />
+	<input id="userId" name="officeRepaire.userId" value="" type="hidden" />
+	<input id="unitId" name="officeRepaire.unitId" value="" type="hidden" />
+	<input id="unitClass" name="unitClass" value="" type="hidden" />
+            	<ul class="ui-detail f-14">
+                	<i class="icon-img icon-state icon-state-ser" id="repShow" style="display:none"></i>
+                    <li class="fn-clear mt-20">
+                        <span class="tt">报修人：</span>
+                        <span class="dd" id="userName"></span>
+                    </li>
+                    <li class="fn-clear mt-20" id="areaDivId" style="display:none">
+                        <span class="tt">校区：</span>
+                        <span class="dd" id="teachAreaId"></span>
+                    </li>
+                    <li class="fn-clear mt-20">
+                        <span class="tt">报修类型：</span>
+                        <span class="dd" id="equipmentType"></span>
+                    </li>
+                    <li class="fn-clear mt-20" id="classDivId" style="display:none">
+                        <span class="tt">班级：</span>
+                        <span class="dd" id="classId"></span>
+                    </li>
+                    <li class="fn-clear mt-20">
+                        <span class="tt">设备地点：</span>
+                        <span class="dd" id="goodsPlace"></span>
+                    </li>
+                    <li class="fn-clear mt-20">
+                        <span class="tt">联系电话：</span>
+                        <span class="dd" id="phone"></span>
+                    </li>
+                    <li class="fn-clear mt-20">
+                        <span class="tt">设备名称：</span>
+                        <span class="dd" id="goodsName"></span>
+                    </li>
+                    <li class="fn-clear mt-20">
+                        <span class="tt">类别：</span>
+                        <span class="dd" id="type"></span>
+                    </li>
+                    <li class="fn-clear mt-20">
+                        <span class="tt">二级类别：</span>
+                        <span class="dd" id="repaireTypeId"></span>
+                    </li>
+                    <li class="fn-clear mt-20">
+                        <span class="tt">报修时间：</span>
+                        <span class="dd" id="detailTime"></span>
+                    </li>
+                    <li class="fn-clear mt-20">
+                        <span class="tt">故障详情：</span>
+                        <span class="dd" id="remark"></span>
+                    </li>
+                    <li class="fn-clear mt-20">
+                        <span class="tt">维修时间：</span>
+                        <span class="dd" id="repaireTime"></span>
+                    </li>
+                    <li class="fn-clear mt-20">
+                        <span class="tt">维修备注：</span>
+                        <span class="dd" id="repaireRemark"></span>
+                    </li>
+                    <li class="fn-clear mt-20" id="feedbackShowDiv" style="display:none">
+                        <span class="tt">反馈信息：</span>
+                        <span class="dd" id="feedbackShow"></span>
+                    </li>
+                </ul>
+                <ul class="acc-wrap acc-wrap-auto ios-touch mt-20" id="fileDiv">
+                    <!--<li class="fn-clear">
+                        <span class="icon-img icon-class icon-pdf"></span>
+                        <a href="#" class="icon-img icon-download"></a>
+                        <p class="acc-tt f-16">2014年6月全国计算机等级考试</p>
+                        <p class="acc-dd">805.2KB</p>
+                    </li>-->
+                </ul>
+                <ul class="ui-form mt-20 f-14" id="feedbackStarDiv">
+	                	<input id="mark" type="hidden" name="officeRepaire.mark">
+	                    <li>
+	                        <span class="tt">评价打分</span>
+	                        <span class="dd">
+	                        	<span class="rating-star">
+						            <a href="javascript:void(0);" class="star1" dataValue="1"></a>
+						            <a href="javascript:void(0);" class="star2" dataValue="2"></a>
+						            <a href="javascript:void(0);" class="star3" dataValue="3"></a>
+						            <a href="javascript:void(0);" class="star4" dataValue="4"></a>
+						            <a href="javascript:void(0);" class="star5" dataValue="5"></a>
+						        </span>
+	                        </span>
+	                    </li>
+	                </ul>
+	                
+	                <ul class="ui-form mt-20 f-14" id="feedbackDetailDiv">
+	                	<li class="fn-clear mt-20" id="" style="">
+	                        <span class="tt">反馈信息：</span>
+	                        <span class="dd" id="feedbackShow"></span>
+	                    </li>
+                    </ul>
+                <ul class="ui-form mt-20 f-14" id="feedbackDiv" style="display:none">
+            		<li>
+                        <span class="dd-area"><textarea id="feedback" name="officeRepaire.feedback" maxlength="500" placeholder="请输入反馈信息（必填）"></textarea></span>
+                    </li>
+                </ul>
+                
+</form>        
+            </div>
+        </div>
+	
+    </div>
+</div>
+</body>
+
+<script src="../../../static/html5/js/jquery-1.9.1.min.js"></script>
+<script src="../../../static/html5/js/jquery.Layer.js"></script>
+<script src="../../../static/html5/js/jquery.form.js"></script>
+<script src="../../../static/html5/js/mobiscroll.2.13.2.js"></script>
+<script src="../../../static/html5/js/common.js"></script>
+<script src="../../../static/html5/js/public.js"></script>
+<script src="../../../static/html5/js/storage.js"></script>
+<script src="../../../static/html5/js/myscript.js"></script>
+<script src="../../../static/html5/js/validate.js"></script>
+<script src="../../../static/html5/js/weike.js"></script>
+<script src="../../../static/html5/js/myWeike.js"></script>
+<script src="../../../static/html/js/jquery.Rating.js"></script>
+<script src="js/wap.js"></script>
+<script src="js/wapEntities.js"></script>
+<script src="js/wapNetwork.js"></script>
+<script src="js/wapNetworkService.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(wap.initDetail(), 200);
+}, false);
+</script>
+</html>

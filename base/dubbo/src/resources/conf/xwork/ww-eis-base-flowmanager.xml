@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+
+<struts> 
+	<!-- 异动审核步骤设定管理 -->
+	<package name="auditFlowManage" extends="default" namespace="/common/auditflow">
+		<action name="showAuditTypeList" class="net.zdsoft.eis.base.auditflow.template.action.JwAuditFlowManageAction" method="showAuditTypeList">
+			<result name="success" type="freemarker">/base/auditflow/auditTypeList.ftl</result>
+		</action>
+		<action name="showAuditFlowList" class="net.zdsoft.eis.base.auditflow.template.action.JwAuditFlowManageAction" method="showAuditFlowList">
+			<result name="success" type="freemarker">/base/auditflow/auditFlowList.ftl</result>
+		</action>
+		<action name="refurbishAuditFlowList" class="net.zdsoft.eis.base.auditflow.template.action.JwAuditFlowManageAction" method="refurbishAuditFlowList">
+			<result name="success" type="freemarker">/base/auditflow/auditFlowList.ftl</result>
+		</action>
+		<action name="addAuditFlowList" class="net.zdsoft.eis.base.auditflow.template.action.JwAuditFlowManageAction" method="addAuditFlowList">
+			<result name="success" type="redirect">showAuditFlowList.action?selectType=${selectType}&amp;regionLevel=${regionLevel}&amp;nowRegionLevel=${nowRegionLevel}&amp;auditType=${auditType}&amp;section=${section}&amp;result=${result}&amp;initVerifyKey=${initVerifyKey}&amp;businessType=${businessType}&amp;showFlowType=${showFlowType}&amp;showSections=${showSections}&amp;schConfirm=${schConfirm}&amp;showDefault=${showDefault}&amp;outerframe=${outerframe}</result>
+		</action>
+	</package>
+</struts>

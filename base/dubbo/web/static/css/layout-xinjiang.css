@@ -1,0 +1,32 @@
+﻿/*---------桌面---------*/
+.mt-userinfo{width:293px;height:219px;}
+/*常用操作*/
+.common .dt .set,.common .dt .set-link,.re-common .dt .set{float:right;display:inline-block;height:15px;padding-left:20px;color:#444;}
+.common .dt .set:hover,.common .dt .set-link:hover,.re-common .dt .set:hover{text-decoration:underline;}
+.common ul.app-list{height:158px;padding:0 1px 1px 0;margin-top:20px;position:relative;overflow:hidden;zoom:1;overflow:hidden;}
+.common ul.app-list li{float:left;position:relative;width:33.3333%;}
+.common ul.app-list li p{height:78px;margin:0 -1px -1px 0;overflow:hidden;background:#f1f2f6;border:1px dashed #dedede;text-align:center;}
+.common ul.app-list li p a{display:inline-block;width:100%;height:78px;color:#444;}
+.common ul.app-list li p a:hover{text-decoration:underline;}
+.common ul.app-list li p img{display:block;width:32px;height:32px;margin:11px auto;}
+#commonApp h3{font-size:14px;font-weight:700;color:#444;padding-left:20px;}
+#commonApp h3 span{font-size:12px;font-weight:100;color:#999fa5;}
+#commonApp .app-class{padding:0 20px;line-height:24px;padding-top:5px;}
+#commonApp .app-class a{color:#444;margin-right:10px;}
+#commonApp .app-class a:hover,#commonApp .app-class a.current{color:#026db7;}
+#commonApp .app-list{overflow:hidden;zoom:1;padding-bottom:15px;}
+#commonApp .app-list li{float:left;width:16.25%;text-align:right;margin-top:15px;}
+#commonApp .app-list li a{display:block;width:98px;height:78px;background:#fff;border:1px dashed #dedede;text-align:center;color:#444;}
+#commonApp .app-list li a:hover{text-decoration:none;}
+#commonApp .app-list-yes li a:hover{background:url(../images/icon/app_del.png) no-repeat top right;}
+#commonApp .app-list li a img{display:block;width:32px;height:32px;margin:10px auto;}
+
+
+
+
+
+/*----------页面宽度超过1200像素后的框架结构----------*/
+body.widescreen .mt-userinfo{width:359px;}
+
+/* 20160630 */
+.mt-userinfo{ float:left; padding:20px; background:#fcfcfd;}

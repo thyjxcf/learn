@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
+	default-lazy-init="false" default-autowire="byName">
+
+	<!-- ============各种基础数据，不能延迟初始化且须是单例，以便注册接收消息服务============= -->
+	<bean id="unitConverter" class="net.zdsoft.eis.base.data.sync.converter.UnitConverter" />
+
+	<bean id="unitSyncService"
+		class="net.zdsoft.eis.base.data.sync.service.impl.UnitSyncServiceImpl"
+		parent="abstractHandlerTemplate">
+		<property name="converter" ref="unitConverter" />
+	</bean>
+
+	<bean id="deptConverter" class="net.zdsoft.eis.base.data.sync.converter.DeptConverter" />
+
+	<bean id="deptSyncService"
+		class="net.zdsoft.eis.base.data.sync.service.impl.DeptSyncServiceImpl"
+		parent="abstractHandlerTemplate">
+		<property name="converter" ref="deptConverter" />
+	</bean>
+	
+    <bean id="codeRuleConverter" class="net.zdsoft.eis.base.data.sync.converter.CodeRuleConverter" />
+	<bean id="codeRuleSyncService"
+		class="net.zdsoft.eis.base.data.sync.service.impl.CodeRuleSyncServiceImpl"
+		parent="abstractHandlerTemplate">
+		<property name="converter" ref="codeRuleConverter" />
+	</bean>
+
+	<bean id="codeRuleDetailConverter"
+		class="net.zdsoft.eis.base.data.sync.converter.CodeRuleDetailConverter" />
+	<bean id="codeRuleDetailSyncService"
+		class="net.zdsoft.eis.base.data.sync.service.impl.CodeRuleDetailSyncServiceImpl"
+		parent="abstractHandlerTemplate">
+		<property name="converter" ref="codeRuleDetailConverter" />
+	</bean>
+
+
+	<bean id="serverConverter" class="net.zdsoft.eis.base.data.sync.converter.ServerConverter" />
+
+	<bean id="serverSyncService"
+		class="net.zdsoft.eis.base.data.sync.service.impl.ServerSyncServiceImpl"
+		parent="abstractHandlerTemplate">
+		<property name="converter" ref="serverConverter" />
+	</bean>
+
+
+<bean id="schoolconverter" class="net.zdsoft.eis.base.data.sync.converter.SchoolConverter" />
+	<bean id="schoolSyncService"
+		class="net.zdsoft.eis.base.data.sync.service.impl.SchoolSyncServiceImpl"
+		parent="abstractHandlerTemplate">
+		<property name="converter" ref="schoolconverter" />
+	</bean>
+
+	<bean id="teacherconverter" class="net.zdsoft.eis.base.data.sync.converter.TeacherConverter" />
+
+	<bean id="teacherSyncService"
+		class="net.zdsoft.eis.base.data.sync.service.impl.TeacherSyncServiceImpl"
+		parent="abstractHandlerTemplate">
+		<property name="converter" ref="teacherconverter" />
+	</bean>
+
+	<bean id="teacherDutyConverter"
+		class="net.zdsoft.eis.base.data.sync.converter.TeacherDutyConverter" />
+
+	<bean id="teacherDutySyncService"
+		class="net.zdsoft.eis.base.data.sync.service.impl.TeacherDutySyncServiceImpl"
+		parent="abstractHandlerTemplate">
+		<property name="converter" ref="teacherDutyConverter" />
+	</bean>
+
+	<bean id="userConverter" class="net.zdsoft.eis.base.data.sync.converter.UserConverter" />
+
+	<bean id="userSyncService"
+		class="net.zdsoft.eis.base.data.sync.service.impl.UserSyncServiceImpl"
+		parent="abstractHandlerTemplate">
+		<property name="converter" ref="userConverter" />
+	</bean>
+
+	<bean id="wareConverter" class="net.zdsoft.eis.base.data.sync.converter.WareConverter" />
+
+	<bean id="wareSyncService"
+		class="net.zdsoft.eis.base.data.sync.service.impl.WareSyncServiceImpl"
+		parent="abstractHandlerTemplate">
+		<property name="converter" ref="wareConverter" />
+	</bean>
+
+	<bean id="orderConverter" class="net.zdsoft.eis.base.data.sync.converter.OrderConverter" />
+
+	<bean id="orderSyncService"
+		class="net.zdsoft.eis.base.data.sync.service.impl.OrderSyncServiceImpl"
+		parent="abstractHandlerTemplate">
+		<property name="converter" ref="orderConverter" />
+	</bean>
+	
+
+	<bean id="classConverter" class="net.zdsoft.eis.base.data.sync.converter.ClassConverter" />
+	<bean id="classSyncService"
+		class="net.zdsoft.eis.base.data.sync.service.impl.ClassSyncServiceImpl"
+		parent="abstractHandlerTemplate">
+		<property name="converter" ref="classConverter" />
+	</bean>
+
+	<bean id="sysOptionConverter"
+		class="net.zdsoft.eis.base.data.sync.converter.SysOptionConverter" />
+	<bean id="sysOptionSyncService"
+		class="net.zdsoft.eis.base.data.sync.service.impl.SysOptionSyncServiceImpl"
+		parent="abstractHandlerTemplate">
+		<property name="converter" ref="sysOptionConverter" />
+	</bean>
+
+	<bean id="semesterConverter" class="net.zdsoft.eis.base.data.sync.converter.SemesterConverter" />
+	<bean id="semesterSyncService"
+		class="net.zdsoft.eis.base.data.sync.service.impl.SemesterSyncServiceImpl"
+		parent="abstractHandlerTemplate">
+		<property name="converter" ref="semesterConverter" />
+	</bean>
+
+	<bean id="gradeConverter" class="net.zdsoft.eis.base.data.sync.converter.GradeConverter" />
+	<bean id="gradeSyncService"
+		class="net.zdsoft.eis.base.data.sync.service.impl.GradeSyncServiceImpl"
+		parent="abstractHandlerTemplate">
+		<property name="converter" ref="gradeConverter" />
+	</bean>
+
+	<bean id="familyConverter" class="net.zdsoft.eis.base.data.sync.converter.FamilyConverter" />
+	<bean id="familySyncService"
+		class="net.zdsoft.eis.base.data.sync.service.impl.FamilySyncServiceImpl"
+		parent="abstractHandlerTemplate">
+		<property name="converter" ref="familyConverter" />
+	</bean>
+
+	<!-- 现在不同步这张表
+	<bean id="schtypeSectionConverter"
+		class="net.zdsoft.eis.base.data.sync.converter.SchtypeSectionConverter" />
+	<bean id="schtypeSectionSyncService"
+		class="net.zdsoft.eis.base.data.sync.service.impl.SchtypeSectionSyncServiceImpl"
+		parent="abstractHandlerTemplate">
+		<property name="converter" ref="schtypeSectionConverter" />
+	</bean>
+	 -->
+	
+	<!-- =======================增删改通知 ====================== -->
+	<!-- (batch)create add insert save update modify remove delete 
+		<aop:config>
+		<aop:pointcut id="addSyncOperation"
+		expression="execution(* net.zdsoft.eis.base.data.dao.*Dao.insert*(..))" />
+		<aop:advisor advice-ref="addSyncAdvice" pointcut-ref="addSyncOperation" />
+		</aop:config>
+		
+		<aop:config>
+		<aop:pointcut id="updateSyncOperation"
+		expression="execution(* net.zdsoft.eis.base.data.dao.*Dao.update*(..))" />
+		<aop:advisor advice-ref="updateSyncAdvice" pointcut-ref="updateSyncOperation" />
+		</aop:config>
+		
+		<aop:config>		
+		<aop:pointcut id="businessSyncOperation"
+		expression="execution(* net.zdsoft.eis.base.data.service.*Service.update*(..))" />
+		<aop:advisor advice-ref="businessSyncInterceptor" pointcut-ref="businessSyncOperation" />
+		</aop:config>
+	-->
+	<!-- =======================与统一用户平台基础数据同步====================== -->
+	<bean id="syncJBJobBean" class="net.zdsoft.eis.base.data.sync.schsecurity.job.SyncJBJob" />
+	
+	<bean id="jGJBXXSyncService" class="net.zdsoft.eis.base.data.sync.schsecurity.service.impl.JGJBXXSyncServiceImpl" />
+	<bean id="xXJBXXBSyncService" class="net.zdsoft.eis.base.data.sync.schsecurity.service.impl.XXJBXXBSyncServiceImpl" />
+	<bean id="tYSFYHBSyncService" class="net.zdsoft.eis.base.data.sync.schsecurity.service.impl.TYSFYHBSyncServiceImpl" />
+	<bean id="xXJBXXBDao" class="net.zdsoft.eis.base.data.sync.schsecurity.dao.impl.XXJBXXBDaoImpl" />
+	<bean id="jGJBXXDao" class="net.zdsoft.eis.base.data.sync.schsecurity.dao.impl.JGJBXXDaoImpl" />
+	<bean id="tYSFYHBDao" class="net.zdsoft.eis.base.data.sync.schsecurity.dao.impl.TYSFYHBDaoImpl" />
+	<bean id="syncXXJBXXBLogDao" class="net.zdsoft.eis.base.data.sync.schsecurity.dao.impl.SyncXXJBXXBLogDaoImpl" />
+	<bean id="syncJGJBXXLogDao" class="net.zdsoft.eis.base.data.sync.schsecurity.dao.impl.SyncJGJBXXLogDaoImpl" />
+	<bean id="syncTYSFYHBLogDao" class="net.zdsoft.eis.base.data.sync.schsecurity.dao.impl.SyncTYSFYHBLogDaoImpl" />
+
+</beans>

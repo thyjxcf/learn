@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>集体外出申请</title>
+<link  rel="stylesheet" type="text/css" href="../../../static/html/css/style.css?v=20170619">
+<link rel="stylesheet" type="text/css" href="../../../static/html/css/mobiscroll.custom-3.0.0-beta2.min.css">
+</head>
+
+<body class="gray">
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header style="display:none">
+        	<h1 class="f-20">集体外出申请</h1>
+            <a href="#" class="abtn abtn-left f-18 html-window-back" id="cancelId"><span>取消</span></a>
+            <a href="javascript:void(0)" class="abtn abtn-left2 f-18 html-window-close"><span>关闭</span></a>
+        </header>
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+           <div id="container">
+		<form id="dataForm">
+			<input id="userId" name="userId" value="" type="hidden" />
+			<input id="id" name="officeJtGoout.id" value="" type="hidden" />
+			<input id="unitId" name="officeJtGoout.unitId" value="" type="hidden" />
+		            	<ul class="ui-form f-14">
+		            		<li class="date">
+		                        <span class="tt">开始时间</span>
+		                        <span class="dd">
+		                        	<input type="text" id="startDate" name="startDate" class="txt" value="" placeholder="请选择（必填）">
+		                        	<input type="hidden" id="startDateVal" name="officeJtGoout.startTime" class="txt" value="" placeholder="请选择">
+		                    	</span>
+		                        <i class="icon-arrow"></i>
+		                    </li>
+		            		<li class="date">
+		                        <span class="tt">结束时间</span>
+		                        <span class="dd">
+		                        	<input type="text" id="endDate" name="startDate" class="txt" value="" placeholder="请选择（必填）">
+		                        	<input type="hidden" id="endDateVal" name="officeJtGoout.endTime" class="txt" value="" placeholder="请选择">
+		                        </span>
+		                        <i class="icon-arrow"></i>
+		                    </li>
+		                    <li class="sel">
+		                        <span class="tt">外出类型</span>
+		                        <span class="dd">
+		                            <select id="goOutJtType" name="officeJtGoout.type" class="demo-test-select txt" data-role="none">
+		                            </select>
+		                        </span>
+		                        <i class="icon-arrow"></i>
+		                    </li>
+		                    <div id="studentEx">
+			            		<li>
+			                        <span class="tt">组织活动的年级或班级</span>
+			                        <span class="dd">
+			                        	<input type="text" id="organize" name="gooutStudentEx.organize" class="txt" maxlength="20" value="" placeholder="请输入（必填）">
+			                    	</span>
+			                    </li>
+			            		<li>
+			                        <span class="tt">活动人数</span>
+			                        <span class="dd">
+			                        	<input type="number" id="activityNumber" name="gooutStudentEx.activityNumber" class="txt" maxlength="4" value="" placeholder="请输入（必填）">
+			                    	</span>
+			                    </li>
+			                    <li>
+			                        <span class="tt">活动地点</span>
+			                        <span class="dd">
+			                        	<input type="text" id="place" name="gooutStudentEx.place" class="txt" maxlength="50" value="" placeholder="请输入（必填）">
+			                    	</span>
+			                    </li>
+			                    
+			            		<li class="mt-20">
+			                        <span class="dd-area" id=""><textarea id="scontent" name="gooutStudentEx.content" maxlength="200" placeholder="请输入活动内容（必填）"></textarea></span>
+			                    </li>
+			                    <li  class="sel mt-20">
+			                        <span class="tt">交通工具</span>
+			                        <span class="dd">
+			                        	<input type="text" id="vehicle" name="gooutStudentEx.vehicle" class="txt" maxlength="50" value="" placeholder="请输入（必填）">
+			                    	</span>
+			                    </li>
+			                    <li class="sel">
+			                        <span class="tt">是否有营运证</span>
+			                        <span class="dd">
+			                            <select id="isDrivinglicence" name="gooutStudentEx.isDrivinglicence" class="demo-test-select txt" data-role="none">
+			                            </select>
+			                        </span>
+			                        <i class="icon-arrow"></i>
+			                    </li>
+			                      <li class="sel">
+			                        <span class="tt">是否由旅行社组织</span>
+			                        <span class="dd">
+			                            <select id="isOrganization" name="gooutStudentEx.isOrganization" class="demo-test-select txt" data-role="none">
+			                            </select>
+			                        </span>
+			                        <i class="icon-arrow"></i>
+			                    </li>
+			                    <div id="organizationDiv" style="">
+				                    <li>
+				                        <span class="tt">旅行社单位</span>
+				                        <span class="dd">
+				                        	<input type="text" id="traveUnit" name="gooutStudentEx.traveUnit" class="txt" maxlength="20" value="" placeholder="请输入（必填）">
+				                    	</span>
+				                    </li>
+				                    <li>
+				                        <span class="tt">旅行社联系人</span>
+				                        <span class="dd">
+				                        	<input type="text" id="travelinkPerson" name="gooutStudentEx.traveLinkPerson" class="txt" maxlength="50" value="" placeholder="请输入（必填）">
+				                    	</span>
+				                    </li>
+				                    <li>
+				                        <span class="tt">旅行社联系人手机号</span>
+				                        <span class="dd">
+				                        	<input type="number" id="travelinkPhone" name="gooutStudentEx.traveLinkPhone" class="txt" maxlength="13" value="" placeholder="请输入（必填）">
+				                    	</span>
+				                    </li>
+			                    </div>
+			                    <li class="sel">
+			                        <span class="tt">是否购买人身保险和意外伤害保险</span>
+			                        <span class="dd">
+			                            <select id="isInsurance" name="gooutStudentEx.isInsurance" class="demo-test-select txt" data-role="none">
+			                            </select>
+			                        </span>
+			                        <i class="icon-arrow"></i>
+			                    </li>
+			                    <li id="activityleaderDiv">
+			                        <span class="tt">活动负责人</span>
+			                        <span class="dd">
+			                        	<input type="text" id="activityleaderName" name="activityleaderName" class="txt" value="" readonly placeholder="请选择（必填）">
+			                        	<input type="hidden" id="activityleaderId" name="gooutStudentEx.activityLeaderId" class="txt" readonly value="" placeholder="请选择">
+			                        </span>
+			                        <i class="icon-arrow"></i>
+			                    </li>
+			                     <li>
+			                        <span class="tt">活动负责人手机号</span>
+			                        <span class="dd">
+			                        	<input type="number" id="activityleaderPhone" name="gooutStudentEx.activityLeaderPhone" class="txt" maxlength="13" value="" placeholder="请输入（必填）">
+			                    	</span>
+			                    </li>
+			                    <li id="leaderGroupDiv">
+			                        <span class="tt">带队老师</span>
+			                        <span class="dd">
+			                        	<input type="text" id="leadGroupName" name="leadGroupName" class="txt" value="" readonly placeholder="请选择（必填）">
+			                        	<input type="hidden" id="leadGroupId" name="gooutStudentEx.leadGroupId" class="txt" readonly value="" placeholder="请选择">
+			                        </span>
+			                        <i class="icon-arrow"></i>
+			                    </li>
+			                     <li>
+			                        <span class="tt">带队老师手机号</span>
+			                        <span class="dd">
+			                        	<input type="number" id="leadGroupPhone" name="gooutStudentEx.leadGroupPhone" class="txt" maxlength="13" value="" placeholder="请输入（必填）">
+			                    	</span>
+			                    </li>
+			                    <li class="mt-20" >
+			                        <p class="tit">其他老师<span>（点击名字可删除）</span></p>
+			                        <div class="did pb-20">
+			                        	<input type="hidden" id="otherTeacherId" name="gooutStudentEx.otherTeacherId" value=""/>
+			                        	<a href="#" class="icon-img icon-add" id="otherTeacher"></a>
+			                        	<div>
+				                        	<span class="dd-scroll ios-touch"  id="otherTeacherNames">
+				                            </span>
+			                        	</div>
+			                        </div>
+		                    	</li>
+			                     <li class="sel">
+			                        <span class="tt">活动方案</span>
+			                        <span class="dd">
+			                            <select id="activityIdeal" name="gooutStudentEx.activityIdeal" class="demo-test-select txt" data-role="none">
+			                            </select>
+			                        </span>
+			                        <i class="icon-arrow"></i>
+			                    </li>
+			                    <li class="sel">
+			                        <span class="tt">安全方案</span>
+			                        <span class="dd">
+			                            <select id="saftIdeal" name="gooutStudentEx.saftIdeal" class="demo-test-select txt" data-role="none">
+			                            </select>
+			                        </span>
+			                        <i class="icon-arrow"></i>
+			                    </li>
+			                </div>
+		                    <div id="teacherEx" style="display:none">
+		                    	<li class="mt-20">
+		                        <span class="dd-area" id=""><textarea id="tcontent" name="gooutTeacherEx.content" maxlength="200" placeholder="请输入外出内容（必填）"></textarea></span>
+		                    	</li>
+		                    	
+		                    	<li class="mt-20" >
+			                        <p class="tit">参与人员<span>（点击名字可删除）</span></p>
+			                        <div class="did pb-20">
+			                        	<input type="hidden" id="partakePersonId" name="gooutTeacherEx.partakePersonId" value=""/>
+			                        	<a href="#" class="icon-img icon-add" id="partakePerson"></a>
+			                        	<div>
+				                        	<span class="dd-scroll ios-touch"  id="partakePersonNames">
+				                            </span>
+			                        	</div>
+			                        </div>
+		                    	</li>
+		                    </div>
+		                    
+		            		<li class="sel">
+		                        <span class="tt">外出流程</span>
+		                        <span class="dd">
+		                            <select id="gooutJtFlow" name="officeJtGoout.flowId" class="demo-test-select txt" data-role="none">
+		                            </select>
+		                        </span>
+		                        <i class="icon-arrow"></i>
+		                    </li>
+		            		<li class="mt-20">
+		                    	<p class="ui-file">
+		                    	<!-- 
+		                            <input type="file" id="upFile" name="uploadContentFile"  accept="image/*">
+		                          --> 
+		                            <span class="tt">图片</span>
+		                            <span class="dd">
+		                                <i class="icon-img icon-adjunct"></i>
+		                            </span>
+		                            <input type="hidden" name="removeAttachment" id="attDelIds" >
+		                        </p>
+				                <ul class="acc-wrap  ios-touch" id="accFooter">
+						        </ul>
+		                    </li>
+		                    <div id="flowDetail"></div>
+		            	</ul>
+		            	<p class="abtn-full f-16"><a href="javascript:void(0);" id="save">提交</a></p>
+			</form>
+	    </div>
+	</div>
+ </div>
+</div>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible_css.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery-1.9.1.min.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.Layer.js?v=20170619"></script>
+<script src="../../../static/html/js/storage.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.form.js?v=20170619"></script>
+<script src="../../../static/html/js/mobiscroll.custom-3.0.0-beta2.min.js?v=20170619"></script>
+
+<script  src="../../../static/html/js/public.js?v=20170619"></script>
+<script  src="../../../static/html/js/myscript.js?v=20170619"></script>
+<script  src="../../../static/html/js/common.js?v=20170619"></script>
+<script  src="../../../static/html/js/validate.js?v=20170619"></script>
+<script  src="../../../static/html/js/weike.js?v=20170619"></script>
+<script  src="../../../static/html/js/myWeike.js?v=20170619"></script>
+<script  src="js/wap.js?v=20170619"></script>
+<script  src="js/wapEntities.js?v=20170619"></script>
+<script  src="js/wapNetwork.js?v=20170619"></script>
+<script  src="js/wapNetworkService.js?v=20170619"></script>
+
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+		setTimeout(wap.initGooutJtApply(), 200);
+}, false);
+</script>
+</body>
+</html>

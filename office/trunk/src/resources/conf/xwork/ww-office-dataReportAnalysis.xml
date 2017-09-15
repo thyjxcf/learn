@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 数据报表 分析  -->
+	<package name="dataAnalysis" extends="default" namespace="/office/dataAnalysis">
+
+				<action name="dataAnalysis" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisAction" method="execute">
+					<result name="success" type="freemarker">dataReportAdmin.ftl</result>
+				</action>
+				<action name="dataAnalysis-importData" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisAction" method="execute">
+					<result name="success" type="freemarker">dataReportImport.ftl</result>
+				</action>
+
+				<action name="dataAnalysis-importDataShowMain" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisAction" method="execute">
+					<result name="success" type="freemarker">dataReportShowMain.ftl</result>
+				</action>
+				<action name="dataAnalysis-importDataAnalysis" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisAction" method="uploadDataFile">
+					<result name="success" type="json">
+						<param name="root">promptMessageDto</param>
+						<param name="noCache">true</param>
+				        <param name="contentType">text/html</param>
+					</result>
+				</action>
+				<action name="dataAnalysis-downloadDataAnalysisFile" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisAction" method="downLoadFile">
+				</action>
+				<action name="dataAnalysis-getInfomation" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisAction" method="getInfo">
+				   <result name="success" type="freemarker">dataAnalysisShow.ftl</result>
+				</action>
+				<action name="dataAnalysis-getSchoolStatistics" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisAction" method="initStatExcel">
+				   <result name="success" type="freemarker">dataAnalysisShow.ftl</result>
+				</action>
+
+
+
+	</package>
+	<package name="dataEduAnalysis" extends="default" namespace="/office/dataAnalysis/statistic">
+				<action name="statisticDataAnalysis" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisAction" method="eduAnalysisLink">
+					<result name="success" type="freemarker">dataAnalysisEduMain.ftl</result>
+					<result name="input" type="freemarker">manageAdminNoRight.ftl</result>
+				</action>
+				<!--  
+				<action name="eduDataAnalysis-schoolInfoList" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisAction" method="schoolInfoList">
+					<result name="success" type="freemarker">dataAnalysisSchoolInfoList.ftl</result>
+				</action>
+				-->
+				<action name="statisticDataAnalysis-getSchoolInfoMain" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisAction" method="getSchoolInfoMain">
+					<result name="success" type="freemarker">dataAnalysisSchoolMain.ftl</result>
+				</action>
+				<action name="statisticDataAnalysis-getSchoolDataInfo" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisAction" method="getInfo">
+					<result name="success" type="freemarker">/office/dataAnalysis/dataAnalysisShow.ftl</result>
+				</action>
+				<!-- 初始化统计信息  -->
+				<action name="statisticDataAnalysis-dataAnalysis" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisAction" method="initExcel">
+					<result name="success" type="json">
+						<param name="root">promptMessageDto</param>
+					</result>
+				</action>
+				<action name="statisticDataAnalysis-dataAnalysisShow" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisAction" method="initStatExcel">
+					<result name="success" type="freemarker">dataAnalysisEduShow.ftl</result>
+				</action>
+
+
+	</package>
+	<!-- 街道创建 -->
+	<package name="street" extends="default" namespace="/office/dataAnalysis/street">
+		<action name="eduDataAnalysisStreet" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisStreetAction">
+			<result name="success" type="freemarker" >dataAnalysisStreetMain.ftl</result>
+		</action>
+		<action name="eduDataAnalysisStreet-streetList" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisStreetAction" method="streetList">
+			<result name="success" type="freemarker" >dataAnalysisStreetList.ftl</result>
+		</action>
+		<action name="eduDataAnalysisStreet-streetEditLink" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisStreetAction" method="streetEditLink">
+			<result name="success" type="freemarker" >dataAnalysisStreetEdit.ftl</result>
+		</action>
+		<action name="eduDataAnalysisStreet-streetEdit" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisStreetAction" method="streetSave">
+			<result name="success" type="json" >
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="eduDataAnalysisStreet-streetDelete" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisStreetAction" method="streetDelete">
+			<result name="success" type="json" >
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action><action name="eduDataAnalysisStreet-checkStreetName" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisStreetAction" method="checkStreetName">
+			<result name="success" type="json" >
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+
+		<action name="eduDataAnalysisStreetManager" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisStreetManagerAction">
+			<result name="success" type="freemarker" >/office/dataAnalysis/streetManage/dataAnalysisStreetManageMain.ftl</result>
+		</action>
+		<action name="eduDataAnalysisStreetManager-streetManagerList" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisStreetManagerAction" method="streetManagerList">
+			<result name="success" type="freemarker" >/office/dataAnalysis/streetManage/dataAnalysisStreetManageList.ftl</result>
+		</action>
+		<action name="eduDataAnalysisStreetManager-streetManagerEditLink" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisStreetManagerAction" method="streetManagerEditLink">
+			<result name="success" type="freemarker" >/office/dataAnalysis/streetManage/dataAnalysisStreetManageEdit.ftl</result>
+		</action>
+		<action name="eduDataAnalysisStreetManager-streetManagerEdit" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisStreetManagerAction" method="streetManagerSave">
+			<result name="success" type="json" >
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="eduDataAnalysisStreetManager-streetManagerDelete" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisStreetManagerAction" method="streetManagerDelete">
+			<result name="success" type="json" >
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action><action name="eduDataAnalysisStreetManager-checkStreetManager" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisStreetManagerAction" method="checkStreetManager">
+			<result name="success" type="json" >
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<!-- 街道 div -->
+		<action name="eduDataAnalysisStreetManager-getStreetDiv" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAnalysisStreetDivAction" method="getObjectsByUnitId" >
+			<result name="success" type="freemarker">/common/popupObjectDiv.ftl</result>
+		</action>
+		<action name="eduDataAnalysisStreetManager-getAllTeachersDiv" class="net.zdsoft.office.dataAnalysis.action.OfficeDataAllTeacherDivAction" method="getObjectsByUnitId" >
+			<result name="success" type="freemarker">/common/popupObjectDiv.ftl</result>
+		</action>
+	</package>
+
+
+
+</struts>

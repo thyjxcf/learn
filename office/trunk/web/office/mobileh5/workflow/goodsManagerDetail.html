@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>物品管理</title>
+<link  rel="stylesheet" type="text/css" href="../../../static/html/css/style.css?v=20170619">
+</head>
+
+<body class="gray">
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header style="display:none">
+        	<h1 class="f-20">领用审核</h1>
+            <a href="javascript:void(0)" class="abtn abtn-img abtn-back abtn-left html-window-back" id="back"><span></span></a>
+            <a href="javascript:void(0)" class="abtn abtn-left2 f-18 html-window-close"><span>关闭</span></a>
+        </header>
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container" class="fn-rel">
+        		<i class="icon-img icon-state icon-state-abs icon-state-yse" style="display:none;"></i>
+        		<i class="icon-img icon-state icon-state-abs icon-state-no" style="display:none;"></i>
+                <ul class="ui-detail f-14">
+                	<input type="hidden" id="id" value="">
+            		<!--<li class="tit"><span class="time f-14" id="creationTime"></span><span class="f-18" id="title"></span></li>-->
+            		<li class="avatar fn-clear" id="userPhotoImg"></li>
+            		<li class="fn-clear  mt-20">
+                        <span class="tt">所在部门：</span>
+                        <span class="dd" id="deptName"></span>
+                    </li>
+                    <li class="fn-clear">
+                        <span class="tt">物品名称：</span>
+                        <span class="dd" id="name"></span>
+                    </li>
+                    <li class="fn-clear">
+                        <span class="tt">物品类别：</span>
+                        <span class="dd" id="typeName"></span>
+                    </li>
+                    <li class="fn-clear">
+                        <span class="tt">物品单价：</span>
+                        <span class="dd" id="price"></span>
+                    </li>
+                    <li class="fn-clear">
+                        <span class="tt">规格型号：</span>
+                        <span class="dd" id="model"></span>
+                    </li>
+                    <li class="fn-clear">
+                        <span class="tt">申请数量：</span>
+                        <span class="dd" id="amount"></span>
+                    </li>
+                </ul>
+                <ul class="ui-detail mt-20 f-14">
+                    <li class="fn-clear">
+                        <span class="tt">备注：</span>
+                        <span class="dd" id="remark"></span>
+                    </li>
+            	</ul>
+                <ul class="ui-detail mt-20 f-14">
+                    <li class="fn-clear">
+                        <span class="tt">申请说明：</span>
+                        <span class="dd" id="reqRemark"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="ui-footer fn-flex fn-flex-row f-16" id="giveBackDivId" style="display:none">
+            <span class="fn-flex-auto"><a href="javascript:void(0)" class="submit" id="giveBack">我要归还</a></span>
+        </div>
+        <div class="ui-footer fn-flex fn-flex-row f-16" id="auditDivId" style="display:none">
+            <span class="fn-flex-auto"><a href="javascript:void(0)" class="submit pass" id="yPass">通过</a></span>
+            <span class="fn-flex-auto"><a href="javascript:void(0)" class="reset no-pass" id="nPass">不通过</a></span>
+        </div>
+    </div>
+</div>
+<div class="ui-layer fail-ui-layer" style="display:none;" id="reasonDiv">
+	<p class="py-30 t-center f-14">审核意见</p>
+    <p class="px-10 mb-30"><input type="text" id="failReason" class="reason txt f-14" maxlength="200" placeholder="输入不通过的理由"></p>
+	<p class="fn-flex fn-flex-row dd f-14">
+        <a href="#" class="fn-flex-auto close" id="failAudit">确定</a>
+        <a href="#" class="fn-flex-auto close">取消</a>
+    </p>
+</div>
+
+<div class="ui-layer pass-ui-layer" style="display:none;">
+	<p class="py-30 t-center f-14">审核意见</p>
+    <p class="px-10 mb-30"><input type="text" id="passReason" class="reason txt f-14" maxlength="200" placeholder="内容..."></p>
+	<p class="fn-flex fn-flex-row dd f-14">
+        <a href="#" class="fn-flex-auto close" id="passAudit">确定</a>
+        <a href="#" class="fn-flex-auto close">取消</a>
+    </p>
+</div>
+
+</body>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible_css.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery-1.9.1.min.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.Layer.js?v=20170619"></script>
+<script src="../../../static/html/js/storage.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.form.js?v=20170619"></script>
+<script src="../../../static/html/js/mobiscroll.custom-3.0.0-beta2.min.js?v=20170619"></script>
+
+<script  src="../../../static/html/js/public.js?v=20170619"></script>
+<script  src="../../../static/html/js/myscript.js?v=20170619"></script>
+<script  src="../../../static/html/js/common.js?v=20170619"></script>
+<script  src="../../../static/html/js/validate.js?v=20170619"></script>
+<script  src="../../../static/html/js/weike.js?v=20170619"></script>
+<script  src="../../../static/html/js/myWeike.js?v=20170619"></script>
+<script  src="js/wap.js?v=20170619"></script>
+<script  src="js/wapEntities.js?v=20170619"></script>
+<script  src="js/wapNetwork.js?v=20170619"></script>
+<script  src="js/wapNetworkService.js?v=20170619"></script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+		layer('.no-pass', '.fail-ui-layer', '.close', '备注');
+		layer('.pass', '.pass-ui-layer', '.close', '备注');
+		
+		setTimeout(wap.initGoodsDetail(), 200);
+	}, false);
+</script>
+</html>

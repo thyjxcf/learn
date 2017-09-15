@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="officeBoardRoom" extends="default" namespace="/office/boardroommanage">
+		<action name="boardroommanage" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction">
+	            <result name="success" type="freemarker">boardRoom.ftl</result>
+	     </action>
+	     <!-- 新疆会议室预约 -->
+	     <action name="boardroommanage-boardRoomAdmin" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomAdmin">
+	            <result name="success" type="freemarker">boardRoomAdmin.ftl</result>
+	     </action>
+	     <action name="boardroommanage-boardRoomList" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomList">
+	            <result name="success" type="freemarker">boardRoomList.ftl</result>
+	     </action>
+	     <action name="boardroommanage-addBoardRoom" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="editBoardRoom">
+	            <result name="success" type="freemarker">boardRoomEdit.ftl</result>
+	     </action>
+	     <action name="boardroommanage-saveBoardRoom" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="saveBoardRoom">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+	     <action name="boardroommanage-deleteBoardRoom" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="deleteBoardRoom">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+	     <action name="boardroommanage-ViewBoardRoom" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="viewBoardRoom">
+	            <result name="success" type="freemarker">boardRoomView.ftl</result>
+	     </action>
+	     <!-- 会议室申请 -->
+	     <action name="boardroommanage-boardRoomOrderAdmin" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomOrderAdmin">
+	            <result name="success" type="freemarker">boardRoomOrderAdmin.ftl</result>
+	     </action>
+	     <action name="boardroommanage-boardRoomOrderList" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomOrderList">
+	            <result name="success" type="freemarker">boardRoomOrderList.ftl</result>
+	     </action>
+	     <action name="boardroommanage-boardRoomOrderSave" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomOrderSave">
+	            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+	     </action>
+	     <!-- 会议室预约记录查询 -->
+	     <action name="boardroommanage-boardRoomOrderManageAdmin" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomOrderManageAdmin">
+	            <result name="success" type="freemarker">boardRoomOrderManageAdmin.ftl</result>
+	     </action>
+	     <action name="boardroommanage-boardRoomOrderManageList" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomOrderManageList">
+	            <result name="success" type="freemarker">boardRoomOrderManageList.ftl</result>
+	     </action>
+	     <action name="boardroommanage-boardRoomOrderManageDelete" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomOrderManageDelete">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+	     <!-- 会议室预约审核 -->
+	     <action name="boardroommanage-boardRoomAuditAdmin" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomAuditAdmin">
+	            <result name="success" type="freemarker">boardRoomAuditAdmin.ftl</result>
+	     </action>
+	     <action name="boardroommanage-boardRoomAuditList" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomAuditList">
+	            <result name="success" type="freemarker">boardRoomAuditList.ftl</result>
+	     </action>
+	     <action name="boardroommanage-boardRoomAuditSave" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="boardRoomAuditSave">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+	     <!-- 审核权限设置 -->
+	     <action name="boardroommanage-auditSet" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="auditSet">
+            <result name="success" type="freemarker">boardRoomAuditSet.ftl</result>
+        </action>
+        <action name="boardroommanage-auditSetSave" class="net.zdsoft.office.boardroom.action.OfficeBoardRoomAction" method="auditSetSave">
+            <result name="success" type="json">
+        	    <param name="root">promptMessageDto</param>
+			</result>
+        </action>
+	</package>
+	<!-- 用印管理 -->
+	<package name="officeSeal" extends="default" namespace="/office/sealmanage">
+		<action name="sealmanage" class="net.zdsoft.office.seal.action.SealAction">
+			<result name="success" type="freemarker">seal.ftl</result>
+		</action>
+		<!-- 我的申请 -->
+		<action name="sealmanage-mySealAdmin" class="net.zdsoft.office.seal.action.SealAction" method="mySealAdmin">
+			<result name="success" type="freemarker">mySealAdmin.ftl</result>
+		</action>
+		<action name="sealmanage-mySealList" class="net.zdsoft.office.seal.action.SealAction" method="mySealList">
+			<result name="success" type="freemarker">mySealList.ftl</result>
+		</action>
+		<action name="sealmanage-deleteSeal" class="net.zdsoft.office.seal.action.SealAction" method="deleteSeal">
+	            <result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+		<action name="sealmanage-addSeal" class="net.zdsoft.office.seal.action.SealAction" method="editSeal">
+	            <result name="success" type="freemarker">mySealEdit.ftl</result>
+	     </action>
+		<action name="sealmanage-viewSeal" class="net.zdsoft.office.seal.action.SealAction" method="viewSeal">
+	            <result name="success" type="freemarker">mySealView.ftl</result>
+	     </action>
+		<action name="sealmanage-saveSeal" class="net.zdsoft.office.seal.action.SealAction" method="saveSeal">
+	        <result name="success" type="json">
+		       <param name="root">promptMessageDto</param>
+		    </result>
+	     </action>
+		<action name="sealmanage-submitSeal" class="net.zdsoft.office.seal.action.SealAction" method="submitSeal">
+	        <result name="success" type="json">
+		       <param name="root">promptMessageDto</param>
+		    </result>
+	     </action>
+	     <!-- 用印管理 -->
+	     <action name="sealmanage-sealManageAdmin" class="net.zdsoft.office.seal.action.SealAction" method="sealManageAdmin">
+	     	<result name="success" type="freemarker">sealManageAdmin.ftl</result>
+	     </action>
+	     <action name="sealmanage-sealManageList" class="net.zdsoft.office.seal.action.SealAction" method="sealManageList">
+	     	<result name="success" type="freemarker">sealManageList.ftl</result>
+	     </action>
+	     <action name="sealmanage-sealManageAudit" class="net.zdsoft.office.seal.action.SealAction" method="sealManageAudit">
+	     	<result name="success" type="freemarker">sealManageAudit.ftl</result>
+	     </action>
+	     <action name="sealmanage-sealManageView" class="net.zdsoft.office.seal.action.SealAction" method="sealManageView">
+	     	<result name="success" type="freemarker">sealManageView.ftl</result>
+	     </action>
+	     <action name="sealmanage-sealManageSave" class="net.zdsoft.office.seal.action.SealAction" method="sealManageSave">
+	     	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+	     <action name="sealmanage-sealManageConfirmSave" class="net.zdsoft.office.seal.action.SealAction" method="sealManageConfirmSave">
+	     	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	     </action>
+	     <!-- 印章类型 -->
+	     <action name="sealmanage-sealType" class="net.zdsoft.office.seal.action.SealAction" method="sealType">
+	     	<result name="success" type="freemarker">sealType.ftl</result>
+	     </action>
+	     <action name="sealmanage-sealTypeAdd" class="net.zdsoft.office.seal.action.SealAction" method="sealTypeAdd">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+	    <action name="sealmanage-sealTypeEdit" class="net.zdsoft.office.seal.action.SealAction" method="sealTypeEdit">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+	    <action name="sealmanage-sealTypeDelete" class="net.zdsoft.office.seal.action.SealAction" method="sealTypeDelete">
+	    	<result name="success" type="json"><param name="root">promptMessageDto</param></result>
+	    </action>
+	</package>
+</struts>

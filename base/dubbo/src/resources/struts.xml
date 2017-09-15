@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- <include file="webwork-default.xml" /> -->
+	<!-- Configuration for the default package. -->
+	<constant name="struts.ui.theme" value="simple" />
+	<package name="default-package" extends="json-default">
+		<result-types>
+			<result-type name="json" class="org.apache.struts2.json.JSONResult">
+		    	<param name="enumAsBean">true</param>
+            	<param name="root">jsonMessageDto</param>
+		   	</result-type>
+		</result-types>
+		<interceptors>
+			<interceptor name="burlap1"
+				class="net.zdsoft.leadin.interceptor.BurlapInterceptor" />			
+		</interceptors>
+
+
+		<global-results>
+			<result name="exception" type="freemarker">/common/exception.ftl</result>
+			<result name="none" type="freemarker">/common/none.ftl</result>
+			<result name="promptMsg" type="freemarker">/common/promptmessage.ftl
+			</result>
+			<result name="nopermission" type="freemarker">/common/nopermission.ftl
+			</result>
+			<result name="commonTree" type="freemarker">/common/xtree/commontree.ftl</result>
+			<result name="commonTreeXml" type="freemarker">/common/xtree/commontreexml.ftl</result>
+			
+			<result name="commonTree2" type="freemarker">/common/popupObjectDiv.ftl</result>
+			<result name="commonTreeXml2" type="freemarker">/common/popupObjectDivDynamic.ftl</result>
+			
+			<result name="commonTree3" type="freemarker">/common/ztree/ztree.ftl</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="exception" />
+		</global-exception-mappings>
+	</package>
+	<package name="default-platform" extends="default-package">
+		<result-types>
+			<!-- 超级报表 -->
+			<result-type name="chinaexcel"
+				class="net.zdsoft.leadin.chinaexcel.ChinaexcelResult">
+				<param name="encoding">GBK</param>
+			</result-type>
+
+			<!-- 导入 -->
+			<result-type name="excel"
+				class="net.zdsoft.leadin.dataimport.action.ExcelResult" />
+			<result-type name="excelerrordata"
+				class="net.zdsoft.leadin.dataimport.action.ExcelErrorDataResult" />
+		</result-types>
+
+
+		<interceptors>
+			<interceptor-stack name="eisStack">
+				<interceptor-ref name="exception" />
+				<!-- <interceptor-ref name="prepare" /> -->
+				<interceptor-ref name="modelDriven" >
+				<param name="refreshModelBeforeResult">true</param>
+				</interceptor-ref>
+				<!--<interceptor-ref name="checkbox" />
+				<interceptor-ref name="multiselect" />-->
+				<interceptor-ref name="staticParams" />
+				<interceptor-ref name="params">
+					<param name="excludeParams">dojo\..*,^struts\..*,.*\\u0023.*</param>
+					<param name="ordered">true</param>
+					<param name="devMode">false</param>
+				</interceptor-ref>
+				<interceptor-ref name="conversionError" />
+				<interceptor-ref name="validation">
+					<param name="excludeMethods">input,back,cancel,browse</param>
+				</interceptor-ref>
+				<interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+			</interceptor-stack>
+			
+			<interceptor-stack name="burlap">
+				<interceptor-ref name="burlap1" />
+			</interceptor-stack>
+			
+			<interceptor name="exception" class="net.zdsoft.eis.frame.web.ZdsoftExceptionMappingInterceptor">
+				<param name="logEnabled">true</param>
+                <param name="logLevel">error</param> 
+			</interceptor>
+			
+		</interceptors>
+		
+		<default-interceptor-ref name="eisStack" />
+	</package>
+	
+	<package name="default" extends="default-platform">		
+
+		<interceptors>
+			
+			<interceptor name="permissioncheck"
+				class="net.zdsoft.eis.system.frame.web.PermissionCheckInterceptor">
+				<param name="noRuleSkip">false</param>
+        <param name="skipNameSpaces">/smsplatform/,/stuplatform/,/background/,/leadin/,/common/,/jbmp,/showcase/,/system/frame/,/system/homepage/,/fpf/,/login/,/help/,/desktop/,/desktop/login/,/component/,/stusys/desktop/,/exam/desktop/,/archive3/innerdesktop/,/basedata/serial/,/outer/,/personnel/desklet/,/dgstusys/newstu/,/remote/,/open/,/office/tempcomment/</param>
+			</interceptor>
+
+			<interceptor-stack name="permissioncheckStack">
+				<interceptor-ref name="eisStack" />
+				<interceptor-ref name="permissioncheck" />
+			</interceptor-stack>
+
+			<interceptor-stack name="burlap">
+				<interceptor-ref name="permissioncheck" />
+				<interceptor-ref name="burlap1" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="permissioncheckStack" />
+	</package>
+
+	<!--
+		高中会考 <package name="meetexam-default" extends="default">
+		<global-results> <result name="promptMsgJsp"
+		type="dispatcher">/meetexam/common/promptmessage.jsp</result>
+		</global-results> </package>
+	-->
+	
+	<package name="default-noaction" extends="struts-default">  
+	    <action name="**">
+	        <result type="freemarker">/static/common/404error.ftl</result>  
+	    </action>
+	</package>
+</struts>

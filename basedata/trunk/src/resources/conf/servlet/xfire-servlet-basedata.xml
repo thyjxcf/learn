@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>    
+    <!-- 从xfire-servlet分离出来的学籍部分 -->
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="urlMap">
+            <map>               
+                <entry key="/JwSchoolinfoService">
+                	<ref local="jwSchoolinfo"/>
+                </entry>
+                <entry key="/UnitRemoteService">
+                	<ref local="unitRemoteRegister"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+	<!-- 学校编号远程校验 -->
+    <bean id="jwSchoolinfo" parent="baseWebService">
+    	<property name="serviceBean">
+    		<ref bean="jwSchoolinfoService"/>
+    	</property>
+    	<property name="serviceClass">
+    		<value>net.zdsoft.eis.base.remote.service.JwSchoolinfoService</value>
+    	</property>
+    </bean>
+
+    <!-- 单位远程注册 -->
+    <bean id="unitRemoteRegister" parent="baseWebService">
+    	<property name="serviceBean">
+    		<ref bean="unitRemoteService"/>
+    	</property>
+    	<property name="serviceClass">
+    		<value>net.zdsoft.eis.base.remote.service.UnitRemoteService</value>
+    	</property>
+    </bean>  
+ 
+</beans>

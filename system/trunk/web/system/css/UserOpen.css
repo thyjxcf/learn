@@ -1,0 +1,184 @@
+HTML {
+	OVERFLOW-X: visible; FONT: 12px ??
+}
+BODY {
+	PADDING-BOTTOM: 10px; MARGIN: 0px; OVERFLOW: visible; WIDTH: 98%
+}
+DIV {
+	OVERFLOW: visible
+}
+IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+DIV#adtitle {
+	FONT-SIZE: 12px; COLOR: #ffffff
+}
+TABLE {
+	BACKGROUND-COLOR: #999999
+}
+TR {
+	BACKGROUND-COLOR: #ffffff
+}
+TD {
+	FONT-SIZE: 12px; COLOR: #272727; LINE-HEIGHT: 19px
+}
+SPAN.red {
+	COLOR: #ff0000
+}
+TD SPAN {
+	COLOR: #608c8c
+}
+FORM {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+TEXTAREA {
+	WIDTH: 300px; HEIGHT: 100px
+}
+.padding {
+	PADDING-LEFT: 8px
+}
+.hand {
+	CURSOR: pointer
+}
+.arrow {
+	FONT-SIZE: 7pt; CURSOR: pointer; FONT-FAMILY: Webdings
+}
+.hr {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: #333333 1px dotted; HEIGHT: 1px
+}
+#navigator {
+	PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 16px; BACKGROUND: url(../images/HeadBg.gif) repeat-x; COLOR: #ffffff; LINE-HEIGHT: 45px; HEIGHT: 45px
+}
+#logininfo {
+	PADDING-LEFT: 10px; COLOR: #1e276a; LINE-HEIGHT: 16px; FONT-FAMILY: Arial,Helvetica,Tahoma,Verdana,sans-serif; HEIGHT: 16px; BACKGROUND-COLOR: #adbdf0
+}
+#logininfo A {
+	COLOR: #006600
+}
+#titleMain {
+	MARGIN: 10px 10px 0px; OVERFLOW: hidden; HEIGHT: 100%
+}
+#titleMain .modules {
+	CLEAR: none
+}
+#titleMain #current {
+	BORDER-RIGHT: #000000 1px solid; FONT-WEIGHT: bold; BACKGROUND: #6984d5; FLOAT: left; MARGIN-LEFT: 5px; WIDTH: 100px; CURSOR: pointer; COLOR: #ffffff; PADDING-TOP: 10px; HEIGHT: 20px; TEXT-ALIGN: center
+}
+#titleMain .other {
+	BORDER-RIGHT: #000000 1px solid; MARGIN-TOP: 5px; FLOAT: left; MARGIN-LEFT: 5px; WIDTH: 90px; CURSOR: pointer; COLOR: #21286c; PADDING-TOP: 5px; HEIGHT: 20px; BACKGROUND-COLOR: #a5b5e8; TEXT-ALIGN: center
+}
+#titleMain .unusable {
+	BORDER-RIGHT: #000000 1px solid; MARGIN-TOP: 5px; FLOAT: left; MARGIN-LEFT: 5px; WIDTH: 90px; CURSOR: not-allowed; COLOR: #666666; PADDING-TOP: 5px; HEIGHT: 20px; BACKGROUND-COLOR: #a5b5e8; TEXT-ALIGN: center
+}
+#pageNumber {
+	MARGIN-TOP: 10px; MARGIN-LEFT: 15px
+}
+.description {
+	MARGIN-TOP: 10px; MARGIN-LEFT: 15px
+}
+.message {
+	MARGIN-TOP: 15px; MARGIN-BOTTOM: 5px; MARGIN-LEFT: 16px
+}
+#message {
+	MARGIN-TOP: 15px; MARGIN-BOTTOM: 5px; MARGIN-LEFT: 15px
+}
+#message LI {
+	COLOR: #990000
+}
+#message SPAN {
+	FONT-WEIGHT: bold; COLOR: #339933
+}
+UL#messages LI {
+	COLOR: #339933
+}
+UL#errors LI {
+	COLOR: #990000
+}
+#dataTable {
+	MARGIN: 10px; WIDTH: 96%; BACKGROUND-COLOR: #608c8c
+}
+#dataTable TR {
+	BACKGROUND-COLOR: #ffffff
+}
+#dataTable TR.titleTr {
+	FONT-WEIGHT: bold; BACKGROUND-COLOR: #e8ebfe;
+}
+
+#dataTable TD.titleTd {
+	FONT-WEIGHT: bold; BACKGROUND-COLOR: #e8ebfe; TEXT-ALIGN: right
+}
+#formMain {
+	MARGIN: 10px
+}
+#moreInfo {
+	MARGIN: 15px; TEXT-ALIGN: right
+}
+#moreOperation {
+	PADDING-RIGHT: 17px; MARGIN-BOTTOM: 10px; TEXT-ALIGN: right
+}
+#inputTable {
+	MARGIN: 10px; BACKGROUND-COLOR: #ffffff
+}
+.copyright {
+	PADDING-TOP: 30px; TEXT-ALIGN: center
+}
+A:link {
+	FONT-SIZE: 12px; COLOR: #1243a1; TEXT-DECORATION: none
+}
+A:active {
+	FONT-SIZE: 12px; COLOR: #1243a1; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-SIZE: 12px; COLOR: #1243a1; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 12px; COLOR: #fe7800; TEXT-DECORATION: none
+}
+.buttonBorder {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #808080 1px solid; BORDER-LEFT: #808080 1px solid; BORDER-BOTTOM: #ffffff 1px solid
+}
+.buttonBorder1 {
+	BORDER-RIGHT: #808080 1px solid; BORDER-TOP: #ffffff 1px solid; BORDER-LEFT: #ffffff 1px solid; BORDER-BOTTOM: #808080 1px solid
+}
+.border {
+	BORDER-RIGHT: #808080 1px solid; PADDING-LEFT: 8px; BORDER-BOTTOM: #808080 1px solid
+}
+.tableHead {
+	BORDER-RIGHT: #8b8b8b 1px solid; PADDING-LEFT: 7px; BORDER-LEFT: #ffffff 1px solid; BORDER-BOTTOM: #8b8b8b 1px solid
+}
+.tableBorder {
+	BORDER-RIGHT: #d4d0c8 2px solid; BORDER-TOP: #d4d0c8 1px solid; BORDER-LEFT: #d4d0c8 1px solid; BORDER-BOTTOM: #8b8b8b 1px solid
+}
+.colorButton {
+	BORDER-RIGHT: #325e5e 1px solid; BORDER-TOP: #b8cece 1px solid; BACKGROUND: #6984d5; BORDER-LEFT: #b8cece 1px solid; CURSOR: pointer; COLOR: #000000; BORDER-BOTTOM: #325e5e 1px solid; TEXT-DECORATION: none
+}
+#buttonRight {
+	PADDING-RIGHT: 20px; MARGIN-BOTTOM: 15px; POSITION: relative; TEXT-ALIGN: right
+}
+.groupTitle {
+	
+}
+.title {
+	PADDING-LEFT: 5px; FONT-WEIGHT: bold; BACKGROUND-REPEAT: no-repeat
+}
+.content {
+	MARGIN-LEFT: 20px; BORDER-BOTTOM: black 1px solid
+}
+UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 15px; PADDING-TOP: 0px
+}
+.star {
+	COLOR: #ff5800
+}
+.unclickedButton {
+	BORDER-RIGHT: #325e5e 1px solid; BORDER-TOP: #b8cece 2px solid; BACKGROUND: #b8cece; BORDER-LEFT: #b8cece 2px solid; CURSOR: pointer; COLOR: #000000; BORDER-BOTTOM: #325e5e 1px solid
+}
+.clickedColorButton {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #000000 2px solid; BACKGROUND: #a5cece; BORDER-LEFT: #000000 2px solid; CURSOR: pointer; COLOR: #000000; BORDER-BOTTOM: #ffffff 1px solid
+}
+SPAN.schoolName {
+	FONT-WEIGHT: bold; COLOR: navy
+}
+.imgStyle {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; VERTICAL-ALIGN: top; BORDER-RIGHT-WIDTH: 0px
+}

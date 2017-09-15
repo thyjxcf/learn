@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by zdsoft (zdsoft) -->
+<root> 
+	<object define="教师工资信息" name="office_salary_information"  entityclassname="net.zdsoft.office.salary.entity.OfficeSalary" tablename="office_salary">
+		<listeners>
+			<listener>dataImportListener</listener>
+		</listeners>
+		<field define="序号" name="serialNumbers" required="Y" type="String(20)" example="如：1,2,3..."/>
+		<field define="姓名" name="realname"  required="Y" type="String(20)" example="如：张安"/>
+		<field define="身份证" name="cardnumber"  required="Y" type="String(20)" example="如：330726196507040016"/>
+		
+		<field define="列项4" name="salary1" dbname="salary_1" type="String(20)"/>
+		<field define="列项5" name="salary2" dbname="salary_2" type="String(20)"/>
+		<field define="列项6" name="salary3" dbname="salary_3" type="String(20)"/>
+		<field define="列项7" name="salary4" dbname="salary_4" type="String(20)"/>
+		<field define="列项8" name="salary5" dbname="salary_5" type="String(20)"/>
+		<field define="列项9" name="salary6" dbname="salary_6" type="String(20)"/>
+		<field define="列项10" name="salary7" dbname="salary_7" type="String(20)"/>
+		<field define="列项11" name="salary8" dbname="salary_8" type="String(20)"/>
+		<field define="列项12" name="salary9" dbname="salary_9" type="String(20)"/>
+		<field define="列项13" name="salary10" dbname="salary_10" type="String(20)"/>
+		<field define="列项14" name="salary11" dbname="salary_11" type="String(20)"/>
+		<field define="列项15" name="salary12" dbname="salary_12" type="String(20)"/>
+		<field define="列项16" name="salary13" dbname="salary_13" type="String(20)"/>
+		<field define="列项17" name="salary14" dbname="salary_14" type="String(20)"/>
+		<field define="列项18" name="salary15" dbname="salary_15" type="String(20)"/>
+		<field define="列项19" name="salary16" dbname="salary_16" type="String(20)"/>
+		<field define="列项20" name="salary17" dbname="salary_17" type="String(20)"/>
+		<field define="列项21" name="salary18" dbname="salary_18" type="String(20)"/>
+		<field define="列项22" name="salary19" dbname="salary_19" type="String(20)"/>
+		<field define="列项23" name="salary20" dbname="salary_20" type="String(20)"/>
+		<field define="列项24" name="salary21" dbname="salary_21" type="String(20)"/>
+		<field define="列项25" name="salary22" dbname="salary_22" type="String(20)"/>
+		<field define="列项26" name="salary23" dbname="salary_23" type="String(20)"/>
+		<field define="列项27" name="salary24" dbname="salary_24" type="String(20)"/>
+		<field define="列项28" name="salary25" dbname="salary_25" type="String(20)"/>
+		<field define="列项29" name="salary26" dbname="salary_26" type="String(20)"/>
+		<field define="列项30" name="salary27" dbname="salary_27" type="String(20)"/>
+		<field define="列项31" name="salary28" dbname="salary_28" type="String(20)"/>
+		<field define="列项32" name="salary29" dbname="salary_29" type="String(20)"/>
+		<field define="列项33" name="salary30" dbname="salary_30" type="String(20)"/>
+		<field define="列项34" name="salary31" dbname="salary_31" type="String(20)"/>
+		<field define="列项35" name="salary32" dbname="salary_32" type="String(20)"/>
+		<field define="列项36" name="salary33" dbname="salary_33" type="String(20)"/>
+		<field define="列项37" name="salary34" dbname="salary_34" type="String(20)"/>
+		<field define="列项38" name="salary35" dbname="salary_35" type="String(20)"/>
+		<field define="列项39" name="salary36" dbname="salary_36" type="String(20)"/>
+		<field define="列项40" name="salary37" dbname="salary_37" type="String(20)"/>
+		<field define="列项41" name="salary38" dbname="salary_38" type="String(20)"/>
+		<field define="列项42" name="salary39" dbname="salary_39" type="String(20)"/>
+		<field define="列项43" name="salary40" dbname="salary_40" type="String(20)"/>
+		<field define="列项44" name="salary41" dbname="salary_41" type="String(20)"/>
+		<field define="列项45" name="salary42" dbname="salary_42" type="String(20)"/>
+		<field define="列项46" name="salary43" dbname="salary_43" type="String(20)"/>
+		<field define="列项47" name="salary44" dbname="salary_44" type="String(20)"/>
+		<field define="列项48" name="salary45" dbname="salary_45" type="String(20)"/>
+		<field define="列项49" name="salary46" dbname="salary_46" type="String(20)"/>
+		<field define="列项50" name="salary47" dbname="salary_47" type="String(20)"/>
+		
+		<field define="列项51" name="salary48" dbname="salary_48" type="String(20)"/>
+		<field define="列项52" name="salary49" dbname="salary_49" type="String(20)"/>
+		<field define="列项53" name="salary50" dbname="salary_50" type="String(20)"/>
+		<field define="列项54" name="salary51" dbname="salary_51" type="String(20)"/>
+		<field define="列项55" name="salary52" dbname="salary_52" type="String(20)"/>
+		<field define="列项56" name="salary53" dbname="salary_53" type="String(20)"/>
+		<field define="列项57" name="salary54" dbname="salary_54" type="String(20)"/>
+		<field define="列项58" name="salary55" dbname="salary_55" type="String(20)"/>
+		<field define="列项59" name="salary56" dbname="salary_56" type="String(20)"/>
+		<field define="列项60" name="salary57" dbname="salary_57" type="String(20)"/>
+		<field define="列项61" name="salary58" dbname="salary_58" type="String(20)"/>
+		<field define="列项62" name="salary59" dbname="salary_59" type="String(20)"/>
+		<field define="列项63" name="salary60" dbname="salary_60" type="String(20)"/>
+		<field define="列项64" name="salary61" dbname="salary_61" type="String(20)"/>
+		<field define="列项65" name="salary62" dbname="salary_62" type="String(20)"/>
+		<field define="列项66" name="salary63" dbname="salary_63" type="String(20)"/>
+		<field define="列项67" name="salary64" dbname="salary_64" type="String(20)"/>
+		<field define="列项68" name="salary65" dbname="salary_65" type="String(20)"/>
+		<field define="列项69" name="salary66" dbname="salary_66" type="String(20)"/>
+		<field define="列项70" name="salary67" dbname="salary_67" type="String(20)"/>
+		<field define="列项71" name="salary68" dbname="salary_68" type="String(20)"/>
+		<field define="列项72" name="salary69" dbname="salary_69" type="String(20)"/>
+		<field define="列项73" name="salary70" dbname="salary_70" type="String(20)"/>
+		<field define="列项74" name="salary71" dbname="salary_71" type="String(20)"/>
+		<field define="列项75" name="salary72" dbname="salary_72" type="String(20)"/>
+		<field define="列项76" name="salary73" dbname="salary_73" type="String(20)"/>
+		<field define="列项77" name="salary74" dbname="salary_74" type="String(20)"/>
+		<field define="列项78" name="salary75" dbname="salary_75" type="String(20)"/>
+		<field define="列项79" name="salary76" dbname="salary_76" type="String(20)"/>
+		<field define="列项80" name="salary77" dbname="salary_77" type="String(20)"/>
+		<field define="列项81" name="salary78" dbname="salary_78" type="String(20)"/>
+		<field define="列项82" name="salary79" dbname="salary_79" type="String(20)"/>
+		<field define="列项83" name="salary80" dbname="salary_80" type="String(20)"/>
+		<field define="列项84" name="salary81" dbname="salary_81" type="String(20)"/>
+		<field define="列项85" name="salary82" dbname="salary_82" type="String(20)"/>
+		<field define="列项86" name="salary83" dbname="salary_83" type="String(20)"/>
+		<field define="列项87" name="salary84" dbname="salary_84" type="String(20)"/>
+		<field define="列项88" name="salary85" dbname="salary_85" type="String(20)"/>
+		<field define="列项89" name="salary86" dbname="salary_86" type="String(20)"/>
+		<field define="列项90" name="salary87" dbname="salary_87" type="String(20)"/>
+		<field define="列项91" name="salary88" dbname="salary_88" type="String(20)"/>
+		<field define="列项92" name="salary89" dbname="salary_89" type="String(20)"/>
+		<field define="列项93" name="salary90" dbname="salary_90" type="String(20)"/>
+		<field define="列项94" name="salary91" dbname="salary_91" type="String(20)"/>
+		<field define="列项95" name="salary92" dbname="salary_92" type="String(20)"/>
+		<field define="列项96" name="salary93" dbname="salary_93" type="String(20)"/>
+		<field define="列项97" name="salary94" dbname="salary_94" type="String(20)"/>
+		<field define="列项98" name="salary95" dbname="salary_95" type="String(20)"/>
+		<field define="列项99" name="salary96" dbname="salary_96" type="String(20)"/>
+		<field define="列项100" name="salary97" dbname="salary_97" type="String(20)"/>
+		
+	</object>
+</root>	

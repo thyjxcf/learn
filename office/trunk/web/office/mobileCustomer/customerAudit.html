@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>审核详情</title>
+<script src="js/flexible_css.debug.js"></script>
+<script src="js/flexible.debug.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body class="gray">
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header style="display:none">
+        	<h1 class="f-20">新客户审核</h1>
+            <a href="#" id="cancelId" class="abtn abtn-img abtn-back abtn-left  html-window-back"><span></span></a>
+            <a href="#" class="abtn abtn-left2 f-18  html-window-close"><span>关闭</span></a>
+        </header>
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container">
+            	<ul class="ui-detail ui-detail-user f-14">
+                	<i id="iconState" class="icon-img icon-state"></i>
+                   <li class="fn-clear">
+	                        <span class="tt">官方名称：</span>
+	                        <span id="name" class="dd"></span>
+	                    </li>
+	                    <li class="fn-clear">
+	                    	<span class="tt">地方名称：</span>
+	                    	<span id="nickName" class="dd"></span>
+	                    </li>
+	                    <li class="fn-clear">
+	                    	<span class="tt">所在地：</span>
+	                    	<span id="region" class="dd"></span>
+	                    </li>
+	                    <li class="fn-clear">
+	                    	<span class="tt">类别：</span>
+	                    	<span id="type" class="dd"></span>
+	                    </li>
+	                    <li class="fn-clear">
+	                    	<span class="tt">信息来源：</span>
+	                    	<span id="infoSource" class="dd"></span>
+	                    </li>
+	                    <li class="fn-clear">
+	                    	<span class="tt">背景信息：</span>
+	                    	<span id="backgroundInfo" class="dd"></span>
+	                    </li>
+	                    <li class="fn-clear">
+	                    	<span class="tt">状态：</span>
+	                    	<span id="progressState" class="dd"></span>
+	                    </li>
+	                    <li class="fn-clear">
+	                    	<span class="tt">合作产品：</span>
+	                    	<span id="product" class="dd"></span>
+	                    </li>
+	                    <li class="fn-clear">
+	                    	<span class="tt">联系人：</span>
+	                    	<span id="contact" class="dd"></span>
+	                    </li>
+	                    <li class="fn-clear">
+	                    	<span class="tt">联系方式1：</span>
+	                    	<span id="phone" class="dd"></span>
+	                    </li>
+	                    <li class="fn-clear">
+	                    	<span class="tt">联系方式2：</span>
+	                    	<span id="contactInfo" class="dd"></span>
+	                    </li>
+	                    <li id="noPassReason" class="fn-clear">
+	                    	<span class="tt">不通过原因：</span>
+	                    	<span  class="dd"></span>
+	                    </li>
+                </ul>
+                <ul class="ui-detail ui-detail-user f-14" id="applyInfoUl" style="display:none">
+                   <li id="applyUser" class="fn-clear">
+                        <span class="tt">申请人：</span>
+                        <span  class="dd"></span>
+                    </li>
+                   <li id="forwardUser" class="fn-clear">
+                        <span class="tt">转发对象：</span>
+                        <span  class="dd"></span>
+                    </li>
+                   <li id="userArea" class="fn-clear">
+                        <span class="tt">所属区域：</span>
+                        <span  class="dd"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="ui-footer fn-flex fn-flex-row f-16">
+            <span class="fn-flex-auto "><a href="#" class="submit"></a></span>
+            <span class="fn-flex-auto hideSpan"><a href="#" class="reset no-pass"></a></span>
+        </div>
+    </div>
+</div>
+
+
+<form name="dataForm" id="dataForm" method="post">
+	<input type="hidden" name="pass" id="pass" value=""/>
+	
+	<input type="hidden" name="userId" id="userId" value=""/>
+	<input type="hidden" name="unitId" id="unitId" value=""/>
+	<input type="hidden" id="id" name="officeCustomerApply.id" value=""/>
+	<input type="hidden" id="auditId" name="officeCustomerApply.auditId" value=""/>
+	<input type="hidden" id="customerId" name="officeCustomerApply.customerId" value=""/>
+	<input type="hidden" id="applyType" name="officeCustomerApply.applyType" value=""/>
+	<input type="hidden" id="auditStatus" name="officeCustomerApply.auditStatus" value=""/>
+
+	<div class="ui-layer" style="display:none;">
+		<p class="py-30 t-center f-14">不通过原因</p>
+	    <p class="px-10 mb-30"><input type="text" id="reason" name="officeCustomerApply.opinion" class="txt f-14" placeholder="输入不通过原因"></p>
+		<p class="fn-flex fn-flex-row dd f-14">
+	        <a href="#" id="saveReason" class="fn-flex-auto close">确定</a>
+	        <a href="#" class="fn-flex-auto close">取消</a>
+	    </p>
+	</div>
+</form>
+		
+
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/jquery.form.js"></script>
+<script src="js/mobiscroll.custom-3.0.0-beta2.min.js"></script>
+<script src="js/jquery.Layer.js"></script>
+<script src="js/myscript.js"></script>
+<script src="js/wap.js"></script>
+<script src="js/wapEntities.js"></script>
+<script src="js/wapNetwork.js"></script>
+<script src="js/wapNetworkService.js"></script>
+<script src="js/public.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/common.js"></script>
+<script src="js/validate.js"></script>
+<script src="js/weike.js"></script>
+<script src="js/myWeike.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+	init();  
+	setTimeout(wap.initAuditDetail(), 200);
+	}, false);
+function init(){
+	//弹出层内部的text area获取焦点后，弹出虚拟键盘，导致窗口变小，位置需要重新计算
+	//虚拟键盘弹出有个动画，需要延时获取
+	$(window).resize(function(){
+		var allH=$(window).height();
+		var layerH=$('.ui-layer').height();
+		var layerT=parseInt((allH-layerH)/2);
+		$('.ui-layer').css('top',layerT);
+	});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+﻿body.login-hzzc #header{background:url(../images/login_bg_hzzc.png) no-repeat top center;}
+body.login-hzzc .login-wrap{background:url(../images/login-wrap_bg_hzzc.jpg) left top no-repeat #f6fbff;}
+body.login-hzzc .login-inner .login-btn{background:#1c377a;}
+.menu .list a{margin:0 11px;}
+/*---------桌面---------*/
+.desk-item{width:25%;}
+.desk-item-center{width:50%;}
+.desk-item-big{width:75%;}
+#deskApp{width:800px;height:570px;border:1px solid #dedede;overflow:hidden;zoom:1;}
+#deskApp .app-slider{float:left;width:175px;height:570px;background:#f1f2f6;}
+#deskApp .app-slider .dt{font-size:14px;font-weight:700;color:#444;padding:15px 0 15px 20px;}
+#deskApp .app-slider .no_app{ height:146px;background:url(../images/no_app.png) center center no-repeat;}
+#deskApp .app-slider .app-wrap ul{ overflow:hidden; zoom:1;}
+#deskApp .app-slider .app-wrap ul li{float:left;width:64px;height:105px;text-align:center;color:#444;margin-left:15px;position:relative;cursor:pointer;}
+#deskApp .app-slider .app-wrap ul li i{display:none;position:absolute;top:-6px;right:-6px;width:18px;height:18px;}
+#deskApp .app-slider .app-wrap ul li:hover i{display:block;}
+#deskApp .app-slider .app-wrap ul li img{display:block;width:64px;height:64px;margin:0 auto 10px;}
+#deskApp .app-content{float:left;width:595px;height:570px;margin-left:20px;background:#fff;}
+#deskApp .app-content .tips{height:59px;border-bottom:1px solid #f3f3f3;color:#999fa5;}
+#deskApp .app-content .tips span{margin-top:35px;}
+#deskApp .app-content .tips span.fn-right{margin-top:25px;}
+#deskApp .app-content .app-wrap{height:470px;margin-top:20px;padding-right:10px !important;}
+#deskApp .app-content .app-wrap ul{padding:0 1px 1px 0;overflow:hidden;zoom:1;}
+#deskApp .app-content .app-wrap ul li{float:left;position:relative;z-index:1;}
+#deskApp .app-content .app-wrap ul li.small{width:33.3333%;}
+#deskApp .app-content .app-wrap ul li.big{width:66.6666%;}
+#deskApp .app-content .app-wrap ul li p{height:155px;background:#fff;border:1px dashed #dedede;margin:0 -1px -1px 0;overflow:hidden;text-align:center;font-size:14px;color:#999fa5;}
+#deskApp .app-content .app-wrap ul li i{display:none;position:absolute;top:8px;right:8px;background:url(../images/icon/del.png) no-repeat;width:11px;height:11px;cursor:pointer;}
+#deskApp .app-content .app-wrap ul li img{display:block;width:44px;height:44px;margin:35px auto 10px;}
+#deskApp .app-content .app-wrap ul li:hover{z-index:4; cursor:move;}
+#deskApp .app-content .app-wrap ul li:hover i{display:block;}
+#deskApp .app-content .app-wrap ul li:hover i:hover{background-position:0 -19px;}
+/*备忘录*/
+.memo{width:747px;height:218px;padding:20px 1px;background:#f1f2f6;border:1px solid #dedede;}
+.memo .dt{height:20px;padding:0 0 15px 10px;margin:0 20px;border-bottom:0;}
+.memo .dt .add{float:right;display:inline-block;width:19px;height:19px;text-indent:-9999em;cursor:pointer;}
+.memo .dt .model-name{float:left;}
+.memo .dt .model-name i{display:inline-block;background:#ff7200;min-width:20px;height:20px;border-radius:20px;text-align:center;line-height:20px;font:100 normal 14px Arial;color:#fff;margin-left:5px;}
+.memo .no_data{ width:194px; height:100px; padding:60px 0 0 133px; margin:0 auto; background:url(../images/no_data6.png) 10px 45px no-repeat; font:normal 14px/24px "Microsoft YaHei";}
+.memo .memo-list{position:relative;height:155px;overflow:hidden;}
+.memo .memo-list .prev,.memo .memo-list .next{position:absolute;top:70px;z-index:99;display:block;width:40px;height:40px;background:url(../images/desk_cut.png) no-repeat;}
+.memo .memo-list .prev{left:0;}
+.memo .memo-list .prev:hover{background-position:0 -40px;}
+.memo .memo-list .next{right:0;background-position:0 -80px;}
+.memo .memo-list .next:hover{background-position:0 -120px;}
+.memo .memo-list ul{width:8000px;overflow:hidden;zoom:1;position:absolute;z-index:98;}
+.memo .memo-list ul li{float:left;width:191px;height:123px;border:1px dashed #dedede;background:#fff;margin-left:20px;padding:15px;position:relative;}
+.memo .memo-list ul li .tt{border-bottom:1px dashed #f3f3f3;font-size:14px;font-weight:700;text-align:center;padding-bottom:10px;}
+.memo .memo-list ul li .list-wrap{overflow:hidden;zoom:1;}
+.memo .memo-list ul li .list-wrap p{float:left;width:191px;line-height:18px;padding-top:8px;}
+.memo .memo-list ul li .list-wrap p span{font-weight:700;margin-right:20px;}
+.memo .memo-list ul li.hover .memo-wrap{position:absolute;top:-1px;left:-1px;height:123px;background:#fff;padding:15px;z-index:999;width:434px;}
+.memo .memo-list ul li.hover .memo-wrap p{width:210px;padding-right:7px;}
+.memo .memo-list ul li.add-new{background:url(../images/icon/add3.png) no-repeat center 55px #FFF;text-align:center;padding-top:80px;height:58px;cursor:pointer;}
+.memo .memo-list ul li.more{text-align:center;padding-top:68px;height:70px;cursor:pointer;}
+.memo .view-more{border-top:1px solid #dedede;text-align:center;line-height:34px;margin:10px 20px 0;}
+.memo .view-more a{color:#444;}
+#memoLayer .wrap{padding:10px 0 20px 25px;}
+#memoLayer .wrap th{width:40px;}
+.memo-hzzc{height:218px;padding:20px 1px;background:none;border:1px solid #dedede;margin:0 -1px -1px 0;}
+.memo-hzzc .memo-list ul li,.memo-hzzc .memo-list ul li.hover .memo-wrap,.memo-hzzc .memo-list ul li.add-new{background-color:#f1f2f6;}
+.desk-item-inner-hover{border:1px solid #F40;}
+/*备忘录弹出层*/
+.memorandum{float:right;width:570px;position:relative;}
+.memorandum ul.dt{height:27px;padding-top:10px;position:relative;border-bottom:1px solid #dedede;}
+.memorandum ul.dt li{float:left;width:68px;height:26px;line-height:26px; text-align:center;border:1px solid #dedede;margin-bottom:-1px;margin-right:5px; cursor:pointer;}
+.memorandum ul.dt li.current{font-weight:700;background:#FFF;border-bottom:1px solid #FFF;}
+.memorandum ul.dt .add-bw{ position:absolute;top:15px;right:0;display:inline-block;height:25px;padding-left:15px;color:#444;}
+.memorandum .grid{margin-top:10px;}
+.memorandum .grid .option{text-align:center;font-weight:700;padding:5px 0;_padding:7px 0;border:1px solid #cecece;}
+.memorandum .grid .option-wek{border-bottom:0 !important;}
+.memorandum .grid .option span{color:#5a5a5a;margin:0 5px;}
+.memorandum .grid .option .prev,.memorandum .grid .option .next{vertical-align:text-bottom;display:inline-block;width:20px;height:16px;cursor:pointer;}
+.memorandum .grid .table-hd{width:100%;}
+.memorandum .grid .table-hd td{width:64px;height:24px; text-align:center; vertical-align:middle; background:#fcfbeb;}
+.memorandum .grid .table-hd td.lbd{border-left:1px solid #c5d6e1;}
+.memorandum .grid .table-hd td.rbd{width:18px;border-right:1px solid #c5d6e1;}
+.memorandum .grid .table-scroll{position:relative;padding:0 !important;}
+.memorandum .grid .table-scroll .table-kb{border-collapse:collapse;}
+.memorandum .grid .table-scroll .table-kb th,.memorandum .grid .table-scroll .table-kb td{width:63px;text-align:center; vertical-align:middle;border:1px solid #cecece;}
+.memorandum .grid .table-scroll .table-kb td{height:18px; cursor:pointer;}
+.memorandum .grid .table-scroll .table-kb td.have{color:#ff8112;font-weight:700;}
+.memorandum .grid .table-scroll .table-kb td.current{color:#FFF;background:#55a9cc;border:1px solid #55a9cc;}
+.memorandum .grid .table-scroll .table-kb th{background:#f2f3f4;}
+.memorandum .grid .table-scroll .table-kb-wek td{width:472px; text-align:left;color:#5a5a5a;}
+.memorandum .grid .table-scroll .table-kb-wek td p{float:left;}
+.memorandum .grid .table-scroll .table-kb-wek th{width:55px;height:39px;text-align:center;background:#fcfbeb;}
+.memorandum .grid .table-scroll .table-kb-wek td .more{float:right;margin-right:40px;_margin-right:20px;}
+.memorandum .grid .table-scroll .table-kb-wek td.hover .more{color:#000;}
+.memorandum .grid .table-scroll .table-kb-wek td.cur{cursor:pointer;}
+.memorandum .grid .table-scroll .table-kb-mon td{height:48px;font-weight:700; text-align:right; vertical-align:top;padding-right:3px; cursor:default;}
+.memorandum .grid .table-scroll .table-kb-mon td.hover{color:#FFF;}
+.memorandum .grid .table-scroll .table-kb-mon td.cur{cursor:pointer;}
+.memorandum .grid .table-scroll .table-kb-mon td .have{float:left;width:26px;height:20px;line-height:20px;background:url(../images/icon/icon_kb1.png) no-repeat;margin:5px 0 0 10px;padding-right:4px;color:#cc370a;text-align:center; font-family:"宋体"; color:#fff;cursor:pointer; overflow:hidden;}
+.memorandum #modelLayer{width:570px;height:412px;position:absolute;top:0;left:0;-moz-opacity:0;opacity:0;filter:alpha(opacity=0);background:#000;z-index:999998;display:none;}
+.memorandum .grid .table-scroll .top-layer{position:absolute;z-index:999999;top:25px;left:135px;width:253px;background:#FFF;border:1px solid #ccc;border-top:0;display:none;padding-bottom:10px;}
+.memorandum .grid .table-scroll .top-layer .dt{height:22px;line-height:22px;color:#FFF;position:relative;padding-left:10px;}
+.memorandum .grid .table-scroll .top-layer .dt .close-top{position:absolute;top:0;right:5px;color:#FFF; cursor:pointer;}
+.memorandum .grid .table-scroll .top-layer table td{padding-top:7px;}
+.memorandum .grid .table-scroll .top-layer table td.tit{width:45px;text-align:right;}
+.memorandum .grid .table-scroll .top-layer table td .txt{width:170px;height:20px;line-height:20px;border:1px solid #b7cad0;padding:0 5px;}
+.memorandum .grid .table-scroll .top-layer table td .area{width:170px;height:70px;border:1px solid #b7cad0;padding:0 5px;}
+.memorandum .grid .table-scroll .top-layer table td .cur{vertical-align:middle;}
+.memorandum .grid .table-scroll .top-layer table td .sel{width:50px;height:22px;border:1px solid #b7cad0;}
+.memorandum .grid .table-scroll .top-layer .sc-list{height:172px;overflow-x:hidden;overflow-y:scroll;}
+.memorandum .grid .table-scroll .top-layer .sc-list table td{padding:0;border-bottom:1px solid #dedede;color:#5a5a5a; vertical-align:top;padding:5px 0;}
+.memorandum .grid .table-scroll .top-layer .sc-list table td.num{font-weight:700; text-align:center;}
+.memorandum .grid .table-scroll .top-layer .sc-list table td img{float:right;margin:5px 5px 0;cursor:pointer; display:none;}
+.memorandum .grid .table-scroll .top-layer .sc-list table tr.current td img{display:block;}
+.memorandum .grid .table-scroll .top-layer .sc-list table tr.current td{background:#f3f3f3;}
+.memorandum .grid .schedule-slider{float:left;width:113px;margin-right:5px;}
+.memorandum .grid .schedule-slider li{height:22px;line-height:22px;padding-left:25px;cursor:pointer;margin-bottom:10px;}
+.memorandum .grid .schedule-content{float:left;width:410px;height:300px;border-left:1px solid #d8d8d8;}
+.memorandum .grid .schedule-content .dt{height:21px;line-height:20px;padding-left:5px;border-bottom:1px solid #d8d8d8;background:#efefef;font-weight:700;}
+.memorandum .grid .schedule-content ul li{height:66px;border-bottom:1px solid #dedede;color:5a5a5a; overflow:hidden;padding:10px 10px 0 5px;}
+.memorandum .grid .schedule-content ul li .edit,.memorandum .grid .schedule-content ul li .del{display:none;margin:0 5px;}
+.memorandum .grid .schedule-content ul li.current{background:#f3f3f3;}
+.memorandum .grid .schedule-content ul li.current .edit,.memorandum .grid .schedule-content ul li.current .del{display:inline-block;}
+.memorandum .grid .schedule-content ul li .s-tit{font-weight:700;color:#5a5a5a;}
+.memorandum .grid .schedule-content ul li .s-tit span{float:right;}
+.memorandum .grid .schedule-content ul li .s-tit .ui-checkbox{float:left;}
+.memorandum .grid .schedule-content ul li .s-tit .chk{margin-right:10px;}
+.memorandum .grid .schedule-content ul li .s-con{padding:10px 10px 0 30px;color:#5a5a5a;}
+.memorandum .grid .schedule-content .bt{margin:20px 0 0 5px;}
+.memorandum .grid .schedule-content .bt .s-page{float:right;}
+.memorandum .grid .schedule-content .bt .s-page .prev:link,.memorandum .grid .schedule-content .bt .s-page .prev:visited{display:inline-block;width:20px;height:16px; background:url(../images/icon/icon_left.png) no-repeat;margin-right:10px; text-indent:-99999px;}
+.memorandum .grid .schedule-content .bt .s-page .prev:hover{background:url(../images/icon/icon_left.png) no-repeat; text-decoration:none;}
+.memorandum .grid .schedule-content .bt .s-page .next:link,.memorandum .grid .schedule-content .bt .s-page .next:visited{display:inline-block;width:20px;height:16px; background:url(../images/icon/icon_right.png) no-repeat; text-indent:-99999px;}
+.memorandum .grid .schedule-content .bt .s-page .next:hover{background:url(../images/icon/icon_right.png) no-repeat; text-decoration:none;}
+.memorandum .form-tab td{padding-top:15px;}
+.memorandum .form-tab td.tit{width:70px;text-align:right;}
+.memorandum .form-tab td.tit span{color:#F00;}
+.memorandum .form-tab td .txt{width:140px;height:20px;line-height:20px;border:1px solid #b7cad0;padding:0 5px;}
+.memorandum .form-tab td .area{width:320px;height:120px;border:1px solid #b7cad0;padding:5px;}
+.memorandum .form-tab td .sel{width:45px;height:22px;border:1px solid #b7cad0; text-align:center;}
+.memorandum .form-tab td .cur{cursor:pointer; vertical-align:middle;margin:0 5px;}
+/*平台链接*/
+.platform .list{}
+.platform .list a{display:block;height:33px;border:1px dashed #dedede;background:#f1f2f6;line-height:33px;margin-top:10px;padding-left:20px;font-size:14px;color:#444;}
+.platform .list a:hover{text-decoration:underline;}
+.platform .list a img{float:left;height:16px;margin:8px 12px 0 0;}
+/*最新消息*/
+.newest .tab{float:left;margin:-5px 0 0 0;}
+.newest .tab span{display:inline-block;cursor:pointer;width:77px;height:25px;line-height:25px;text-align:center;margin-left:3px;border-radius:3px;font-size:14px;}
+.desk-item-inner .dt-tab{border-bottom:1px solid #f3f3f3;padding:0 0 12px 0;}
+.newest .more{border-top:1px solid #dedede;margin-top:7px;}
+.news-list{height:416px;padding-top:5px;overflow:hidden;}
+.news-list li{height:32px;line-height:32px;padding:0 10px 0 5px;overflow:hidden;font-size:14px;color:#555;}
+.NB-news-list li{height:28px;line-height:28px;margin:0;}/*宁波定制*/
+.NB-news-list li .abtn-orange,.NB-news-list li .abtn-blue{height:22px;line-height:22px;margin-top:3px;}
+.news-list li.unread{font-weight:700;}
+.news-list li.hover{background:#f3f3f3;}
+.news-list li span.date{float:right;margin-right:20px;}
+.school-notice .news-list li span.date{margin-right:10px;}
+.news-list li a{float:right;margin-top:6px;}
+.news-list li a.del{display:none;background:url(../images/icon/del2.png) no-repeat;width:15px;height:16px;text-indent:-9999em;margin-top:10px;}
+.news-list li .ui-checkbox{float:left;margin:10px 10px 0 12px;}
+.news-list li .news-tt{float:left;}
+.news-list-inside li{height:auto;min-height:36px;}
+.news-list-inside li .des{display:none;font-size:12px;font-weight:100;color:#555;line-height:24px;padding:0 0 0 37px;text-indent:2em;}
+.news-list-inside li.current{background:#f3f3f3;padding-bottom:10px;}
+.news-list-inside li.current .des,.news-list-inside li.current .del{display:inline-block;}
+#newsLayer .news-grid{padding:20px;}
+#newsLayer .tit{font-size:14px;font-weight:700;}
+#newsLayer .des{line-height:24px;}
+#newsLayer .des p{text-indent:2em;padding-top:15px;}
+#newsLayer .info{margin:20px 0 0;padding:10px 0 0;border-top:1px solid #f3f3f3;}
+#newsLayer .info span{float:right;color:#999fa5;}
+/*常用操作*/
+.common .dt .set{float:right;display:inline-block;height:15px;padding-left:20px;color:#444;}
+.common .dt .set:hover{text-decoration:underline;}
+.common ul.app-list{padding:0 1px 1px 0;margin-top:15px;position:relative;overflow:hidden;zoom:1;overflow:hidden;}
+.common ul.app-list li{float:left;position:relative;width:50%;}
+.common ul.app-list li p{height:58px;margin:0 -1px -1px 0;overflow:hidden;background:#f1f2f6;border:1px dashed #dedede;}
+.common ul.app-list li p a{display:inline-block;width:100%;height:58px;line-height:58px;color:#444;}
+.common ul.app-list li p a:hover{text-decoration:underline;}
+.common ul.app-list li p img{float:left;width:32px;height:32px;margin:13px 7px 0 10px;}
+#commonApp h3{font-size:14px;font-weight:700;color:#444;padding-left:20px;}
+#commonApp h3 span{font-size:12px;font-weight:100;color:#999fa5;}
+#commonApp .app-class{padding:0 20px;line-height:24px;padding-top:5px;}
+#commonApp .app-class a{color:#444;margin-right:10px;}
+#commonApp .app-class a:hover,#commonApp .app-class a.current{color:#026db7;}
+#commonApp .app-list{overflow:hidden;zoom:1;padding-bottom:15px;}
+#commonApp .app-list li{float:left;width:16.25%;text-align:right;margin-top:15px;}
+#commonApp .app-list li a{display:block;width:98px;height:78px;background:#fff;border:1px dashed #dedede;text-align:center;color:#444;}
+#commonApp .app-list li a:hover{text-decoration:none;}
+#commonApp .app-list-yes li a:hover{background:url(../images/icon/app_del.png) no-repeat top right;}
+#commonApp .app-list li a img{display:block;width:32px;height:32px;margin:10px auto;}
+/*课程表*/
+.timetable{}
+.timetable .no_data{ padding-top:140px; margin-top:7px; background:url(../images/no_data3.png) center 45px no-repeat; text-align:center; font:normal 14px/14px "Microsoft YaHei";}
+.timetable table{width:100%;border-collapse:collapse;margin-top:7px;}
+.timetable table th,.timetable table td{width:13%;text-align:center;border:1px solid #c8c8c8;}
+.timetable table th{height:24px;background:#f1f2f6;color:#242424;}
+.timetable table td{height:20px;background:#fff;}
+.timetable table th.first,.timetable table td.first{width:9%;background:#f1f2f6;color:#242424;}
+.re-timetable table th,.re-timetable table td{width:17%;}
+.re-timetable table th.first,.re-timetable table td.first{width:15%;}
+.report-card-wrap table th,.report-card-wrap table td{width:7%;}
+.report-card-wrap table th.first,.report-card-wrap table td.first{width:16%;}
+/*---------桌面---------*/
+
+/*通讯录*/
+#addressLayer .address-wrap{height:476px;overflow-y:auto;}
+#addressLayer .re-address-wrap{height:350px;}
+#addressLayer .wrap{padding:0 10px !important;}
+#addressLayer .wrap .user-grid{margin-left:220px;position:relative;}
+.query-fixed{position:absolute;top:0;left:0;background:#fff;}
+.query-result{padding-top:70px;}
+
+/*----------页面宽度超过1200像素后的框架结构----------*/
+body.widescreen .memo{width:897px;}
+body.widescreen .memo .memo-list ul li{width:241px;}
+body.widescreen .memo .memo-list ul li .list-wrap p{width:241px;}
+body.widescreen .memo .memo-list ul li.hover .memo-wrap{width:534px;}
+body.widescreen .memo .memo-list ul li.hover .memo-wrap p{width:260px;}
+body.widescreen .platform{width:15%;}
+body.widescreen .newest{width:66.667%;}
+body.widescreen .news-list li{float:left;width:364px;}
+body.widescreen .schedule-plan{width:18.333%;}

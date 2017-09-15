@@ -1,0 +1,266 @@
+﻿开发框架keel changelog
+-----------------------------
+zhaosf 2010-08-13
+	1.修改了JdbcUtils中getSQL方法，在sql本身的字符串中带“?”时出错的问题
+zhaosf 2010-08-23
+	1.ImageUtils.changeOppositeSize 如果源和目相同，则返回，不再调用FileUtils.copyFile(new File(src), new File(dest));
+zhaosf 2010-09-28
+	1.BasicDAO增加按数据库分页选项，以提高性能。 Pagination增加private boolean isUseDBPage = true;// 是否使用数据库分页算法
+zhaosf 2010-10-13
+	1.BasicDAO实现泛型。
+zhangza 2010-10-27
+	1.ImageUtils 	
+zhaosf 2010-10-29
+	1.工具类(util包): 
+	1) StringUtils为合并关于字符串操作的工具类增加以下方法：
+		getNextUpCaseChar(String str)
+		upChar(String str, int index)
+		createCountsSymbol(String symbol, Integer counts)
+		String calAcadyear(String acadyear, int schoolinglen)
+	2) UUIDUtils增加isUUID(String guid)
+	3) RandomUtils增加getRandomInt(int length)
+	
+zhaosf 2010-11-01
+	1.实现泛型,去除警告: Messageable、MessageSupport、LRUPlusCache、HtmlForm、ArrayUtils、
+			  CompositeComparator、FileUtils、JdbcUtils、SimpleCache、Log4jUtils、ObjectUtils、
+			  ServletUtils、SpellUtils、StringUtils、PairKeywordComparator、URLUtils、TabooedWords、
+			  ParseResult、XLSFileUtils
+	
+zhaosf 2010-11-19
+	1.默认编码由GBK改为UTF-8：MailUtils.java  Servletutils.java  URLUtils.java		
+	
+zhaosf 2011-01-25
+	1.DateUtils.java 增加 currentHour和currentMinute方法	
+		
+=========================================
+
+开发框架keelcnet changelog
+-----------------------------
+zhaosf 2010-11-02
+	1.实现泛型,去除警告: BasicActionSupport、UploadUtils、BootstrapManager、MappingResources、
+		WebJarApplicationContext、DtoAssembler、DTOFactory、EntityObject、
+		AggregatorMapper、CollectionIgnoringEqualsBuilder、CollectionIgnoringHashCodeBuilder、CollectionIgnoringReflectionToStringBuilder、
+		ConverterMapper、BeanMapper、ToArrayConverter、ToCollectionConverter、
+		InfrastructureException、ActionExceptionInterceptor、TransactionException、LocalTransactionManager、
+		HibernateDataSource、AbstractUploadServlet、CollectionCloneConverter、FileUtils、StringUtils、XMLUtils、
+		CollectionUtils、PaginatedList、PaginatedListIterator、DiskFileUploadHandler、
+		FinderDao、HibernateDaoSupport、HibernateObjectDao、ObjectDao
+	2.整理：BootstrapManager
+			
+=========================================
+	
+开发框架leadain_import changelog
+-----------------------------	
+一、与3.0版本之前的leadin的不同点：
+1、action中导入主页面：
+    1)-------------------------------
+	原来：
+	public String execute() throws Exception {
+		...
+		return super.execute();
+	}
+	
+	现在改为：
+	public String subExecute() throws Exception {
+		...
+		return SUCCESS;
+	}
+	
+	2)-------------------------------
+	原来：在constructor()设置参数	
+	现在改为：实现DataImportable接口
+	
+	3)-------------------------------
+	原来：即可以在action中传值，也可以从配置在xml中的object中判断
+         if (null == properties.get(ImportThread.IS_UPDATE)) {
+            if (objectName.contains("update")) {
+                properties.put(ImportThread.IS_UPDATE, true);
+            }
+            else {
+                properties.put(ImportThread.IS_UPDATE, false);
+            }
+        }
+    
+	现在改为：只能在action中置值
+	3)-------------------------------
+	原来：在ww-*.xml中配置 
+		<action name="XXXImport" class="XXX.XXXImportAction">
+			<result name="success" type="freemarker">/leadin/import/dataimport.ftl</result>
+		</action>
+		
+		action中配置 XXXImport.ftl
+		
+	现在改为：
+		<action name="XXXImport" class="XXX.XXXImportAction">
+			<result name="success" type="freemarker">XXXImport.ftl</result>
+		</action>
+		
+		action中配置 XXXImport.ftl去掉
+		
+		XXXImport.ftl中增加 <#include "/leadin/dataimport/dataimport.ftl"/>
+		
+2、service：	
+    1)
+	原来：从properties中取参数	
+	现在改为：从DataImportParam中取参数
+	
+    2)
+	原来：副标题 listOfErrorImportData.set(0,new String[]{"副标题"});	
+	现在改为：param.setSubtitle("副标题");//副标题
+	
+    3)
+	原来：throw new Exception("出错");	
+	现在改为：throw new ImportErrorException("出错");使事务回滚
+	
+	4)
+	删除：private Map<String, Map<String, String>> nameNodePro = new HashMap<String, Map<String, String>>();// 兼容老的导入程序
+		 private List<String[]> importDataList = new ArrayList<String[]>();
+		 public List<String[]> getListOfImportData() {return importDataList;}
+	
+3、xml配置：
+	1)
+	原来：
+	<listeners>
+		<listener>dataImportListener</listener>
+	</listeners>
+	
+	现在改为：可以不用配置
+
+二、旧版本功能完善移至3.0版本上
+2010-8-20 zhaosf leadin 
+	注释（zhaosf 2010-08-10） 未合并到3.0 
+	1、增加模板配置功能
+	2、如果同一用户上传同名文件，上次上传的文件还未处理完成时，提示用户 不需要再次上传该文件
+	3、缓存解析过的xml配置内容，修改过配置后要重新服务
+	4、删除deleteJob后，应该redirect而非chain，否则页面上的自动刷新会一直作删除操作，而非查询 
+
+2010-9-3 zhaosf leadin 
+	压力测试时，java.util.ConcurrentModificationException  问题的修改
+
+2010-9-7 zhaosf leadin 
+	对sqlserver版本增加sys_import_job中server_type_id字段(oracle数字校园版本中已有该字段)，并只处理城域的导入任务
+
+2010-9-16 zhaosf leadin
+1、有异常时除了记录到数据库中，同时记录到日志文件中(有时错误太长，数据库中记录的不完整)
+2、将是否启动导入任务的配置移到jvm参数中
+
+2010-10-14 zhaosf leadin
+1、捕捉上传过程中的所有异常，以显示到界面上。走任务导入时，确定文件上传成功（即导入记录存在）后，再取任务中的消息。
+	
+三、3.0新版本上增加功能
+2010-8-23 zhaosf leadin 
+	导入有关微代码列导出模板时生成下拉框
+	
+2010-11-26 zhaosf leadin
+	导入任务线程 DataImportQuartzJob：1)在任务处理完成后中断取任务线程（以便及时苏醒） 2)取任务线程预取多1倍的记录
+
+2011-07-12 zhaosf leadin
+	1、xml配置文件属性增加“caseSensitive”，Y表示区分大小写，N表示不区分大小写。默认N。判断业务主键(或关联字段业务主键)、字段唯一性时是否大小写敏感
+	2、支持根据业务需求重新动态定义节点属性  字段属性的优先级：xml配置文件 + 动态字段 < 模板配置（是否必填） < 根据业务需求重新动态定义节点属性
+	   用途：如用户名大小写是否敏感是根据参数开关来动态设置的。
+	3、修改文件：
+	   1)ImportObjectNode： private String caseSensitive;// 是否大小写敏感
+	   2)DataImportService：public List<ImportObjectNode> getRedefineFields(Map<String, ImportObjectNode> nodeMap);
+	   3)AbstractDataImportService：
+		   public List<ImportObjectNode> getRedefineFields(Map<String, ImportObjectNode> nodeMap) {
+		        return null;
+		    }
+	   4)ImportObject：读取重新定义的字段 private void redefineFields() throws ConfigurationException; 
+	   5)ImportData：支持是否区分大小写的配置 private String toUpperCase(String s) 改为private String toDispose(String s, ImportObjectNode node)
+	4、样例：教职工导入根据配置决定用户名是否区分大小写
+	
+2012-02-23 2012-02-24 zhaosf leadin
+	1、上传导入文件，解析导入文件，增加对excel 2007的支持
+	2、修改文件：
+	   1)DataImportBaseAction： String[] fileTypes = DataImportConstants.fileTypeMap.get(fileType);同时支持xls和xlsx
+	   2)DataImportConstants：fileTypeMap
+	   3)ImportFileParserFactory：
+		    } else if (DataImportConstants.FILE_TYPE_XLSX.equalsIgnoreCase(fileType)) {
+            parser = new XlsxFileParser();
+	   4)XlsFileParser：去掉jxl，改为poi
+	   5)XlsxFileParser：新增文件，内容基本同XlsFileParser
+	   
+2012-02-27 zhaosf leadin
+	1、导入功能：增加 定时删除一个月之前的任务记录及对应错误文件
+	2、修改文件：
+	   1)ImportDataJobDao
+	   2)ImportDataJobDaoImpl
+	   3)ImportDataJobService
+	   4)ImportDataJobServiceImpl
+	   5)leadinScheduleContext.xml
+	   
+2012-02-27 zhaosf leadin
+	1、导入功能：解决解析xls数据时关于数值型转换问题；配置xml地时增加默认选中defaultChecked选项，供下载模板时使用
+	2、修改文件：
+	   1)ImportObjectNode
+	   2)XlsFileParser
+	   3)XlsxFileParser
+	   4)column_select.ftl
+	   
+2012-04-12 zhaosf leadin
+	1、导入功能：如果数据校验不通过，则continue掉；查找xml中的object时大小写敏感
+	2、修改文件：
+	   1)ImportData
+	   2)ImportXML
+
+2012-06-28 zhaosf leadin	   
+	1、针对有微代码的列下拉框中数据项超过255时会出错，导致后面的数据项不能加载，现改为增加一个隐藏的sheet，把列对应的微代码数据填充在对应列中，列下拉框中的数据利用公式取得
+	2、修改文件：
+	   1)ExcelTemplateUtil
+
+2012-07-06 zhaosf leadin
+	1、支持多服务器同时导入，重构多线程任务代码
+	2、修改文件：
+		src/java/net/zdsoft/leadin/common/entity/BusinessTask.java
+		src/java/net/zdsoft/leadin/common/service/BusinessTaskQuartzJob.java
+		src/java/net/zdsoft/leadin/common/service/BusinessTaskService.java
+		src/java/net/zdsoft/leadin/dataimport/action/DataImportBaseAction.java
+		src/java/net/zdsoft/leadin/dataimport/action/TaskAction.java
+		src/java/net/zdsoft/leadin/dataimport/common/DataImportConstants.java
+		src/java/net/zdsoft/leadin/dataimport/dao/ImportDataJobDao.java
+		src/java/net/zdsoft/leadin/dataimport/dao/ImportDataJobDaoImpl.java
+		src/java/net/zdsoft/leadin/dataimport/entity/ImportDataJob.java
+		src/java/net/zdsoft/leadin/dataimport/service/DataImportQuartzJob.java
+		src/java/net/zdsoft/leadin/dataimport/service/impl/ImportDataJobServiceImpl.java
+		src/java/net/zdsoft/leadin/dataimport/service/ImportDataJobService.java
+		src/resources/conf/spring/leadinServiceContext.xml
+		src/java/net/zdsoft/leadin/common/dao/impl/SchedulerTokenDaoImpl.java
+		src/java/net/zdsoft/leadin/common/dao/SchedulerTokenDao.java
+		src/java/net/zdsoft/leadin/common/entity/SchedulerToken.java
+		src/java/net/zdsoft/leadin/common/job
+		src/java/net/zdsoft/leadin/common/job/BusinessTaskQuartzJob.java
+		src/java/net/zdsoft/leadin/common/service/impl/SchedulerTokenServiceImpl.java
+		src/java/net/zdsoft/leadin/common/service/SchedulerTokenService.java
+		
+2012-08-03 zhaosf leadin
+	1、有异常时消息不再截断，由updateJobFinished保存时根据业务表中数据库字段的长短截取
+	2、修改文件：
+	src/java/net/zdsoft/leadin/common/service/BusinessTaskQuartzJob.java
+	src/java/net/zdsoft/leadin/dataimport/dao/ImportDataJobDaoImpl.java
+=========================================
+	
+2013-10-24 zhangkc leadin
+	1、导入列增加非微代码下拉类型"Select",其下拉内容需要相应*importServiceImpl实现方法getConstraintFields,返回值为一个Map,key为列的define值,即列名称;value为一个Map<key=下拉显示字符串,value=下拉内容实际值>(相当于html页面里的select组件里option的text与value)。
+	2、修改文件：
+	src/java/net/zdsoft/leadin/dataimport/action/DataImportBaseAction.java
+	src/java/net/zdsoft/leadin/dataimport/core/ImportData.java
+	src/java/net/zdsoft/leadin/dataimport/core/ImportObject.java
+	src/java/net/zdsoft/leadin/dataimport/core/ImportObjectNode.java
+	src/java/net/zdsoft/leadin/dataimport/param/DataImportParam.java
+	src/java/net/zdsoft/leadin/dataimport/service/DataImportService.java
+	src/java/net/zdsoft/leadin/dataimport/service/impl/AbstractDataImportService.java
+	src/resources/leadin/dataimport/column_select.ftl
+	
+2014-12-12 like leadin
+	1.添加是否包含标题字段（默认包含标题,包含副标题的情况未测试 有可能会有问题）,bug修复（导入字段信息微代码个数超过26个 生成模板时 第26个之后的微代码下拉框都会有问题）
+	2.修改文件
+	src/java/net/zdsoft/leadin/dataimport/action/DataImportBaseAction.java
+	src/java/net/zdsoft/leadin/dataimport/core/DataImportListenerImpl.java
+	src/java/net/zdsoft/leadin/dataimport/core/ImportData.java
+	src/java/net/zdsoft/leadin/dataimport/file/ImportFileParserParam.java
+	src/java/net/zdsoft/leadin/dataimport/file/XlsFileParser.java
+	src/java/net/zdsoft/leadin/dataimport/file/XlsxFileParser.java
+	src/java/net/zdsoft/leadin/dataimport/param/DataImportParam.java
+	src/java/net/zdsoft/leadin/dataimport/param/DataImportViewParam.java
+	src/java/net/zdsoft/leadin/dataimport/template/ExcelTemplateUtil.java	
+

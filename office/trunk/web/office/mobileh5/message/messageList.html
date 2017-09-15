@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>邮件消息</title>
+<link rel="stylesheet" type="text/css" href="../../../static/html/css/style.css?v=20170619">
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible_css.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery-1.9.1.min.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.Layer.js?v=20170619"></script>
+<script src="../../../static/html/js/storage.js?v=20170619"></script>
+</head>
+
+<body class="fn-rel">
+<a href="#" id="apply" class="report-add"></a>
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header style="display:none">
+        	<h1 class="f-20">邮件消息</h1>
+            <a href="javascript:void(0)" class="abtn abtn-left2 f-18 html-window-close"><span>关闭</span></a>
+        </header>
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container">
+            	<div class="tab-wrap">
+                    <ul class="tab fn-flex fn-flex-row f-15">
+                        <li class="fn-flex-auto current" id="receiveBox" dataValue="3">收件箱</li>
+                        <li class="fn-flex-auto" dataValue="2">发件箱</li>
+                        <li class="fn-flex-auto i-can" dataValue="1">草稿箱</li>
+                    </ul>
+                </div>
+                <form action="" class='my-search-form'>
+                <div class="ui-search fn-flex fn-flex-row">
+                	<p class="ui-search-inner fn-flex-auto"><span class="icon-img icon-search"></span><input id="searchMsg" type="search" class="f-16" placeholder="请输入标题"></p>
+                	<p class="ui-search-opt f-14" ><a href="#" class="btn" id="queryBtn">搜索</a><a href="#" class="show-all"><font>全部</font><span class="icon-img icon-filter"></span></a></p>
+                </div>
+                </form>
+                <div class="tab-grid fn-rel">
+	               	<div  class="show-all-layer" id="showAllLayer" style="display:none;">
+	                       <ul id="typeDiv" class="f-15">
+	                           <li class="current sel" id="showAllId" value="0"><i></i>全部</li>
+	                           <li class="sel" value="1"><i></i>个人</li>
+	                           <li class="sel" value="4"><i></i>部门</li>
+	                           <li class="sel" value="5"><i></i>单位</li>
+	                       </ul>
+	                   </div>
+	                <div id="list" style="display:none">
+		                <ul class="mail-list mail-list-media">
+		                </ul>
+		                <p class="loading-more f-16"><a href="javascript:void(0)">加载更多</a></p>
+	                </div>
+	                <div id="empty" style="display:none" class="no-data">
+			        	<p><span class="icon-img icon-no-data"></span></p>
+			            <p class="pt-30 f-16">暂时还没有相关内容</p>
+			        </div>
+			      </div>
+            </div>
+        </div>
+        
+		<footer class="fn-flex fn-flex-row" id="footer">
+			<a href="#" class="abtn abtn-mail fn-flex-auto active"><span></span>邮件消息</a>
+			<a href="#" class="abtn abtn-lotus fn-flex-auto"><span></span>审批</a>
+			<a href="#" class="abtn abtn-note fn-flex-auto"><span></span>公文</a>
+			<a href="#" class="abtn abtn-work fn-flex-auto"><span></span>工作</a>
+		</footer>
+    </div>
+</div>
+</body>
+<script src="../../../static/html/js/public.js?v=20170619"></script>
+<script src="../../../static/html/js/common.js?v=20170619"></script>
+<script src="../../../static/html/js/myscript.js?v=20170619"></script>
+<script src="../../../static/html/js/validate.js?v=20170619"></script>
+
+<script src="js/msgWap.js?v=20170619"></script>
+<script src="js/msgWapEntities.js?v=20170619"></script>
+<script src="js/msgWapNetwork.js?v=20170619"></script>
+<script src="js/msgWapNetworkService.js?v=20170619"></script>
+
+<script src="../../../static/html/js/weike.js?v=20170619"></script>
+<script src="../../../static/html/js/myWeike.js?v=20170619"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+		initFooter('1');
+		 init();
+	    setTimeout(wap.initList(), 200);
+}, false);
+
+function init(){
+	var isNewWeikeFlag = storage.get(WeikeConstants.WEIKE_FLAG_KEY);
+	if(WeikeConstants.WEIKE_FLAG_VALUE_TYPE_2 == isNewWeikeFlag){//如果是跟新版微课对接
+		$("#footer").hide();
+	}else{
+		$("#footer").show();
+	}
+} 
+</script>
+</html>

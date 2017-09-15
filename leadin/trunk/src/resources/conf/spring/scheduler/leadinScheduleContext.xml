@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">		
+	<!-- ====================删除导入数据任务======================--> 
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false">
+		<property name="triggers">
+			<list>
+				<ref local="leadinImportDataTrigger" />
+			</list>
+		</property>
+	</bean> 
+
+	<bean id="leadinImportDataJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="leadinImportDataJobService" />
+		</property>
+		<property name="targetMethod">
+			<value>runDeleteImportJobsAtRegularTime</value>
+		</property>
+	</bean>
+
+	<bean id="leadinImportDataTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="leadinImportDataJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0 3 ? * SAT</value>
+		</property>
+	</bean>
+	
+</beans>

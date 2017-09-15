@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>工作日志</title>
+<link rel="stylesheet" type="text/css" href="../../../static/html5/css/mobiscroll.custom-3.0.0-beta2.min.css">
+<link rel="stylesheet" type="text/css" href="../../../static/html5/css/style.css">
+<script src="../../../static/html5/js/flexible_css.debug.js"></script>
+<script src="../../../static/html5/js/flexible.debug.js"></script>
+<script src="../../../static/html5/js/jquery-1.9.1.min.js"></script>
+<script src="../../../static/html5/js/jquery.Layer.js"></script>
+<script src="../../../static/html5/js/hammer.js"></script>
+<script src="../../../static/html5/js/common.js"></script>
+<script src="../../../static/html5/js/public.js"></script>
+<script src="../../../static/html5/js/storage.js"></script>
+<script src="../../../static/html5/js/myscript.js"></script>
+<script src="../../../static/html5/js/validate.js"></script>
+
+<script src="js/wap.js"></script>
+<script src="js/wapEntities.js"></script>
+<script src="js/wapNetwork.js"></script>
+<script src="js/wapNetworkService.js"></script>
+
+<script src="../../../static/html5/js/weike.js"></script>
+<script src="../../../static/html5/js/myWeike.js"></script>
+</head>
+
+<body class="date">
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header>
+        	<h1 class="f-20">
+            	<span class="more-sel">
+                    <span id="tabTxt" class="txt"></span>
+                    <span class="icon-img icon-down"></span>
+                </span>
+                <div class="more-layer f-18">
+                    <span class="arrow-up"></span>
+                    <p id="myTab1" class="current" dataValue="1">个人日志</p>
+                    <p id="myTab2" dataValue="2" >科室人员日志</p>
+                    <p id="myTab3" dataValue="3" style="display: none;">科室负责人日志</p>
+                </div>
+            </h1>
+            <a href="#" class="abtn abtn-img abtn-back abtn-left html-window-back" id="cancelId"><span></span></a>
+            <a href="#" class="abtn abtn-left2 f-18 html-window-close"><span>关闭</span></a>
+            <a href="#" class="abtn abtn-img abtn-edit abtn-right" id="apply"><span></span></a>
+        </header>
+        <div class="calendar-wrap" id="calendarLine" style="display: none;">
+    		<div class="calendar-scroll">
+    			<div class="calendar-scroll-inner">
+            		<table>
+            			<tr id="weekList" class="tit">
+            			</tr>
+            			<tr id="dayList" class="no-cur-line">
+            			</tr>
+            		</table>
+        		</div>
+    		</div>
+    	</div>
+        <div class="scroll-wrap fn-flex fn-flex-row fn-flex-auto ios-touch" id="scrollWrap">
+            <div id="container" class="fn-flex fn-flex-col fn-flex-auto">
+            	<div class="calendar-wrap" id="calendarGrid">
+		    		<div class="calendar-mon">
+		    			<p class="inner fn-clear">
+		        			<span id="prevMon" class="prev" title="上个月"></span>
+		        			<span id="dateVal" class="mon f-14"></span>
+		        			<span id="nextMon" class="next" title="下个月"></span>
+		        			<input id="date" value="" type="hidden" />
+		    			</p>
+		    		</div>
+		    		<table id="monList">
+		    		</table>
+		    	</div>
+		    	
+		    	<div id="listDiv">
+		    	<ul id="list" class="calendar-list fn-flex-auto">
+            	</ul>
+		    	</div>
+	        		<p class="loading-more f-16"></p>
+        		<div id="empty" style="display:none;padding-top:1.8rem;" class="no-data">
+	        		<p><span class="icon-img icon-no-data"></span></p>
+		            <p class="pt-30 f-16">暂时还没有相关内容</p>
+		        </div>
+            	
+            	
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+function scrollCalendar() {  
+	var conWidth=$('#container').width();	//页面宽度
+	var trLen=$('#calendarGrid tr:not(.tit)').length;	//日历总行数，除去表头
+	var curIndex=$('#calendarGrid tr.cur-line').index()-1;	//当前天所在行序号
+	var tdWidth=parseInt(conWidth/trLen);	//单个th、td宽度
+	var allWidth=conWidth*trLen;	//行模式日历总宽度
+	var sLeft=curIndex*conWidth;	//行模式滚动定位到当前天所在行位置
+	$('.calendar-scroll-inner').width(allWidth);
+	$('#calendarLine th,#calendarLine td').width(tdWidth);
+	
+	
+	var hammertime = new Hammer(document.getElementById("scrollWrap"));
+	hammertime.get('swipe').set({
+	    direction: Hammer.DIRECTION_ALL
+	});
+	hammertime.on("swipeup", function (e) {
+		$('#calendarGrid').hide();
+		$('#calendarLine').show();
+		$('.calendar-scroll').scrollLeft(sLeft);
+	});
+	hammertime.on("swipedown", function (e) {
+		$('#calendarGrid').show();
+		$('#calendarLine').hide();
+	});
+	
+}
+
+function changeToday() {  
+	$('table tr td:not(.prev):not(.next)').on('click', function(){
+		var date = $("#date").val().substr(0,8);
+		var htmlStr = $(this).find('span').html();
+		if(htmlStr.length==1){
+			htmlStr='0'+htmlStr;
+		}
+		date = date+htmlStr;
+		storage.set(WapConstants.CHOISE_DAY,date);
+		wap._listService.toData();
+		$(this).addClass('today').siblings('td').removeClass('today');
+		$(this).parent('tr').removeClass('no-cur-line').addClass('cur-line');
+		$(this).parent('tr').siblings('tr').removeClass('cur-line').addClass('no-cur-line').find('td').removeClass('today');
+		if($(this).parents('#calendarGrid').length>0){
+			var curIndex=$('#calendarGrid tr.cur-line').index()-1;
+			var choiseIndex=$('#calendarGrid .cur-line td.today').index();
+			$('#dayList td').eq(curIndex*7+choiseIndex).addClass('today').siblings('td').removeClass('today');
+		}else{
+			var choiseIndex=$('#dayList td.today').index();
+			$('#monList tr').eq(parseInt(choiseIndex/7)+1).removeClass('no-cur-line').addClass('cur-line').siblings('tr').removeClass('cur-line').addClass('no-cur-line').find('td').removeClass('today');
+			$('#monList .cur-line td').eq(choiseIndex%7).addClass('today').siblings('td').removeClass('today');
+		}
+		scrollCalendar();
+	});
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(wap.initList(), 200);
+}, false);
+</script>
+</body>
+</html>

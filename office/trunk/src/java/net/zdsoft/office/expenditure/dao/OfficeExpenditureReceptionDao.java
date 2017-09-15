@@ -1,0 +1,54 @@
+package net.zdsoft.office.expenditure.dao;
+
+import java.util.*;
+
+import net.zdsoft.office.expenditure.entity.OfficeExpenditureReception;
+import net.zdsoft.keel.util.Pagination;
+/**
+ * office_expenditure_reception
+ * @author 
+ * 
+ */
+public interface OfficeExpenditureReceptionDao{
+
+	/**
+	 * 新增office_expenditure_reception
+	 * @param officeExpenditureReception
+	 * @return
+	 */
+	public OfficeExpenditureReception save(OfficeExpenditureReception officeExpenditureReception);
+
+	/**
+	 * 根据ids数组删除office_expenditure_reception
+	 * @param ids
+	 * @return
+	 */
+	public Integer delete(String[] ids);
+
+	/**
+	 * 更新office_expenditure_reception
+	 * @param officeExpenditureReception
+	 * @return
+	 */
+	public Integer update(OfficeExpenditureReception officeExpenditureReception);
+
+	/**
+	 * 根据id获取office_expenditure_reception
+	 * @param id
+	 * @return
+	 */
+	public OfficeExpenditureReception getOfficeExpenditureReceptionById(String id);
+	
+	public OfficeExpenditureReception getOfficeExpenditureReceptionByExId(String officeExpenditureId);
+	
+	public void deleteByExId(String officeExpenditureId);
+
+	/**
+	 * 根据exIds获取map
+	 * @param officeExpenditureIds
+	 * @return
+	 */
+	Map<String, OfficeExpenditureReception> getOfficeExpenditureReceptionByExIds(
+			String[] officeExpenditureIds);
+
+}

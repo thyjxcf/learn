@@ -1,0 +1,122 @@
+﻿/*工作流*/
+.wf-over-bg{position:absolute;top:0;left:0;width:100%;height:50px;background:#eef8ff;border-top:1px solid #c7d5e3;border-bottom:1px solid #c7d5e3;z-index:1;}
+._jsPlumb_connector{z-index:5;}
+.wf-node{position:absolute;width:39px;height:39px;text-indent:-9999em;}
+.wf-node p{width:25px;height:25px;margin:7px;text-indent:-9999em;cursor:move;}
+.wf-node i{position:absolute;width:25px;height:7px;}
+.wf-node i.top{top:0;left:7px;}
+.wf-node i.right{top:7px;right:0;width:7px;height:25px;}
+.wf-node i.bottom{bottom:0;right:7px;}
+.wf-node i.left{top:7px;left:0;width:7px;height:25px;}
+.wf-gate{background:url(../images/workflow/gate.png) no-repeat;}
+.wf-condition{background:url(../images/workflow/condition.png) no-repeat;}
+.wf-dg{display:block;width:78px;height:20px;background-color:#e6f3ff;border:1px solid #e6f3ff;border-radius:2px;padding-top:58px;text-align:center;font-size:14px;font-weight:700;color:#3c3f44 !important;cursor:move;}
+.wf-gate-dg{background:url(../images/workflow/gate.png) no-repeat center 10px;}
+.wf-user-dg{background:url(../images/workflow/user.png) no-repeat center 10px;}
+.wf-dg:hover{background-color:#cbe2f2;border:1px solid #a3b4c4;text-decoration:none;}
+.wf-gate-move,.wf-user-move{position:absolute;top:10px;left:300px;z-index:999;width:58px;height:16px;border:1px solid #bfcbd6;padding-top:42px;font-size:12px;color:#808285 !important;}
+.wf-gate-move{background:url(../images/workflow/gate_move.png) no-repeat center 6px #d9e9f4;}
+.wf-user-move{background:url(../images/workflow/user_move.png) no-repeat center 6px #d9e9f4;}
+.wf-gate-move:hover,.wf-user-move:hover{background-color:#d9e9f4;border:1px solid #bfcbd6;}
+.wf-step{position:absolute;width:120px;height:48px;background:#fff;border:1px solid #dedede;box-shadow:0 0 3px rgba(0,0,0,.1);border-radius:3px;zoom:1;cursor:move;z-index:5;}
+.wf-step-start,.wf-step-end{width:100px;}
+.wf-step-active{border:1px solid #026db7;}
+.wf-step-green,.wf-step-blue,.wf-step-orange,.wf-step-gray,.wf-step-darkgray{border:0;max-width:172px;height:50px;}
+.wf-step-green{background:#84b955;}
+.wf-step-blue{background:#3198dd;}
+.wf-step-orange{background:#f6a026;}
+.wf-step-gray{background:#b2c0d1;}
+.wf-step-darkgray{background:#5d6876;}
+.wf-step i{float:left;display:block;width:43px;height:48px;background:url(../images/workflow/book_default1_dongguan.png) no-repeat center center #f3f3f3;border-right:1px solid #dedede;text-align:center;font:700 20px/48px "Microsoft YaHei";color:#3c3f44;cursor:pointer;}
+.wf-step p{height:21px;line-height:21px;margin:0 5px 0 48px;padding:0 3px;color:#3c3f44;}
+.wf-step>p{white-space:nowrap;}
+.wf-step p.tt{height:27px;line-height:27px;border-bottom:1px solid #dedede;font-size:14px;font-weight:700;}
+.wf-step-start i{background:url(../images/workflow/book1.png) no-repeat center center #91ce31;}
+.wf-step-end i{background:url(../images/workflow/book2.png) no-repeat center center #3c3f44;}
+.wf-step-active i{background:url(../images/workflow/book_default2_dongguan.png) no-repeat center center #3198dd;color:#fff;}
+.wf-step-green i,.wf-step-blue i,.wf-step-orange i,.wf-step-gray i,.wf-step-darkgray i{height:50px;line-height:50px;background:url(../images/workflow/book_default2_dongguan.png) no-repeat center center #3c3f44;border-right:1px solid #3c3f44;color:#fff;}
+.wf-step-start p.tt,.wf-step-end p.tt{height:48px;line-height:48px;border-bottom:0;}
+.wf-step-active p.tt{color:#3198dd;}
+.wf-step-green p.tt,.wf-step-blue p.tt,.wf-step-orange p.tt,.wf-step-gray p.tt,.wf-step-darkgray p.tt{height:29px;line-height:29px;border-bottom:0;font-weight:100;color:#fff;}
+.mouseHover-tips{width:180px;}
+.workflow-header{height:50px;line-height:50px;background:#3c3f44;padding-left:30px;font-size:16px;color:#fff;}
+.workflow-container{position:relative;}
+.workflow-content{margin:0 202px 0 88px;}
+.workflow-content-dg{margin:0 202px 0 88px;}
+.workflow-content .tips{height:43px;line-height:43px;background:url(../images/workflow/warn5.png) no-repeat 25px center #fcf8e3;border-top:1px solid #ebc8ab;border-bottom:1px solid #ebc8ab;padding-left:42px;font-size:14px;color:#fa7305;}
+.workflow-canvas{position:relative;min-width:660px;min-height:390px;background:url(../images/workflow/wf_bg.png) repeat;overflow:auto;}
+.no-workflow{width:205px;height:60px;background:url(../images/workflow/flow_nodata.png) no-repeat center center;padding-top:145px;margin:70px auto 0;text-align:center;font:100 14px "Microsoft YaHei";color:#000;}
+.workflow-sidebar{position:absolute;top:0;right:0;width:200px;min-height:500px;background:#e6f3ff;border-left:2px solid #c1cfda;}
+.workflow-sidebar .abtn-blue,.workflow-sidebar .abtn-gray{width:180px;height:34px;line-height:40px;background:#3198dd;padding:0;text-align:center;font-size:14px;}
+.workflow-sidebar .abtn-blue:hover{background:#53a5dc;}
+.workflow-sidebar .abtn-gray{background:#999fa5;cursor:inherit;}
+.workflow-sidebar-left{position:absolute;top:0;left:0;width:86px;min-height:500px;background:#e6f3ff;border-right:2px solid #c1cfda;}
+.workflow-sidebar-left .wf-dg{margin:10px auto 0;}
+.workflow-guide{height:470px;background:url(../images/workflow/wf_guide_dongguan.png) no-repeat center top;text-indent:-9999em;}
+.workflow-info{}
+.workflow-info .tit{background:#cbe0f4;padding:11px 5px 11px 20px;line-height:18px;font-size:14px;font-weight:700;color:#788ea3;}
+.workflow-info ul{}
+.workflow-info ul li{line-height:40px;padding-left:20px;font-weight:700;color:#788ea3;}
+.workflow-info ul li span{float:left;display:block;width:100px;line-height:18px;padding:11px 5px 11px 0;}
+.workflow-info ul li span.full{float:none;width:300px;}
+.workflow-add{max-height:420px;overflow:auto;}
+.workflow-add table{width:100%;border-collapse:collapse;}
+.workflow-add table th{height:35px;background:#2f88c5;color:#fff;}
+.workflow-add table td{height:55px;}
+.workflow-add table th.name,.workflow-add table td.name{padding-left:20px;width:292px;}
+.workflow-add table td.tips{height:35px;padding-left:30px;}
+.workflow-add table td.add{padding-left:35px;}
+.workflow-add table td .input-txt{width:38px;height:38px;line-height:38px;border:1px solid #a0b2be;padding:0;text-align:center;}
+.workflow-add table td .input-txt-focus{border:1px solid #3198dd;}
+.workflow-add table td.name .input-txt{width:290px;padding:0 5px;text-align:left;}
+.workflow-add table td .del,.workflow-add table td .add-item{display:inline-block;width:30px;height:30px;background:url(../images/workflow/wf_icon.png) no-repeat;margin-left:8px;}
+.workflow-add table td .del:hover{background-position:0 -30px;}
+.workflow-add table td .add-item{background-position:0 -60px;width:65px;padding-left:35px;line-height:30px;font-size:14px;}
+.workflow-add table td .add-item:hover{background-position:0 -90px;}
+/*条件设置*/
+.ui-condition{display:inline-block;height:22px;background:#f8f8f8;border:1px solid #a0b2be;border-left:0;overflow:hidden;}
+.ui-condition a{float:left;display:inline-block;width:22px;height:22px;line-height:22px;border-left:1px solid #a0b2be;text-align:center;color:#000;}
+.ui-condition a:hover{text-decoration:none;}
+.ui-condition a.current{background:#d4d9dd;}
+.ui-condition-wrap{height:80px;background:#fff;border:1px solid #d0d5d8;padding:5px;overflow-x:hidden;overflow-y:auto;}
+.ui-condition-wrap span{display:inline-block;height:18px;line-height:18px;background:#fff;border:1px solid #fff;padding:0 30px 0 6px;color:#000;position:relative;}
+.ui-condition-wrap span.hover{background:#ebf7ff;border:1px solid #bee5ff;}
+.ui-condition-wrap span i{display:none;position:absolute;top:3px;right:10px;width:10px;height:11px;background:url(../images/icon/del1.png) no-repeat;cursor:pointer;}
+.ui-condition-wrap span.hover i{display:block;}
+
+/*工作流-帮助*/
+body.workflow-help{background:#151618;}
+body.workflow-help .img-wrap{width:1416px;margin:0 auto;}
+
+/*流程-20151015*/
+.workflow-dg-new .workflow-content{margin:0 151px 0 202px;}
+.workflow-dg-new .workflow-sidebar-left{width:200px;}
+.workflow-dg-new .workflow-sidebar{width:149px;}
+.workflow-dg-new .workflow-sidebar .abtn-blue,.workflow-dg-new .workflow-sidebar .abtn-gray{width:118px;}
+.workflow-dg-new .workflow-info ul li span.full{width:180px;}
+.workflow-select{position:absolute;top:10px;left:220px;width:300px;}
+/*东莞流程图表格*/
+.wf-table{border-collapse:collapse;margin:50px auto 0;}
+.wf-table td.step{width:122px;height:50px;}
+.wf-table td.line-x{width:20px;}
+.wf-table tr.line-y td{height:30px;}
+.wf-table .wf-step{position:relative;margin:0 auto;}
+.wf-table .wf-step .close{position:absolute;top:-5px;right:-5px;display:none;width:17px;height:17px;background:url(../images/icon/del6.png) no-repeat;cursor:pointer;}
+.wf-branch-repeatX{background:url(../images/workflow-dg/branch_repeat_x.png) repeat-x;}	/*横向平铺连接线*/
+.wf-branch-repeatY{background:url(../images/workflow-dg/branch_repeat_y.png) repeat-y top center;}	/*纵向平铺连接线*/
+.wf-branch-top{} /*上分支行*/
+.wf-branch-top td{height:63px;}
+.wf-branch-top .wf-branch-repeatX{width:20px;}
+.wf-branch-top .branch-left{background:url(../images/workflow-dg/branch_top_left.png) no-repeat;width:122px;}	/*上分支行-左*/
+.wf-branch-top .branch-center{background:url(../images/workflow-dg/branch_top_center.png) no-repeat;width:20px;}	/*上分支行-正中间半十字*/
+.wf-branch-top .branch-cross{background:url(../images/workflow-dg/branch_top_cross.png) no-repeat;width:20px;}	/*上分支行-正中间十字架*/
+.wf-branch-top .branch-repeat{background:url(../images/workflow-dg/branch_top_repeat.png) no-repeat;width:122px;}	/*上分支行-中间可平铺块*/
+.wf-branch-top .branch-right{background:url(../images/workflow-dg/branch_top_right.png) no-repeat;width:122px;}	/*上分支行-右边*/
+.wf-branch-bottom{} /*下分支行*/
+.wf-branch-bottom td{height:63px;}
+.wf-branch-bottom .wf-branch-repeatX{width:20px;background-position:0 -3px;}
+.wf-branch-bottom .branch-left{background:url(../images/workflow-dg/branch_bottom_left.png) no-repeat;width:122px;}	/*下分支行-左*/
+.wf-branch-bottom .branch-center{background:url(../images/workflow-dg/branch_bottom_center.png) no-repeat;width:20px;}	/*下分支行-正中间半十字*/
+.wf-branch-bottom .branch-cross{background:url(../images/workflow-dg/branch_bottom_cross.png) no-repeat;width:20px;}	/*下分支行-正中间十字架*/
+.wf-branch-bottom .branch-repeat{background:url(../images/workflow-dg/branch_bottom_repeat.png) no-repeat;width:122px;}	/*下分支行-中间可平铺块*/
+.wf-branch-bottom .branch-right{background:url(../images/workflow-dg/branch_bottom_right.png) no-repeat;width:122px;}	/*下分支行-右边*/

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true" default-autowire="byName">
+	<!-- ====================短信配置 目前程序里直接读取配置文件====================== -->
+	<bean id="oaMsgClient" class="net.zdsoft.eis.sms.core.SmsClientWrapper"
+		lazy-init="true" init-method="init" destroy-method="destroy">
+		<property name="szxyHandler">
+			<ref bean="szxyHandler"/>
+		</property>
+		<property name="sdkHandler">
+			<ref bean="sdkHandler"/>
+		</property>
+		<property name="systemIniService">
+			<ref bean="systemIniService"/>
+		</property>
+		<property name="sysOptionService">
+			<ref bean="sysOptionService"/>
+		</property>
+		<property name="smsUseConfigService">
+			<ref bean="smsUseConfigService"/>
+		</property>
+	</bean>
+
+	<bean id="szxyHandler" class="net.zdsoft.eis.sms.core.SmsMsgHandlerImpl">
+		<property name="smsClientService">
+			<ref bean="smsClientService" />
+		</property>
+	</bean>
+
+	<bean id="sdkHandler" class="net.zdsoft.eis.sms.core.SmscMsgHandlerImpl">
+		<property name="smsClientService">
+			<ref bean="smsClientService" />
+		</property>
+	</bean>
+	
+
+	<!-- ====================消息====================== -->
+	<bean id="smsSendDao" class="net.zdsoft.eis.sms.dao.impl.SmsSendDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="smsBatchDao" class="net.zdsoft.eis.sms.dao.impl.SmsBatchDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="smsUseConfigDao" class="net.zdsoft.eis.sms.dao.impl.SmsUseConfigDaoImpl">
+	</bean>
+	
+	<bean id="smsUseConfigService" class="net.zdsoft.eis.sms.service.impl.SmsUseConfigServiceImpl">
+	</bean>
+
+	<bean id="smsClientService" class="net.zdsoft.eis.sms.service.impl.SmsClientServiceImpl">
+	</bean>
+	<!--玄武短信接口
+		<bean id="baseMsgInfoService" class="net.zdsoft.eis.sms.service.impl.BaseMsgInfoServiceImpl">
+		</bean>
+		<bean id="baseMsgInfoDao" class="net.zdsoft.eis.sms.dao.impl.BaseMsgInfoDaoImpl">
+		</bean>
+		<bean id="unitSmsaccountService" class="net.zdsoft.eis.sms.service.impl.UnitSmsaccountServiceImpl">
+		</bean>
+		<bean id="unitSmsaccountDao" class="net.zdsoft.eis.sms.dao.impl.UnitSmsaccountDaoImpl">
+		</bean>
+	-->
+	<!-- ====================办公====================== -->
+	<!--
+	<bean id="baseMsgMainSendDao"
+		class="net.zdsoft.eis.message.dao.impl.BaseMsgMainSendDaoImpl">
+	</bean>
+
+	<bean id="baseMsgNoticeDao"
+		class="net.zdsoft.eis.message.dao.impl.BaseMsgNoticeDaoImpl">
+	</bean>
+
+	<bean id="baseMsgReceiveDao"
+		class="net.zdsoft.eis.message.dao.impl.BaseMsgReceiveDaoImpl">
+	</bean>
+
+	<bean id="baseMsgSendDao"
+		class="net.zdsoft.eis.message.dao.impl.BaseMsgSendDaoImpl">
+	</bean>
+	
+	<bean id="msgService"
+		class="net.zdsoft.eis.message.service.impl.MsgServiceImpl">
+	</bean>
+	-->
+</beans>

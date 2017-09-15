@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-lazy-init="true" default-autowire="byName">
+
+	<!-- 我的收藏夹dao-->
+	<bean id="favoriteDao" class="net.zdsoft.eis.system.frame.dao.impl.FavoriteDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!--  package 用户日志管理 -->
+	<bean id="logConfigDao" class="net.zdsoft.eis.system.frame.dao.impl.LogConfigDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+		<property name="incre">
+			<bean
+				class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+				<property name="incrementerName" value="s_sys_log_config" />
+				<property name="dataSource" ref="dataSource" />
+			</bean>
+		</property>
+	</bean>
+
+
+	<!-- package 模块管理  -->
+	<!--  模块功能点管理  -->
+	<bean id="moduleOperatorDao"
+		class="net.zdsoft.eis.system.frame.dao.impl.ModelOperatorDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="moduleLogDao" class="net.zdsoft.eis.system.frame.dao.impl.ModuleLogDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+
+	<bean id="exceptionDataDao"
+		class="net.zdsoft.eis.system.frame.dao.impl.ExceptionDataDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="modelOperatorService"
+		class="net.zdsoft.eis.system.frame.service.impl.ModelOperatorServiceImpl" lazy-init="false"
+		init-method="initCache">
+	</bean>
+
+	<!-- 我的收藏夹service -->
+	<bean id="favoriteService"
+		class="net.zdsoft.eis.system.frame.service.impl.FavoriteServiceImpl">
+		<property name="favoriteDao" ref="favoriteDao" />
+	</bean>
+
+	<!--  对内容进行了修改 2009-1-6  -->
+	<bean id="logConfigService"
+		class="net.zdsoft.eis.system.frame.service.impl.LogConfigServiceImpl">
+		<property name="logConfigDao">
+			<ref bean="logConfigDao" />
+		</property>
+		<property name="moduleService">
+			<ref bean="moduleService" />
+		</property>
+	</bean>
+
+	<bean id="moduleLogService"
+		class="net.zdsoft.eis.system.frame.service.impl.ModuleLogServiceImpl">
+		<property name="moduleLogDao" ref="moduleLogDao" />
+	</bean>
+	<bean id="exceptionDataService"
+		class="net.zdsoft.eis.system.frame.service.impl.ExceptionDataServiceImpl">
+		<property name="exceptionDataDao" ref="exceptionDataDao" />
+	</bean>
+
+	<!-- 系统服务配置 -->
+	<bean id="systemServerService"
+		class="net.zdsoft.eis.system.frame.service.impl.SystemServerServiceImpl">
+	</bean>
+
+	<!-- 序列号管理 -->
+	<bean id="serialManager" class="net.zdsoft.eis.system.frame.serial.SerialManagerImpl"></bean>
+	
+	<!-- 系统导航图 -->
+	<bean id="flowDiagramDao" class="net.zdsoft.eis.system.frame.dao.impl.FlowDiagramDaoImpl">
+	</bean>
+	<bean id="flowDiagramDetailDao" class="net.zdsoft.eis.system.frame.dao.impl.FlowDiagramDetailDaoImpl">
+	</bean>
+	<bean id="flowDiagramService" class="net.zdsoft.eis.system.frame.service.impl.FlowDiagramServiceImpl">
+	</bean>
+	<bean id="flowDiagramDetailService" class="net.zdsoft.eis.system.frame.service.impl.FlowDiagramDetailServiceImpl">
+	</bean>
+	
+		<!-- 用户应用 -->
+	<bean id="userAppDao"
+		class="net.zdsoft.eis.system.frame.dao.impl.UserAppDaoImpl">
+	</bean>
+	<bean id="userAppService"
+		class="net.zdsoft.eis.system.frame.service.impl.UserAppServiceImpl">
+	</bean>
+</beans>

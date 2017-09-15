@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!-- 消息中心 -->
+    <package name="msgcenter" extends="default" namespace="/office/msgcenter">
+   		<action name="msgcenter" class="net.zdsoft.office.msgcenter.action.MsgCenterAction">
+            <result name="success" type="freemarker">index.ftl</result>
+		</action>
+		<action name="msgcenter-searchUser" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="searchUser">
+            <result name="success" type="freemarker">searchUser.ftl</result>
+		</action>
+       	<action name="msgcenter-sendNote" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="sendNote">
+            <result name="success" type="freemarker">sendNote.ftl</result>
+		</action>
+       	<action name="msgcenter-sendDgNote" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="sendDgNote">
+            <result name="success" type="freemarker">sendDgNote.ftl</result>
+		</action>
+       	<action name="msgcenter-saveNote" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="saveNote">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+				<param name="noCache">true</param>
+                <param name="contentType">text/html</param>
+			</result>
+       	</action>
+       	<action name="msgcenter-saveFileAttach" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="saveFileAttach">
+            <result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+       	</action>
+       	<action name="msgcenter-deleteFileAttach" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="deleteFileAttach">
+            <result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+       	</action>
+       	<action name="msgcenter-sendQuick" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="sendQuick">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+       	<action name="msgcenter-turnToFolder" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="turnToFolder">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+       	<action name="msgcenter-turnSingleToFolder" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="turnSingleToFolder">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+       	<action name="msgcenter-copyToFolder" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="copyToFolder">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+       	<action name="msgcenter-copySingleToFolder" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="copySingleToFolder">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+       	<action name="msgcenter-msgDetail" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgDetail">
+            <result name="success" type="freemarker">msgDetail.ftl</result>
+            <result name="error" type="freemarker">msgDetailError.ftl</result>
+		</action>
+		<action name="msgcenter-msgDetailContent" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgDetailContent">
+            <result name="success" type="freemarker">msgDetailContent.ftl</result>
+		</action>
+       	<action name="msgcenter-msgDetailOther" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgDetailOther">
+            <result name="success" type="freemarker">msgDetailOther.ftl</result>
+            <result name="error" type="freemarker">msgDetailOtherError.ftl</result>
+		</action>
+		<action name="msgcenter-msgDetailContentOther" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgDetailContentOther">
+            <result name="success" type="freemarker">msgDetailContentOther.ftl</result>
+		</action>
+       	<action name="msgcenter-viewMsgSingle" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="viewMsgSingle">
+            <result name="success" type="freemarker">msgSingle.ftl</result>
+		</action>
+       	<action name="msgcenter-viewIsReadInfo" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="viewIsReadInfo">
+            <result name="success" type="freemarker">msgIsReadInfo.ftl</result>
+		</action>
+		<action name="msgcenter-removeMsgs" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="removeMsgs">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+       	<action name="msgcenter-removeMsg" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="removeMsg">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+       	
+       	
+       	<!-- 收件箱 -->
+       	<action name="msgcenter-msgInboxTab" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgInboxTab">
+            <result name="success" type="freemarker">msgInboxTab.ftl</result>
+        </action>
+        <action name="msgcenter-msgInboxUser" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgInboxUser">
+            <result name="success" type="freemarker">msgInboxUser.ftl</result>
+        </action>
+        <action name="msgcenter-msgInboxOther" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgInboxOther">
+            <result name="success" type="freemarker">msgInboxOther.ftl</result>
+        </action>
+        <!-- 收件箱,内容信息列表 -->
+        <action name="msgcenter-listReceivedMessagesUser" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="listReceivedMessagesUser">
+            <result name="success" type="freemarker">listReceivedMessagesUser.ftl</result>
+        </action>
+        <action name="msgcenter-listReceivedMessagesOther" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="listReceivedMessagesOther">
+            <result name="success" type="freemarker">listReceivedMessagesOther.ftl</result>
+        </action>
+        <action name="msgcenter-changeAllNeedTodo" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="changeAllNeedTodo">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+        <action name="msgcenter-changeAllStar" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="changeAllStar">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+       	<action name="msgcenter-readAll" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="readAll">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+        <action name="msgcenter-changeState" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="changeState">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+        <action name="msgcenter-changeNeedTodo" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="changeNeedTodo">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+        <action name="msgcenter-changeStar" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="changeStar">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+        
+        
+       	<!-- 重要消息 -->
+        <action name="msgcenter-msgImport" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgImport">
+            <result name="success" type="freemarker">msgImport.ftl</result>
+        </action>
+        <!-- 重要消息,内容信息列表 -->
+        <action name="msgcenter-listImportMessages" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="listImportMessages">
+            <result name="success" type="freemarker">listImportMessages.ftl</result>
+        </action>
+        
+        <!-- 待办消息 -->
+        <action name="msgcenter-msgTodo" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgTodo">
+            <result name="success" type="freemarker">msgTodo.ftl</result>
+        </action>
+        <!-- 待办消息,内容信息列表 -->
+        <action name="msgcenter-listTodoMessages" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="listTodoMessages">
+            <result name="success" type="freemarker">listTodoMessages.ftl</result>
+        </action>
+        
+        
+        
+        <!-- 发件箱 -->
+        <action name="msgcenter-msgOutbox" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgOutbox">
+            <result name="success" type="freemarker">msgOutbox.ftl</result>
+        </action>
+        <!-- 发件箱,内容信息列表 -->
+        <action name="msgcenter-listSendedMessages" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="listSendedMessages">
+            <result name="success" type="freemarker">listSendedMessages.ftl</result>
+        </action>
+        <action name="msgcenter-callBackMsg" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="callBackMsg">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+        <action name="msgcenter-remindSms" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="remindSms">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+		
+        
+        
+        <!-- 草稿箱 -->
+        <action name="msgcenter-msgDraftbox" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgDraftbox">
+            <result name="success" type="freemarker">msgDraftbox.ftl</result>
+        </action>
+        <!-- 草稿箱 ,内容信息列表 -->
+        <action name="msgcenter-listDraftMessages" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="listDraftMessages">
+            <result name="success" type="freemarker">listDraftMessages.ftl</result>
+        </action>
+        
+        
+        
+        
+        <!-- 废件箱 -->
+        <action name="msgcenter-msgAbandon" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgAbandon">
+            <result name="success" type="freemarker">msgAbandon.ftl</result>
+        </action>
+        <!-- 废件箱 ,内容信息列表 -->
+        <action name="msgcenter-listAbandonMessages" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="listAbandonMessages">
+            <result name="success" type="freemarker">listAbandonMessages.ftl
+            </result>
+        </action>
+        <action name="msgcenter-revertMessage" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="revertMessage">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+       	
+        
+        
+        <!-- 自定义信息夹列表 -->
+        <action name="msgcenter-listFolders" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="listFolders">
+            <result name="success" type="freemarker">listFolders.ftl</result>
+        </action>
+        <action name="msgcenter-listFoldersChange" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="listFoldersChange">
+            <result name="success" type="freemarker">listReceivedMessageChange.ftl</result>
+        </action>
+        <action name="msgcenter-saveFolder" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="saveFolder">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+        <action name="msgcenter-deleteFolder" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="deleteFolder">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+        <!-- 自定义信息夹 -->
+        <action name="msgcenter-msgFolder" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgFolder">
+            <result name="success" type="freemarker">msgFolder.ftl</result>
+        </action>
+        <!-- 自定义信息夹 ,内容信息列表 -->
+        <action name="msgcenter-listFolderMessages" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="listFolderMessages">
+            <result name="success" type="freemarker">listFolderMessages.ftl</result>
+        </action>
+        <action name="msgcenter-revertMessageFromFolder" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="revertMessageFromFolder">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+       	<!-- 自由短信 -->
+       	 <action name="msgcenter-msgSms" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgSms">
+            <result name="success" type="freemarker">msgSms.ftl</result>
+        </action>
+       	 <action name="msgcenter-msgSmsSend" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgSmsSend">
+            <result name="success" type="freemarker">msgSmsSend.ftl</result>
+        </action>
+        <action name="msgcenter-msgSmsAdmin" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgSmsAdmin">
+            <result name="success" type="freemarker">msgSmsAdmin.ftl</result>
+        </action>
+       	 <action name="msgcenter-msgSmsList" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgSmsList">
+            <result name="success" type="freemarker">msgSmsList.ftl</result>
+        </action>
+        <action name="msgcenter-msgSmsView" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgSmsView">
+            <result name="success" type="freemarker">msgSmsView.ftl</result>
+        </action>
+        <action name="msgcenter-msgSmsDelete" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgSmsDelete">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+       	</action>
+       	 <action name="msgcenter-msgSmsSave" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgSmsSave">
+            <result name="success" type="json">
+				<param name="root">jsonError</param>
+				<param name="noCache">true</param>
+                <param name="contentType">text/html</param>
+			</result>
+        </action>
+       	 <action name="msgcenter-msgTxtSave" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="msgTxtSave">
+            <result name="success" type="json">
+		       <param name="root">promptMessageDto</param>
+		       <param name="noCache">true</param>
+                <param name="contentType">text/html</param>
+		    </result>
+        </action>
+        
+   		<action name="msgcenter-userGroupZtree" class="net.zdsoft.office.msgcenter.action.DgZtreeAction" method="userGroupZtree">
+            <result name="success" type="freemarker">/office/msgcenter/dgZtree/userGroupZtree.ftl</result>
+		</action>
+   		<action name="msgcenter-unitGroupZtree" class="net.zdsoft.office.msgcenter.action.DgZtreeAction" method="unitGroupZtree">
+            <result name="success" type="freemarker">/office/msgcenter/dgZtree/unitGroupZtree.ftl</result>
+		</action>
+   		<action name="msgcenter-currentUnitZtree" class="net.zdsoft.office.msgcenter.action.DgZtreeAction" method="currentUnitZtree">
+            <result name="success" type="freemarker">/office/msgcenter/dgZtree/oneUnitZtree.ftl</result>
+		</action>
+   		<action name="msgcenter-topUnitZtree" class="net.zdsoft.office.msgcenter.action.DgZtreeAction" method="topUnitZtree">
+            <result name="success" type="freemarker">/office/msgcenter/dgZtree/oneUnitZtree.ftl</result>
+		</action>
+   		<action name="msgcenter-subEduZtree" class="net.zdsoft.office.msgcenter.action.DgZtreeAction" method="subEduZtree">
+            <result name="success" type="freemarker">/office/msgcenter/dgZtree/subEduZtree.ftl</result>
+		</action>
+		<action name="msgcenter-subSchoolZtree" class="net.zdsoft.office.msgcenter.action.DgZtreeAction" method="subSchoolZtree">
+            <result name="success" type="freemarker">/office/msgcenter/dgZtree/subSchoolZtree.ftl</result>
+		</action>
+   		<action name="msgcenter-unitAllUserZtree" class="net.zdsoft.office.msgcenter.action.DgZtreeAction" method="unitAllUserZtree">
+            <result name="success" type="json">
+				<param name="root">treeJsonCode</param>
+			</result>
+		</action>
+   		<action name="msgcenter-unitAllDeptZtree" class="net.zdsoft.office.msgcenter.action.DgZtreeAction" method="unitAllDeptZtree">
+            <result name="success" type="json">
+				<param name="root">treeJsonCode</param>
+			</result>
+		</action>
+		<!-- 桐庐定制 根据学校类别展示直属学校树  -->
+		<action name="msgcenter-directSchoolTypeZtree" class="net.zdsoft.office.msgcenter.action.DgZtreeAction" method="directSchoolTypeZtree">
+            <result name="success" type="freemarker">/office/msgcenter/dgZtree/directSchoolTypeZtree.ftl</result>
+		</action>
+		
+		<action name="msgcenter-doDownloadZip" class="net.zdsoft.office.msgcenter.action.MsgCenterAction" method="doDownloadZip">
+       	</action>
+    </package>
+    
+</struts>

@@ -1,0 +1,26 @@
+﻿#setDeskApp{position:absolute;top:5px;right:5px;z-index:9994;display:block;width:20px;height:18px;background:url(../images/app/desk_icon/app_more.png) no-repeat;}
+.app-grid{padding:20px 0 10px;}
+.app-grid li{float:left;width:12.5%;height:120px;}
+.app-grid li a{position:relative;display:block;width:100px;height:93px;margin:0 auto;padding:12px 0 5px;text-align:center;color:#000;}
+.app-grid li .app-img{display:block;width:64px;height:64px;padding-bottom:15px;margin:0 auto;}
+.app-grid li .app-img img{width:64px;height:64px;}
+.app-grid li .app-name{display:inline-block;}
+.app-grid li i{display:none;position:absolute;top:2px;right:6px;z-index:998;width:25px;height:25px;background:url(../images/app/desk_icon/app_del.png) no-repeat;}
+.app-grid li:hover i{display:block;}
+.popUp-layer .app-grid{padding:10px 1%;}
+.popUp-layer .app-grid li{width:14%;}
+.popUp-layer .app-grid li i{display:none;background:url(../images/app/desk_icon/app_yes.png) no-repeat;}
+.popUp-layer .app-grid li a:hover{background:url(../images/app/desk_icon/app_hover_bg2.png) no-repeat;}
+.popUp-layer .app-grid li.add a:hover{background:none;}
+.app-grid-tt{height:39px;line-height:39px;border-bottom:1px solid #dedede;margin:0 15px;font-size:14px;font-weight:700;color:#444;}
+.app-grid-tt span{float:right;font-size:12px;color:#ff7200;}
+.app-grid-scroll{height:240px;overflow-x:hidden;overflow-y:auto;}
+.app-grid-out{height:280px;background:#f5f6fa;overflow:hidden;}
+.add-out-layer{position:absolute;top:275px;left:177px;z-index:999;width:466px;height:146px;background:#fff;border:1px solid #dedede;box-shadow:0 0 2px rgba(49,49,49,0.15);}
+.add-out-layer .form-wrap{height:106px;padding-top:10px;}
+.add-out-layer table{width:100%;border-collapse:collapse;}
+.add-out-layer table th{width:70px;height:32px;padding-right:5px;text-align:right;}
+.add-out-layer .up-file{text-decoration:underline;}
+.add-out-layer .form-bt{height:29px;border-top:1px solid #dedede;}
+.add-out-layer .form-bt a{float:right;display:inline-block;width:88px;height:29px;line-height:29px;background:#fff;text-align:center;color:#444;}
+.add-out-layer .form-bt a.submit{background:#3198dd;color:#fff;}

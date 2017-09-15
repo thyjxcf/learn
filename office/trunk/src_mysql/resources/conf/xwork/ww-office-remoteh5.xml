@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="officeh5-remote" extends="default" namespace="/common/open/officeh5">
+	    
+	    <!-- 启用的模块 -->
+	    <action name="applist" class="net.zdsoft.office.remote.RemoteAppParmAction" method="getAppList"/>
+	    
+	    <!-- 审批 -->
+	    <action name="getAuditList" class="net.zdsoft.office.remote.RemoteConvertFlowAction" method="getAuditList"></action>
+	    <action name="getApplyList" class="net.zdsoft.office.remote.RemoteConvertFlowAction" method="getApplyList"></action>
+	    
+	    <!-- 工作汇报 -->
+	     <action name="workReport-list" class="net.zdsoft.office.remote.RemoteOfficeWorkReportAction" method="workReportList"/>
+	     <action name="workReport-detail" class="net.zdsoft.office.remote.RemoteOfficeWorkReportAction" method="workReportDetail"/>
+	     <action name="workReport-saveReport" class="net.zdsoft.office.remote.RemoteOfficeWorkReportAction" method="saveWorkReport"/>
+	     <action name="workReport-saveReply" class="net.zdsoft.office.remote.RemoteOfficeWorkReportAction" method="saveWorkReportEx"/>
+	    
+	    <!-- 数量 -->
+	    <action name="manage-count" class="net.zdsoft.office.remote.RemoteManageCountAction" method="manageCount"/>
+	</package>
+	
+	<package name="customer-remote" extends="default" namespace="/common/open/customer">
+	    <!-- 跟进人 -->
+		<action name="getFollowUserDataPopup" class="net.zdsoft.office.customer.action.FollowUserDivAction"
+			method="getObjectsByUnitId">
+			<result name="success" type="freemarker">/common/popupObjectDiv.ftl</result>
+		</action>
+		<!-- 抄送人 -->
+		<action name="getCopyUserDataPopup" class="net.zdsoft.office.customer.action.CopyUserDivAction"
+			method="getObjectsByUnitId">
+			<result name="success" type="freemarker">/common/popupObjectDiv.ftl</result>
+		</action>
+		
+	    <action name="address-getUserList" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="getFollowUserList"/>
+	    <!-- 客户管理 -->
+	     <action name="customer" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" />
+	     <action name="customer-list" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="customerList"/>
+	     <action name="customer-apply" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="applyCustomer"/>
+	     <action name="customer-save" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="saveCustomer"/>
+	     <action name="customer-canReadDetail" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="canReadDetail"/>
+	     <action name="customer-doSaveFollowMan" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="doSaveFollowMan"/>
+	     <action name="customer-doSaveFollowInfo" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="doSaveFollowInfo"/>
+	     <action name="customer-followDetail" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="followDetail"/>
+	     <action name="customer-auditDetail" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="auditDetail"/>
+	     <action name="customer-zykDetail" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="zykDetail"/>
+	     <action name="customer-doSaveDelayInfo" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="doSaveDelayInfo"/>
+	     <action name="customer-doAudit" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="doAudit"/>
+	     <action name="customer-doGiveUpApply" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="doGiveUpApply"/>
+	     <action name="customer-doDelete" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="doDelete"/>
+	     <action name="customer-followInfo" class="net.zdsoft.office.remote.RemoteCustomerManagerAction" method="followInfo"/>
+	</package>
+</struts>

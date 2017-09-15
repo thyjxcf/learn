@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>审批</title>
+<link  rel="stylesheet" type="text/css" href="../../../static/html/css/style.css?v=20170619">
+</head>
+<body class="home">
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+		<header style="display:none">
+            <a href="javascript:void(0)" class="abtn abtn-left2 f-18 html-window-close"><span>关闭</span></a>
+        </header>
+        <div class="scroll-wrap fn-flex-auto ios-touch"> 
+            <div id="container">
+                <ul class="home-top fn-clear f-14">
+                    <li><a href="javascript:void(0)" onclick="doAudit('1');"><span class="img" id="wait-dis"><img src="../../../static/html/images/icon/home_top1.png" alt="待我审批"></span><span class="txt">待我审批</span></a></li>
+                    <li><a href="javascript:void(0)" onclick="doAudit('2');"><span class="img"><img src="../../../static/html/images/icon/home_top2.png" alt="我发起的"></span><span class="txt">我发起的</span></a></li>
+                </ul>
+                <ul class="home-grid fn-clear f-13">
+               		<li>
+	                	<a href="#" onclick="doApply('1');">
+	               			<span class="img"><img src="../../../static/html/images/icon/app_leave.png" alt="请假"></span>
+	                		<span class="txt">请假</span>
+	                	</a>
+                	</li>
+               		<li>
+	                	<a href="#" onclick="doApply('2');">
+	               			<span class="img"><img src="../../../static/html/images/icon/app_goout.png" alt="外出"></span>
+	                		<span class="txt">外出</span>
+	                	</a>
+                	</li>
+               		<li>
+	                	<a href="#" onclick="doApply('7');">
+	               			<span class="img"><img src="../../../static/html/images/icon/app_jtgoout.png" alt="外出"></span>
+	                		<span class="txt">集体外出</span>
+	                	</a>
+                	</li>
+               		<li>
+	                	<a href="#" onclick="doApply('3');">
+	               			<span class="img"><img src="../../../static/html/images/icon/app_evection.png" alt="出差"></span>
+	                		<span class="txt">出差</span>
+	                	</a>
+                	</li>
+               		<li>
+	                	<a href="#" onclick="doApply('4');">
+	               			<span class="img"><img src="../../../static/html/images/icon/app_apply.png" alt="报销"></span>
+	                		<span class="txt">报销</span>
+	                	</a>
+                	</li>
+               		<li>
+	                	<a href="#" onclick="doApply('5');">
+	               			<span class="img"><img src="../../../static/html/images/icon/app_goods.png" alt="物品领用"></span>
+	                		<span class="txt">物品领用</span>
+	                	</a>
+                	</li>
+               		<li id="li_6" style="display:none">
+	                	<a href="#" onclick="doApply('6');">
+	               			<span class="img"><img src="../../../static/html/images/icon/app_course.png" alt="听课登记"></span>
+	                		<span class="txt">听课登记</span>
+	                	</a>
+                	</li>
+                </ul>
+            </div>
+        </div>
+        
+		<footer class="fn-flex fn-flex-row">
+			<a href="#" class="abtn abtn-mail fn-flex-auto"><span></span>邮件消息</a>
+			<a href="#" class="abtn abtn-lotus fn-flex-auto active"><span></span>审批</a>
+			<a href="#" class="abtn abtn-note fn-flex-auto"><span></span>公文</a>
+			<a href="#" class="abtn abtn-work fn-flex-auto "><span></span>工作</a>
+		</footer>
+    </div>
+</div>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible_css.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery-1.9.1.min.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.Layer.js?v=20170619"></script>
+<script src="../../../static/html/js/storage.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.form.js?v=20170619"></script>
+<script src="../../../static/html/js/mobiscroll.custom-3.0.0-beta2.min.js?v=20170619"></script>
+
+<script  src="../../../static/html/js/public.js?v=20170619"></script>
+<script src="../../../static/html/js/myscript.js?v=20170619"></script>
+<script  src="../../../static/html/js/common.js?v=20170619"></script>
+<script  src="../../../static/html/js/validate.js?v=20170619"></script>
+<script  src="../../../static/html/js/weike.js?v=20170619"></script>
+<script  src="../../../static/html/js/myWeike.js?v=20170619"></script>
+<script  src="js/wap.js?v=20170619"></script>
+<script  src="js/wapEntities.js?v=20170619"></script>
+<script  src="js/wapNetwork.js?v=20170619"></script>
+<script  src="js/wapNetworkService.js?v=20170619"></script>
+
+
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+		initFooter('2');
+		wap.initMainTab();
+}, false);
+function doAudit(type){
+	var _contextPath = storage.get(Constants.MOBILE_CONTEXT_PATH);
+	if("2" == type){//我发起的
+		location.href = _contextPath + "/office/mobileh5/workflow/workflowApplyList.html";
+	}else{//待审批
+		location.href = _contextPath + "/office/mobileh5/workflow/workflowAuditList.html";
+	}
+}
+
+function doApply(type){
+	var _contextPath = storage.get(Constants.MOBILE_CONTEXT_PATH);
+	if("2" == type){//外出
+		location.href = _contextPath + "/office/mobileh5/workflow/goOutApplyEdit.html";
+	}else if("3" == type){//出差
+		location.href = _contextPath + "/office/mobileh5/workflow/evectionApplyEdit.html";
+	}else if("4" == type){//报销
+		location.href = _contextPath + "/office/mobileh5/workflow/expenseApplyEdit.html";
+	}else if("5" == type){//物品管理
+		location.href = _contextPath + "/office/mobileh5/workflow/goodsManagerApplyList.html";
+	}else if("6" == type){//听课管理
+		location.href = _contextPath + "/office/mobileh5/workflow/attendLectureApplyEdit.html";
+	}else if("7" == type){//集体外出
+		location.href = _contextPath + "/office/mobileh5/workflow/goOutjtApplyEdit.html";
+	}else{//教师请假
+		location.href = _contextPath + "/office/mobileh5/workflow/leaveApplyEdit.html";
+	}
+}
+</script>
+</html>

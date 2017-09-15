@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<updateTables-modifytime>
+		<!-- 由于删除家长时要判断家长对应的用户是否定购了个人业务，故不能直接通过xml配置进行删除
+			<table name="base_family" field="student_id IN ">
+			<field name="is_deleted" value="1" />
+			<field name="modify_time" value="?" />
+			</table>
+		-->
+	</updateTables-modifytime>
+</root>
+

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName" default-lazy-init="true">
+	<bean id="officeAssetBusinessApplyAuditService"
+        class="net.zdsoft.office.asset.service.impl.OfficeAssetBusinessApplyAuditServiceImpl" >
+    	<property name="applyBusinessServiceMap">
+			<map>
+				<entry key="7001"><ref local="officeAssetApplyService"/></entry>
+			</map>
+		</property>
+    </bean>
+    <bean id="officeCustomerBusinessApplyAuditService"
+        class="net.zdsoft.office.customer.service.impl.OfficeCustomerBusinessApplyAuditServiceImpl" >
+    	<property name="applyBusinessServiceMap">
+			<map>
+				<entry key="7002"><ref local="officeCustomerApplyService"/></entry>
+				<entry key="7003"><ref local="officeCustomerDeptLeaderApplyService"/></entry>
+			</map>
+		</property>
+    </bean>
+    
+    
+	<!-- 二维码 -->
+	<bean id="qrCodeService" class="net.zdsoft.office.qrCode.service.impl.QrCodeServiceImpl" init-method="init"/>
+	<!-- app权限设置 -->
+	<bean id="officeAppParmService" class="net.zdsoft.office.basic.service.impl.OfficeAppParmServiceImpl" />
+	
+	<!-- 审核流程中间转换表  手机端微办公使用 -->
+	<bean id="officeConvertFlowService" class="net.zdsoft.office.convertflow.service.impl.OfficeConvertFlowServiceImpl"/>
+	<bean id="officeConvertFlowTaskService" class="net.zdsoft.office.convertflow.service.impl.OfficeConvertFlowTaskServiceImpl"/>
+	<bean id="officeFlowSendMsgService" class="net.zdsoft.office.convertflow.service.impl.OfficeFlowSendMsgServiceImpl"></bean>
+	
+	<!-- 消息中心 -->
+	<!-- 文件夹详细信息  -->
+	<bean id="officeMsgFolderDetailService" class="net.zdsoft.office.msgcenter.service.impl.OfficeMsgFolderDetailServiceImpl" />
+	<!-- 信息文件夹  -->
+	<bean id="officeMsgFolderService" class="net.zdsoft.office.msgcenter.service.impl.OfficeMsgFolderServiceImpl" />
+	<!-- 信息接受信息表  -->
+	<bean id="officeMsgReceivingService" class="net.zdsoft.office.msgcenter.service.impl.OfficeMsgReceivingServiceImpl"/>
+	<!-- 信息回收  -->
+	<bean id="officeMsgRecycleService" class="net.zdsoft.office.msgcenter.service.impl.OfficeMsgRecycleServiceImpl" />
+	<!-- 信息发送表  -->
+	<bean id="officeMsgSendingService" class="net.zdsoft.office.msgcenter.service.impl.OfficeMsgSendingServiceImpl" />
+	<!-- 信息主送信息表  -->
+	<bean id="officeMsgMainsendService" class="net.zdsoft.office.msgcenter.service.impl.OfficeMsgMainsendServiceImpl" />
+	
+	<!-- 备忘录 -->
+	<bean id="memoService" class="net.zdsoft.office.desktop.service.impl.MemoServiceImpl"/>
+	<!-- 通知公告  -->
+	<bean id="officeBulletinService" class="net.zdsoft.office.bulletin.service.impl.OfficeBulletinServiceImpl" />
+	<bean id="officeBulletinSetService" class="net.zdsoft.office.bulletin.service.impl.OfficeBulletinSetServiceImpl" />
+	<bean id="officeBulletinTypeService" class="net.zdsoft.office.bulletin.service.impl.OfficeBulletinTypeServiceImpl" />
+	<bean id="officeBulletinReadService" class="net.zdsoft.office.bulletin.service.impl.OfficeBulletinReadServiceImpl" />
+	<!-- 网站推送 -->
+	<bean id="pushMessageService" class="net.zdsoft.office.bulletin.service.impl.PushMessageServiceImpl" />
+	<bean id="pushMessageeService" class="net.zdsoft.office.msgcenter.service.impl.PushMessageeServiceImpl" />
+	<!-- 桐庐定制通知 -->
+	<bean id="officeBulletinTlService" class="net.zdsoft.office.bulletin.service.impl.OfficeBulletinTlServiceImpl" />
+	<bean id="officeBulletinTlUnitService" class="net.zdsoft.office.bulletin.service.impl.OfficeBulletinTlUnitServiceImpl" />
+	<!-- 新疆定制公告 -->
+	<bean id="officeBulletinXjService" class="net.zdsoft.office.bulletin.service.impl.OfficeBulletinXjServiceImpl" />
+	<!-- 报修管理 -->
+	<bean id="officeTypeAuthService" class="net.zdsoft.office.repaire.service.impl.OfficeTypeAuthServiceImpl" />
+	<bean id="officeRepaireService" class="net.zdsoft.office.repaire.service.impl.OfficeRepaireServiceImpl" />
+	<bean id="officeTeachAreaAuthService" class="net.zdsoft.office.repaire.service.impl.OfficeTeachAreaAuthServiceImpl" />
+	<bean id="officeRepaireTypeService" class="net.zdsoft.office.repaire.service.impl.OfficeRepaireTypeServiceImpl" />
+	<bean id="officeRepaireSmsService" class="net.zdsoft.office.repaire.service.impl.OfficeRepaireSmsServiceImpl" />
+	<!-- 教室预约 -->
+	<bean id="officeApplyNumberService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeApplyNumberServiceImpl" />
+	<bean id="officeTimeSetService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeTimeSetServiceImpl" />
+	<bean id="officeUtilityApplyService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeUtilityApplyServiceImpl" />
+	<bean id="officeUtilityNumberService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeUtilityNumberServiceImpl" />
+	<!-- 页面信息设置  -->
+	<bean id="officeRoomOrderSetService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeRoomOrderSetServiceImpl" />
+	<!-- 考勤管理 -->
+	<bean id="officeAttendanceService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeAttendanceServiceImpl" />
+	<bean id="officeAttendanceStuRecordService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeAttendanceStuRecordServiceImpl" />
+	<bean id="officeAttendanceDoorRecordService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeAttendanceDoorRecordServiceImpl" />
+	<bean id="yktSynckqJobBean" class="net.zdsoft.office.dailyoffice.sync.job.YKTSyncJob" />
+	<!-- 镇海一卡通 -->
+	<bean id="webBookroomService" class="net.zdsoft.office.dailyoffice.service.impl.WebBookroomServiceImpl" />
+	
+	<!-- 车辆管理 -->
+	<bean id="officeCarApplyService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeCarApplyServiceImpl" />
+	<bean id="officeCarDriverService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeCarDriverServiceImpl" />
+	<bean id="officeCarInfoService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeCarInfoServiceImpl" />
+	<bean id="officeCarSubsidyService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeCarSubsidyServiceImpl" />
+	<!-- 会议管理 -->
+	<bean id="officeMeetingApplyService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeMeetingApplyServiceImpl" />
+	<bean id="officeMeetingUserService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeMeetingUserServiceImpl" />
+	<bean id="officeMeetingAuditService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeMeetingAuditServiceImpl" />
+	<!-- 接待管理 -->
+	<bean id="officeReceptionService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeReceptionServiceImpl" />
+	<!-- 周工作安排 -->
+	<bean id="officeWorkArrangeOutlineService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeWorkArrangeOutlineServiceImpl" />
+	<bean id="officeWorkArrangeDetailService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeWorkArrangeDetailServiceImpl" />
+	<bean id="officeWorkArrangeContentService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeWorkArrangeContentServiceImpl" />
+	
+	<!-- 资产 -->
+	<bean id="officeAssetApplyService" class="net.zdsoft.office.asset.service.impl.OfficeAssetApplyServiceImpl" />
+	<bean id="officeAssetCategoryService" class="net.zdsoft.office.asset.service.impl.OfficeAssetCategoryServiceImpl" />
+
+	<!-- 教师请假管理-->
+	<bean id="officeTeacherLeaveService" class="net.zdsoft.office.teacherLeave.service.impl.OfficeTeacherLeaveServiceImpl" />
+	<bean id="officeTeacherLeaveUserService" class="net.zdsoft.office.teacherLeave.service.impl.OfficeTeacherLeaveUserServiceImpl" />
+	<!-- 宁海教师请假系统  -->
+	<bean id="officeTeacherLeaveNhService" class="net.zdsoft.office.teacherLeave.service.impl.OfficeTeacherLeaveNhServiceImpl" />
+	<!-- 采购意见信息表  -->
+	<bean id="officeAssetPurchaseOpinionService" class="net.zdsoft.office.asset.service.impl.OfficeAssetPurchaseOpinionServiceImpl" />
+	
+	<!-- 学生请假 -->
+	<bean id="officeLeaveTypeService" class="net.zdsoft.office.studentLeave.service.impl.OfficeLeaveTypeServiceImpl" />
+	<bean id="officeStudentLeaveService" class="net.zdsoft.office.studentLeave.service.impl.OfficeStudentLeaveServiceImpl" />
+	<!-- 一卡通 -->
+	<bean id="studentCardRecordService" class="net.zdsoft.office.studentcard.service.impl.StudentCardRecordServiceImpl"></bean>
+
+	<!-- 学生返校考勤 -->
+	<bean name="inspectionHolidaysInfoService" class="net.zdsoft.office.studentBackSchool.service.impl.InspectionHolidaysInfoServiceImpl" />
+   	<!-- 任务管理系统 -->
+	<bean id="officeTaskManageService" class="net.zdsoft.office.taskManage.service.impl.OfficeTaskManageServiceImpl" />
+	<!-- 工作会议 -->
+	<bean id="officeWorkMeetingService" class="net.zdsoft.office.meeting.service.impl.OfficeWorkMeetingServiceImpl" />
+	<bean id="officeDeptLeaderService" class="net.zdsoft.office.meeting.service.impl.OfficeDeptLeaderServiceImpl" />
+	<bean id="officeWorkMeetingAttendService" class="net.zdsoft.office.meeting.service.impl.OfficeWorkMeetingAttendServiceImpl" />
+	<bean id="officeWorkMeetingConfirmService" class="net.zdsoft.office.meeting.service.impl.OfficeWorkMeetingConfirmServiceImpl" />
+	<bean id="officeWorkMeetingMinutesService" class="net.zdsoft.office.meeting.service.impl.OfficeWorkMeetingMinutesServiceImpl" />
+	<!-- 日程管理 -->
+	<bean id="officeCalendarAuthService" class="net.zdsoft.office.schedule.service.impl.OfficeCalendarAuthServiceImpl" />
+	<bean id="officeCalendarDayInfoService" class="net.zdsoft.office.schedule.service.impl.OfficeCalendarDayInfoServiceImpl" />
+	<bean id="officeCalendarMonthInfoService" class="net.zdsoft.office.schedule.service.impl.OfficeCalendarMonthInfoServiceImpl" />
+	<bean id="officeCalendarSemesterService" class="net.zdsoft.office.schedule.service.impl.OfficeCalendarSemesterServiceImpl" />
+	<bean id="officeCalendarService" class="net.zdsoft.office.schedule.service.impl.OfficeCalendarServiceImpl" />
+	<bean id="officeWorkOutlineService" class="net.zdsoft.office.schedule.service.impl.OfficeWorkOutlineServiceImpl" />
+	<!-- 局务会议 -->
+	<bean id="officeExecutiveFixedDeptService" class="net.zdsoft.office.meeting.service.impl.OfficeExecutiveFixedDeptServiceImpl" />
+	<bean id="officeExecutiveIssueAttendService" class="net.zdsoft.office.meeting.service.impl.OfficeExecutiveIssueAttendServiceImpl" />
+	<bean id="officeExecutiveIssueService" class="net.zdsoft.office.meeting.service.impl.OfficeExecutiveIssueServiceImpl" />
+	<bean id="officeExecutiveMeetAttendService" class="net.zdsoft.office.meeting.service.impl.OfficeExecutiveMeetAttendServiceImpl" />
+	<bean id="officeExecutiveMeetMinutesService" class="net.zdsoft.office.meeting.service.impl.OfficeExecutiveMeetMinutesServiceImpl" />
+	<bean id="officeExecutiveMeetService" class="net.zdsoft.office.meeting.service.impl.OfficeExecutiveMeetServiceImpl" />
+	<bean id="officeExecutiveMinutesUserService" class="net.zdsoft.office.meeting.service.impl.OfficeExecutiveMinutesUserServiceImpl" />
+	<!-- 物品管理 -->
+	<bean id="officeGoodsService" class="net.zdsoft.office.goodmanage.service.impl.OfficeGoodsServiceImpl" />
+	<bean id="officeGoodsChangeLogService" class="net.zdsoft.office.goodmanage.service.impl.OfficeGoodsChangeLogServiceImpl" />
+	<bean id="officeGoodsReqService" class="net.zdsoft.office.goodmanage.service.impl.OfficeGoodsReqServiceImpl" />
+	<bean id="officeGoodsTypeService" class="net.zdsoft.office.goodmanage.service.impl.OfficeGoodsTypeServiceImpl" />
+	<bean id="officeGoodsTypeAuthService" class="net.zdsoft.office.goodmanage.service.impl.OfficeGoodsTypeAuthServiceImpl" />
+	<bean id="officeGoodsDistributeService" class="net.zdsoft.office.goodmanage.service.impl.OfficeGoodsDistributeServiceImpl" />
+	<!-- 工作汇报 -->
+	<bean id="officeWorkReportService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeWorkReportServiceImpl" />
+	<!-- 工作汇报扩展（评论） -->
+	<bean id="officeWorkReportExService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeWorkReportExServiceImpl" />
+	<!-- 桐庐工作汇报 -->
+	<bean id="officeWorkReportTlService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeWorkReportTlServiceImpl" />
+	<!-- 调研管理 -->
+	<bean id="officeSurveyApplyService" class="net.zdsoft.office.survey.service.impl.OfficeSurveyApplyServiceImpl" />
+	<bean id="officeSurveyAuditService" class="net.zdsoft.office.survey.service.impl.OfficeSurveyAuditServiceImpl" />
+	<!-- 报销管理 -->
+	<bean id="officeExpenseService" class="net.zdsoft.office.expense.service.impl.OfficeExpenseServiceImpl" />
+	<!-- 套红模板  -->
+	<bean id="officeTempCommentService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeTempCommentServiceImpl" />
+	<!-- 滨江出差 -->
+	<bean id="officeBusinessTripService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeBusinessTripServiceImpl" />
+	<!-- 滨江外出 -->
+	<bean id="officeGoOutService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeGoOutServiceImpl" />
+	<!-- 听课管理 -->
+	<bean id="officeAttendLectureService" class="net.zdsoft.office.attendLecture.service.impl.OfficeAttendLectureServiceImpl" />
+	<!-- 签到 -->
+	<bean id="officeSignedOnService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeSignedOnServiceImpl" />
+	<!-- 签到时间设置 -->
+	<bean id="officeSigntimeSetService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeSigntimeSetServiceImpl" />	<!-- 实验类型设置 -->
+	<bean id="officeLabSetService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeLabSetServiceImpl" />
+	<!-- 实验详情 -->
+	<bean id="officeLabInfoService" class="net.zdsoft.office.dailyoffice.service.impl.OfficeLabInfoServiceImpl" />
+	<!-- 会议室管理 -->
+	<bean id="officeBoardroomXjService" class="net.zdsoft.office.boardroom.service.impl.OfficeBoardroomXjServiceImpl" />
+	<!-- 会议室申请记录 -->
+	<bean id="officeBoardroomApplyXjService" class="net.zdsoft.office.boardroom.service.impl.OfficeBoardroomApplyXjServiceImpl" />
+	<bean id="officeApplyExXjService" class="net.zdsoft.office.boardroom.service.impl.OfficeApplyExXjServiceImpl" />
+	<bean id="officeApplyDetailsXjService" class="net.zdsoft.office.boardroom.service.impl.OfficeApplyDetailsXjServiceImpl" />
+	<!-- 用印管理 -->
+	<bean id="officeSealService" class="net.zdsoft.office.seal.service.impl.OfficeSealServiceImpl" />
+	<!-- 印章类型 -->
+	<bean id="officeSealTypeService" class="net.zdsoft.office.seal.service.impl.OfficeSealTypeServiceImpl" />
+	<!-- 客户管理 -->
+	<bean id="officeCustomerApplyService" class="net.zdsoft.office.customer.service.impl.OfficeCustomerApplyServiceImpl" />
+	<bean id="officeCustomerFollowRecordService" class="net.zdsoft.office.customer.service.impl.OfficeCustomerFollowRecordServiceImpl" />
+	<bean id="officeCustomerInfoService" class="net.zdsoft.office.customer.service.impl.OfficeCustomerInfoServiceImpl" />
+	<bean id="officeCustomerDeptLeaderApplyService" class="net.zdsoft.office.customer.service.impl.OfficeCustomerDeptLeaderApplyServiceImpl" />
+	<!-- 场地审核人员短信接收设置 -->
+	<bean id="roomorderAuditSmsService" class="net.zdsoft.office.dailyoffice.service.impl.RoomorderAuditSmsServiceImpl" />	</beans>

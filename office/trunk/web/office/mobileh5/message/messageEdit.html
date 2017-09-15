@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<title>发消息</title>
+<link rel="stylesheet" type="text/css" href="../../../static/html/css/style.css?v=20170619">
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible_css.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/flexible.debug.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery-1.9.1.min.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.form.js?v=20170619"></script>
+<script src="../../../static/html/js/jquery.Layer.js?v=20170619"></script>
+<script src="../../../static/html/js/storage.js?v=20170619"></script>
+</head>
+
+<body class="gray">
+<div id="page">
+	<div id="pageInner" class="fn-flex fn-flex-col hidde">
+    	<header style="display:none;">
+        	<h1 class="f-20" id="msgUse"></h1>
+            <a href="#" class="abtn abtn-left f-18 html-window-back wechat-back-event" id="cancelId"><span>取消</span></a>
+        	<a href="javascript:void(0)" class="abtn abtn-left ml-100 f-18 html-window-close" id="windowClose"><span>关闭</span></a>
+        </header>
+        <div class="scroll-wrap fn-flex-auto ios-touch">
+            <div id="container">
+	        <form id="dataForm">
+            	<input type="hidden" name="msgId" id="msgId" >
+            	<input type="hidden" name="replyMsgId" id="replyMsgId" >
+            	<input type="hidden" name="userIds" id="userIds" >
+            	<input type="hidden" name="userId" id="userId" >
+            	<input type="hidden" name="sendUserName" id="userName" >
+            	<input type="hidden" name="unitId" id="unitId" >
+            	<input type="hidden" name="needsms" id="isNeedsms" >
+            	<input type="hidden" name="operateType" id="operateType" >
+            	<input type="hidden" name="editType" id="editType" >
+                <ul class="msgsnd-list">
+                    <li class="f-14">
+                        <span class="tt">收件人：</span>
+                        <a href="javascript:void(0)" class="icon-img icon-add" id="address"></a>
+                        <span class="dd dd-scroll ios-touch">
+                        </span>
+                    </li>
+                    <li class="theme f-14 fn-rel">
+                        <span class="tt">主题：</span>
+                        <span class="num f-16" id="attNumber"></span>
+                        <a href="javascript:void(0)" class="icon-img icon-adjunct ui-file">
+                        
+                        </a>
+                        <input type="hidden" name="removeAttachment" id="attDelIds" >
+                        <span class="dd"><input type="text" name="title" class="txt" id="msgTitle" value=""></span>
+                    </li>
+                </ul>
+                <div class="msgsnd-textarea fn-flex-auto mt-10">
+                    <textarea name="simpleContent" id="msgCon" class="f-14" placeholder="请输入邮件内容..."></textarea>
+                </div>
+	        </form>
+            </div>
+        </div>
+        <ul class="acc-wrap acc-wrap-auto ios-touch" id="accFooter" >
+        </ul>
+        <div class="replay-footer">
+        	<p class="fn-clear">
+	        	<a href="#" id="submitBtn" class="f-15">发送</a>
+        		<span id="sendSms" class="analog-chk mt-15 f-12 c-999"><i></i>同时发短信通知</span>
+        	</p>
+        </div>
+    </div>
+</div>
+
+<script src="../../../static/html/js/public.js?v=20170619"></script>
+<script src="../../../static/html/js/common.js?v=20170619"></script>
+<script  src="../../../static/html/js/myscript.js?v=20170619"></script>
+<script src="../../../static/html/js/validate.js?v=20170619"></script>
+<script src="../../../static/html/js/weike.js?v=20170619"></script>
+<script src="../../../static/html/js/myWeike.js?v=20170619"></script>
+
+<script src="js/msgWap.js?v=20170619"></script>
+<script src="js/msgWapEntities.js?v=20170619"></script>
+<script src="js/msgWapNetwork.js?v=20170619"></script>
+<script src="js/msgWapNetworkService.js?v=20170619"></script>
+<script type="text/javascript">
+$(function () {
+	var s_width=$('.dd-scroll').parent('li').width()-$('.dd-scroll').siblings('.tt').width()*1.7;
+	$('.dd-scroll').width(s_width);
+});
+document.addEventListener('DOMContentLoaded', function() {
+		setTimeout(wap.initEdit(), 200);
+}, false);
+</script>
+</body>
+</html>

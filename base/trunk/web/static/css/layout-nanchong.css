@@ -1,0 +1,15 @@
+body.login{background: url(../images/nanchong_body_bg.png) repeat-x center top #1d7adb;}
+#container{width: 498px;margin: 0 auto;}
+.login-wrap{width: 498px;height: 436px;background: url(../images/nanchong_login_bg.png) no-repeat;margin: 0 auto;}
+.login-inner{float: none;width: auto;padding:35px 53px 0;margin: 0;border: 0;box-shadow: none;background: none;}
+.login-inner .reg-txt{text-align: center;color: #999;}
+.login-inner .reg-txt a{margin-left: 5px;text-decoration: underline;color: #ff7200;}
+.login-inner h3{height: 71px;background: url(../images/nanchong_login_h3.png) no-repeat 0 0;padding-left: 80px;margin-top: -10px;font: 100 30px/71px "Microsoft YaHei";color: #fff;}
+.login-inner .txt{width: 310px;height: 43px;margin-bottom: 13px;}
+.login-inner .txt-code{width: 150px;}
+.login-inner p span,.login-inner p a{font-size: 14px;color: #fff;}
+.login-inner p a{text-decoration: underline;}
+.login-inner .tips{margin-top: -5px;}
+.login-inner .tips span{font-size: 12px;color: #ff7200;}
+.login-inner .login-btn{width: 391px;height: 44px;background: url(../images/nanchong_login_btn.png) no-repeat 0 0;}
+

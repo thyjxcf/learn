@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  app 各项子元素是对产品基本信息的描述；
+  id 产品标识
+  appName 产品名称；  
+  version 产品的版本号
+  image 产品的图标；
+  description 产品描述；
+-->
+<xmlConfig>
+	<applicationConfig>
+		 <app id="office">
+			<appName>办公系统</appName>
+			<version>3.6</version>
+			<image>pic_office.gif</image>
+			<description>办公系统</description>
+		</app>
+		<app id="stusys">
+			<appName>学籍系统</appName>
+			<version>3.5</version>
+			<image>pic_stusys.gif</image>
+			<description>学籍系统</description>
+		</app>		
+		<app id="system">
+			<appName>系统管理</appName>
+			<version>3.5</version>
+			<image>pic_system.gif</image>
+			<description>系统管理</description>
+		</app>		
+		<!-- <app id="sbw">
+	      <appName>ZDSoft网站生成系统</appName>
+	      <version>v4.6.2.60809</version>
+	      <image>pic_sbw.gif</image>
+	      <description>自助网站建设工具</description>	     
+	    </app>
+	    <app id="source">
+			<appName>资源库</appName>
+			<version>2.5</version>
+			<image>pic_source.gif</image>
+			<description>资源库管理平台</description>			
+		</app> -->	    
+	</applicationConfig>
+</xmlConfig>
+

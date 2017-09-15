@@ -1,0 +1,1331 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="basedata-support" extends="default" namespace="/basedata/background/support">
+		<action name="support" class="net.zdsoft.eis.frame.action.BaseAction">
+			<result name="success" type="freemarker">basedataSupport.ftl</result>
+		</action>	
+	</package>
+	<package name="eisuBaseSchoolManager" extends="default" namespace="/basedata/baseschool">
+      	<action name="baseSchoolAdmin" class="net.zdsoft.eis.school.action.BaseSchoolAdminAction">
+      		<result name="success" type="freemarker">schoolinfoDetail.ftl</result>
+      	</action>
+      	<action name="baseSchoolAdmin-save" class="net.zdsoft.eis.school.action.BaseSchoolAdminAction" method="save">
+      		<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+      	</action>
+      </package>
+  <!--节假日设置 -->
+  <package name="basedata-dateinfo" extends="default" namespace="/basedata/holiday">
+		<action name="baseDateAdmin"
+			class="net.zdsoft.eis.base.data.action.HolidayAction" method="showPage">
+			<result name="success" type="freemarker">dateList.ftl</result>
+		</action>
+    <action name="baseDateAdmin-remote"
+			class="net.zdsoft.eis.base.data.action.HolidayAction" method="updateDateInfo">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+	</action>
+	<action name="monthSet"
+			class="net.zdsoft.eis.base.data.action.HolidayAction" method="monthSet">
+			<result name="success" type="freemarker">monthList.ftl</result>
+		</action>
+	<action name="monthSet-save"
+			class="net.zdsoft.eis.base.data.action.HolidayAction" method="save">
+			<result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+	</action>
+  </package>
+  
+  <!--节次时间设置 -->
+  <package name="basedata-sectioninfo" extends="default" namespace="/basedata/section">
+		<action name="sectionAdmin"
+			class="net.zdsoft.eis.base.data.action.SectionTimeSetAction" method="showPage">
+			<result name="success" type="freemarker">sectionTimeSet.ftl</result>
+		</action>
+		<action name="sectionAdmin-saveSection"
+			class="net.zdsoft.eis.base.data.action.SectionTimeSetAction" method="saveSection">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+  </package>
+	
+	<package name="basedata-sch" extends="default" namespace="/basedata/sch">
+		<!-- 班级设置 -->
+		<action name="basicClassAdmin"
+			class="net.zdsoft.eis.base.data.action.BasicClassAdminAction">
+			<result name="success" type="freemarker">classmain.ftl</result>
+			<result name="error" type="freemarker">../../../common/promptmessage.ftl</result>
+		</action>
+		<action name="basicClassAdmin-Edit" class="net.zdsoft.eis.base.data.action.BasicClassAdminAction"
+			method="edit">
+			<result name="success" type="freemarker">classedit.ftl</result>
+		</action>
+		<action name="basicClassAdmin-Add" class="net.zdsoft.eis.base.data.action.BasicClassAdminAction"
+			method="add">
+			<result name="success" type="freemarker">classedit.ftl</result>
+		</action>
+		<action name="basicClassAdmin-BatchAdd"
+			class="net.zdsoft.eis.base.data.action.BasicClassAdminAction" method="batchAdd">
+			<result name="success" type="freemarker">classbatchadd.ftl</result>
+		</action>
+		<action name="basicClassAdmin-Delete"
+			class="net.zdsoft.eis.base.data.action.BasicClassAdminAction" method="delete">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="basicClassAdmin-Save" class="net.zdsoft.eis.base.data.action.BasicClassAdminAction"
+			method="save">
+			<result name="input" type="freemarker">classedit.ftl</result>
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="basicClassAdmin-BatchAddConfirm"
+			class="net.zdsoft.eis.base.data.action.BasicClassAdminAction" method="confirm">
+			<result name="input" type="freemarker">classbatchadd.ftl</result>
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="basicClassAdmin-changeClass"
+			class="net.zdsoft.eis.base.data.action.BasicClassAdminAction" method="doChangeSection"> 
+			<result name="success" type="json">
+				<param name="root">retStr</param>
+			</result>
+		</action>
+		<action name="basicClassAdmin-changeAcadyear"
+			class="net.zdsoft.eis.base.data.action.BasicClassAdminAction" method="doChangeAcadyear"> 
+			<result name="success" type="json">
+				<param name="root">retStr</param>
+			</result>
+		</action>
+
+		<!-- 年级设置 -->
+		<action name="basicClassAdmin-GradeList" class="net.zdsoft.eis.base.data.action.BasicGradeAction"
+			method="getBasicGradeList">
+			<result name="success" type="freemarker">grademain.ftl</result>
+		</action>
+		<action name="basicClassAdmin-remoteAction"
+			class="net.zdsoft.eis.base.data.action.BasicGradeAction">
+			<interceptor-ref name="burlap"></interceptor-ref>
+		</action>
+		<action name="basicClassAdmin-saveGrades"
+			class="net.zdsoft.eis.base.data.action.BasicGradeAction" method="saveGradeList">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="basicClassAdmin-addNewGrade" class="net.zdsoft.eis.base.data.action.BasicGradeAction"
+			method="addNewGrade">
+			<result name="success" type="freemarker">gradeAddNew.ftl</result>
+		</action>
+		<action name="basicClassAdmin-saveGrade" class="net.zdsoft.eis.base.data.action.BasicGradeAction"
+			method="saveGrade">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="basicClassAdmin-deleteGrade" class="net.zdsoft.eis.base.data.action.BasicGradeAction"
+			method="deleteGrade">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="basicClassAdmin-doChangeOpenYear" class="net.zdsoft.eis.base.data.action.BasicGradeAction"
+			method="doChangeOpenYear">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		
+		<!-- 学校学年学期设置 -->
+		<action name="basicSemesterAdmin"
+			class="net.zdsoft.eis.base.data.action.BasicSemesterAdminAction">
+			<result name="success" type="freemarker">semestermain.ftl</result>
+		</action>
+		<action name="basicSemesterAdmin-add"
+			class="net.zdsoft.eis.base.data.action.BasicSemesterAdminAction"
+			method="add">
+			<result name="success" type="freemarker">semesteredit.ftl</result>
+		</action>
+		<action name="basicSemesterAdmin-edit"
+			class="net.zdsoft.eis.base.data.action.BasicSemesterAdminAction" method="edit">
+			<result name="success" type="freemarker">semesteredit.ftl</result>
+		</action>
+
+		<action name="basicSemesterAdmin-delete"
+			class="net.zdsoft.eis.base.data.action.BasicSemesterAdminAction"
+			method="delete">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="basicSemesterAdmin-save"
+			class="net.zdsoft.eis.base.data.action.BasicSemesterAdminAction" method="save">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="basicSemesterAdmin-reEdit"
+			class="net.zdsoft.eis.base.data.action.BasicSemesterAdminAction"
+			method="reEdit">
+			<result name="success" type="freemarker">semesteredit.ftl</result>
+		</action>
+		<action name="basicSemesterAdmin-valiAcadyearOrSem" class="net.zdsoft.eis.base.data.action.BasicSemesterAdminAction"
+		    method="valiAcadyearOrSem"> 
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+
+
+		<!-- 学校信息设置 -->
+		<action name="schoolinfo" class="net.zdsoft.eis.base.data.action.SchoolInfoAction">
+			<result name="detail" type="freemarker">schoolinfoDetail.ftl</result>
+		</action>
+
+		<!-- 学校编号远程校验 -->
+		<action name="schoolinfo-remoteCheckCode" class="net.zdsoft.eis.base.data.action.SchoolInfoAction">
+			<interceptor-ref name="burlap" />
+		</action>
+	</package>
+
+
+		<!--  ========学生家庭信息 eis使用 ========================================= -->
+	<package name="basedataEis-stu" extends="default" namespace="/stusys/sch/student">
+		<action name="studentadmin-familyAdmin-add"
+			class="net.zdsoft.eis.base.data.action.StudentFamilyAction"
+			method="add">
+			<result name="success" type="freemarker">/basedata/stu/familyEdit.ftl</result>
+		</action>
+		<action name="studentadmin-familyAdmin-edit"
+			class="net.zdsoft.eis.base.data.action.StudentFamilyAction"
+			method="edit">
+			<result name="success" type="freemarker">/basedata/stu/familyEdit.ftl</result>
+		</action>
+		<action name="studentadmin-familyAdmin-list"
+			class="net.zdsoft.eis.base.data.action.StudentFamilyAction"
+			method="list">
+			<result name="success" type="freemarker">/basedata/stu/familyList.ftl</result>
+			<result name="input" type="freemarker">
+				/static/common/stuPromptPage.html</result>
+		</action>
+		<action name="studentadmin-familyAdmin-SaveAdd"
+			class="net.zdsoft.eis.base.data.action.StudentFamilyAction"
+			method="save">
+			<result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+		</action>
+		<action name="studentadmin-familyAdmin-Remove"
+			class="net.zdsoft.eis.base.data.action.StudentFamilyAction"
+			method="remove">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<!-- 数据导入 -->
+		<action name="studentadmin-familyAdmin-importMain"
+			class="net.zdsoft.eis.base.data.action.FamilyDataImportAction">
+			<result name="success" type="freemarker">/basedata/stu/familyImport.ftl</result>
+		</action>
+		
+		<action name="studentadmin-familyAdmin-importMain-jsonGetReplyById" class="net.zdsoft.eis.base.data.action.FamilyDataImportAction" method="jsonGetReplyById">
+		</action>
+		<action name="studentadmin-familyAdmin-importMain-jsonRemoveReplyById" class="net.zdsoft.eis.base.data.action.FamilyDataImportAction" method="jsonRemoveReplyById">
+		</action>
+		<action name="studentadmin-familyAdmin-importMain-jsonGetErrorData" class="net.zdsoft.eis.base.data.action.FamilyDataImportAction" method="jsonGetErrorData">
+		</action>		
+		
+		<!-- 数据导入 -->
+		<action name="studentadmin-familyAdmin-importMain-dataImport"
+			class="net.zdsoft.eis.base.data.action.FamilyDataImportAction"
+			method="dataImport">
+		</action>
+
+		<!-- 生成模块 -->
+		<action name="studentadmin-familyAdmin-importMain-gettemplate"
+			class="net.zdsoft.eis.base.data.action.FamilyDataImportAction"
+			method="getTemplate">
+			<result name="success" type="excel" />
+		</action>
+
+		<!-- 导出列 -->
+		<action name="studentadmin-familyAdmin-importMain-columnlist"
+			class="net.zdsoft.eis.base.data.action.FamilyDataImportAction"
+			method="columnList">
+			<result name="success" type="freemarker">/leadin/dataimport/column_select.ftl</result>
+		</action>
+
+		<!-- 下载用户模板 -->
+		<action name="studentadmin-familyAdmin-importMain-getStudentTemplate"
+			class="net.zdsoft.eis.base.data.action.FamilyDataImportAction"
+			method="getStuTemplate" />
+		
+		<!-- 获取错误数据 -->
+		<action name="studentadmin-familyAdmin-importMain-getErrorData"
+			class="net.zdsoft.eis.base.data.action.FamilyDataImportAction"
+			method="getErrorData">
+		</action>
+	</package>
+		<!--  ========学生家庭信息 eisu==================================== -->
+	<package name="basedata-stu" extends="default" namespace="/basedata/stu">
+		<action name="familyAdmin"
+			class="net.zdsoft.eis.base.data.action.StudentFamilyAction"
+			method="admin">
+			<result name="success" type="freemarker">familyAdmin.ftl</result>
+		</action>
+		<action name="familyAdmin-add"
+			class="net.zdsoft.eis.base.data.action.StudentFamilyAction"
+			method="add">
+			<result name="success" type="freemarker">familyEdit.ftl</result>
+		</action>
+		<action name="familyAdmin-edit"
+			class="net.zdsoft.eis.base.data.action.StudentFamilyAction"
+			method="edit">
+			<result name="success" type="freemarker">familyEdit.ftl</result>
+		</action>
+		<action name="familyAdmin-list"
+			class="net.zdsoft.eis.base.data.action.StudentFamilyAction"
+			method="list">
+			<result name="success" type="freemarker">familyList.ftl</result>
+			<result name="input" type="freemarker">
+				/static/common/stuPromptPage.html</result>
+		</action>
+		<action name="familyAdmin-list2"
+			class="net.zdsoft.eis.base.data.action.StudentFamilyAction"
+			method="list2">
+			<result name="success" type="freemarker">familyList.ftl</result>
+			<result name="input" type="freemarker">studentList.ftl</result>
+		</action>
+		<action name="familyAdmin-SaveAdd"
+			class="net.zdsoft.eis.base.data.action.StudentFamilyAction"
+			method="save">
+			<result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+		</action>
+		<action name="familyAdmin-Remove"
+			class="net.zdsoft.eis.base.data.action.StudentFamilyAction"
+			method="remove">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		
+		<!-- ============= 家庭成员导入 2009-10-28 ========================================================= -->
+		<!-- 数据导入 -->
+		<action name="familyAdmin-importMain"
+			class="net.zdsoft.eis.base.data.action.FamilyDataImportAction">
+			<result name="success" type="freemarker">familyImport.ftl</result>
+		</action>
+		
+		<action name="familyAdmin-importMain-jsonGetReplyById" class="net.zdsoft.eis.base.data.action.FamilyDataImportAction" method="jsonGetReplyById">
+		</action>
+		<action name="familyAdmin-importMain-jsonRemoveReplyById" class="net.zdsoft.eis.base.data.action.FamilyDataImportAction" method="jsonRemoveReplyById">
+		</action>
+		<action name="familyAdmin-importMain-jsonGetErrorData" class="net.zdsoft.eis.base.data.action.FamilyDataImportAction" method="jsonGetErrorData">
+		</action>		
+		
+		<!-- 数据导入 -->
+		<action name="familyAdmin-importMain-dataImport"
+			class="net.zdsoft.eis.base.data.action.FamilyDataImportAction"
+			method="dataImport">
+		</action>
+
+		<!-- 生成模块 -->
+		<action name="familyAdmin-importMain-gettemplate"
+			class="net.zdsoft.eis.base.data.action.FamilyDataImportAction"
+			method="getTemplate">
+			<result name="success" type="excel" />
+		</action>
+
+		<!-- 导出列 -->
+		<action name="familyAdmin-importMain-columnlist"
+			class="net.zdsoft.eis.base.data.action.FamilyDataImportAction"
+			method="columnList">
+			<result name="success" type="freemarker">/leadin/dataimport/column_select.ftl</result>
+		</action>
+
+		<!-- 下载用户模板 -->
+		<action name="familyAdmin-importMain-getStudentTemplate"
+			class="net.zdsoft.eis.base.data.action.FamilyDataImportAction"
+			method="getStuTemplate" />
+		
+		<!-- 获取错误数据 -->
+		<action name="familyAdmin-importMain-getErrorData"
+			class="net.zdsoft.eis.base.data.action.FamilyDataImportAction"
+			method="getErrorData">
+		</action>
+		
+		<!-- ===================学生数据导入 ======================-->
+		<action name="studentImportAdmin"
+			class="net.zdsoft.eis.base.data.action.StudentDataImportAction"
+			method="main">
+			<result name="success" type="freemarker">studentAdmin.ftl</result>
+		</action>
+		<action name="studentImportAdmin-importMain"
+			class="net.zdsoft.eis.base.data.action.StudentDataImportAction">
+			<result name="success" type="freemarker">studentImport.ftl</result>
+		</action>
+		
+		<action name="studentImportAdmin-importMain-jsonGetReplyById" class="net.zdsoft.eis.base.data.action.StudentDataImportAction" method="jsonGetReplyById">
+		</action>
+		<action name="studentImportAdmin-importMain-jsonRemoveReplyById" class="net.zdsoft.eis.base.data.action.StudentDataImportAction" method="jsonRemoveReplyById">
+		</action>
+		<action name="studentImportAdmin-importMain-jsonGetErrorData" class="net.zdsoft.eis.base.data.action.StudentDataImportAction" method="jsonGetErrorData">
+		</action>		
+		
+		<!-- 数据导入 -->
+		<action name="studentImportAdmin-importMain-dataImport"
+			class="net.zdsoft.eis.base.data.action.StudentDataImportAction"
+			method="dataImport">
+		</action>
+
+		<!-- 生成模块 -->
+		<action name="studentImportAdmin-importMain-gettemplate"
+			class="net.zdsoft.eis.base.data.action.StudentDataImportAction"
+			method="getTemplate">
+			<result name="success" type="excel" />
+		</action>
+
+		<!-- 导出列 -->
+		<action name="studentImportAdmin-importMain-columnlist"
+			class="net.zdsoft.eis.base.data.action.StudentDataImportAction"
+			method="columnList">
+			<result name="success" type="freemarker">/leadin/dataimport/column_select.ftl</result>
+		</action>
+
+		<!-- 下载用户模板 -->
+		<action name="studentImportAdmin-importMain-getStudentTemplate"
+			class="net.zdsoft.eis.base.data.action.StudentDataImportAction"
+			method="getStuTemplate" />
+		
+		<!-- 获取错误数据 -->
+		<action name="studentImportAdmin-importMain-getErrorData"
+			class="net.zdsoft.eis.base.data.action.StudentDataImportAction"
+			method="getErrorData">
+		</action>
+		
+		<!-- 学生信息维护 -->
+		<action name="studentadmin" class="net.zdsoft.eis.base.data.action.StudentAction"
+			method="getStudentAdmin">
+			<result name="success" type="freemarker">stuInfoAdmin.ftl</result>
+		</action>
+		<action name="studentadmin-list" class="net.zdsoft.eis.base.data.action.StudentAction"
+			method="getStudentList">
+			<result name="success" type="freemarker">stuInfoList.ftl</result>
+		</action>
+		<action name="studentadmin-studentExport" class="net.zdsoft.eis.base.data.action.StudentAction"  method="exportStudent" >
+			
+		</action>
+		<action name="studentadmin-edit" class="net.zdsoft.eis.base.data.action.StudentAction"
+			method="editStudent">
+			<result name="success" type="freemarker">stuInfoEdit.ftl</result>
+		</action>
+		<action name="studentadmin-save" class="net.zdsoft.eis.base.data.action.StudentAction"
+			method="saveStudent">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		<action name="studentadmin-studentDelete" class="net.zdsoft.eis.base.data.action.StudentAction"
+			method="deleteStudent">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		<action name="studentadmin-serverUserName" class="net.zdsoft.eis.base.data.action.StudentAction"
+			method="validateUserNameAvaliable">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		<action name="studentadmin-getStuClassList" class="net.zdsoft.eis.base.data.action.StudentAction" 
+			method="getStuClassList">
+	   	    <result name="success" type="json">
+	   	    	<param name="root">classList</param>
+	   	    </result>
+	   	</action>
+	</package>
+
+	<package name="basedata-coderule" extends="default"
+		namespace="/basedata/coderule">
+		<!-- 学号、学籍号规则设置 -->
+		<action name="codeRuleSetAdmin"
+			class="net.zdsoft.eis.base.data.action.CodeRuleSetAdminAction">
+			<result name="success" type="freemarker">
+				stucoderulesetadmin.ftl</result>
+		</action>			
+		<!-- 学号 -->
+		<action name="codeRuleSetAdmin-stuCodeRule"
+			class="net.zdsoft.eis.base.data.action.StuCodeRuleAction">
+			<result name="success" type="freemarker">stucoderulemain.ftl</result>
+		</action>
+		<action name="codeRuleSetAdmin-stuCodeRuleDoUpdate"
+			class="net.zdsoft.eis.base.data.action.StuCodeRuleAction"
+			method="doUpdateAutomatism">
+			<result name="success" type="chain">codeRuleSetAdmin-stuCodeRule</result>
+			<result name="input" type="freemarker">stucoderulemain.ftl</result>
+		</action>
+		<action name="codeRuleSetAdmin-stuCodeRuleDoAdd"
+			class="net.zdsoft.eis.base.data.action.StuCodeRuleAction"
+			method="doAdd">
+			<result name="success" type="freemarker">stucoderuleedit.ftl</result>
+		</action>
+		
+		<action name="codeRuleSetAdmin-stuCodeRuleDoEdit"
+			class="net.zdsoft.eis.base.data.action.StuCodeRuleAction"
+			method="doEdit">
+			<result name="success" type="freemarker">stucoderuleedit.ftl</result>
+		</action>
+		<action name="codeRuleSetAdmin-stuCodeRuleDoSave"
+			class="net.zdsoft.eis.base.data.action.StuCodeRuleAction"
+			method="doSave">
+			<result name="success" type="json" >
+				<param name="root">action</param>
+			</result>
+		</action>
+		<action name="codeRuleSetAdmin-stuCodeRuleDoDelete"
+			class="net.zdsoft.eis.base.data.action.StuCodeRuleAction"
+			method="doDelete">
+			<result name="success" type="json" >
+				<param name="root">action</param>
+			</result>
+		</action>
+		<action name="codeRuleSetAdmin-stuCodeRuleDoSort"
+			class="net.zdsoft.eis.base.data.action.StuCodeRuleAction"
+			method="doSort">
+			<result name="success" type="freemarker">stucoderulesort.ftl</result>
+		</action>
+		<action name="codeRuleSetAdmin-remoteStuCodeRule"
+			class="net.zdsoft.eis.base.data.action.StuCodeRuleAction" method="isOutOfBound">
+			<result name="success" type="json">
+				<param name="root">action</param>
+			</result>
+		</action>
+			<action name="codeRuleSetAdmin-stuCodeRuleSaveSort"
+			class="net.zdsoft.eis.base.data.action.StuCodeRuleAction" method="saveSort">
+			<result name="success" type="json" >
+				<param name="root">action</param>
+			</result>
+		</action>
+	</package>
+
+
+
+	<!-- 显示信息设置 学生(教师) -->
+	<package name="basedata-colsdisplay" extends="default" namespace="/basedata/common/colsdisplay">
+		<action name="colsDisplaySet"
+			class="net.zdsoft.eis.base.data.action.ColsDisplaySetAction">
+			<result name="success" type="freemarker">
+				/basedata/colsdisplay/colsDisplaySet.ftl</result>
+		</action>
+		<action name="colsDisplaySave" class="net.zdsoft.eis.base.data.action.ColsDisplaySetAction"
+			method="saveColsDisplaySet">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+	</package>
+
+	<package name="basedata-unit" extends="default" namespace="/basedata/unit">
+		<!-- 部门管理  (________调整后 100612______)
+		<action name="deptAdmin" class="net.zdsoft.eis.base.data.action.DeptAdminAction"
+			method="execute">
+			<result name="success" type="freemarker">deptAdmin.ftl</result>
+		</action>
+		<action name="deptAdmin-list" class="net.zdsoft.eis.base.data.action.DeptAdminAction"
+			method="doDeptList">
+			<result name="success" type="freemarker">deptList.ftl</result>
+		</action>
+		<action name="deptAdmin-new" class="net.zdsoft.eis.base.data.action.DeptAdminAction"
+			method="getDeptNew">
+			<result name="success" type="freemarker">deptNew.ftl</result>
+		</action>
+		<action name="deptAdmin-edit" class="net.zdsoft.eis.base.data.action.DeptAdminAction"
+			method="getDeptEdit">
+			<result name="success" type="freemarker">deptEdit.ftl</result>
+		</action>
+		<action name="deptAdmin-update" class="net.zdsoft.eis.base.data.action.DeptAdminAction"
+			method="setDeptUpdate">
+			<result name="input" type="freemarker">deptNew.ftl</result>
+			<result name="error" type="freemarker">deptEdit.ftl</result>
+		</action>
+		<action name="deptAdmin-delete" class="net.zdsoft.eis.base.data.action.DeptAdminAction"
+			method="setDeptDelete">
+		</action>
+		-->
+
+		<!-- 单位管理  (________调整后 100611______)<interceptor-ref name="chain"/>
+			<interceptor-ref name="permissioncheckStack"/>-->
+		<action name="unitAdmin" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="viewUnitMain">
+			<result name="success" type="freemarker">unitAdmin.ftl</result>
+		</action>
+		<action name="unitAdmin-list"
+			class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="viewUnitList">
+			<interceptor-ref name="chain"/>
+			<interceptor-ref name="permissioncheckStack"/>
+			<result name="success" type="freemarker">unitList.ftl</result>
+		</action>
+
+		<action name="unitAdmin-edit" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="editUnit">
+			<result name="success" type="freemarker">unitEdit2.ftl</result>
+		</action>
+		<action name="unitAdmin-update" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="updateUnit">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		<action name="unitAdmin-new" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="getUnitNew">
+			<result name="success" type="freemarker">unitInsert2.ftl</result>
+			<result name="input" type="chain">unitAdmin</result>
+		</action>
+		<action name="unitAdmin-save" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="unitSave">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		<action name="unitAdmin-try2DeleteUnit" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="try2DeleteUnit">
+			<result name="success" type="freemarker">unitDeleteConfirm.ftl</result>
+		</action>
+		<action name="unitAdmin-serverUserName" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="validateUserNameAvaliable">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		<action name="unitAdmin-unitDelete" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="deleteUnit">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		<action name="unitAdmin-unitGetRegion" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="unitGetRegion">  
+			<result name="success" type="json">
+      			<param name="root">objectJson</param>
+      		</result>
+		</action>
+		<action name="unitAdmin-unitGetOrder" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="unitGetOrder">  
+			<result name="success" type="json">
+      			<param name="root">objectJson</param>
+      		</result>
+		</action>
+		<action name="unitAdmin-unitGetUnionId" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="unitGetUnionId">  
+			<result name="success" type="json">
+      			<param name="root">unitUnionId</param>
+      		</result>
+		</action>
+		<!-- 单位导入 start -->
+		<action name="unitAdmin-importMain"
+			class="net.zdsoft.eis.base.data.action.UnitImportAction">
+			<result name="success" type="freemarker">unitImport.ftl</result>
+		</action>
+		<action name="unitAdmin-importMain-jsonGetReplyById" class="net.zdsoft.eis.base.data.action.UnitImportAction" method="jsonGetReplyById">
+		</action>
+		<action name="unitAdmin-importMain-jsonRemoveReplyById" class="net.zdsoft.eis.base.data.action.UnitImportAction" method="jsonRemoveReplyById">
+		</action>
+		<action name="unitAdmin-importMain-jsonGetErrorData" class="net.zdsoft.eis.base.data.action.UnitImportAction" method="jsonGetErrorData">
+		</action>
+		<!-- burlap调用
+		<action name="unitAdmin-importMain-remoteImport"
+			class="net.zdsoft.eis.base.data.action.UnitImportAction">
+			<interceptor-ref name="burlap" />
+		</action>
+ 		-->
+		<!-- 数据导入 -->
+		<action name="unitAdmin-importMain-dataImport"
+			class="net.zdsoft.eis.base.data.action.UnitImportAction" method="dataImport">
+		</action>
+
+		<!-- 生成模块 -->
+		<action name="unitAdmin-importMain-gettemplate"
+			class="net.zdsoft.eis.base.data.action.UnitImportAction" method="getTemplate">
+			<result name="success" type="excel" />
+		</action>
+
+		<!-- 导出列 -->
+		<action name="unitAdmin-importMain-columnlist"
+			class="net.zdsoft.eis.base.data.action.UnitImportAction" method="columnList">
+			<result name="success" type="freemarker">/leadin/dataimport/column_select.ftl</result>
+		</action>
+		<!-- 获取错误数据 -->
+		<action name="unitAdmin-importMain-getErrorData"
+			class="net.zdsoft.eis.base.data.action.UnitImportAction" method="getErrorData">
+		</action>
+		<!-- 导入 end -->
+		<!-- 没发现有地方用到 
+		<action name="regionTree" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="getRegionTree">
+			<result name="success" type="freemarker">unitRegion.ftl</result>
+		</action>
+			
+		<action name="unitFaintness" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="getUnitFaintness">
+			<result name="success" type="freemarker">unitFaintness.ftl</result>
+		</action>
+		
+		-->
+		<action name="unitAdmin-remoteUnitService" class="net.zdsoft.eis.base.data.action.UnitAdminAction">
+			<interceptor-ref name="burlap" />
+		</action>
+		
+		<action name="unitAdmin-remoteRegister" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="getRemoteRegister">
+			<result name="success" type="freemarker">unitRemoteRegister.ftl</result>
+		</action>
+		<action name="unitAdmin-remoteRegisterSave" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="remoteRegister">
+			<result name="input" type="freemarker">unitRemoteRegister.ftl</result>
+			<result name="success" type="freemarker">unitRegisterResult.ftl</result>
+		</action>
+		<action name="unitAdmin-export" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="exportUnit">
+		</action>
+		<action name="unitAdmin-unit2OfflineRegister" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="export2XML">
+		</action>
+		<action name="unitAdmin-unit4OfflineRegister" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="importXML">
+			<interceptor-ref name="modelDrivenStack" />
+			<result name="input" type="chain">remoteRegister</result>
+			<result name="success" type="freemarker">unitRegisterResult.ftl</result>
+		</action>
+		<action name="unitAdmin-audit" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="getUnitAudit">
+			<result name="success" type="freemarker">unitAudit.ftl</result>
+		</action>
+
+		<action name="unitAdmin-recommend" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="getUnitRecommend">
+			<result name="success" type="freemarker">unitRecommend.ftl</result>
+		</action>
+
+		<action name="unitAdmin-saveAudit" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="saveUnitAudit">
+			<result name="input" type="chain">unitAudit</result>
+		</action>
+
+		<action name="unitAdmin-saveRecommend" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="saveUnitRecommend">
+			<result name="input" type="chain">unitRecommend</result>
+		</action>
+
+		<action name="unitAdmin-smsAccounts" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="makeBatchSmsAccounts">
+			<result name="success" type="freemarker">unitDeleteConfirm.ftl</result>
+		</action>
+
+	</package>
+
+	<!-- 教育局基本信息设定 -->
+	<package name="basedata-edu" extends="default" namespace="/basedata/edu">
+		<action name="eduinfo" class="net.zdsoft.eis.base.data.action.EduInfoAction">
+			<result name="success" type="freemarker">informset.ftl</result>
+		</action>
+		<action name="eduinfo-save"
+			class="net.zdsoft.eis.base.data.action.EduInfoAction" method="save">
+		</action>
+		<action name="stuAuditConfigAdmin" class="net.zdsoft.eis.base.data.action.EduInfoAction"
+			method="stuAuditConf">
+			<result name="success" type="freemarker">ColsAuditCfg.ftl</result>
+		</action>
+		<action name="stuAuditConfigAdmin-save"
+			class="net.zdsoft.eis.base.data.action.EduInfoAction"
+			method="confSave">
+			<result name="promptmsg" type="freemarker">
+				../../../common/promptmessage.ftl</result>
+		</action>
+
+
+		<!-- 学区信息设置 -->
+		<action name="schDistrict" class="net.zdsoft.eis.base.data.action.JwSchDistrictAction"
+			method="forward">
+			<result name="success" type="freemarker">main.ftl</result>
+		</action>
+		<action name="schDistrict-Admin" class="net.zdsoft.eis.base.data.action.JwSchDistrictAction"
+			method="admin">
+			<result name="success" type="freemarker">schDistrictAdmin.ftl</result>
+		</action>
+		<action name="schDistrict-add" class="net.zdsoft.eis.base.data.action.JwSchDistrictAction"
+			method="add">
+			<result name="success" type="freemarker">schDistrictEdit.ftl</result>
+		</action>
+		<action name="schDistrict-edit" class="net.zdsoft.eis.base.data.action.JwSchDistrictAction"
+			method="edit">
+			<result name="success" type="freemarker">schDistrictEdit.ftl</result>
+		</action>
+		<action name="schDistrict-save" class="net.zdsoft.eis.base.data.action.JwSchDistrictAction"
+			method="save">
+			<result name="input" type="freemarker">schDistrictEdit.ftl</result>
+			<result name="success" type="freemarker">schDistrictAdmin.ftl</result>
+		</action>
+		<action name="schDistrict-remove"
+			class="net.zdsoft.eis.base.data.action.JwSchDistrictAction"
+			method="remove">
+			<result name="success" type="freemarker">schDistrictAdmin.ftl</result>
+		</action>
+
+
+		<!-- edu学年学期设置 -->
+		<action name="semesterAdmin" class="net.zdsoft.eis.base.data.action.SemesterAdminAction">
+			<result name="success" type="freemarker">jwsemestermain.ftl</result>
+		</action>
+		<action name="semesterAdmin-add" class="net.zdsoft.eis.base.data.action.SemesterAdminAction"
+			method="add">
+			<result name="success" type="freemarker">jwsemesteredit.ftl</result>
+		</action>
+		<action name="semesterAdmin-edit" class="net.zdsoft.eis.base.data.action.SemesterAdminAction"
+			method="edit">
+			<result name="success" type="freemarker">jwsemesteredit.ftl</result>
+		</action>
+		<action name="semesterAdmin-delete" class="net.zdsoft.eis.base.data.action.SemesterAdminAction"
+			method="delete">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="semesterAdmin-save" class="net.zdsoft.eis.base.data.action.SemesterAdminAction"
+			method="save">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="semesterAdmin-reEdit" class="net.zdsoft.eis.base.data.action.SemesterAdminAction"
+			method="reEdit">
+			<result name="success" type="freemarker">jwsemesteredit.ftl</result>
+		</action>
+	</package>
+
+
+	<!-- 微代码 移到/system/admin-->
+	<package name="basedata-mcode" extends="default" namespace="/basedata/mcode">
+		
+	</package>
+	
+	<package name="basedata-teacher-common" extends="default" namespace="/basedata/teacher/common">
+	<!-- 桌面个人设置页面 -->
+		<action name="teacherAdmin-person-edit" class="net.zdsoft.eis.base.data.action.TeacherAction"
+			method="getTeacherEdit">
+			<result name="success" type="freemarker">../teacherPersonEdit.ftl</result>
+		</action>
+		<action name="teacherAdmin-update" class="net.zdsoft.eis.base.data.action.TeacherAction"
+			method="setTeacherUpdate">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      			<param name="contentType">text/html</param>
+      		</result>
+		</action>
+	</package>
+	
+	<package name="basedata-researchgroup" extends="default" namespace="/basedata/researchgroup">
+	<!-- 教研组管理 -->
+		<action name="researchGroupAdmin" class="net.zdsoft.eis.base.data.action.ResearchGroupAction" method="getResearchGroupAdmin">
+			<result name="success" type="freemarker">researchGroupAdmin.ftl</result>
+		</action>
+		<action name="researchGroupAdmin-add" class="net.zdsoft.eis.base.data.action.ResearchGroupAction" method="add">
+			<result name="success" type="freemarker">researchGroupEdit.ftl</result>
+		</action>
+		<action name="researchGroupAdmin-edit" class="net.zdsoft.eis.base.data.action.ResearchGroupAction" method="edit">
+			<result name="success" type="freemarker">researchGroupEdit.ftl</result>
+		</action>
+		<action name="researchGroupAdmin-Save" class="net.zdsoft.eis.base.data.action.ResearchGroupAction" method="save">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="researchGroupAdmin-update" class="net.zdsoft.eis.base.data.action.ResearchGroupAction" method="update">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+		<action name="researchGroupAdmin-delete" class="net.zdsoft.eis.base.data.action.ResearchGroupAction" method="delete">
+			<result name="success" type="json">
+				<param name="root">promptMessageDto</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="basedata-teacher" extends="default" namespace="/basedata/teacher">
+		<!-- 教职工管理  (________调整后 100617______) -->
+		<action name="teacherAdmin" class="net.zdsoft.eis.base.data.action.TeacherAction"
+			method="getTeacherAdmin">
+			<result name="success" type="freemarker">teacherAdmin.ftl</result>
+		</action>
+		<action name="teacherAdmin-list" class="net.zdsoft.eis.base.data.action.TeacherAction"
+			method="doTeacherList">
+			<result name="success" type="freemarker">teacherList.ftl</result>
+		</action>
+		<action name="teacherAdmin-new" class="net.zdsoft.eis.base.data.action.TeacherAction"
+			method="getTeacherNew">
+			<result name="success" type="freemarker">teacherNew.ftl</result>
+		</action>
+		<action name="teacherAdmin-export" class="net.zdsoft.eis.base.data.action.TeacherAction"
+			method="exportTeacher">
+		</action>
+		<action name="teacherAdmin-edit" class="net.zdsoft.eis.base.data.action.TeacherAction"
+			method="getTeacherEdit">
+			<result name="success" type="freemarker">teacherEdit.ftl</result>
+		</action>
+		
+		<action name="teacherAdmin-insert" class="net.zdsoft.eis.base.data.action.TeacherAction"
+			method="setTeacherInsert">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		<action name="teacherAdmin-update" class="net.zdsoft.eis.base.data.action.TeacherAction"
+			method="setTeacherUpdate">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      			<param name="contentType">text/html</param>
+      		</result>
+		</action>
+		<action name="teacherAdmin-delete" class="net.zdsoft.eis.base.data.action.TeacherAction"
+			method="setTeacherDelete">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+
+		<action name="teacherAdmin-dutyList" class="net.zdsoft.eis.base.data.action.DutyAction"
+			method="takeListOfDutyDto">
+			<result name="success" type="freemarker">teacherDuty.ftl</result>
+		</action>
+
+		<action name="teacherAdmin-remoteDuty" class="net.zdsoft.eis.base.data.action.DutyAction">
+			<interceptor-ref name="burlap" />
+		</action>
+		
+		<!-- 显示排序页面 -->
+		<action name="teacherAdmin-toOrder"
+			class="net.zdsoft.eis.base.data.action.TeacherAction"
+			method="doTeacherList">
+			<result name="success" type="freemarker">/basedata/teacher/teacherOrder.ftl</result>
+		</action>
+		
+		<!-- 教职工排序 -->
+		<action name="teacherAdmin-order"
+			class="net.zdsoft.eis.base.data.action.TeacherAction"
+			method="getOrderTeatcherDatas">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		
+		<!-- 导入 start -->
+		<!-- 新的教职工导入  2009-10-19 added by hexq -->
+		<!-- 导入文件页面 -->
+		<!-- 100621 调整-->
+		<action name="teacherAdmin-importAdmin"
+			class="net.zdsoft.eis.base.data.action.TeacherDataImportAction" method="main">
+			<result name="success" type="freemarker">
+				/basedata/teacher/teacherImportAdmin.ftl </result>
+		</action>
+
+		<!-- 数据导入 -->
+		<action name="teacherAdmin-importMain"
+			class="net.zdsoft.eis.base.data.action.TeacherDataImportAction">
+			<result name="success" type="freemarker">teacherImport.ftl</result>
+		</action>
+
+		<!-- burlap调用
+		<action name="teacherAdmin-importMain-remoteImport"
+			class="net.zdsoft.eis.base.data.action.TeacherDataImportAction">
+			<interceptor-ref name="burlap" />
+		</action>
+ -->
+	 	<action name="teacherAdmin-importMain-jsonGetReplyById" class="net.zdsoft.eis.base.data.action.TeacherDataImportAction" method="jsonGetReplyById">
+	  	</action>
+	  <action name="teacherAdmin-importMain-jsonRemoveReplyById" class="net.zdsoft.eis.base.data.action.TeacherDataImportAction" method="jsonRemoveReplyById">
+	 	 </action>
+	  <action name="teacherAdmin-importMain-jsonGetErrorData" class="net.zdsoft.eis.base.data.action.TeacherDataImportAction" method="jsonGetErrorData">
+	 	 </action>
+	 	 
+		<!-- 数据导入 -->
+		<action name="teacherAdmin-importMain-dataImport"
+			class="net.zdsoft.eis.base.data.action.TeacherDataImportAction" method="dataImport">
+		</action>
+
+		<!-- 生成模块 -->
+		<action name="teacherAdmin-importMain-gettemplate"
+			class="net.zdsoft.eis.base.data.action.TeacherDataImportAction" method="getTemplate">
+			<result name="success" type="excel" />
+		</action>
+
+		<!-- 导出列 -->
+		<action name="teacherAdmin-importMain-columnlist"
+			class="net.zdsoft.eis.base.data.action.TeacherDataImportAction" method="columnList">
+			<result name="success" type="freemarker">/leadin/dataimport/column_select.ftl</result>
+		</action>
+
+
+		<!-- 下载用户模板 
+		<action name="getStudentTemplate"
+			class="net.zdsoft.eis.base.data.action.TeacherDataImportAction" method="getStuTemplate" />
+		-->
+		<!-- 获取错误数据 -->
+		<action name="teacherAdmin-importMain-getErrorData"
+			class="net.zdsoft.eis.base.data.action.TeacherDataImportAction" method="getErrorData">
+		</action>
+		<!-- 导入 end -->
+		
+		
+		<!-- 陕西人人通数据导入 -->
+		<action name="teacherAdmin-sxrrt-importMain"
+			class="net.zdsoft.eis.base.data.action.TeacherDataSxrrtImportAction">
+			<result name="success" type="freemarker">teacherSxrrtImport.ftl</result>
+		</action>
+
+	 	<action name="teacherAdmin-sxrrt-importMain-jsonGetReplyById" class="net.zdsoft.eis.base.data.action.TeacherDataSxrrtImportAction" method="jsonGetReplyById">
+	  	</action>
+		<action name="teacherAdmin-sxrrt-importMain-jsonRemoveReplyById" class="net.zdsoft.eis.base.data.action.TeacherDataSxrrtImportAction" method="jsonRemoveReplyById">
+		</action>
+		<action name="teacherAdmin-sxrrt-importMain-jsonGetErrorData" class="net.zdsoft.eis.base.data.action.TeacherDataSxrrtImportAction" method="jsonGetErrorData">
+	 	</action>
+	 	 
+		<!-- 数据导入 -->
+		<action name="teacherAdmin-sxrrt-importMain-dataImport"
+			class="net.zdsoft.eis.base.data.action.TeacherDataSxrrtImportAction" method="dataImport">
+		</action>
+
+		<!-- 生成模块 -->
+		<action name="teacherAdmin-sxrrt-importMain-gettemplate"
+			class="net.zdsoft.eis.base.data.action.TeacherDataSxrrtImportAction" method="getTemplate">
+			<result name="success" type="excel" />
+		</action>
+
+		<!-- 导出列 -->
+		<action name="teacherAdmin-sxrrt-importMain-columnlist"
+			class="net.zdsoft.eis.base.data.action.TeacherDataSxrrtImportAction" method="columnList">
+			<result name="success" type="freemarker">/leadin/dataimport/column_select.ftl</result>
+		</action>
+
+		<!-- 获取错误数据 -->
+		<action name="teacherAdmin-sxrrt-importMain-getErrorData"
+			class="net.zdsoft.eis.base.data.action.TeacherDataSxrrtImportAction" method="getErrorData">
+		</action>
+		<!-- 导入 end -->
+	</package>
+
+	<package name="basedata-user" extends="default" namespace="/basedata/user">
+
+		<!-- 开通学生和教师帐户的Action -->
+		<action name="userOpenAdmin" class="net.zdsoft.eis.base.data.action.UserOpenAction">
+			<result name="success" type="freemarker">userOpenAdmin.ftl</result>
+			<result name="error" type="freemarker">/common/promptmessage.ftl</result>
+		</action>
+		<action name="userOpenAdmin-listStudent" class="net.zdsoft.eis.base.data.action.UserOpenAction"
+			method="listStudentByClassId">
+			<result name="success" type="freemarker">userOpen.ftl</result>
+			<result name="error" type="freemarker">/common/promptmessage.ftl</result>
+		</action>
+		<action name="userOpenAdmin-remoteUserOpen" class="net.zdsoft.eis.base.data.action.UserOpenAction" method="remoteOpenUser">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		<action name="userOpenAdmin-studentIdentCardById" class="net.zdsoft.eis.base.data.action.UserOpenAction" method="getStudentIdentCardById">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		
+		<action name="userOpenAdmin-getStuIdentCardByFamId"
+			class="net.zdsoft.eis.base.data.action.UserOpenAction">
+			<interceptor-ref name="burlap" />
+		</action>
+		<action name="userOpenAdmin-stuAndFamInfoExport" class="net.zdsoft.eis.base.data.action.UserOpenAction"
+			method="exportStuAndFamInfo">
+		</action>
+
+		<!-- 用户管理 (________调整后 100612______)-->
+		<action name="userAdmin" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="doUserList">
+			<result name="success" type="freemarker">userList.ftl</result>
+			<result name="promptmsg" type="freemarker">/common/promptmessage.ftl</result>
+		</action>
+		<action name="userAdmin-edit" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="doUserEdit">
+			<result name="success" type="freemarker">userEdit.ftl</result>
+		</action>
+		<action name="userAdmin-new" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="doUserNew">
+			<result name="success" type="freemarker">userNew.ftl</result>
+		</action>
+		<action name="userAdmin-insert" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="doUserInsert">
+			<result name="input" type="freemarker">userNew.ftl</result>
+		</action>
+		<action name="userAdmin-update" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="doUserUpdate">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		<action name="userAdmin-delete" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="doUserDelete">
+		</action>
+		<action name="userAdmin-lock" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="doUserLock">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		<action name="userAdmin-unlock" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="doUserUnlock">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		<action name="userAdmin-role" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="doUserRole">
+			<result name="success" type="freemarker">userRelation.ftl</result>
+		</action>
+		<action name="userAdmin-roleSave" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="saveUserRole">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		<action name="userAdmin-audit" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="doUserAudit">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		<action name="userAdmin-service" class="net.zdsoft.eis.base.data.action.UserAction">
+			<interceptor-ref name="burlap" />
+		</action>
+		<action name="userAdmin-accreditAdmin" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="userAccredit">
+			<result name="success" type="freemarker">userAccredit.ftl</result>
+		</action>
+		<action name="userAdmin-accreditRole" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="doUserRoleList">
+			<result name="success" type="freemarker">viewUserRole.ftl</result>
+		</action>
+
+		<action name="userAdmin-passwordReset" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="passwordReset">
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		<action name="userAdmin-export" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="exportUser">
+		</action>
+		
+		<!-- -->
+		<action name="userAdmin-userRegister" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="userRegisterNew">
+			<result type="freemarker" name="success">userRegister.ftl</result>
+		</action>
+			
+		<action name="userAdmin-save" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="userRegister">
+			<result type="freemarker" name="input">userRegister.ftl</result>
+			<result type="freemarker" name="success">userRegisterSucc.ftl</result>
+		</action>
+
+		<!--修改密码 ???????? -->
+		<action name="userAdmin-personal" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="personal">
+			<result type="freemarker" name="success">/basedata/user/personalManage.ftl</result>
+		</action>
+
+		<action name="userAdmin-savaPersonal" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="savePersonal">
+			<result type="freemarker" name="success">/basedata/user/personalManage.ftl</result>
+		</action>
+		
+		<!-- 
+		<action name="userActivation" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="userActivation">
+			<result name="success" type="freemarker">userActivation.ftl</result>
+		</action>
+		-->
+		<action name="userAdmin-accredit" class="net.zdsoft.eis.system.data.action.ViewUserRightAction">
+			<result name="success" type="freemarker">/basedata/user/viewUserRight2.ftl</result>
+		</action>
+
+		<action name="userAdmin-roleRightView"
+			class="net.zdsoft.eis.system.data.action.ViewUserRightAction">
+			<result name="success" type="freemarker">/basedata/user/viewUserRight2.ftl</result>
+		</action>
+		
+		<action name="userAdmin-genericPassword" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="getPasswordGeneric">
+			<result name="success" type="freemarker">passwordGeneric.ftl</result>
+		</action>
+		<action name="userAdmin-saveGenericPass" class="net.zdsoft.eis.base.data.action.UnitAdminAction"
+			method="savePasswordGeneric">
+			<!--<result name="input" type="json">passwordGeneric.ftl</result> -->
+			<result name="success" type="json">
+      			<param name="root">promptMessageDto</param>
+      		</result>
+		</action>
+		<!-- 手动同步拼音 -->
+		<action name="userAdmin-synchronousPinYin" class="net.zdsoft.eis.base.data.action.UserAction"
+			method="synchronousPinYin">
+			<result name="success" type="json">
+				<param name="root">jsonError</param>
+			</result>
+		</action>
+
+	</package>
+	
+	<package name="basedata-account" extends="default"
+		namespace="/basedata/account">
+		<!-- 用户accountId初始化的action,数字校园1.0到2.0部署时需用到 -->
+		<action name="accountInit-admin"
+			class="net.zdsoft.eis.base.data.action.UserAccountIdInitAction"
+			method="returnSuccess">
+			<result name="success" type="freemarker"> accountInitAdmin.ftl</result>
+		</action>
+		<action name="userAccountIdInit"
+			class="net.zdsoft.eis.base.data.action.UserAccountIdInitAction">
+		</action>
+		<!--将数据库中现有用户添加到passport中 -->
+		<action name="initPassportAccount"
+			class="net.zdsoft.eis.base.data.action.PassportAccountAction"/>
+		<action name="initPassportAccountAdmin"
+			class="net.zdsoft.eis.base.data.action.PassportAccountAction"
+			method="syncAdmin"/>
+		
+		<action name="syncUser"
+			class="net.zdsoft.eis.base.data.action.SyncUserAction"/>
+		<action name="syncPassword"
+			class="net.zdsoft.eis.base.data.action.SyncUserAction"
+			method="syncPassword"/>
+		
+	</package>
+
+	<package name="basedata-serial" extends="default" namespace="/basedata/serial">
+    <action name="serialValidate"
+			class="net.zdsoft.eis.base.data.action.SerialRegisterAction" method="simpleValidateInfo">
+			<result name="success" type="freemarker">msg.ftl</result>
+		</action>
+		<!-- 序列号注册-->
+		<action name="serialAdmin-register"
+			class="net.zdsoft.eis.base.data.action.SerialRegisterAction">
+			<result name="success" type="freemarker">serialregister.ftl</result>
+		</action>
+		<action name="serialAdmin-register-update"
+			class="net.zdsoft.eis.base.data.action.SerialRegisterAction" method="Update">
+			<result name="input" type="freemarker">serialregister.ftl</result>
+			<result name="success" type="freemarker">serialregister.ftl</result>
+		</action>
+		<action name="serialAdmin-register-remoteRegion"
+			class="net.zdsoft.eis.base.data.action.SerialRegisterAction">
+			<interceptor-ref name="burlap" />
+		</action>
+		
+		<!--  ===================顶级单位注册================== -->
+		<action name="topUnit" class="net.zdsoft.eis.base.data.action.SerialRegisterAction"
+			method="initTopUnitAdmin">
+			<result name="success" type="freemarker">topUnit.ftl</result>
+		</action>
+		<action name="topUnit-saveTopUnit" class="net.zdsoft.eis.base.data.action.SerialRegisterAction"
+			method="saveTopUnit">
+			<result name="input" type="freemarker">topUnit.ftl</result>
+			<result name="success" type="freemarker">topUnit.ftl</result>
+		</action>
+		<action name="topUnit-remoteSerial"
+			class="net.zdsoft.eis.base.data.action.SerialRegisterAction">
+			<interceptor-ref name="burlap" />
+		</action>
+		<action name="topUnit-userRemote"
+			class="net.zdsoft.eis.base.data.action.TopUnitAdministratorAction">
+			<interceptor-ref name="burlap" />
+		</action>
+	</package>
+	<!--后台管理-模块 -->
+	<package name="basedata-moduleManage" extends="default"
+		namespace="/basedata/sys">
+		<action name="module"
+			class="net.zdsoft.eis.base.data.action.ModuleAdminAction" >
+			<result name="success" type="freemarker">moduleAdmin.ftl</result>
+		</action>
+		<action name="module-list"
+			class="net.zdsoft.eis.base.data.action.ModuleAdminAction" method="moduleList">
+			<result name="success" type="freemarker">moduleList.ftl</result>
+		</action>
+		<action name="module-edit"
+			class="net.zdsoft.eis.base.data.action.ModuleAdminAction"
+			method="moduleEdit">
+			<result name="success" type="freemarker">moduleEdit.ftl</result>
+		</action>
+		<action name="module-update"
+			class="net.zdsoft.eis.base.data.action.ModuleAdminAction" method="moduleUpdate">
+			<result name="promptmsg" type="freemarker">/common/promptmessage.ftl</result>
+		</action>
+		
+		<action name="module-remote"
+			class="net.zdsoft.eis.base.data.action.ModuleAdminAction">
+			<interceptor-ref name="burlap" />
+		</action>
+	</package>
+	
+	<package name="basedata-baseInitConfig" extends="default"
+		namespace="/basedata/baseInitConfig">
+		<action name="baseInitConfig"
+			class="net.zdsoft.eis.base.data.action.BaseInitConfigAction"
+			method="takeInitConfig">
+			<result name="success" type="freemarker">/basedata/param/baseInitConfig.ftl</result>
+		</action>
+		<action name="platformInfoAdmin-systemIniConfigSave"
+			class="net.zdsoft.eis.base.data.action.BaseInitConfigAction"
+			method="saveBaseInitConfig">
+			<result name="input" type="freemarker">/basedata/param/baseInitConfig.ftl</result>
+		</action>
+	</package>
+	
+	<!-- 订购 -->
+	<package name="basedata-order" extends="default" namespace="/basedata/order">
+		<action name="serverAuthorize" class="net.zdsoft.eis.base.data.action.ServerAuthorizeAction">
+			<result name="success" type="freemarker">serverAuthorize.ftl</result>
+		</action>
+		<action name="serverAuthorize-*" class="net.zdsoft.eis.base.data.action.ServerAuthorizeAction"
+			method="{1}">
+			<result name="{1}" type="freemarker">{1}.ftl</result>
+			<result name="jsonSuccess" type="json" ><param name="root">promptMessageDto</param></result>
+		</action>		
+	</package>
+	
+	<!-- 在线时长统计 -->
+	<package name="basedata-countOnlineTime" extends="default" namespace="/basedata/countOnlineTime">
+		<action name="countOnlineTimeAdmin" class="net.zdsoft.eis.base.data.action.CountOnlineTimeAction">
+			<result name="success" type="freemarker">countOnlineTime.ftl</result>
+		</action>
+		<action name="countOnlineTimeAdmin-getQuxian" class="net.zdsoft.eis.base.data.action.CountOnlineTimeAction"
+		    method="getQuxian">
+			<result name="success" type="json">
+				<param name="root">quxianMap</param>
+			</result>
+		</action>
+		<action name="countOnlineTimeAdmin-doExport" class="net.zdsoft.eis.base.data.action.CountOnlineTimeAction"
+		    method="doExport">
+		</action>		
+	</package>
+
+</struts>

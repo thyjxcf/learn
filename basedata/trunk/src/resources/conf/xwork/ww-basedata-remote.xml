@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts> 
+	
+	<package name="basedata-remote" extends="default" namespace="/basedata/remote">
+		<action name="changeUser" class="net.zdsoft.basedata.remote.action.RemoteUserAction" method="changeUser">
+		</action>
+		<action name="remoteBaseData-*" class="net.zdsoft.basedata.remote.action.RemoteBaseDataAction"
+			method="{1}">
+			<result name="none" type="freemarker">/common/none.ftl</result>
+		</action>
+		<action name="feedback-*" class="net.zdsoft.basedata.remote.action.RemoteFeedbackAction"
+			method="{1}">
+			<result name="none" type="freemarker">/common/none.ftl</result>
+		</action>
+		<!-- 同步链接 -->
+		<action name="syncData" class="net.zdsoft.eis.base.data.sync.schsecurity.job.SyncJBJob" method="run">
+		</action>
+	</package>
+</struts>

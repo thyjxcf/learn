@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 资源国际化测试 -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>classpath:net/zdsoft/eis/base/example/i18n/properties/messages</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="date" class="java.util.Date"></bean>
+
+	<bean id="i18NTest" class="net.zdsoft.eis.base.example.i18n.I18NTest">
+		<property name="date">
+			<ref bean="date" />
+		</property>
+		<property name="ms">
+			<ref bean="messageSource" />
+		</property>
+	</bean>
+</beans>
+
+
