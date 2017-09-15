@@ -293,6 +293,7 @@ public class Timer {
     }
 
     /**
+     * //fixed-rate 固定比率 subsequent 后来的 随后的 take place at approximately 大约
      * Schedules the specified task for repeated <i>fixed-rate execution</i>,
      * beginning after the specified delay.  Subsequent executions take place
      * at approximately regular intervals, separated by the specified period.

@@ -36,6 +36,7 @@
 package java.util.concurrent;
 
 /**
+ * decoupling 去耦 mechanics
  * An object that executes submitted {@link Runnable} tasks. This
  * interface provides a way of decoupling task submission from the
  * mechanics of how each task will be run, including details of thread
@@ -51,6 +52,7 @@ package java.util.concurrent;
  * ...
  * </pre>
  *
+ * strictly 严格的 完全的 确实的 asynchronous  异步的
  * However, the {@code Executor} interface does not strictly
  * require that execution be asynchronous. In the simplest case, an
  * executor can run the submitted task immediately in the caller's
@@ -74,6 +76,8 @@ package java.util.concurrent;
  *   }
  * }}</pre>
  *
+ * impose 利用
+ * illustrating a composite executor 说明复合执行器
  * Many {@code Executor} implementations impose some sort of
  * limitation on how and when tasks are scheduled.  The executor below
  * serializes the submission of tasks to a second executor,
@@ -128,6 +132,7 @@ package java.util.concurrent;
 public interface Executor {
 
     /**
+     *  at the discretion of 任凭; 任意处置; 听凭处理
      * Executes the given command at some time in the future.  The command
      * may execute in a new thread, in a pooled thread, or in the calling
      * thread, at the discretion of the {@code Executor} implementation.

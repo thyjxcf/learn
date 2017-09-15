@@ -70,6 +70,7 @@ public interface Iterator<E> {
     E next();
 
     /**
+     *
      * Removes from the underlying collection the last element returned
      * by this iterator (optional operation).  This method can be called
      * only once per call to {@link #next}.  The behavior of an iterator

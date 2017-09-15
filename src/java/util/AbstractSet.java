@@ -57,6 +57,7 @@ package java.util;
 
 public abstract class AbstractSet<E> extends AbstractCollection<E> implements Set<E> {
     /**
+     *
      * Sole constructor.  (For invocation by subclass constructors, typically
      * implicit.)
      */

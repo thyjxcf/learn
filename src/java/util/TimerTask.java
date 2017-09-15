@@ -74,6 +74,7 @@ public abstract class TimerTask implements Runnable {
     long nextExecutionTime;
 
     /**
+     * //固定延迟 不懂
      * Period in milliseconds for repeating tasks.  A positive value indicates
      * fixed-rate execution.  A negative value indicates fixed-delay execution.
      * A value of 0 indicates a non-repeating task.

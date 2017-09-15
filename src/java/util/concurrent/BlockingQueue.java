@@ -39,11 +39,12 @@ import java.util.Collection;
 import java.util.Queue;
 
 /**
+ * additionally 此外 retirieve 检索
  * A {@link java.util.Queue} that additionally supports operations
  * that wait for the queue to become non-empty when retrieving an
  * element, and wait for space to become available in the queue when
  * storing an element.
- *
+ *satisfy 令人满意的
  * <p>{@code BlockingQueue} methods come in four forms, with different ways
  * of handling operations that cannot be satisfied immediately, but may be
  * satisfied at some point in the future:
@@ -179,6 +180,7 @@ import java.util.Queue;
  */
 public interface BlockingQueue<E> extends Queue<E> {
     /**
+     * upon 之后 generally preferrable 通常更可取的
      * Inserts the specified element into this queue if it is possible to do
      * so immediately without violating capacity restrictions, returning
      * {@code true} upon success and throwing an

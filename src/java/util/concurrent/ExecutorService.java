@@ -137,6 +137,7 @@ import java.util.Collection;
 public interface ExecutorService extends Executor {
 
     /**
+     * //no additional effect 没有额外的效果
      * Initiates an orderly shutdown in which previously submitted
      * tasks are executed, but no new tasks will be accepted.
      * Invocation has no additional effect if already shut down.
@@ -156,6 +157,7 @@ public interface ExecutorService extends Executor {
     void shutdown();
 
     /**
+     * //halt 停止
      * Attempts to stop all actively executing tasks, halts the
      * processing of waiting tasks, and returns a list of the tasks
      * that were awaiting execution.
@@ -164,6 +166,7 @@ public interface ExecutorService extends Executor {
      * terminate.  Use {@link #awaitTermination awaitTermination} to
      * do that.
      *
+     * //no guarantees beyond best-effort
      * <p>There are no guarantees beyond best-effort attempts to stop
      * processing actively executing tasks.  For example, typical
      * implementations will cancel via {@link Thread#interrupt}, so any
@@ -201,6 +204,7 @@ public interface ExecutorService extends Executor {
      * request, or the timeout occurs, or the current thread is
      * interrupted, whichever happens first.
      *
+     * // elapsed 过去的 经过的
      * @param timeout the maximum time to wait
      * @param unit the time unit of the timeout argument
      * @return {@code true} if this executor terminated and
@@ -299,6 +303,7 @@ public interface ExecutorService extends Executor {
      * The results of this method are undefined if the given
      * collection is modified while this operation is in progress.
      *
+     * // in witch
      * @param tasks the collection of tasks
      * @param timeout the maximum time to wait
      * @param unit the time unit of the timeout argument

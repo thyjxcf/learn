@@ -209,6 +209,7 @@ public interface Queue<E> extends Collection<E> {
     E element();
 
     /**
+     *  //retrieves 恢复取回
      * Retrieves, but does not remove, the head of this queue,
      * or returns {@code null} if this queue is empty.
      *
