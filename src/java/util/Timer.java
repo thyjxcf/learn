@@ -28,10 +28,11 @@ import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
+ * // facility  功能特色   intervals 间隔
  * A facility for threads to schedule tasks for future execution in a
  * background thread.  Tasks may be scheduled for one-time execution, or for
  * repeated execution at regular intervals.
- *
+ * // sequentially  bunch up  offending
  * <p>Corresponding to each <tt>Timer</tt> object is a single background
  * thread that is used to execute all of the timer's tasks, sequentially.
  * Timer tasks should complete quickly.  If a timer task takes excessive time
@@ -39,7 +40,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * turn, delay the execution of subsequent tasks, which may "bunch up" and
  * execute in rapid succession when (and if) the offending task finally
  * completes.
- *
+ * //
  * <p>After the last live reference to a <tt>Timer</tt> object goes away
  * <i>and</i> all outstanding tasks have completed execution, the timer's task
  * execution thread terminates gracefully (and becomes subject to garbage
@@ -88,6 +89,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Timer {
     /**
+     * // as appropriate 适当  obsolete  废弃的 老式得到  various 各种各样的
      * The timer task queue.  This data structure is shared with the timer
      * thread.  The timer produces tasks, via its various schedule calls,
      * and the timer thread consumes, executing timer tasks as appropriate,
@@ -194,6 +196,8 @@ public class Timer {
     }
 
     /**
+     * 定时器 已经取消 已经规划好 都会报 illegalsStateException 为啥 已经规划好的 会报错 取消的
+     *  timer thread 已经 终止 都可以理解
      * Schedules the specified task for execution at the specified time.  If
      * the time is in the past, the task is scheduled for immediate execution.
      *
@@ -209,6 +213,7 @@ public class Timer {
     }
 
     /**
+     * //fixed-delay approximately  subsequent
      * Schedules the specified task for repeated <i>fixed-delay execution</i>,
      * beginning after the specified delay.  Subsequent executions take place
      * at approximately regular intervals separated by the specified period.
@@ -560,6 +565,7 @@ class TimerThread extends Thread {
 }
 
 /**
+ * //internally 内部的 国内的
  * This class represents a timer task queue: a priority queue of TimerTasks,
  * ordered on nextExecutionTime.  Each Timer object has one of these, which it
  * shares with its TimerThread.  Internally this class uses a heap, which
@@ -568,6 +574,7 @@ class TimerThread extends Thread {
  */
 class TaskQueue {
     /**
+     * //assuming 假设  each descendant of 每一个后代
      * Priority queue represented as a balanced binary heap: the two children
      * of queue[n] are queue[2*n] and queue[2*n+1].  The priority queue is
      * ordered on the nextExecutionTime field: The TimerTask with the lowest
@@ -710,6 +717,7 @@ class TaskQueue {
     }
 
     /**
+     * // invariant   the order of
      * Establishes the heap invariant (described above) in the entire tree,
      * assuming nothing about the order of the elements prior to the call.
      */
